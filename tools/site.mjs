@@ -28,6 +28,7 @@ import {
   pngSize, sampleDescription, sampleLd, sampleTitle, sitemap, urls,
 } from "./site/lib.mjs";
 import { homeMain, kitMain, notFoundMain, sampleMain, shell } from "./site/pages.mjs";
+import { githubStarsAtBuild } from "./site/github.mjs";
 
 const args = process.argv.slice(2);
 const opt = (name, fallback) => {
@@ -155,7 +156,9 @@ function relatedOf(s, own) {
   return [...others].sort((a, b) => (b.category === s.category) - (a.category === s.category) || shared(b) - shared(a) || a.slug.localeCompare(b.slug)).slice(0, RELATED);
 }
 
-function main() {
+async function main() {
+  // The header's GitHub badge: the star count at build time (tools/site/github.mjs).
+  const stars = await githubStarsAtBuild();
   const loaded = loadSamples().filter((sample) => sample.build);
   fs.rmSync(OUT, { recursive: true, force: true });
 
@@ -216,7 +219,7 @@ function main() {
     prefix: u.prefix,
     kits: kits.map((k) => ({ id: k.id, title: k.title, color: k.color, word: k.word, count: k.count, hero: k.hero })),
   };
-  const ctx = { u, assets, logo: logoSvg, kits, kitById, samples, totals, heroData };
+  const ctx = { u, assets, logo: logoSvg, kits, kitById, samples, totals, heroData, stars };
   const homeUrl = u.abs(u.home);
   const pages = [];
   const page = (file, html) => { write(path.join(OUT, file), html); pages.push(file); };
@@ -278,4 +281,4 @@ function main() {
   console.log(`site: ${pages.length} pages (${samples.length} samples, ${kits.length} kits) under ${u.home} in ${path.relative(process.cwd(), OUT) || "."}; home page ${Math.round(bytes / 1024)} KB${DOCUMENTS ? "" : " (no documents)"}`);
 }
 
-main();
+await main();

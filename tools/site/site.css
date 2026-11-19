@@ -14,7 +14,7 @@
   --sans: "Inter Tight Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   --sys: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", sans-serif;
-  --hd-ink: #f5f5f5; --hd-line: #1f232e;
+  --hd-ink: #f5f5f5; --hd-line: #1f232e; --hd-ring: hsl(222 18% 22%);
   --ease: cubic-bezier(.2, .9, .1, 1); --spring: cubic-bezier(.34, 1.56, .64, 1);
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -82,10 +82,23 @@ ul, ol { list-style: none; }
 .hd-mlink { padding: 10px 12px; color: rgba(255,255,255,.7); }
 .hd-macct { margin-top: 4px; border-top: 1px solid var(--hd-line); padding: 14px 12px 10px; color: rgba(255,255,255,.5); }
 .hd-macct:hover { color: var(--hd-ink); }
-@media (min-width: 640px) { .kc { padding: 0 24px; } }
-/* Seven items and "Download for Windows" need 1063px; kition.ai shows its six from 1024px. */
-@media (min-width: 1024px) { .kc { padding: 0 32px; } }
-@media (min-width: 1080px) {
+/* The GitHub badge (portal app/components/marketing/GithubStars.tsx): in the bar from 640px, ringed
+   with kition.ai's hairline; its count keeps a 4ch slot so a newer count never shifts the header.
+   Under 640px the menu has its row instead. */
+.hd-gh { display: none; align-items: center; gap: 8px; white-space: nowrap; border-radius: 10px; padding: 8px 10px; font-size: 14px; line-height: 20px; font-weight: 500; color: rgba(255,255,255,.6); box-shadow: inset 0 0 0 1px var(--hd-ring); transition: color .2s ease-out, background-color .2s ease-out; }
+.hd-gh:hover { background-color: rgba(255,255,255,.1); color: var(--hd-ink); }
+.hd-gh svg, .hd-mgh svg { display: block; flex: none; }
+.hd-gh-c { display: inline-flex; align-items: center; gap: 4px; }
+.hd-gh-n { min-width: 4ch; text-align: center; }
+.hd-gh-c { font-variant-numeric: tabular-nums; }
+.hd-mgh { display: flex; align-items: center; gap: 8px; border-radius: 10px; padding: 10px 12px; font-size: 14px; line-height: 20px; font-weight: 500; color: rgba(255,255,255,.5); transition: color .2s ease-out; }
+.hd-mgh:hover { color: var(--hd-ink); }
+.hd-mgh .hd-gh-c { margin-left: auto; }
+@media (min-width: 640px) { .kc { padding-left: 24px; padding-right: 24px; } .hd-gh { display: inline-flex; } .hd-mgh { display: none; } }
+@media (min-width: 1024px) { .kc { padding-left: 32px; padding-right: 32px; } }
+/* The desktop nav from 1200px, as on kition.ai (portal Header.tsx DESKTOP): the seven items, the
+   GitHub badge with a five-character count ("12.3k"), "Console" and "Download for Windows" need 1182px. */
+@media (min-width: 1200px) {
   .hd-nav { display: flex; }
   .hd-acct { display: inline-flex; }
   .hd-burger, .hd-menu { display: none !important; }

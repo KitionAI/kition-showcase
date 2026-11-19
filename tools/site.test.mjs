@@ -6,6 +6,7 @@ import {
   newest, sampleDescription, sampleLd, sampleTitle, sitemap, sitemapEntry, urls,
 } from "./site/lib.mjs";
 import { header } from "./site/pages.mjs";
+import { formatStars, GITHUB_STARS_FALLBACK, githubStarsAtBuild } from "./site/github.mjs";
 
 const sample = { kit: "doc", slug: "academic-cv" };
 
@@ -145,4 +146,45 @@ test("header: kition.ai's nav with Showcase lit on every page", () => {
   assert.match(html, /aria-controls="mobile-menu"/);
   assert.match(html, /<a class="hd-mlink on" href="\/showcase">Showcase<\/a>/);
   assert.equal((html.match(/data-account>Sign in</g) || []).length, 2);
+});
+
+test("header: the GitHub badge before the account link, and its menu row", () => {
+  const ctx = { u: urls({ base: "/showcase" }), logo: "<svg class=\"mark\"></svg>", stars: 12345 };
+  const html = header(ctx, "home");
+  const acts = html.match(/<div class="hd-acts">[^]*?<\/div>/)[0];
+  const badge = acts.match(/<a class="hd-gh" ([^>]+)>[^]*?<\/a>/);
+  assert.ok(badge, "badge in the bar");
+  assert.match(badge[1], /href="https:\/\/github\.com\/KitionAI\/kition" target="_blank" rel="noopener" aria-label="Kition on GitHub, 12,345 stars" data-stars-link/);
+  assert.match(badge[0], /<span class="hd-gh-n" data-stars>12\.3k<\/span>/);
+  assert.ok(acts.indexOf("hd-gh") < acts.indexOf("hd-acct"), "badge before the account link");
+  const menu = html.match(/<div class="kc hd-menu-in">[^]*$/)[0];
+  assert.match(menu, /data-account>Sign in<\/a>\s*<a class="hd-mgh" href="https:\/\/github\.com\/KitionAI\/kition"[^>]*>[^]*<span>GitHub<\/span>[^]*data-stars>12\.3k</);
+  assert.ok(!/api\.github\.com/.test(html));
+  // Without a count from the build, the fallback.
+  assert.match(header({ ...ctx, stars: undefined }, "home"), new RegExp(`data-stars>${GITHUB_STARS_FALLBACK}<`));
+});
+
+test("github: counts as GitHub prints them", () => {
+  assert.deepEqual([0, 674, 999, 1000, 1049, 1234, 1250, 9999, 12345, 999_949, 999_950, 1_500_000].map(formatStars),
+    ["0", "674", "999", "1k", "1k", "1.2k", "1.3k", "10k", "12.3k", "999.9k", "1M", "1.5M"]);
+});
+
+test("github: the build's count, the fallback when GitHub doesn't answer", async () => {
+  const quiet = console.warn;
+  console.warn = () => {};
+  try {
+    const answer = (status, body) => async () => new Response(JSON.stringify(body), { status });
+    assert.equal(await githubStarsAtBuild({ env: {}, fetch: answer(200, { stargazers_count: 812 }) }), 812);
+    assert.equal(await githubStarsAtBuild({ env: {}, fetch: answer(403, { message: "rate limited" }) }), GITHUB_STARS_FALLBACK);
+    assert.equal(await githubStarsAtBuild({ env: {}, fetch: answer(200, {}) }), GITHUB_STARS_FALLBACK);
+    assert.equal(await githubStarsAtBuild({ env: {}, fetch: async () => { throw new TypeError("offline"); } }), GITHUB_STARS_FALLBACK);
+    assert.equal(await githubStarsAtBuild({ env: { KITION_GITHUB_STARS: "900" }, fetch: () => assert.fail("no request when pinned") }), 900);
+    // A hanging GitHub gives up at the timeout (the timeout's timer is unref'd: hold the loop open).
+    const keepAlive = setTimeout(() => {}, 5000);
+    const hang = (_url, { signal }) => new Promise((_, reject) => signal.addEventListener("abort", () => reject(signal.reason)));
+    assert.equal(await githubStarsAtBuild({ env: {}, fetch: hang, timeoutMs: 50 }), GITHUB_STARS_FALLBACK);
+    clearTimeout(keepAlive);
+  } finally {
+    console.warn = quiet;
+  }
 });

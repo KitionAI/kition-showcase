@@ -1,8 +1,8 @@
 // The showcase's pages are complete without this script; it adds the enhancements:
 // search and tag/category filters over the pre-rendered cards (kept in `?q=`, `?tag=`, `?cat=`),
 // the home page's hero animation and count-up, the cards' reveal and animated previews, and the
-// sample page's preview button and copy button, and the header's account label, download label
-// and mobile menu (as kition.ai's header has them).
+// sample page's preview button and copy button, and the header's account label, download label,
+// GitHub star count and mobile menu (as kition.ai's header has them).
 (() => {
   "use strict";
 
@@ -45,6 +45,36 @@
       .catch(() => {});
   }
 
+  // The GitHub badge's star count: the build baked one in; on kition.ai the portal's same-origin
+  // GET /api/public/github has the server's latest (portal app/lib/useGithubStars.ts), cached for the
+  // session so each page doesn't ask again. Failures keep the baked count.
+  const STARS_KEY = "kition:github-stars";
+  function formatStars(n) {
+    if (n < 1000) return String(Math.floor(n));
+    const short = (value, unit) => (Math.round(value * 10) / 10).toFixed(1).replace(/\.0$/, "") + unit;
+    return n < 999950 ? short(n / 1000, "k") : short(n / 1000000, "M");
+  }
+  const validStars = (n) => typeof n === "number" && Number.isInteger(n) && n >= 0;
+  function showStars(n) {
+    for (const el of $$("[data-stars]")) if (el.textContent !== formatStars(n)) el.textContent = formatStars(n);
+    for (const a of $$("[data-stars-link]")) a.setAttribute("aria-label", "Kition on GitHub, " + fmt(n) + " stars");
+  }
+  function setupStars() {
+    if (!/(^|\.)kition\.ai$/.test(location.hostname) || !window.fetch || !$("[data-stars]")) return;
+    let cached = null;
+    try { cached = window.sessionStorage.getItem(STARS_KEY); } catch (e) { /* storage off */ }
+    if (cached !== null && validStars(Number(cached))) { showStars(Number(cached)); return; }
+    fetch("/api/public/github", { headers: { Accept: "application/json" } })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((payload) => {
+        const n = payload && payload.data && payload.data.stars;
+        if (!validStars(n)) return;
+        try { window.sessionStorage.setItem(STARS_KEY, String(n)); } catch (e) { /* storage off */ }
+        showStars(n);
+      })
+      .catch(() => {});
+  }
+
   function setupMenu() {
     const button = $("#burger");
     const menu = $("#mobile-menu");
@@ -60,7 +90,7 @@
       if (e.key === "Escape" && isOpen()) { set(false); button.focus(); }
     });
     // Past the breakpoint the full header shows and the menu has no button; close it.
-    const wide = window.matchMedia("(min-width: 1080px)");
+    const wide = window.matchMedia("(min-width: 1200px)");
     if (wide.addEventListener) wide.addEventListener("change", (e) => { if (e.matches) set(false); });
   }
 
@@ -494,6 +524,7 @@
 
   setupDownload();
   setupAccount();
+  setupStars();
   setupMenu();
   setupFilters();
   setupHero();

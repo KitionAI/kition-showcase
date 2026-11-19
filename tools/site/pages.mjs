@@ -3,6 +3,7 @@
 // All sample text goes through `esc`; every URL comes from `u` (lib.mjs `urls`).
 
 import { esc, fmt, jsonLdScript, kb, pad, plural, SITE_NAME } from "./lib.mjs";
+import { formatStars, GITHUB_STARS_FALLBACK, GITHUB_STARS_URL, starsLabel } from "./github.mjs";
 
 const GITHUB = "https://github.com/KitionAI/kition-showcase";
 
@@ -64,7 +65,8 @@ ${footer(ctx)}
 
 // kition.ai's own header (portal app/components/marketing/Header.tsx, CHROME.ai in
 // app/data/site-nav.ts), so a visitor moving between kition.ai and the showcase sees the same one.
-// site.js fills in the account label and the platform's download label, and opens the mobile menu.
+// site.js fills in the account label, the platform's download label and a newer star count, and
+// opens the mobile menu.
 // `null` is the showcase's own item: its home under the build's base, lit on every showcase page.
 export const SITE_NAV = [
   ["Kits", "https://kition.ai/kits"],
@@ -77,8 +79,24 @@ export const SITE_NAV = [
 ];
 const ICON = (paths) => `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths.map((d) => `<path d="${d}"/>`).join("")}</svg>`;
 
+// The GitHub badge's glyphs, as the portal draws them (app/components/GithubMark.tsx and the star in
+// app/components/marketing/GithubStars.tsx).
+const GITHUB_MARK = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.5 4.5 0 0 0 -1 -3.5c3 0 6 -2 6 -5.5c0 -1.5 -0.5 -2.5 -1 -3.5c0.5 -1 0.5 -2.5 0 -3.5c0 0 -1 0 -3 1.5c-2.5 -0.5 -5.5 -0.5 -8 0c-2 -1.5 -3 -1.5 -3 -1.5c-0.5 1 -0.5 2.5 0 3.5c-0.5 1 -1 2 -1 3.5c0 3.5 3 5.5 6 5.5c-0.5 0.5 -1 1.5 -1 3.5v4"/><path d="M9 18c-4.5 2 -5 -2 -7 -2"/></svg>`;
+const STAR = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" aria-hidden="true"><path d="M12 3L14.5 9.5H21L15.5 13.5L17.5 20L12 16.5L6.5 20L8.5 13.5L3 9.5H9.5z"/></svg>`;
+
+// The badge in the bar (from 640px) and its row in the mobile menu (under 640px). `data-stars`
+// marks what site.js updates with a newer count.
+function githubBadge(stars) {
+  const attrs = `href="${GITHUB_STARS_URL}" target="_blank" rel="noopener" aria-label="${esc(starsLabel(stars))}" data-stars-link`;
+  return {
+    bar: `<a class="hd-gh" ${attrs}>${GITHUB_MARK}<span class="hd-gh-c">${STAR}<span class="hd-gh-n" data-stars>${formatStars(stars)}</span></span></a>`,
+    menu: `<a class="hd-mgh" ${attrs}>${GITHUB_MARK}<span>GitHub</span><span class="hd-gh-c">${STAR}<span data-stars>${formatStars(stars)}</span></span></a>`,
+  };
+}
+
 export function header(ctx, page) {
   const { logo, u } = ctx;
+  const gh = githubBadge(ctx.stars ?? GITHUB_STARS_FALLBACK);
   const links = (cls) => SITE_NAV.map(([label, href]) => href
     ? `<a class="${cls}" href="${href}">${label}</a>`
     : `<a class="${cls} on" href="${esc(u.home)}"${page === "home" ? ` aria-current="page"` : ""}>${label}</a>`).join("");
@@ -87,6 +105,7 @@ export function header(ctx, page) {
     <a class="hd-brand" href="https://kition.ai/" aria-label="Kition">${logo}<span>Kition</span></a>
     <nav class="hd-nav" aria-label="primary">${links("hd-link")}</nav>
     <div class="hd-acts">
+      ${gh.bar}
       <a class="hd-link hd-acct" href="https://kition.ai/app" data-account>Sign in</a>
       <a class="btn-download" href="https://kition.ai/download" id="get"><span id="get-label">Download free</span><span class="arr" aria-hidden="true">&darr;</span></a>
       <button type="button" class="hd-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="i-open">${ICON(["M4 5h16", "M4 12h16", "M4 19h16"])}</span><span class="i-close">${ICON(["M6 6l12 12", "M18 6L6 18"])}</span></button>
@@ -96,6 +115,7 @@ export function header(ctx, page) {
     <div class="kc hd-menu-in">
       <nav class="hd-menu-nav" aria-label="mobile">${links("hd-mlink")}</nav>
       <a class="hd-macct" href="https://kition.ai/app" data-account>Sign in</a>
+      ${gh.menu}
     </div>
   </div>
 </header>`;
