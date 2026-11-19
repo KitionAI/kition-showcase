@@ -13,6 +13,7 @@
 //
 //   node tools/site.mjs [--out dist] [--base /showcase] [--origin https://kition.ai] [--no-documents]
 
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import YAML from "yaml";
@@ -24,9 +25,10 @@ const SITE_KIT_ORDER = ["motion", "film", "photo", "slide", "vector", "layout", 
 const byKitOrder = (a, b) => SITE_KIT_ORDER.indexOf(a) - SITE_KIT_ORDER.indexOf(b);
 import { loadSamples } from "./samples.mjs";
 import {
-  MIME, extOf, hashName, homeDescription, homeLd, homeTitle, kitDescription, kitLd, kitTitle, newest,
-  pngSize, sampleDescription, sampleLd, sampleTitle, sitemap, urls,
+  HERO_CALLS, MIME, extOf, hashName, homeDescription, homeLd, homeTitle, kitDescription, kitLd, kitTitle, newest,
+  pickHero, pngSize, sampleDescription, sampleLd, sampleTitle, sitemap, urls,
 } from "./site/lib.mjs";
+import { TRACE_FORMAT } from "./trace-core.mjs";
 import { homeMain, kitMain, notFoundMain, sampleMain, shell } from "./site/pages.mjs";
 import { githubStarsAtBuild } from "./site/github.mjs";
 
@@ -60,8 +62,6 @@ const LOOK = {
   cad: { color: "#8eabc8", word: "Plans." },
   scene: { color: "#e3a46b", word: "Scenes." },
 };
-// The first few steps of each kit's hero sample play in the page's agent panel.
-const HERO_CALLS = 6;
 const RELATED = 4;
 const OG_SIZE = [1200, 630];
 
@@ -99,6 +99,20 @@ function hint(step) {
   return text.length > 26 ? `${text.slice(0, 25)}…` : text;
 }
 
+// The sample's trace in .trace/ (tools/trace.mjs), when it was made from the current showcase.yaml.
+const TRACES = path.join(ROOT, ".trace");
+function replayOf(sample) {
+  const file = path.join(TRACES, sample.kit, sample.slug, "trace.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    const trace = JSON.parse(fs.readFileSync(file, "utf8"));
+    const source = crypto.createHash("sha256").update(sample.source).digest("hex");
+    return trace.format === TRACE_FORMAT && trace.source === source ? trace : null;
+  } catch {
+    return null;
+  }
+}
+
 // Everything a page needs about one sample.
 function view(sample, kit) {
   const ext = extOf(sample.build.document.name);
@@ -124,6 +138,8 @@ function view(sample, kit) {
     thumbUrl: u.file(sample, "thumb.png"),
     thumbSize: pngSize(path.join(sample.dir, "thumb.png")),
     previewUrl: sample.preview ? u.file(sample, "preview.webp") : null,
+    // A replay when tools/trace.mjs made one from this very showcase.yaml.
+    replayUrl: replayOf(sample) ? `${u.file(sample, "replay")}/` : null,
     alt: `${sample.title} — ${kit.title} sample rendered by Kition`,
     built: { repo: sample.build.kit.repo, commit: sample.build.kit.commit, commands: sample.build.commands, ms: sample.build.built_ms },
     prelude: sample.prelude ?? null,
@@ -138,13 +154,12 @@ function view(sample, kit) {
 // Per kit, one featured sample for the page's agent panel: the featured sample with the most
 // commands (the richest build), or the kit's busiest sample when none is featured.
 function heroOf(own) {
-  const pool = own.filter((s) => s.featured && s.raw.steps.length >= HERO_CALLS);
-  const from = pool.length ? pool : own;
-  const best = [...from].sort((a, b) => b.commands - a.commands || a.slug.localeCompare(b.slug))[0];
+  const best = pickHero(own.map((s) => ({ s, featured: s.featured, steps: s.raw.steps.length, commands: s.commands, slug: s.slug }))).s;
   return {
     title: best.title, path: best.path, thumbUrl: best.thumbUrl, thumbSize: best.thumbSize, alt: best.alt,
     document: best.documentName, commands: best.commands, ms: best.built.ms,
     calls: best.raw.steps.slice(0, HERO_CALLS).map((step) => [step.command, hint(step)]),
+    replay: best.replayUrl,
   };
 }
 
@@ -181,6 +196,7 @@ async function main() {
     commands: samples.reduce((n, s) => n + s.commands, 0),
     checks: loaded.reduce((n, sample) => n + checkCount(sample), 0),
     animated: samples.filter((s) => s.previewUrl).length,
+    replays: samples.filter((s) => s.replayUrl).length,
   };
 
   // Shared assets: CSS and JS under content-hashed names, the fonts, icons and share images.
@@ -196,6 +212,7 @@ async function main() {
   const assets = {
     css: assetName("site.css", css),
     js: assetName("site.js", js),
+    stage: assetName("stage.js", read("stage.js")),
     icon: assetName("icon.svg", logoSvg.replace(/ class="mark"| aria-hidden="true"| focusable="false"/g, "")),
     touchIcon: assetName("icon-180.png", fs.readFileSync(path.join(SITE, "icon-180.png"))),
   };
@@ -213,6 +230,7 @@ async function main() {
     copy(path.join(s.raw.dir, "thumb.png"), path.join(dir, "thumb.png"));
     if (s.previewUrl) copy(path.join(s.raw.dir, "preview.webp"), path.join(dir, "preview.webp"));
     if (DOCUMENTS) copy(path.join(s.raw.dir, s.documentName), path.join(dir, s.documentName));
+    if (s.replayUrl) fs.cpSync(path.join(TRACES, s.kit, s.slug), path.join(dir, "replay"), { recursive: true });
   }
 
   const heroData = {
@@ -230,7 +248,7 @@ async function main() {
   page("index.html", shell(ctx, {
     ...home, canonical: homeUrl, image: homeOg,
     jsonLd: homeLd({ url: homeUrl, ...home, kits: kits.map((k) => ({ title: k.title, url: u.abs(k.path) })) }),
-  }, { page: "home", main: homeMain(ctx), headExtra: redirect }));
+  }, { page: "home", main: homeMain(ctx), headExtra: redirect, stage: kits.some((k) => k.hero.replay) }));
 
   // Kits.
   for (const kit of kits) {
@@ -259,7 +277,7 @@ async function main() {
         },
       });
       const main = sampleMain(ctx, s, { prev: own[(at - 1 + own.length) % own.length], next: own[(at + 1) % own.length], related: relatedOf(s, own) });
-      page(`${s.kit}/${s.slug}/index.html`, shell(ctx, { ...seo, canonical: url, image, type: "article", jsonLd }, { page: "sample", main }));
+      page(`${s.kit}/${s.slug}/index.html`, shell(ctx, { ...seo, canonical: url, image, type: "article", jsonLd }, { page: "sample", main, stage: Boolean(s.replayUrl) }));
     });
   }
 
@@ -278,7 +296,7 @@ async function main() {
   write(path.join(OUT, "sitemap.xml"), sitemap(entries));
 
   const bytes = fs.statSync(path.join(OUT, "index.html")).size;
-  console.log(`site: ${pages.length} pages (${samples.length} samples, ${kits.length} kits) under ${u.home} in ${path.relative(process.cwd(), OUT) || "."}; home page ${Math.round(bytes / 1024)} KB${DOCUMENTS ? "" : " (no documents)"}`);
+  console.log(`site: ${pages.length} pages (${samples.length} samples, ${totals.replays} with a replay, ${kits.length} kits) under ${u.home} in ${path.relative(process.cwd(), OUT) || "."}; home page ${Math.round(bytes / 1024)} KB${DOCUMENTS ? "" : " (no documents)"}`);
 }
 
 await main();

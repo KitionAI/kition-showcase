@@ -4,14 +4,17 @@
 
 import { esc, fmt, jsonLdScript, kb, pad, plural, SITE_NAME } from "./lib.mjs";
 import { formatStars, GITHUB_STARS_FALLBACK, GITHUB_STARS_URL, starsLabel } from "./github.mjs";
+import { stepLines } from "../trace-core.mjs";
 
 const GITHUB = "https://github.com/KitionAI/kition-showcase";
+// Where the replay effect setting is kept (site.js reads the same key).
+export const FX_KEY = "kition:stage-skin";
 
 // ---------- Shell ----------
 
 // `seo`: title, description, canonical (absolute), image {url, width, height, alt}, type, robots,
 // jsonLd. `ctx`: u, assets {css, js, logo, icon}, logo (inline svg), kitIds.
-export function shell(ctx, seo, { page, main, headExtra = "" }) {
+export function shell(ctx, seo, { page, main, headExtra = "", stage = false }) {
   const { u, assets } = ctx;
   const og = seo.image;
   const meta = [
@@ -33,7 +36,8 @@ export function shell(ctx, seo, { page, main, headExtra = "" }) {
   ].filter(Boolean).join("\n");
   // Runs before the first paint: `js` turns on the enhanced styles, `filtered` hides the hero
   // when the page opens on a shared search.
-  const boot = `<script>(function(d){d.classList.add("js");if(/[?&](q|tag|cat)=/.test(location.search))d.classList.add("filtered")})(document.documentElement)</script>`;
+  // `data-fx` is the replay effect (site.js FX): the visitor's choice, else off with reduced motion.
+  const boot = `<script>(function(d){d.classList.add("js");if(/[?&](q|tag|cat)=/.test(location.search))d.classList.add("filtered");var f;try{f=localStorage.getItem("${FX_KEY}")}catch(e){}if(!/^(cursors|spider|squid|off)$/.test(f||""))f=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches?"off":"cursors";d.setAttribute("data-fx",f)})(document.documentElement)</script>`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -51,7 +55,7 @@ ${meta}
 <script src="${assets.js}" defer></script>
 ${seo.jsonLd ? jsonLdScript(seo.jsonLd) : ""}
 </head>
-<body data-page="${page}" data-home="${esc(u.home)}">
+<body data-page="${page}" data-home="${esc(u.home)}"${stage && assets.stage ? ` data-stage="${esc(assets.stage)}" data-colors="${esc(ctx.kits.map((k) => k.color).join(","))}"` : ""}>
 <a class="skip" href="#main">Skip to the content</a>
 ${header(ctx, page)}
 <main id="main" tabindex="-1">
@@ -180,6 +184,7 @@ export function card(ctx, s, load = "lazy") {
   return `<article ${attrs.join(" ")}>`
     + `<a class="stage" href="${esc(s.path)}" tabindex="-1" aria-hidden="true">`
     + (s.previewUrl ? `<span class="badge">animated</span>` : "")
+    + (s.replayUrl ? `<span class="badge rp" title="Has a replay of its build">replay</span>` : "")
     + `<span class="fit"><img src="${esc(s.thumbUrl)}" width="${w}" height="${h}" style="--r:${(w / h).toFixed(4)}" ${imgLoad} decoding="async" alt="${esc(s.alt)}"></span></a>`
     + `<div class="card-body"><div class="meta"><span class="kchip">${esc(s.kit)}</span><span class="cat">${esc(s.category)}</span></div>`
     + `<h3><a href="${esc(s.path)}">${esc(s.title)}</a></h3>`
@@ -211,10 +216,7 @@ function heroHtml(ctx) {
   let i = 0;
   const chars = ["built", "by", "commands."].map((word, w) => `<span class="wd">${[...word].map((ch) =>
     `<span class="ch${w === 2 && ch !== "." ? " em" : ""}" style="--i:${i++}">${esc(ch)}</span>`).join("")}</span>`).join(" ");
-  const calls = h.calls.map(([cmd, hint]) => {
-    const text = cmd + (hint ? `(${hint})` : "");
-    return `<li class="call on done"><b></b><code style="--n:${text.length}">${esc(cmd)}${hint ? `<i>(${esc(hint)})</i>` : ""}</code><em>ok</em></li>`;
-  }).join("");
+  const calls = h.calls.map(([cmd, hint]) => `<li class="call"><b></b><code>${esc(cmd)}${hint ? `<i>(${esc(hint)})</i>` : ""}</code></li>`).join("");
   const rest = h.commands - h.calls.length;
   const [w, hh] = h.thumbSize;
   return `<section class="hero wrap" id="hero" aria-labelledby="hero-title"><div class="hero-in"><div class="hero-copy">`
@@ -224,11 +226,15 @@ function heroHtml(ctx) {
     + `<span class="tick" id="tick" style="${kitStyle(first)}"><i></i><b id="tick-n">01 / ${pad(kits.length)}</b><span id="tick-kit">${esc(first.id)} kit</span><span id="tick-count">${esc(plural(first.count, "sample"))}<span class="tcur"></span></span></span></span>`
     + `<span class="row2" aria-hidden="true">${chars}</span></h1>`
     + `<p class="lede">Every sample is a list of the kit's own engine commands, <b>the same commands an AI agent calls</b>. The kit runs them, then saves and renders the document with its own engine, so you see exactly what Kition draws. Every sample doubles as a regression test.</p>`
+    + `<div class="strip" id="strip" style="${kitStyle(first)}" role="group" aria-label="The featured sample's commands"><span class="strip-h label"><span id="run-label">agent &middot; <b>${esc(first.id)}</b> kit</span><span class="strip-n" id="strip-n">${rest > 0 ? `+ ${plural(rest, "more command")} · ${fmt(h.ms)} ms` : `${fmt(h.ms)} ms`}</span></span>`
+    + `<ol class="calls" id="calls">${calls}</ol></div>`
     + `</div>`
-    + `<div class="run saved" id="run" role="group" aria-label="A featured sample, command by command" style="${kitStyle(first)}">`
-    + `<div class="run-bar"><i></i><i></i><i></i><span class="label" id="run-label">agent &middot; <b>${esc(first.id)}</b> kit</span><span class="label file">showcase.yaml</span></div>`
-    + `<div class="run-body"><div><ol class="calls" id="calls">${calls}</ol><div class="run-foot"><span class="more" id="run-more">${rest > 0 ? `+ ${plural(rest, "more command")} · ${fmt(h.ms)} ms` : `${fmt(h.ms)} ms`}</span><span class="saved" id="run-saved">saved → ${esc(h.document)} ✓</span></div></div>`
-    + `<a class="shot" id="shot" href="${esc(h.path)}" aria-label="Open ${esc(h.title)}"><span class="shot-stage"><img id="shot-img" src="${esc(h.thumbUrl)}" width="${w}" height="${hh}" style="--r:${(w / hh).toFixed(4)}" fetchpriority="high" decoding="async" alt="${esc(h.alt)}"><span class="scan"></span></span><span class="shot-cap"><b id="shot-title">${esc(h.title)}</b><span>Open the sample &rarr;</span></span></a></div>`
+    + `<div class="hstage" id="run" style="${kitStyle(first)}">`
+    + `<div class="hs-top" id="hs-top"><a class="hs-k" id="shot-link" href="${esc(h.path)}"><b id="shot-title">${esc(h.title)}</b><span class="hs-open">Open &rarr;</span></a></div>`
+    + `<div class="hs-panel" id="run-panel"><a class="hs-box" id="shot" href="${esc(h.path)}" aria-label="Open ${esc(h.title)}"><img id="shot-img" src="${esc(h.thumbUrl)}" width="${w}" height="${hh}" style="--r:${(w / hh).toFixed(4)}" fetchpriority="high" decoding="async" alt="${esc(h.alt)}"></a>`
+    + `<div class="hs-hud" id="hs-hud"></div></div>`
+    + `<div class="hs-cap" id="hs-cap"></div>`
+    + `<p class="hs-foot label"><span class="saved" id="run-saved">saved &rarr; ${esc(h.document)} ✓</span><span id="run-stat">${plural(h.commands, "command")} &middot; ${fmt(h.ms)} ms</span></p>`
     + `</div></div></section>`;
 }
 
@@ -352,15 +358,15 @@ export function sampleMain(ctx, s, { prev, next, related }) {
 ${crumbs([["Showcase", u.home], [kit.title, kit.path], [s.title, null]])}
 <header class="dhead" style="${kitStyle(kit)}"><div class="meta"><span class="kchip">${esc(s.kit)}</span><span class="cat">${esc(s.category)}</span>${s.featured ? "<span>&middot; featured</span>" : ""}</div>
 <h1 class="d" id="dtitle">${esc(s.title)}</h1><p class="sum">${esc(s.summary)}</p></header>
-<div class="dgrid"><div class="view" id="view" style="${kitStyle(kit)}"${s.previewUrl ? ` data-preview="${esc(s.previewUrl)}" data-thumb="${esc(s.thumbUrl)}"` : ""}>`
+<div class="dgrid">${s.replayUrl ? `<div class="vcol" style="${kitStyle(kit)}"><div class="vbar" id="vbar"></div>` : ""}<div class="view" id="view" style="${kitStyle(kit)}"${s.previewUrl ? ` data-preview="${esc(s.previewUrl)}" data-thumb="${esc(s.thumbUrl)}"` : ""}${s.replayUrl ? ` data-replay="${esc(s.replayUrl)}"` : ""}>`
     + (s.previewUrl ? `<button type="button" class="badge playbtn" id="playbtn" aria-pressed="false">Play preview</button>` : "")
-    + `<img src="${esc(s.thumbUrl)}" width="${w}" height="${h}" style="--r:${(w / h).toFixed(4)};--w:${Math.round(Math.max(w, 640) * 1.25)}px" fetchpriority="high" decoding="async" alt="${esc(s.alt)}"></div>
+    + `<img src="${esc(s.thumbUrl)}" width="${w}" height="${h}" style="--r:${(w / h).toFixed(4)};--w:${Math.round(Math.max(w, 640) * 1.25)}px" fetchpriority="high" decoding="async" alt="${esc(s.alt)}"></div>${s.replayUrl ? `<div class="vdock" id="vdock"></div></div>` : ""}
 <aside class="spec" id="spec" style="${kitStyle(kit)}" aria-label="About this sample">${spec}<div id="dl">${download}</div></aside></div>
 ${s.description ? `<p class="desc">${esc(s.description)}</p>` : ""}
 ${s.previewUrl ? `<p class="desc preview-note">Animated sample: <a class="em" href="${esc(s.previewUrl)}">watch the preview</a> (WebP animation).</p>` : ""}
 <section class="sec" aria-labelledby="steps-h"><div class="sec-head"><h2 class="d" id="steps-h">Steps</h2><span class="label">${plural(s.built.commands, "command")}${s.prelude ? ` &middot; after the <code>${esc(s.prelude)}</code> prelude` : ""}</span></div>
 <div class="code" style="${kitStyle(kit)}"><div class="code-bar"><i></i><i></i><i></i><span class="tab">showcase.yaml</span><span class="lines">${plural(lines, "line")}</span><button type="button" class="copy" id="copy">Copy</button></div>
-<pre tabindex="0" aria-label="The sample's steps"><code>${yamlHtml(s.steps)}</code></pre></div></section>
+<pre tabindex="0" aria-label="The sample's steps"${s.replayUrl ? ` data-steps="${esc(JSON.stringify(stepLines(s.steps).map((l) => [l.above, l.last])))}"` : ""}><code>${yamlHtml(s.steps)}</code></pre></div></section>
 <section class="sec" aria-labelledby="checks-h"><div class="sec-head"><h2 class="d" id="checks-h">Checks</h2><span class="label">${plural(checks.count, "check")} on every build</span></div>${checks.html}</section>
 ${related.length ? `<section class="sec" aria-labelledby="rel-h"><div class="sec-head"><h2 class="d" id="rel-h">Related</h2><span class="label">More ${esc(kit.title)} samples</span></div><div class="grid rel">${related.map((x) => card(ctx, x)).join("")}</div></section>` : ""}
 <nav class="nav2" aria-label="More ${esc(kit.title)} samples">${navCard(prev, "&larr; Previous", "")}${navCard(next, "Next &rarr;", "nx")}</nav>

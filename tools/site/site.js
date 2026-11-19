@@ -94,20 +94,95 @@
     if (wide.addEventListener) wide.addEventListener("change", (e) => { if (e.matches) set(false); });
   }
 
+  // ---------- Replay effect (the setting) ----------
+
+  // One site-wide setting: which actors play a sample's replay, or `off` (no actors, no replay
+  // frames, the plain picture). The page's boot script has already put it on <html data-fx> before
+  // the first paint (the stored choice, else off with reduced motion).
+  const FX_KEY = "kition:stage-skin";
+  const FX = [["cursors", "Cursors"], ["spider", "Spider"], ["squid", "Squid"], ["off", "Off"]];
+  const FX_ICON = {
+    cursors: '<path d="M3 2v10l3-2.6 2 4.4 1.8-.8-2-4.3H12z"/>',
+    spider: '<circle cx="8" cy="8.5" r="2.2"/><path d="M6 7L3 4 1 6M6 9L2.5 9.5 1 12M10 7l3-3 2 2M10 9l3.5.5 1.5 2.5" fill="none" stroke="currentColor" stroke-width="1.2"/>',
+    squid: '<path d="M8 1.5c2.4 0 3.6 2.6 3.6 5.2 0 1.3-.7 2.3-1.6 2.3H6c-.9 0-1.6-1-1.6-2.3C4.4 4.1 5.6 1.5 8 1.5z"/><path d="M5.6 9.5c-.5 2-1.6 3-2.6 3.5M7.3 9.5c0 2-.3 3.5-1 4.5M8.7 9.5c0 2 .3 3.5 1 4.5M10.4 9.5c.5 2 1.6 3 2.6 3.5" fill="none" stroke="currentColor" stroke-width="1.2"/>',
+    off: '<circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4.2 11.8l7.6-7.6" stroke="currentColor" stroke-width="1.4"/>',
+  };
+  const fxNow = () => ROOT.getAttribute("data-fx") || "off";
+  function fxSet(value) {
+    try { window.localStorage.setItem(FX_KEY, value); } catch (e) { /* storage off */ }
+    ROOT.setAttribute("data-fx", value);
+    for (const el of $$(".fx [role=tab]")) {
+      const on = el.dataset.fx === value;
+      el.setAttribute("aria-selected", String(on));
+      el.tabIndex = on ? 0 : -1;
+    }
+    document.dispatchEvent(new CustomEvent("fxchange", { detail: value }));
+  }
+  let fxCount = 0;
+  // The setting as a labelled tab row: arrows, Home and End move along it, Enter or Space picks.
+  function fxControl(panelId) {
+    const id = "fx-l-" + ++fxCount;
+    const wrap = document.createElement("div");
+    wrap.className = "fx";
+    wrap.innerHTML = '<span class="fx-l label" id="' + id + '">Effect</span><div class="fx-tabs" role="tablist" aria-labelledby="' + id + '">'
+      + FX.map(([v, label]) => '<button type="button" role="tab" data-fx="' + v + '" aria-controls="' + panelId + '" aria-selected="' + (v === fxNow()) + '" tabindex="' + (v === fxNow() ? 0 : -1) + '"><svg viewBox="0 0 16 16" aria-hidden="true">' + FX_ICON[v] + "</svg>" + label + "</button>").join("")
+      + "</div>";
+    const tabs = $$("[role=tab]", wrap);
+    wrap.addEventListener("click", (e) => { const b = e.target.closest("[role=tab]"); if (b && b.dataset.fx !== fxNow()) fxSet(b.dataset.fx); });
+    wrap.addEventListener("keydown", (e) => {
+      const at = tabs.indexOf(document.activeElement);
+      if (at < 0) return;
+      const to = { ArrowRight: at + 1, ArrowDown: at + 1, ArrowLeft: at - 1, ArrowUp: at - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (to === undefined) return;
+      e.preventDefault();
+      const b = tabs[(to + tabs.length) % tabs.length];
+      b.focus();
+      fxSet(b.dataset.fx);
+    });
+    return wrap;
+  }
+
+  // stage.js, fetched only when a replay is about to play.
+  let stageLoading = null;
+  function loadStage() {
+    if (window.KitionStage) return Promise.resolve(window.KitionStage);
+    if (!stageLoading) {
+      stageLoading = new Promise((resolve, reject) => {
+        const el = document.createElement("script");
+        el.src = document.body.dataset.stage;
+        el.onload = () => resolve(window.KitionStage);
+        el.onerror = reject;
+        document.head.appendChild(el);
+      });
+    }
+    return stageLoading;
+  }
+  const PALETTE = (document.body.dataset.colors || "").split(",").filter(Boolean);
+  const REPLAY_NOTE = "A replay of this sample's build: the kit's own renders after each group of commands.";
+  // A beat's commands as chips: each command once, with how many times it ran.
+  function beatChips(beat) {
+    const counts = new Map();
+    for (const c of beat.commands) counts.set(c, (counts.get(c) || 0) + 1);
+    const list = [...counts];
+    const shown = list.slice(0, 4).map(([c, n], i) => '<li class="call on" style="--k:' + i + '"><b></b><code>' + esc(c) + "</code>" + (n > 1 ? "<em>&times;" + n + "</em>" : "") + "</li>");
+    if (list.length > 4) shown.push('<li class="call on more-c" style="--k:4"><code>+' + (list.length - 4) + " more</code></li>");
+    return shown.join("");
+  }
+
   // ---------- Hero (home) ----------
 
-  const RUN_CALLS = 6;
-  const STEP_GAP = 330;
   const heroEl = $("#hero");
   const DATA = heroEl && $("#hero-data") ? JSON.parse($("#hero-data").textContent) : null;
   const KITS = DATA ? DATA.kits : [];
   KITS.forEach((k, index) => (k.index = index));
   const N = KITS.length;
-  const hero = { index: 0, queue: [], pending: null, timer: 0, onScreen: true, widths: null, scrambleTimer: 0 };
+  const hero = { index: 0, timer: 0, onScreen: true, widths: null, scrambleTimer: 0, stage: null, mode: "" };
   const heroKit = (i) => KITS[i % N];
+  const replayKits = () => KITS.filter((k) => k.hero.replay);
+  const heroActive = () => hero.onScreen && !document.hidden && !ROOT.classList.contains("filtered");
 
-  // Shows kit `i` in the slot's tick, the kit row and the agent panel. `play` replays the panel.
-  function heroShow(i, play) {
+  // Shows kit `i` in the slot's tick, the kit row and the panel: its sample, its first commands.
+  function heroShow(i) {
     const kit = heroKit(i);
     const h = kit.hero;
     $("#slot").style.setProperty("--c", kit.color);
@@ -115,21 +190,15 @@
     $("#tick-n").textContent = pad(kit.index + 1) + " / " + pad(N);
     $("#tick-kit").textContent = kit.id + " kit";
     $("#tick-count").innerHTML = esc(plural(kit.count, "sample")) + '<span class="tcur"></span>';
-    const run = $("#run");
-    run.style.setProperty("--c", kit.color);
-    run.classList.toggle("play", play);
-    run.classList.remove("saved");
+    for (const el of [$("#run"), $("#strip")]) el.style.setProperty("--c", kit.color);
     $("#run-label").innerHTML = "agent &middot; <b>" + esc(kit.id) + "</b> kit";
-    $("#calls").innerHTML = h.calls.map(([cmd, hint]) => {
-      const text = cmd + (hint ? "(" + hint + ")" : "");
-      return '<li class="call"><b></b><code style="--n:' + text.length + '">' + esc(cmd) + (hint ? "<i>(" + esc(hint) + ")</i>" : "") + "</code><em>&hellip;</em></li>";
-    }).join("");
+    $("#calls").innerHTML = h.calls.map(([cmd, hint]) => '<li class="call"><b></b><code>' + esc(cmd) + (hint ? "<i>(" + esc(hint) + ")</i>" : "") + "</code></li>").join("");
     const rest = h.commands - h.calls.length;
-    $("#run-more").textContent = rest > 0 ? "+ " + plural(rest, "more command") + " · " + fmt(h.ms) + " ms" : fmt(h.ms) + " ms";
+    $("#strip-n").textContent = rest > 0 ? "+ " + plural(rest, "more command") + " · " + fmt(h.ms) + " ms" : fmt(h.ms) + " ms";
     $("#run-saved").textContent = "saved → " + h.document + " ✓";
-    const shot = $("#shot");
-    shot.href = h.path;
-    shot.setAttribute("aria-label", "Open " + h.title);
+    $("#run-stat").textContent = plural(h.commands, "command") + " · " + fmt(h.ms) + " ms";
+    for (const a of [$("#shot"), $("#shot-link")]) a.href = h.path;
+    $("#shot").setAttribute("aria-label", "Open " + h.title);
     $("#shot-title").textContent = h.title;
     const img = $("#shot-img");
     const [w, hh] = h.thumbSize;
@@ -137,45 +206,72 @@
     img.alt = h.alt;
     img.style.setProperty("--r", (w / hh).toFixed(4));
     if (img.getAttribute("src") !== h.thumbUrl) img.src = h.thumbUrl;
-    if (!play) finishCalls();
     syncKitRow();
   }
 
-  function finishCalls() {
-    for (const li of $("#calls").children) { li.classList.add("on", "done"); $("em", li).textContent = "ok"; }
-    $("#run").classList.add("saved");
-  }
-
-  // One beat of the hero as (wait, then do) pairs: roll to the next kit, type its calls one by
-  // one (each reads ok a moment after it appears), then the save and the picture, then a hold.
-  function stepEvents() {
-    const next = (hero.index + 1) % N;
-    const call = (j) => $("#calls").children[j];
-    const events = [[0, () => { roll(next); heroShow(next, true); preload((next + 1) % N); }]];
-    for (let j = 0; j < RUN_CALLS; j++) {
-      events.push([j === 0 ? 420 : STEP_GAP - 220, () => { const li = call(j); if (li) li.classList.add("on"); }]);
-      events.push([220, () => { const li = call(j); if (li) { li.classList.add("done"); $("em", li).textContent = "ok"; } }]);
-    }
-    events.push([260, () => $("#run").classList.add("saved")]);
-    events.push([2600, () => {}]);
-    return events;
-  }
-
   function preload(i) { const img = new Image(); img.decoding = "async"; img.src = heroKit(i).hero.thumbUrl; }
-
-  const heroActive = () => !REDUCED && hero.onScreen && !document.hidden && !ROOT.classList.contains("filtered");
-
-  function pump() {
-    if (!DATA || hero.timer || !heroActive()) return;
-    if (!hero.queue.length) hero.queue = stepEvents();
-    const ev = hero.queue.shift();
-    hero.pending = ev;
-    hero.timer = setTimeout(() => { hero.timer = 0; hero.pending = null; ev[1](); pump(); }, ev[0]);
+  function prefetchReplay(kit) {
+    if (!kit || !kit.hero.replay || !window.fetch) return;
+    fetch(kit.hero.replay + "trace.json").catch(() => {});
+    for (const n of ["00", "01"]) { const im = new Image(); im.src = kit.hero.replay + "frames/" + n + ".webp"; }
   }
-  function pause() {
-    if (!hero.timer) return;
+
+  // Effect off: the headline rolls through the kits every few seconds and the panel shows each
+  // kit's finished sample, still.
+  function stillTick() {
     clearTimeout(hero.timer); hero.timer = 0;
-    if (hero.pending) { hero.queue.unshift(hero.pending); hero.pending = null; }
+    if (hero.mode !== "still" || REDUCED || !heroActive()) return;
+    hero.timer = setTimeout(() => {
+      hero.timer = 0;
+      if (hero.mode !== "still" || !heroActive()) return;
+      const next = (hero.index + 1) % N;
+      roll(next); heroShow(next); preload((next + 1) % N);
+      stillTick();
+    }, 4200);
+  }
+
+  // Effect on: the stage plays each kit's hero sample being built, then the headline rolls to the
+  // next kit that has a replay.
+  function nextReplayKit(from) {
+    for (let k = 1; k <= N; k++) { const kit = heroKit(from + k); if (kit.hero.replay) return kit.index; }
+    return -1;
+  }
+  function heroBeat(j, beat, trace) {
+    $("#calls").innerHTML = beatChips(beat);
+    $("#strip-n").textContent = "beat " + pad(j + 1) + " / " + pad(trace.beats.length) + " · " + fmt(beat.at) + " / " + plural(trace.commands, "command");
+  }
+  function heroEnd() {
+    const n = nextReplayKit(hero.index);
+    if (n < 0 || n === hero.index || !heroActive()) return true; // play this one again
+    roll(n); heroShow(n); heroStage(n);
+    prefetchReplay(heroKit(nextReplayKit(n)));
+    return false;
+  }
+  function heroStage(i) {
+    const kit = heroKit(i);
+    loadStage().then((KitionStage) => {
+      if (hero.mode !== "stage" || hero.index !== kit.index) return;
+      if (!hero.stage) {
+        hero.opts = { skin: fxNow(), colors: PALETTE, hud: $("#hs-hud"), cap: $("#hs-cap"), loop: false, onBeat: heroBeat, onEnd: heroEnd, note: REPLAY_NOTE };
+        hero.stage = KitionStage($("#shot"), $("#shot-img"), hero.opts);
+      }
+      hero.opts.color = kit.color;
+      return hero.stage.load(kit.hero.replay).then(() => { if (hero.mode === "stage" && hero.index === kit.index) hero.stage.play(); });
+    }).catch(() => heroMode("still"));
+  }
+  function heroMode(mode) {
+    if (hero.mode === mode) return;
+    hero.mode = mode;
+    clearTimeout(hero.timer); hero.timer = 0;
+    if (mode === "still") {
+      if (hero.stage) { hero.stage.destroy(); hero.stage = null; }
+      heroShow(hero.index);
+      stillTick();
+      return;
+    }
+    if (!heroKit(hero.index).hero.replay) { const n = nextReplayKit(hero.index); if (n < 0) return heroMode("still"); roll(n); heroShow(n); }
+    heroStage(hero.index);
+    prefetchReplay(heroKit(nextReplayKit(hero.index)));
   }
 
   const GLYPHS = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789#%&/<>*+=";
@@ -196,8 +292,9 @@
   function roll(i) {
     const reel = $("#reel");
     const slot = $("#slot");
-    const pos = i === 0 ? N : i;
     hero.index = i;
+    if (REDUCED || reel.children.length < 2) { reel.firstElementChild.textContent = heroKit(i).word; return; }
+    const pos = i === 0 ? N : i;
     reel.style.transition = "";
     reel.style.transform = "translateY(" + (-pos * 1.52).toFixed(2) + "em)";
     if (hero.widths) slot.style.width = "calc(" + hero.widths[pos].toFixed(4) + "em + .14em)";
@@ -220,7 +317,7 @@
     const reel = $("#reel");
     const fs = parseFloat(getComputedStyle(reel).fontSize);
     const ws = [...reel.children].map((s) => s.getBoundingClientRect().width / fs);
-    if (fs > 0 && ws.every((w) => w > 0)) {
+    if (fs > 0 && ws.length > 1 && ws.every((w) => w > 0)) {
       hero.widths = ws;
       const pos = hero.index === 0 && reel.style.transform.includes(String(-N * 1.52)) ? N : hero.index;
       $("#slot").style.width = "calc(" + ws[pos].toFixed(4) + "em + .14em)";
@@ -233,31 +330,38 @@
     const reel = $("#reel");
     if (!REDUCED) reel.insertAdjacentHTML("beforeend", [...KITS.slice(1), KITS[0]].map((k) => "<span>" + esc(k.word) + "</span>").join(""));
     syncKitRow();
-    if (REDUCED) return;
-    measureReel();
-    if (document.fonts) {
-      document.fonts.ready.then(measureReel);
-      if (document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", measureReel);
+    const canStage = replayKits().length > 0 && document.body.dataset.stage;
+    if (canStage) $("#hs-top").appendChild(fxControl("run-panel"));
+    if (!REDUCED) {
+      measureReel();
+      if (document.fonts) {
+        document.fonts.ready.then(measureReel);
+        if (document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", measureReel);
+      }
+      window.addEventListener("resize", measureReel);
+      preload(1);
     }
-    window.addEventListener("resize", measureReel);
-    preload(1);
+    const want = () => (canStage && fxNow() !== "off" && !ROOT.classList.contains("filtered") ? "stage" : "still");
     if (HAS_IO) {
       new IntersectionObserver((entries) => {
         hero.onScreen = entries[0].isIntersecting;
-        if (hero.onScreen) pump(); else pause();
+        if (hero.mode === "still") stillTick();
       }, { threshold: 0.15 }).observe(heroEl);
     }
-    document.addEventListener("visibilitychange", () => (document.hidden ? pause() : pump()));
-    // The first kit holds for a beat before the roll starts.
-    hero.queue = [[2400, () => {}]];
-    pump();
+    document.addEventListener("visibilitychange", () => { if (hero.mode === "still") stillTick(); });
+    document.addEventListener("fxchange", (e) => {
+      if (e.detail === "off") return heroMode("still");
+      if (hero.mode === "stage" && hero.stage) { hero.stage.setSkin(e.detail); hero.stage.play(true); } else heroMode(want());
+    });
+    hero.recheck = () => heroMode(want());
+    heroMode(want());
   }
 
   // The kit row lights the kit the hero is showing, and its caption follows along.
   function syncKitRow() {
     const blocks = $("#blocks");
     if (!blocks || !DATA) return;
-    const showing = !REDUCED && !ROOT.classList.contains("filtered") ? heroKit(hero.index) : null;
+    const showing = !ROOT.classList.contains("filtered") ? heroKit(hero.index) : null;
     for (const a of $$(".kcard", blocks)) a.classList.toggle("on", Boolean(showing) && a.dataset.kit === showing.id);
     const cap = $("#sync");
     if (cap) cap.innerHTML = showing ? "&uarr; " + pad(showing.index + 1) + " / " + pad(N) + " &middot; " + esc(showing.id) + '.run(showcase.yaml) &rarr; <span class="ok">ok</span>' : "";
@@ -361,7 +465,7 @@
     if (PAGE === "home") {
       ROOT.classList.toggle("filtered", filteredNow());
       syncKitRow();
-      if (filteredNow()) pause(); else pump();
+      if (hero.recheck) hero.recheck();
     }
     if (cardIO) revealFallback();
     if (q.value !== state.q) q.value = state.q;
@@ -500,8 +604,81 @@
       button.textContent = on ? "Show the still" : "Play preview";
       show(on);
     });
-    view.addEventListener("mouseenter", () => show(true));
+    view.addEventListener("mouseenter", () => { if (!view.classList.contains("stg-on")) show(true); });
     view.addEventListener("mouseleave", () => show(pinned()));
+  }
+
+  // A sample's replay: "Watch it build" plays it in place of the picture, with the effect tabs and
+  // the replay's status under it; the Steps panel follows the beats, and a step seeks to its beat.
+  function setupReplay() {
+    const view = $("#view");
+    if (!view || !view.dataset.replay || !document.body.dataset.stage) return;
+    const img = $("img", view);
+    const bar = $("#vbar");
+    const dock = $("#vdock");
+    const watch = document.createElement("button");
+    watch.type = "button";
+    watch.className = "watchbtn";
+    watch.setAttribute("aria-pressed", "false");
+    watch.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg><span>Watch it build</span>';
+    bar.appendChild(watch);
+    bar.appendChild(fxControl("view"));
+    const pre = $(".code pre[data-steps]");
+    const lines = pre ? JSON.parse(pre.dataset.steps) : [];
+    let band = null;
+    let stage = null;
+    let trace = null;
+    const color = getComputedStyle(view).getPropertyValue("--c").trim() || PALETTE[0];
+    const metrics = () => { const cs = getComputedStyle(pre); return { lh: parseFloat(cs.lineHeight) || 21, top: parseFloat(cs.paddingTop) || 16 }; };
+    function highlight(j, beat) {
+      if (!pre || !lines.length) return;
+      const from = j > 0 ? trace.beats[j - 1].at : 0;
+      const a = lines[Math.min(from, lines.length - 1)], b = lines[Math.min(beat.at, lines.length) - 1];
+      if (!a || !b) return;
+      if (!band) { band = document.createElement("span"); band.className = "beatband"; band.setAttribute("aria-hidden", "true"); pre.appendChild(band); }
+      const { lh, top } = metrics();
+      const y = top + a[0] * lh, h = (b[1] - a[0] + 1) * lh;
+      band.style.transform = "translateY(" + y + "px)";
+      band.style.height = h + "px";
+      band.hidden = false;
+      if (y < pre.scrollTop || y + Math.min(h, pre.clientHeight * 0.6) > pre.scrollTop + pre.clientHeight) pre.scrollTo({ top: Math.max(0, y - 24), behavior: REDUCED ? "auto" : "smooth" });
+    }
+    function start() {
+      if (stage) return;
+      view.classList.add("replaying");
+      watch.setAttribute("aria-pressed", "true");
+      watch.lastChild.textContent = "Show the result";
+      if (pre) pre.classList.add("seekable");
+      loadStage().then((KitionStage) => {
+        if (!view.classList.contains("replaying")) return;
+        stage = KitionStage(view, img, { skin: fxNow(), colors: PALETTE, color, hud: dock, loop: true, onBeat: highlight, note: REPLAY_NOTE });
+        return stage.load(view.dataset.replay).then((s) => { trace = s.trace; if (stage) stage.play(true); });
+      }).catch(() => stop());
+    }
+    function stop() {
+      if (stage) { stage.destroy(); stage = null; }
+      view.classList.remove("replaying");
+      watch.setAttribute("aria-pressed", "false");
+      watch.lastChild.textContent = "Watch it build";
+      if (band) band.hidden = true;
+      if (pre) pre.classList.remove("seekable");
+    }
+    watch.addEventListener("click", () => (stage || view.classList.contains("replaying") ? stop() : start()));
+    document.addEventListener("fxchange", (e) => {
+      if (e.detail === "off") stop();
+      else if (stage) { stage.setSkin(e.detail); stage.play(true); } else start();
+    });
+    if (pre) {
+      pre.addEventListener("click", (e) => {
+        if (!stage || !trace || String(window.getSelection && window.getSelection()).length) return;
+        const { lh, top } = metrics();
+        const line = Math.floor((e.clientY - pre.getBoundingClientRect().top + pre.scrollTop - top) / lh);
+        const step = lines.findIndex(([a, b]) => line >= a && line <= b);
+        if (step < 0) return;
+        const beat = trace.beats.findIndex((b) => b.at > step);
+        if (beat >= 0) { stage.seek(beat); stage.play(true); }
+      });
+    }
   }
 
   function setupCopy() {
@@ -532,5 +709,6 @@
   setupReveal();
   centreKit();
   setupPlay();
+  setupReplay();
   setupCopy();
 })();
