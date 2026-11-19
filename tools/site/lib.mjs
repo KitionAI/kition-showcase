@@ -156,6 +156,16 @@ export function sitemap(entries) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries.map(sitemapEntry).join("")}</urlset>\n`;
 }
 
+// A kit's hero sample (the home page's agent panel and its replay): the featured sample with the
+// most commands (the richest build), or the kit's busiest sample when none is featured. Items:
+// { featured, steps (how many), commands, slug }.
+export const HERO_CALLS = 6;
+export function pickHero(own) {
+  const pool = own.filter((s) => s.featured && s.steps >= HERO_CALLS);
+  const from = pool.length ? pool : own;
+  return [...from].sort((a, b) => b.commands - a.commands || a.slug.localeCompare(b.slug))[0];
+}
+
 // The newest of some ISO dates (YYYY-MM-DD), or undefined.
 export const newest = (dates) => dates.filter(Boolean).sort().at(-1);
 

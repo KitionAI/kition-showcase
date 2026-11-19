@@ -204,6 +204,21 @@ largest channel difference ≤ 12, 99th percentile ≤ 2), or a contents line ch
 change is meant to change a sample, rebuild it and commit the new files with the kit commit named in
 the message.
 
+## Replays
+
+The website plays a replay of some samples being built: each kit's home-page sample and every
+`featured` one. `node tools/trace.mjs` makes them (`node tools/trace.mjs doc/service-invoice` for
+one) into `.trace/<kit>/<slug>/`, which is not committed: the kit's runner renders the sample after
+its first N steps for a series of N, the pixel difference of consecutive renders gives the places
+each group of steps changed, and the steps fold into 8–16 beats (`tools/trace-core.mjs`). A comment
+above a step (`# Masthead`) becomes the caption of the beat it starts. A trace is up to date while
+`showcase.yaml` and the kit commit are the same; the site leaves out a trace made from an older
+`showcase.yaml`. `npm run deploy` runs the trace step first, so the deployed site has every replay
+whose kit runner builds.
+
+The actors (cursors, spider, squid) only go to places that changed in the kit's own renders, and
+every frame is the kit's render: keep it that way.
+
 ## Export
 
 ```sh

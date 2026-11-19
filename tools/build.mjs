@@ -46,7 +46,7 @@ export function validate(sample, features) {
   return problems;
 }
 
-function git(repo, ...args) {
+export function git(repo, ...args) {
   try {
     return execFileSync("git", ["-C", repo, ...args], { encoding: "utf8" }).trim();
   } catch {
@@ -58,17 +58,17 @@ function sha256(file) {
   return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 }
 
-function runner(kit) {
+export function runner(kit) {
   return path.join(KITION_ROOT, KITS[kit].repo, "target", "release", "examples", "showcase");
 }
 
-function buildRunner(kit) {
+export function buildRunner(kit) {
   const { cargo, env } = cargoEnv();
   console.log(`building ${KITS[kit].package} --example showcase`);
   execFileSync(cargo, ["build", "--quiet", "--release", "-p", KITS[kit].package, "--example", "showcase"], { cwd: path.join(KITION_ROOT, KITS[kit].repo), env, stdio: "inherit" });
 }
 
-function run(binary, request, env = {}) {
+export function run(binary, request, env = {}) {
   return new Promise((resolve) => {
     const child = spawn(binary, [request], { stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, ...env } });
     let stdout = "";

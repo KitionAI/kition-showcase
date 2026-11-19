@@ -3,7 +3,7 @@ import test from "node:test";
 
 import {
   DESCRIPTION_MAX, clip, esc, hashName, homeDescription, homeLd, homeTitle, jsonLdScript, kitDescription, kitLd, kitTitle,
-  newest, sampleDescription, sampleLd, sampleTitle, sitemap, sitemapEntry, urls,
+  newest, pickHero, sampleDescription, sampleLd, sampleTitle, sitemap, sitemapEntry, urls,
 } from "./site/lib.mjs";
 import { header } from "./site/pages.mjs";
 import { formatStars, GITHUB_STARS_FALLBACK, githubStarsAtBuild } from "./site/github.mjs";
@@ -187,4 +187,14 @@ test("github: the build's count, the fallback when GitHub doesn't answer", async
   } finally {
     console.warn = quiet;
   }
+});
+
+test("pickHero: the featured sample with the most commands, else the busiest", () => {
+  const own = [
+    { slug: "a", featured: false, steps: 90, commands: 90 },
+    { slug: "b", featured: true, steps: 20, commands: 20 },
+    { slug: "c", featured: true, steps: 3, commands: 300 },
+  ];
+  assert.equal(pickHero(own).slug, "b");
+  assert.equal(pickHero(own.map((s) => ({ ...s, featured: false }))).slug, "c");
 });

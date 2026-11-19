@@ -11,7 +11,8 @@
     "site": "node tools/site.mjs",
     "test": "node --test tools/*.test.mjs",
     "site:cloudflare": "node tools/site.mjs --out .cloudflare/showcase && cp tools/site/cloudflare-headers .cloudflare/_headers",
-    "deploy": "npm run site:cloudflare && npx wrangler@4 deploy"
+    "deploy": "node tools/trace.mjs && npm run site:cloudflare && npx wrangler@4 deploy",
+    "trace": "node tools/trace.mjs"
   },
   "dependencies": {
     "pngjs": "7.0.0",
