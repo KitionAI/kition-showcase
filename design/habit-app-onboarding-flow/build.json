@@ -1,0 +1,30 @@
+{
+  "id": "design/habit-app-onboarding-flow",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    3000,
+    2000
+  ],
+  "stats": "1 page; 55 layers; 1330 × 844 design",
+  "commands": 64,
+  "document": {
+    "name": "habit-app-onboarding-flow.kdesign",
+    "bytes": 58858,
+    "sha256": "53b0c3b3a3da1525a8af3c7c55947ebeb024e12fdff956956a34eca0305d7795"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      406
+    ],
+    "sha256": "7ec35cf8f6bed93ff44f16d89ea3fc3401174b2956f48bb919edb443c695042f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 21
+}

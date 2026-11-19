@@ -1,0 +1,30 @@
+{
+  "id": "cad/garden-house-site-plan",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1868,
+    1549
+  ],
+  "stats": "47 objects; 10 layers",
+  "commands": 79,
+  "document": {
+    "name": "garden-house-site-plan.dxf",
+    "bytes": 42683,
+    "sha256": "2d99a8edace05b7ea4e3e37f8d44ca44b19fd99d373c589471e25910d93081a8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      531
+    ],
+    "sha256": "6ad9db39ef2d88d2e95f6ba9aabeb1407ff9f65c3c1ee6a326dd36d05f7298f4"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 23
+}

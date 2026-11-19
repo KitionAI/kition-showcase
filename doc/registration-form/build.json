@@ -1,0 +1,30 @@
+{
+  "id": "doc/registration-form",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 174 words",
+  "commands": 217,
+  "document": {
+    "name": "registration-form.docx",
+    "bytes": 8028,
+    "sha256": "63475d21d43b01522b4e00d4c41d6611f352b9988e88ee4ee3d9d6f7ba725643"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "d123fd7b795062e58b29fe9a2022c176eaa240d61d4d4398a6f0164bc3412637"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 72
+}

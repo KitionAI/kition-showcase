@@ -1,0 +1,114 @@
+format: 1
+id: pdf/swim-club-registration-form
+title: Swim Club Registration Form
+summary: A one-page membership form with text fields, a radio group, a drop-down, a multi-select list, check boxes and a signature field, filled in for one member.
+category: Forms
+tags: [form-fields, radio-buttons, dropdown, checkboxes, signature-field]
+features: [pdf.forms, pdf.forms.fill, pdf.content, pdf.comments]
+featured: true
+description: |
+  The page is drawn from scratch: a flattened rectangle makes the header band, added text makes the
+  labels, and every blank is a real AcroForm field (text, date, radio group, combo box, list box,
+  check boxes, signature). `form_set_props` styles the fields in one bulk edit and marks the name
+  and email required; `form_fill` then enters one member's answers, so every viewer shows them.
+document: { name: swim-club-registration-form.pdf, width: 612, height: 792 }
+steps:
+  # Header band and section rules, drawn as comments and merged into the page.
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [0, 0, 612, 104], color: "#0b4f6c", fill: "#0b4f6c", width: 0 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [0, 104, 612, 110], color: "#f2a541", fill: "#f2a541", width: 0 } }
+  - { command: comment_add, params: { page: 1, type: line, from: [54, 156], to: [558, 156], color: "#0b4f6c", width: 0.75 } }
+  - { command: comment_add, params: { page: 1, type: line, from: [54, 330], to: [558, 330], color: "#0b4f6c", width: 0.75 } }
+  - { command: comment_add, params: { page: 1, type: line, from: [54, 506], to: [558, 506], color: "#0b4f6c", width: 0.75 } }
+  - { command: comment_add, params: { page: 1, type: line, from: [54, 610], to: [558, 610], color: "#0b4f6c", width: 0.75 } }
+  - { command: doc_flatten, params: { comments: true } }
+  - { command: page_add_text, params: { page: 1, at: [54, 30], width: 400, text: Harbourside Swim Club, size: 24, bold: true, color: "#ffffff" } }
+  - { command: page_add_text, params: { page: 1, at: [54, 64], width: 400, text: "Membership registration  ·  2027 season", size: 12, color: "#cfe6f0" } }
+  - { command: page_add_text, params: { page: 1, at: [400, 40], width: 158, text: "Pool office\nOpen 7am to 9pm daily", size: 9, color: "#cfe6f0", align: right } }
+  # 1 Member details
+  - { command: page_add_text, params: { page: 1, at: [54, 136], width: 300, text: 1   Member details, size: 13, bold: true, color: "#0b4f6c" } }
+  - { command: page_add_text, params: { page: 1, at: [54, 168], width: 260, text: Full name, size: 8.5, color: "#5b6770" } }
+  - { command: page_add_text, params: { page: 1, at: [350, 168], width: 200, text: Date of birth, size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [54, 180, 334, 200], name: full_name } }
+  - { command: form_add_field, params: { page: 1, type: date, rect: [350, 180, 558, 200], name: date_of_birth } }
+  - { command: page_add_text, params: { page: 1, at: [54, 212], width: 260, text: Email, size: 8.5, color: "#5b6770" } }
+  - { command: page_add_text, params: { page: 1, at: [350, 212], width: 200, text: Phone, size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [54, 224, 334, 244], name: email } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [350, 224, 558, 244], name: phone } }
+  - { command: page_add_text, params: { page: 1, at: [54, 256], width: 260, text: Home address, size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [54, 268, 558, 288], name: address } }
+  # 2 Membership
+  - { command: page_add_text, params: { page: 1, at: [54, 310], width: 300, text: 2   Membership, size: 13, bold: true, color: "#0b4f6c" } }
+  - { command: page_add_text, params: { page: 1, at: [54, 342], width: 260, text: Membership type, size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: radio, rect: [54, 356, 66, 368], group: membership, export: Adult } }
+  - { command: page_add_text, params: { page: 1, at: [71, 356], width: 60, text: Adult, size: 10 } }
+  - { command: form_add_field, params: { page: 1, type: radio, rect: [124, 356, 136, 368], group: membership, export: Family } }
+  - { command: page_add_text, params: { page: 1, at: [141, 356], width: 60, text: Family, size: 10 } }
+  - { command: form_add_field, params: { page: 1, type: radio, rect: [196, 356, 208, 368], group: membership, export: Junior } }
+  - { command: page_add_text, params: { page: 1, at: [213, 356], width: 60, text: Junior, size: 10 } }
+  - { command: form_add_field, params: { page: 1, type: radio, rect: [266, 356, 278, 368], group: membership, export: Senior } }
+  - { command: page_add_text, params: { page: 1, at: [283, 356], width: 60, text: Senior, size: 10 } }
+  - { command: page_add_text, params: { page: 1, at: [350, 342], width: 200, text: Start month, size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: combo, rect: [350, 352, 558, 372], name: start_month, options: [January, February, March, April, May, June] } }
+  - { command: page_add_text, params: { page: 1, at: [54, 388], width: 260, text: "Classes of interest (choose any)", size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: list, rect: [54, 400, 300, 478], name: classes, multi_select: true, options: [Lane swimming, Aqua fitness, Stroke clinic, Junior squad, Open-water preparation] } }
+  - { command: form_add_field, params: { page: 1, type: checkbox, rect: [350, 402, 362, 414], name: newsletter } }
+  - { command: page_add_text, params: { page: 1, at: [368, 402], width: 190, text: Send me the monthly newsletter, size: 10 } }
+  - { command: form_add_field, params: { page: 1, type: checkbox, rect: [350, 426, 362, 438], name: volunteer } }
+  - { command: page_add_text, params: { page: 1, at: [368, 426], width: 190, text: I can help at gala weekends, size: 10 } }
+  - { command: form_add_field, params: { page: 1, type: checkbox, rect: [350, 450, 362, 462], name: photo_consent } }
+  - { command: page_add_text, params: { page: 1, at: [368, 450], width: 190, text: Club photos may include me, size: 10 } }
+  # 3 Emergency contact
+  - { command: page_add_text, params: { page: 1, at: [54, 486], width: 300, text: 3   Emergency contact, size: 13, bold: true, color: "#0b4f6c" } }
+  - { command: page_add_text, params: { page: 1, at: [54, 518], width: 200, text: Name, size: 8.5, color: "#5b6770" } }
+  - { command: page_add_text, params: { page: 1, at: [256, 518], width: 140, text: Relationship, size: 8.5, color: "#5b6770" } }
+  - { command: page_add_text, params: { page: 1, at: [412, 518], width: 140, text: Phone, size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [54, 530, 240, 550], name: contact_name } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [256, 530, 396, 550], name: contact_relationship } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [412, 530, 558, 550], name: contact_phone } }
+  - { command: page_add_text, params: { page: 1, at: [54, 566], width: 504, text: "Medical notes the lifeguards should know about (optional)", size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: text, rect: [54, 578, 558, 596], name: medical_notes } }
+  # 4 Declaration
+  - { command: page_add_text, params: { page: 1, at: [54, 622], width: 300, text: 4   Declaration, size: 13, bold: true, color: "#0b4f6c" } }
+  - { command: form_add_field, params: { page: 1, type: checkbox, rect: [54, 648, 66, 660], name: rules_agreed } }
+  - { command: page_add_text, params: { page: 1, at: [72, 648], width: 486, text: "I have read the pool rules and confirm the member can swim 25 metres unaided.", size: 10 } }
+  - { command: page_add_text, params: { page: 1, at: [54, 674], width: 260, text: Signature, size: 8.5, color: "#5b6770" } }
+  - { command: page_add_text, params: { page: 1, at: [350, 674], width: 200, text: Date signed, size: 8.5, color: "#5b6770" } }
+  - { command: form_add_field, params: { page: 1, type: signature, rect: [54, 686, 334, 720], name: signature } }
+  - { command: form_add_field, params: { page: 1, type: date, rect: [350, 686, 558, 706], name: date_signed } }
+  - { command: page_add_text, params: { page: 1, at: [54, 746], width: 504, text: "Hand the form in at the pool office or send it to members@harbourside.example. Fees are taken on the first of the month.", size: 8, color: "#5b6770", align: center } }
+  # Style every field at once, then mark the two the office cannot do without.
+  - command: form_set_props
+    params:
+      fields: [full_name, date_of_birth, email, phone, address, start_month, classes, contact_name, contact_relationship, contact_phone, medical_notes, date_signed]
+      appearance: { border: "#9db8c6", fill: "#f3f8fb", width: 1 }
+      font_size: 10
+  - { command: form_set_props, params: { fields: [full_name, email], required: true } }
+  - command: form_fill
+    params:
+      values:
+        full_name: Amara Lindqvist
+        date_of_birth: 03/22/1988
+        email: amara.l@example.net
+        phone: 555 0142 381
+        address: 14 Quayside Terrace, Harbourside
+        membership: Family
+        start_month: January
+        classes: [Lane swimming, Stroke clinic]
+        newsletter: true
+        photo_consent: true
+        contact_name: Jonas Lindqvist
+        contact_relationship: Partner
+        contact_phone: 555 0188 902
+        rules_agreed: true
+  - { command: form_fields, as: form }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      formFields: 18
+  - actual: results
+    values:
+      form.count: 18
+      form.fields: { any: { name: membership, type: radio, value: Family }, all: { page: 1 } }
+      form.fields.0: { name: full_name, required: true, value: Amara Lindqvist }
+since: "2026-11-09"

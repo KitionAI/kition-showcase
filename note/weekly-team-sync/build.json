@@ -1,0 +1,30 @@
+{
+  "id": "note/weekly-team-sync",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1466
+  ],
+  "stats": "1 page; 147 words; 5 headings; 1 table",
+  "commands": 6,
+  "document": {
+    "name": "weekly-team-sync.md",
+    "bytes": 1055,
+    "sha256": "a6656587d0839de0c41be5ff247552c441eab3718e33ca7a96363ae32aefd050"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "9b0c925db53c558d54d55259f9eb908d9fe1e8a3db3c505fc2dc751ba3a28e60"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 9
+}

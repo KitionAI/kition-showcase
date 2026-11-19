@@ -1,0 +1,30 @@
+{
+  "id": "html/coffee-roaster-landing-hero",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    800
+  ],
+  "stats": "1280 × 800 px; 4.1 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "coffee-roaster-landing-hero.html",
+    "bytes": 4221,
+    "sha256": "ffcc5b6910e25f102101e95710f3df9c6786809f196bb9eb36b40b7ed22c755e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "55741d64082e4aea6199e35f8b55e56e72e3439805febc56254648aca96a6c81"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 18
+}

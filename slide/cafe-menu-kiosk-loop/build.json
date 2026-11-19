@@ -1,0 +1,30 @@
+{
+  "id": "slide/cafe-menu-kiosk-loop",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    1780
+  ],
+  "stats": "3 slides; 960 × 540 pt",
+  "commands": 215,
+  "document": {
+    "name": "cafe-menu-kiosk-loop.pptx",
+    "bytes": 27461,
+    "sha256": "3a586d3b76d55cb15687608265ae89d80e7c63a6e488f30db390eba187d9a92b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "e7dd632f1a7aac8f07c598586672bb673bdd0a3ea8c761a39a754148e661126a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 240
+}

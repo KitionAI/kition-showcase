@@ -1,0 +1,30 @@
+{
+  "id": "vector/community-solar-infographic",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1 artboard; 3 layers; 80 objects",
+  "commands": 81,
+  "document": {
+    "name": "community-solar-infographic.kvector",
+    "bytes": 51580,
+    "sha256": "1683ef548347c3f1bc7543c5136cb57e4e4ef7eef6c8699ec91ff91cfd05e2e4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "6e7819824a8dcbda8733927776bb82d9502f1074b96f72da222eb26a1825a3f0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 121
+}

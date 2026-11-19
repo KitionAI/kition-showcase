@@ -1,0 +1,34 @@
+{
+  "id": "film/road-trip-hold-keyframes",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 6.0 s; 3 video clips; 11 effects; 1 animated effect",
+  "commands": 33,
+  "document": {
+    "name": "road-trip-hold-keyframes.kfilm",
+    "bytes": 26045,
+    "sha256": "13bffebfa781195f3a34f64a4b167b31e76f0b2b2b3872bd3d65dd905d7157d2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "0596e5cc3c9e59d34f75ee19787edc891e5e969cf5fa3ef1a315be4b82dc7d37"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 32,
+    "bytes": 3500
+  },
+  "diagnostics": [],
+  "built_ms": 36
+}

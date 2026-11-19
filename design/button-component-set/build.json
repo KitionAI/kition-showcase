@@ -1,0 +1,30 @@
+{
+  "id": "design/button-component-set",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    3000,
+    2000
+  ],
+  "stats": "1 page; 51 layers; 1060 × 470 design",
+  "commands": 60,
+  "document": {
+    "name": "button-component-set.kdesign",
+    "bytes": 57188,
+    "sha256": "fe907497c6f99cfd2658e9ebc4d9ab853496fed53d1648d09557363fc99774ac"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      284
+    ],
+    "sha256": "5a2adf9b9e15d72a0d410ff397fad8bbf39fd9f60d7dc919e89424f0637849e5"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 23
+}

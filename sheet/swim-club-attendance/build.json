@@ -1,0 +1,30 @@
+{
+  "id": "sheet/swim-club-attendance",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1426,
+    2029
+  ],
+  "stats": "1 sheet; used range A1:Q30",
+  "commands": 43,
+  "document": {
+    "name": "swim-club-attendance.xlsx",
+    "bytes": 8320,
+    "sha256": "b3c8479e9ebb308021e0c1e143ab51a8e2f408c79171010358c51a5610847242"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      342
+    ],
+    "sha256": "a4b335fd621268115bbb04061d6f77a31b13467ea40691d78f83953c0f512adc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 150
+}

@@ -1,0 +1,34 @@
+{
+  "id": "film/four-camera-angle-cut",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 10.0 s; 5 video clips; 1 audio clip",
+  "commands": 10,
+  "document": {
+    "name": "four-camera-angle-cut.kfilm",
+    "bytes": 24177,
+    "sha256": "0a828be9f29bc54d79ac735e84e99c6e8f193f8f3abd1573cfbe875e37ed9a1c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "eb51216d6e6432cdd994ac1df48d8db6bd2592c2cb7d67ae32c6164cdbb6a524"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 40,
+    "bytes": 129490
+  },
+  "diagnostics": [],
+  "built_ms": 26
+}

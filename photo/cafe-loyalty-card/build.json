@@ -1,0 +1,30 @@
+{
+  "id": "photo/cafe-loyalty-card",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1050,
+    600
+  ],
+  "stats": "1050 × 600 px; 14 layers; 6 type layers; 4 shape layers; 1 fill layer; 1 group; 2 styled layers; 1 mask",
+  "commands": 26,
+  "document": {
+    "name": "cafe-loyalty-card.psd",
+    "bytes": 3885631,
+    "sha256": "6a5c3af3dcedd3be0db466a656d0a193cb293362213843c5247599f9f1fc7654"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      366
+    ],
+    "sha256": "38409344eb6ed3fa4eb3eacd6cfc561991d72a5a26f8b80b887cc25996bd23c2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 746
+}

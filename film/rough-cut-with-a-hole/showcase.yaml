@@ -1,0 +1,43 @@
+format: 1
+id: film/rough-cut-with-a-hole
+title: Rough Cut With a Hole
+summary: A rough cut handed over mid-edit, with a hole waiting for a pickup shot, a disabled alternate take and a locked, muted guide track.
+category: Editing & Timeline
+tags: [rough-cut, gap, disabled-clip, track-states, markers, demo-footage]
+features: [film.timeline.basics, film.timeline.edit, film.clip.properties, film.markers.basics]
+description: |
+  This sample is meant to fail the kit's check, the way a real work-in-progress does. Video 1
+  has two seconds of black between the dunes and the forest where a pickup shot will go, flagged
+  with a red range marker; the check reports it as `film.gap`. Above the forest, an alternate
+  take of the neon sign is kept on Video 2 but disabled, so it neither shows nor plays
+  (`film.disabled-clip`). The temp score on Audio 2 is renamed Guide, muted and locked so nobody
+  mixes against it by accident. The thumbnail is the opening shot; the preview runs across the
+  hole and under the disabled take, where only the forest on Video 1 shows.
+document: { name: rough-cut-with-a-hole.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Rough Cut 3, width: 1280, height: 720, fps: 24, video: 2, audio: 2 }, as: sequence }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 0, sourceIn: 508032000000, duration: 1016064000000 }, as: ocean }
+  - { command: timeline.place, params: { item: 8, track: V1, seconds: 4, sourceIn: 254016000000, duration: 1016064000000 }, as: dunes }
+  - { command: timeline.place, params: { item: 9, track: V1, seconds: 10, sourceIn: 254016000000, duration: 1016064000000 }, as: forest }
+  - { command: timeline.place, params: { item: 10, track: V2, seconds: 10.5, duration: 762048000000, audio: false }, as: altTake }
+  - { command: clip.enable, params: { clips: [$altTake.clips.0] } }
+  - { command: timeline.place, params: { item: 11, track: A2, seconds: 0, duration: 3556224000000 }, as: guide }
+  - { command: timeline.setTrack, params: { track: A2, name: Guide, muted: true, locked: true } }
+  - { command: markers.add, params: { target: program, seconds: 8, durationSeconds: 2, name: Pickup shot, comment: Wide of the dunes at dusk goes here, color: Red } }
+  - { command: markers.add, params: { target: program, seconds: 10.5, name: Alt take?, comment: Director to choose between forest and neon, color: Yellow } }
+thumbnail: { at: 2 }
+preview: { from: 6, to: 12, fps: 5, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 3 }
+      sequence.video.0.items.1.end: 2032128000000
+      sequence.video.0.items.2.start: 2540160000000
+      sequence.video.1.items: { count: 1 }
+      sequence.video.1.items.0: { name: Neon_Loop.mov, enabled: false }
+      sequence.audio.1: { name: Guide, muted: true, locked: true }
+      sequence.audio.1.items.0.name: Ambient_Score.wav
+      sequence.markers: { count: 2, any: { name: Pickup shot, color: Red, start: 2032128000000, duration: 508032000000 } }
+diagnostics: [film.gap, film.disabled-clip]
+since: "2026-11-09"

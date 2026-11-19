@@ -1,0 +1,30 @@
+{
+  "id": "slide/planet-tour-morph",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    2360
+  ],
+  "stats": "4 slides; 960 × 540 pt",
+  "commands": 96,
+  "document": {
+    "name": "planet-tour-morph.pptx",
+    "bytes": 27691,
+    "sha256": "55ef431bc2e2f5d2a9e49bc0289b6d2e960611e61e32cac7787663170c4f9f97"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "c81105a6b13eb85fd2a48fd56be082dced39c7bef1ecf14d7a5531287c4ff90f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 117
+}

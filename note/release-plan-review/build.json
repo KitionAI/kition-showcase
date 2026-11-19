@@ -1,0 +1,30 @@
+{
+  "id": "note/release-plan-review",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1056
+  ],
+  "stats": "1 page; 109 words; 5 headings",
+  "commands": 12,
+  "document": {
+    "name": "release-plan-review.md",
+    "bytes": 713,
+    "sha256": "59bb3c107db2c623451a4e59b18de93b07497561674700e75f5d743d6f3dcad6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      565
+    ],
+    "sha256": "9fe0e4721d326b181dfd14e03224ebecc6eb4acf0fa423b17dc034d2837563bb"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 14
+}

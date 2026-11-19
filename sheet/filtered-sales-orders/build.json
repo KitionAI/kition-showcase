@@ -1,0 +1,30 @@
+{
+  "id": "sheet/filtered-sales-orders",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1788,
+    1691
+  ],
+  "stats": "1 sheet; used range A1:H33",
+  "commands": 41,
+  "document": {
+    "name": "filtered-sales-orders.xlsx",
+    "bytes": 6990,
+    "sha256": "7ff804e328e6c49e0ece541cd0a18027eb48decee7c2d58c0f76b1b952d6ee1a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      357
+    ],
+    "sha256": "56529b89a170b019bf0e86af9fd772c0f489ee9dbd0d3a53ff40ce13c79d8f2c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 52
+}

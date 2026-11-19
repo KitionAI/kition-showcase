@@ -1,0 +1,30 @@
+{
+  "id": "photo/double-exposure-portrait",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1100,
+    1400
+  ],
+  "stats": "1100 × 1400 px; 13 layers; 2 type layers; 7 shape layers; 2 fill layers",
+  "commands": 26,
+  "document": {
+    "name": "double-exposure-portrait.psd",
+    "bytes": 3423648,
+    "sha256": "e385715a252c29ba1f320f40f454e08fc95f5af114be54afbb1dacb46c6c1091"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      503,
+      640
+    ],
+    "sha256": "c3b2bf1fdddefe461de270bb1c0f011556ea47122534b4cfd951acf6725a5e18"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 493
+}

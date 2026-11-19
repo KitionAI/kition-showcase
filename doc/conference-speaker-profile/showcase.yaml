@@ -1,0 +1,180 @@
+format: 1
+id: doc/conference-speaker-profile
+title: Conference Speaker Profile
+summary: A one-page speaker profile for a conference programme — name block beside a photo frame, ruled section headings, right-aligned dates on tab stops and a list of talk topics.
+category: Resumes
+tags: [speaker-bio, tab-stops, a4, text-box, bullets]
+features: [doc.format.paragraph, doc.styles.manage, doc.drawing.objects, doc.lists.bullets-numbering]
+description: |
+  The kind of sheet a conference sends to its chairs and press: built from five paragraph
+  styles — the name, the session line, a contact line, section headings with a coloured rule
+  beneath, entry lines whose dates sit on a right tab stop at the margin, and indented details.
+  The photo frame is a floating rectangle with a thin outline in the top-right corner. Set in
+  Inter and Carlito, loaded with the sample.
+document: { name: conference-speaker-profile.docx, width: 794, height: 1123 }
+fonts:
+  - inter/Inter-Variable.ttf
+  - carlito/Carlito-Regular.ttf
+  - carlito/Carlito-Bold.ttf
+  - carlito/Carlito-Italic.ttf
+steps:
+  - { command: review.proofing, as: proofing }
+  - { command: layout.size, params: { name: A4 } }
+  - { command: layout.margins, params: { top: 44, bottom: 40, left: 62, right: 62 } }
+  - { command: design.themeFonts, params: { heading: Inter, body: Carlito } }
+  - { command: styles.modify, params: { style: Normal, chr: { size: 10.5, color: { Rgb: [45, 45, 45] } }, para: { align: left, spaceBefore: 0, spaceAfter: 2, lineSpacing: { rule: multiple, value: 1.2 } } } }
+  - { command: styles.create, params: { name: Speaker Name, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Speaker Name, chr: { font: Inter, size: 26, bold: true, color: { Rgb: [22, 78, 99] } }, para: { align: left, spaceAfter: 2 } } }
+  - { command: styles.create, params: { name: Session Line, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Session Line, chr: { size: 13, color: { Rgb: [200, 110, 40] } }, para: { align: left, spaceAfter: 8 } } }
+  - { command: styles.create, params: { name: Contact Line, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Contact Line, chr: { size: 10, color: { Rgb: [90, 90, 90] } }, para: { align: left, spaceAfter: 1 } } }
+  - { command: styles.create, params: { name: Section Heading, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Section Heading, chr: { font: Inter, size: 11.5, bold: true, spacing: 0.5, color: { Rgb: [22, 78, 99] } }, para: { align: left, spaceBefore: 12, spaceAfter: 5, keepNext: true } } }
+  - { command: styles.create, params: { name: Entry, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Entry, chr: { bold: true, color: { Rgb: [30, 30, 30] } }, para: { align: left, spaceBefore: 5, spaceAfter: 1, tabs: [ { pos: 471, align: right } ] } } }
+  - { command: styles.create, params: { name: Entry Detail, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Entry Detail, para: { indentLeft: 14 } } }
+  # Name block
+  - { command: para.style, params: { style: Speaker Name } }
+  - { command: text.insert, params: { text: "Dr Maya Castell" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Session Line } }
+  - { command: text.insert, params: { text: "Keynote: Cooler Streets for Warmer Summers" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Contact Line } }
+  - { command: text.insert, params: { text: "Hall B  ·  Thursday 11 March 2027, 10:30–11:15" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "maya.castell@mail.example  ·  Westbrook, UK" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Urban climate scientist  ·  15 years in city adaptation" } }
+  - { command: text.newParagraph }
+  # About
+  - { command: para.style, params: { style: Section Heading } }
+  - { command: para.borders, params: { kind: bottom, width: 1.5, color: "164E63" } }
+  - { command: text.insert, params: { text: "ABOUT THE SPEAKER" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: para.borders, params: { kind: none } }
+  - { command: para.indents, params: { left: 0 } }
+  - { command: text.insert, params: { text: "Maya Castell studies how streets, trees and building materials shape the temperature of a city, and works with councils to turn that research into shade, planting and cooler public spaces. Her keynote shows what three mid-sized cities changed after record summers, what it cost, and which measures residents noticed first." } }
+  - { command: text.newParagraph }
+  # Current roles
+  - { command: para.style, params: { style: Section Heading } }
+  - { command: para.borders, params: { kind: bottom, width: 1.5, color: "164E63" } }
+  - { command: text.insert, params: { text: "CURRENT ROLES" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry } }
+  - { command: para.borders, params: { kind: none } }
+  - { command: text.insert, params: { text: "Westbrook University — Reader in Urban Climate" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "2021 – present" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: para.bullets, params: { kind: "▪" } }
+  - { command: text.insert, params: { text: "Leads the Heat in Cities lab, a team of nine measuring street temperatures across four cities." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Teaches the master's module on climate-resilient design to planners and architects." } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  - { command: para.style, params: { style: Entry } }
+  - { command: text.insert, params: { text: "Regional Climate Panel — Independent Adviser" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "2023 – present" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: para.bullets, params: { kind: "▪" } }
+  - { command: text.insert, params: { text: "Advises eleven councils on summer heat plans, tree-planting targets and cool-roof standards." } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  # Recent talks
+  - { command: para.style, params: { style: Section Heading } }
+  - { command: para.borders, params: { kind: bottom, width: 1.5, color: "164E63" } }
+  - { command: text.insert, params: { text: "RECENT TALKS" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry } }
+  - { command: para.borders, params: { kind: none } }
+  - { command: text.insert, params: { text: "Shade as Infrastructure — Future Cities Forum" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "Sep 2026" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: text.insert, params: { text: "Opening keynote to 900 delegates on budgeting for trees and canopies like roads and drains." } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry } }
+  - { command: text.insert, params: { text: "Measuring Heat Street by Street — Open Data Summit" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "Apr 2026" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: text.insert, params: { text: "Workshop on low-cost sensor networks run with school science clubs." } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry } }
+  - { command: text.insert, params: { text: "The Cool Roof Question — Building Materials Week" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "Nov 2025" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: text.insert, params: { text: "Panel chair; compared reflective roofs with green roofs on cost, cooling and upkeep." } }
+  - { command: text.newParagraph }
+  # Topics
+  - { command: para.style, params: { style: Section Heading } }
+  - { command: para.borders, params: { kind: bottom, width: 1.5, color: "164E63" } }
+  - { command: text.insert, params: { text: "SPEAKS ABOUT" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: para.borders, params: { kind: none } }
+  - { command: para.bullets, params: { kind: "▪" } }
+  - { command: text.insert, params: { text: "Urban heat islands, and how to map them with sensors, satellites and residents." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Trees, water and materials as everyday tools for cooling streets." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Making the case for adaptation in a council budget." } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  # Publications
+  - { command: para.style, params: { style: Section Heading } }
+  - { command: para.borders, params: { kind: bottom, width: 1.5, color: "164E63" } }
+  - { command: text.insert, params: { text: "SELECTED WRITING" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry } }
+  - { command: para.borders, params: { kind: none } }
+  - { command: text.insert, params: { text: "Cooler Streets: A Field Guide for Councils" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "2025" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: text.insert, params: { text: "Short book with forty worked examples, from street trees to water fountains; free to download." } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry } }
+  - { command: text.insert, params: { text: "Who Feels the Heat? Street Temperature and Income" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "2024" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: text.insert, params: { text: "Journal article with three co-authors, mapping summer heat against household income in four cities." } }
+  - { command: text.newParagraph }
+  # Notes for the chair
+  - { command: para.style, params: { style: Section Heading } }
+  - { command: para.borders, params: { kind: bottom, width: 1.5, color: "164E63" } }
+  - { command: text.insert, params: { text: "NOTES FOR THE CHAIR" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Entry Detail } }
+  - { command: para.borders, params: { kind: none } }
+  - { command: para.indents, params: { left: 0 } }
+  - { command: text.insert, params: { text: "Pronounced \"MY-uh kas-TELL\". Happy to take questions from the floor for ten minutes; slides will be shared with delegates after the session." } }
+  # Photo frame, top right
+  - { command: drawing.insert, params: { kind: shape, geometry: { preset: rect }, frame: { x: 437, y: 44, w: 96, h: 124 }, placement: { page: 0 }, fill: "#EEF3F5", stroke: { color: "#9FB5BF", width: 1 }, paragraphs: [ { align: center, runs: [ { text: "Photo", size: 11, color: "#7A8F99" } ] } ], body: { anchor: middle } }, as: photo }
+  - { command: insert.closeHeader }
+  - { command: caret.docEnd }
+  - { command: review.wordCount, as: count }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+  - actual: results
+    values:
+      count.words: { min: 280 }
+      photo.id: { exists: true }
+diagnostics: []
+since: "2026-11-09"

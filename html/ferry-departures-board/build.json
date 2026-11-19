@@ -1,0 +1,30 @@
+{
+  "id": "html/ferry-departures-board",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1100,
+    540
+  ],
+  "stats": "1100 × 540 px; 3.2 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "ferry-departures-board.html",
+    "bytes": 3269,
+    "sha256": "e50235efc9b21b1a418fbe7ec01bf0345bbda37ed5c97d762ea9e2f210e794c8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      314
+    ],
+    "sha256": "477c774caae474d48cf0a56e9d6360e44a356e71703bc689effe70da8ad4016c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 11
+}

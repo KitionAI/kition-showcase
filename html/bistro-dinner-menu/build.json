@@ -1,0 +1,30 @@
+{
+  "id": "html/bistro-dinner-menu",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    712
+  ],
+  "stats": "1000 × 712 px; 4.1 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "bistro-dinner-menu.html",
+    "bytes": 4213,
+    "sha256": "1f4ed8e8c75a1a04cc245eb08264b84d14d919c911eed035f9b075d3b2276349"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      456
+    ],
+    "sha256": "7929822c027f27bca61edec5db0232a26c0c581b26fe47c239a34ec6ca499d4a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 12
+}

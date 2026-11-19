@@ -1,0 +1,60 @@
+format: 1
+id: film/portrait-recipe-feed
+title: Portrait Recipe Feed Video
+summary: A 4:5 feed video for a quick recipe, with wrapped paragraph steps and a filling progress bar.
+category: Formats & Social
+tags: [portrait, social, titles, shapes, keyframes]
+features: [film.graphics.titles, film.graphics.text-basics, film.effects.keyframes]
+description: |
+  A 1080 × 1350 (4:5) sequence, the tallest shape most feeds show without cropping. The method
+  is paragraph text: graphics.newText with a 900 × 620 `box`, so the steps wrap on their own and
+  the list reports no overflow; the step numbers are orange bold runs set with
+  graphics.setCharStyle. The progress bar is a rectangle anchored at its left end with Uniform
+  Scale off, so keyframing Scale Width from 0 to 100 fills it left to right over the clip.
+document: { name: portrait-recipe-feed.kfilm, width: 1080, height: 1350 }
+steps:
+  - { command: sequence.settings, params: { name: Miso Soup 4x5, width: 1080, height: 1350, fps: 30 } }
+  - { command: file.newColorMatte, params: { color: "#f6efe3", seconds: 8 }, as: matte }
+  - { command: timeline.place, params: { item: $matte.item, track: V1, seconds: 0 } }
+  - { command: graphics.newRectangle, params: { position: [540, 230], size: [1080, 460], seconds: 8, track: 1, time: 0 }, as: recipe }
+  - { command: graphics.set, params: { clip: $recipe.clip, layer: 0, props: { name: Header, fill_color: "#2f4a3a" } } }
+  - { command: graphics.newText, params: { clip: $recipe.clip, text: WEEKNIGHT KITCHEN  ·  NO. 18, position: [90, 150], size: 26, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $recipe.clip, layer: 1, props: { name: Series, tracking: 220, fill_color: "#f2c46d" } } }
+  - { command: graphics.newText, params: { clip: $recipe.clip, text: "Ten-Minute\nMiso Soup", position: [86, 270], size: 104, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $recipe.clip, layer: 2, props: { name: Title, leading: -6, fill_color: "#fbf6ee" } } }
+  - command: graphics.newText
+    params: { clip: $recipe.clip, text: "01  Warm four cups of stock until it just steams; do not let it boil.\n\n02  Add cubed tofu and a handful of torn greens for two minutes.\n\n03  Whisk three spoons of miso into a ladle of broth, then stir it back in.\n\n04  Finish with sliced spring onion and a few drops of sesame oil.", box: [900, 620], position: [90, 520], size: 34 }
+  - { command: graphics.set, params: { clip: $recipe.clip, layer: 3, props: { name: Method, leading: 10, fill_color: "#2b2a26" } } }
+  - { command: graphics.setCharStyle, params: { clip: $recipe.clip, layer: 3, start: 0, end: 2, style: { fontStyle: Bold, color: "#d9623b" } } }
+  - { command: graphics.setCharStyle, params: { clip: $recipe.clip, layer: 3, start: 71, end: 73, style: { fontStyle: Bold, color: "#d9623b" } } }
+  - { command: graphics.setCharStyle, params: { clip: $recipe.clip, layer: 3, start: 137, end: 139, style: { fontStyle: Bold, color: "#d9623b" } } }
+  - { command: graphics.setCharStyle, params: { clip: $recipe.clip, layer: 3, start: 214, end: 216, style: { fontStyle: Bold, color: "#d9623b" } } }
+  - { command: graphics.newRectangle, params: { clip: $recipe.clip, position: [540, 1200], size: [900, 12] } }
+  - { command: graphics.set, params: { clip: $recipe.clip, layer: 4, props: { name: Track, fill_color: "#e1d6c4", corner_radius: 6 } } }
+  - { command: graphics.newRectangle, params: { clip: $recipe.clip, position: [90, 1200], size: [900, 12] } }
+  - { command: graphics.set, params: { clip: $recipe.clip, layer: 5, props: { name: Progress, fill_color: "#d9623b", corner_radius: 6, anchor: [-450, 0], uniform_scale: false } } }
+  - { command: effects.setParam, params: { clip: $recipe.clip, effect: 8, param: scale_width, value: 0, seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $recipe.clip, effect: 8, param: scale_width, value: 100, seconds: 8 } }
+  - { command: graphics.newText, params: { clip: $recipe.clip, text: SERVES 2   ·   10 MIN   ·   VEGAN, position: [90, 1270], size: 26, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $recipe.clip, layer: 6, props: { name: Facts, tracking: 160, fill_color: "#7b6f5f" } } }
+  - { command: graphics.list, params: { clip: $recipe.clip }, as: list }
+thumbnail: { at: 4 }
+preview: { from: 0, to: 8, fps: 5, max: 400 }
+expected:
+  - actual: results
+    values:
+      list.layers: { count: 7 }
+      list.layers.3: { name: Method, overflow: false, text: { contains: Whisk three spoons of miso } }
+      list.layers.3.styles: { count: 4 }
+      list.layers.3.box: { exists: true }
+  - actual: inspect
+    values:
+      sequence.settings.width: 1080
+      sequence.settings.height: 1350
+      sequence.video.1.items.0.effects.6.params: { box_width: { value: 900 }, box_height: { value: 620 } }
+      # 0 → 100 over the clip's 8 s (ticks; the last key sits on the clip's last instant, a tick before its end)
+      sequence.video.1.items.0.effects.8.params.scale_width.keyframes: [{ time: 0, value: 0 }, { time: 2032128000000, value: 100 }]
+      sequence.video.1.items.0.effects.8.params.uniform_scale.value: false
+      sequence.video.1.items.0.effects.8.params.anchor.value: [-450, 0]
+diagnostics: []
+since: "2026-11-09"

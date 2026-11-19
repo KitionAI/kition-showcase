@@ -1,0 +1,30 @@
+{
+  "id": "scene/amber-perfume-bottle",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "6 meshes; 5 materials; 3 lights",
+  "commands": 38,
+  "document": {
+    "name": "amber-perfume-bottle.kscene",
+    "bytes": 17203,
+    "sha256": "7aaee4f9cf5b666002c29d7b281b7fb288bd143296f4ea33628c33efa2c3e3a0"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "d16752c6df389a93a657089e509c6090850e1eddc78cca7f8cd0a9307a18307c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 13
+}

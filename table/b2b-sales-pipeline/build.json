@@ -1,0 +1,30 @@
+{
+  "id": "table/b2b-sales-pipeline",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1792,
+    772
+  ],
+  "stats": "2 tables; 1 dashboard",
+  "commands": 20,
+  "document": {
+    "name": "b2b-sales-pipeline.ktable",
+    "bytes": 258048,
+    "sha256": "fcdc3551084296fc6595e74c5030961c40dd66b198a4738a485edbaec9d2dc02"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "82c18b2eba8841c91cf9c5d684f1b40981318fd198db16fb994acc0e4e791532"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 51
+}

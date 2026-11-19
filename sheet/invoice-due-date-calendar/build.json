@@ -1,0 +1,30 @@
+{
+  "id": "sheet/invoice-due-date-calendar",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1776,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:M19",
+  "commands": 57,
+  "document": {
+    "name": "invoice-due-date-calendar.xlsx",
+    "bytes": 7461,
+    "sha256": "9306007182a153ea2d9b73eb3b3d9ce771e946121cc1ac35a10f0e8741423a79"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      254
+    ],
+    "sha256": "ab8b0801d9717367465ae68a98f7315cb22ffcda896322919343b29fc4e42834"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 35
+}

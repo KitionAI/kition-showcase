@@ -1,0 +1,123 @@
+format: 1
+id: doc/press-release
+title: Press Release
+summary: A news release with an embargo line, headline and standfirst, a dateline, a pull quote, key facts, the end mark and a media contact.
+category: Letters & Memos
+tags: [press-release, bullets, paragraph-borders, tab-stops]
+features: [doc.text.typing, doc.format.character, doc.format.paragraph, doc.lists.bullets-numbering, doc.styles.manage]
+description: |
+  The conventions of a press release, set with paragraph formatting alone: a ruled release line
+  with the date pushed right by a tab stop, a large headline from the Title style, an italic
+  standfirst, a quote set off by a thick left border, a bulleted fact list, the centred ### end
+  mark and a boxed notes-to-editors section.
+document: { name: press-release.docx, width: 816, height: 1056 }
+fonts:
+  - arimo/Arimo-Variable.ttf
+  - arimo/Arimo-Italic-Variable.ttf
+  - tinos/Tinos-Regular.ttf
+  - tinos/Tinos-Bold.ttf
+  - tinos/Tinos-Italic.ttf
+steps:
+  - { command: review.proofing }
+  # Typing ### and Enter would otherwise turn into a border line (AutoFormat as you type).
+  - { command: tools.autocorrect, params: { enabled: false } }
+  - { command: design.themeFonts, params: { heading: Tinos, body: Arimo } }
+  - { command: styles.modify, params: { style: Normal, chr: { size: 10.5 }, para: { spaceAfter: 9, lineSpacing: { rule: multiple, value: 1.3 } } } }
+  - { command: styles.modify, params: { style: Title, chr: { font: Tinos, size: 26, bold: true, spacing: 0, color: { Rgb: [20, 33, 61] } }, para: { spaceBefore: 18, spaceAfter: 8, lineSpacing: { rule: multiple, value: 1.0 } } } }
+  - { command: styles.modify, params: { style: Subtitle, chr: { font: Tinos, size: 13, italic: true, spacing: 0, color: { Rgb: [84, 92, 107] } }, para: { spaceAfter: 18, lineSpacing: { rule: multiple, value: 1.15 } } } }
+  - { command: styles.modify, params: { style: Heading 3, chr: { font: Arimo, size: 9, bold: true, spacing: 1, color: { Rgb: [192, 86, 33] } }, para: { spaceBefore: 6, spaceAfter: 4 } } }
+  - { command: layout.margins, params: { top: 54, bottom: 54, left: 76, right: 76 } }
+  # The release line.
+  - { command: para.tabs, params: { set: [ { pos: 460, align: right } ] } }
+  - { command: para.borders, params: { sides: { top: { style: thick, width: 3, color: "14213D" }, bottom: { style: single, width: 0.75, color: "14213D" } } } }
+  - { command: para.spacing, params: { after: 0 } }
+  - { command: text.insert, params: { text: "FOR IMMEDIATE RELEASE\tTidewater Ferries · 9 November 2026" } }
+  - { command: select.text, params: { text: FOR IMMEDIATE RELEASE } }
+  - { command: format.bold, params: { value: true } }
+  - { command: format.spacing, params: { points: 1 } }
+  - { command: format.color, params: { color: "C05621" } }
+  - { command: caret.docEnd }
+  - { command: text.newParagraph }
+  # Enter carries the release line's borders and tab stop; clear them before the headline.
+  - { command: styles.inspectorClear, params: { level: paragraphFormatting } }
+  - { command: para.style, params: { style: Title } }
+  - { command: text.insert, params: { text: "Port Alder's first electric ferry enters service on the Sound crossing" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Subtitle } }
+  - { command: text.insert, params: { text: "The Halcyon carries 240 passengers and 60 cars on battery power alone, cutting the route's fuel use by four-fifths and halving noise at both piers." } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: text.insert, params: { text: "PORT ALDER, 9 November 2026 — Tidewater Ferries today welcomed the first passengers aboard the Halcyon, the cooperative's new all-electric vessel on the twenty-minute crossing between Port Alder and Gullsway. The ship recharges in seven minutes at each pier from shore batteries that are themselves filled overnight from the harbour's tidal turbines." } }
+  - { command: select.text, params: { text: "PORT ALDER, 9 November 2026 —" } }
+  - { command: format.bold, params: { value: true } }
+  - { command: caret.docEnd }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "The Halcyon replaces the forty-year-old diesel ferry Morwen, which made its final crossing on Sunday evening to a send-off from several hundred islanders. Timetables are unchanged, but the new vessel adds a dedicated cycle deck and step-free boarding at both ends of the route." } }
+  - { command: text.newParagraph }
+  - { command: para.indents, params: { left: 14 } }
+  - { command: para.borders, params: { sides: { left: { style: thick, width: 4, color: "C05621" } } } }
+  - { command: para.spacing, params: { before: 4, after: 12 } }
+  - { command: text.insert, params: { text: "“For islanders the ferry is the high street, the school run and the hospital appointment. Making it quiet and clean without making it dearer was the promise we gave our members five years ago, and today we have kept it.”  — Rosalind Achebe, General Manager, Tidewater Ferries" } }
+  - { command: select.text, params: { text: "— Rosalind Achebe, General Manager, Tidewater Ferries" } }
+  - { command: format.set, params: { props: { italic: false, bold: true, size: 9 } } }
+  - { command: caret.docEnd }
+  - { command: text.newParagraph }
+  - { command: styles.inspectorClear, params: { level: paragraphFormatting } }
+  - { command: styles.inspectorClear, params: { level: characterFormatting } }
+  - { command: text.insert, params: { text: "Engineers at the Gullsway yard designed the hull to be lighter than the diesel ship it replaces, so the Halcyon needs a third less energy for each crossing. On the first morning she completed six return trips on schedule, with power to spare on the last." } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Heading 3 } }
+  - { command: text.insert, params: { text: THE HALCYON AT A GLANCE } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: para.bullets }
+  - { command: para.spacing, params: { after: 2 } }
+  - { command: text.insert, params: { text: "Length 64 metres; 240 passengers, 60 cars or 8 freight lorries" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "3.2 MWh of batteries, recharged in seven minutes at each pier" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Expected to save 1,900 tonnes of carbon dioxide a year" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Built over 26 months by the Gullsway yard, with 70 local apprentices" } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  - { command: styles.inspectorClear, params: { level: paragraphFormatting } }
+  - { command: para.spacing, params: { before: 8 } }
+  - { command: text.insert, params: { text: "Fares stay at the 2025 level until at least next autumn. Season ticket holders can tour the bridge and battery room on the open days planned for 21 and 22 November; places can be booked at the ticket office." } }
+  - { command: text.newParagraph }
+  - { command: para.alignCenter }
+  - { command: para.spacing, params: { before: 4, after: 12 } }
+  - { command: text.insert, params: { text: "###" } }
+  - { command: select.text, params: { text: "###" } }
+  - { command: format.bold, params: { value: true } }
+  - { command: caret.docEnd }
+  - { command: text.newParagraph }
+  - { command: para.alignLeft }
+  - { command: para.style, params: { style: Heading 3 } }
+  - { command: text.insert, params: { text: NOTES TO EDITORS } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: para.shading, params: { color: "F3F0EA" } }
+  - { command: para.spacing, params: { after: 0 } }
+  - { command: para.lineSpacing, params: { value: 1.2 } }
+  - { command: format.size, params: { size: 9 } }
+  - { command: text.insert, params: { text: "About Tidewater Ferries. Tidewater Ferries is a passenger cooperative owned by 6,400 island residents and businesses. It has run the Sound crossing since 1987 and carries around 900,000 passengers a year." } }
+  - { command: text.lineBreak }
+  - { command: text.insert, params: { text: "Media contact. Owain Pritchard, Communications Officer · press@tidewater.example · +44 1632 960 552. High-resolution photographs of the Halcyon are available on request." } }
+  - { command: select.text, params: { text: About Tidewater Ferries. } }
+  - { command: format.bold, params: { value: true } }
+  - { command: select.text, params: { text: Media contact. } }
+  - { command: format.bold, params: { value: true } }
+  - { command: document.inspect, as: structure }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      words: { min: 330, max: 430 }
+  - actual: results
+    values:
+      structure.blocks.1: { style: Title }
+      structure.blocks.2: { style: Subtitle }
+      structure.blocks: { any: { text: "###" } }
+diagnostics: []
+since: "2026-11-09"

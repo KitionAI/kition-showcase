@@ -1,0 +1,30 @@
+{
+  "id": "doc/job-cover-letter",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 261 words",
+  "commands": 66,
+  "document": {
+    "name": "job-cover-letter.docx",
+    "bytes": 7737,
+    "sha256": "29025871d61c05b6c97e62f6b4aa55fe424b0998011176f9c1d11ea630850ace"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "6fdf4a4b89757546eaa9164e83fa52b8135cf61a14577df56437a1d0dc182047"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 24
+}

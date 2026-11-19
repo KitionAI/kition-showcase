@@ -1,0 +1,30 @@
+{
+  "id": "photo/code-snippet-share-card",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1400,
+    1000
+  ],
+  "stats": "1400 × 1000 px; 10 layers; 3 type layers; 5 shape layers; 1 fill layer; 1 styled layer; 1 mask",
+  "commands": 44,
+  "document": {
+    "name": "code-snippet-share-card.psd",
+    "bytes": 1267025,
+    "sha256": "70b6319ca0c2178e7d6a6f968fa70c23b454255fae5d97034e81d2041a80caef"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      457
+    ],
+    "sha256": "fba2bf87a64f78a31577bce1a460a7e7ba4e274262272e312a4e53ddce2e3b50"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2551
+}

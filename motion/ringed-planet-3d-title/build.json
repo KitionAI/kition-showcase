@@ -1,0 +1,34 @@
+{
+  "id": "motion/ringed-planet-3d-title",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "95170ce1e8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "6 s at 30 fps; 7 layers; 1 animated layer",
+  "commands": 18,
+  "document": {
+    "name": "ringed-planet-3d-title.kmotion",
+    "bytes": 215037,
+    "sha256": "ab709654fb71818e2d01df62d91ec4236a00b5d7dcecfabdad428defd9efc439"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "b1f5dfe0312e075868c8d563ac467648c883dd8b5ed11225e30cc26b413af9c7"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 30,
+    "bytes": 25662
+  },
+  "diagnostics": [],
+  "built_ms": 8
+}

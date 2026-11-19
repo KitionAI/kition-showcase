@@ -1,0 +1,38 @@
+format: 1
+id: film/desert-narration-subtitles
+title: Desert Narration Subtitles
+summary: A nature documentary's narration is subtitled line by line on an English caption track with a boxed, broadcast-style look.
+category: Markers & Captions
+tags: [captions, subtitles, narration, demo-footage]
+features: [film.captions.edit]
+featured: true
+description: |
+  A Subtitle caption track named English carries four timed lines of narration over the dunes,
+  each held for its own length with short breaks between them. The track style sets the size,
+  white text on a translucent black box and a slightly higher bottom margin; every caption on the
+  track shares it. Captions are burned into the render, so the thumbnail shows the second line.
+document: { name: desert-narration-subtitles.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Sand Sea, width: 1280, height: 720, fps: 24, video: 1, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 8, track: V1, seconds: 0, duration: 3048192000000 }, as: dunes }
+  - { command: captions.newTrack, params: { format: Subtitle, name: English, language: en }, as: track }
+  - { command: captions.setStyle, params: { track: C1, size: 46, color: "#ffffff", background: true, backgroundColor: "#000000b3", margin: 0.09, lineSpacing: 1.3 } }
+  - { command: captions.add, params: { text: "Nothing out here stands still for long.", seconds: 0.5, durationSeconds: 2.5 } }
+  - { command: captions.add, params: { text: "The wind moves each dune a few metres a year,", seconds: 3.375, durationSeconds: 2.75 } }
+  - { command: captions.add, params: { text: "grain by grain, from one face to the other.", seconds: 6.25, durationSeconds: 2.625 } }
+  - { command: captions.add, params: { text: "By morning, last night's tracks are gone.", seconds: 9.25, durationSeconds: 2.5 } }
+  - { command: captions.list, params: { track: C1 }, as: list }
+thumbnail: { at: 4.5 }
+preview: { from: 0, to: 12, fps: 4, max: 400 }
+expected:
+  - actual: results
+    values:
+      list.tracks: { count: 1 }
+      list.tracks.0: { name: English, language: en, format: Subtitle }
+      list.tracks.0.captions: { count: 4 }
+      list.tracks.0.captions.1: { text: "The wind moves each dune a few metres a year,", in: "00:00:03:09" }
+      list.tracks.0.captions.3: { in: "00:00:09:06", out: "00:00:11:18", end: 2984688000000 }
+      list.tracks.0.style: { background: true, backgroundColor: "#000000b3", size: 46.0 }
+diagnostics: []
+since: "2026-11-09"

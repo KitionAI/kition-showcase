@@ -1,0 +1,30 @@
+{
+  "id": "layout/architect-stationery-set",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    1243,
+    986
+  ],
+  "stats": "3 pages; 6 stories; 10 paragraph styles",
+  "commands": 75,
+  "document": {
+    "name": "architect-stationery-set.klayout",
+    "bytes": 47063,
+    "sha256": "abbd0cd0dd7986f40c59f73e25d974535c3e7d649ed87b60d3a5be99faa42cb1"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      490
+    ],
+    "sha256": "456bd2262d577839dc1e893be2727c8052b636b47aac2d0e822a847705bd50e2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 281
+}

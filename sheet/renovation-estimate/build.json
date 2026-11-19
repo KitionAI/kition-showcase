@@ -1,0 +1,30 @@
+{
+  "id": "sheet/renovation-estimate",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1898,
+    2035
+  ],
+  "stats": "1 sheet; used range A1:F26",
+  "commands": 71,
+  "document": {
+    "name": "renovation-estimate.xlsx",
+    "bytes": 6427,
+    "sha256": "761f81a04b325d8a746fbffd111d50af345d49b55cde3eb9c686d3d0ed3c1407"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      512
+    ],
+    "sha256": "f6836e9e7871653d2fa30545696d5073fa8a32e1baa10b28109f006c2072598c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 29
+}

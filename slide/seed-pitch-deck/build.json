@@ -1,0 +1,30 @@
+{
+  "id": "slide/seed-pitch-deck",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    4100
+  ],
+  "stats": "7 slides; 960 × 540 pt",
+  "commands": 256,
+  "document": {
+    "name": "seed-pitch-deck.pptx",
+    "bytes": 50572,
+    "sha256": "0b10677148e593daa3b35c2046e313c4ea2ce47c6b1e247cb21664e7d179bd9b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "5c1876100a995cf28f16723a0c92e38a74a3d73ded370d7648d61310e1919d08"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 301
+}

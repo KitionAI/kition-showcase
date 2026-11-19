@@ -1,0 +1,34 @@
+{
+  "id": "film/spinning-badge-promo",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 30 fps; 8.0 s; 4 video clips; 5 effects; 2 animated effects",
+  "commands": 28,
+  "document": {
+    "name": "spinning-badge-promo.kfilm",
+    "bytes": 18901,
+    "sha256": "cb49b7c99d0c643f917b3366505124be2f5efcc732bc131653405e58604b551e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "080700db74aa8bf21c7e627defd1431416967d6e47595cf59094da3fb4de9ffc"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 45,
+    "bytes": 69442
+  },
+  "diagnostics": [],
+  "built_ms": 62
+}

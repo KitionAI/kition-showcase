@@ -1,0 +1,30 @@
+{
+  "id": "photo/blend-modes-sampler",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1200
+  ],
+  "stats": "1600 × 1200 px; 29 layers; 14 type layers; 13 shape layers; 1 fill layer; 1 mask",
+  "commands": 64,
+  "document": {
+    "name": "blend-modes-sampler.psd",
+    "bytes": 7366498,
+    "sha256": "591a7682e239756bf195fb96ed6ceefea44a4211bb5f7174d705c31f579aad2f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "5f080fabb09dd874fede22494a4d53646dd632c4e415cfaa806f22991c639f47"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1823
+}

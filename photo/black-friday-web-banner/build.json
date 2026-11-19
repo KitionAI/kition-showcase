@@ -1,0 +1,30 @@
+{
+  "id": "photo/black-friday-web-banner",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    500
+  ],
+  "stats": "1600 × 500 px; 13 layers; 6 type layers; 3 shape layers; 1 fill layer; 1 group; 3 styled layers; 1 mask",
+  "commands": 19,
+  "document": {
+    "name": "black-friday-web-banner.psd",
+    "bytes": 4143857,
+    "sha256": "939b5476ce7871d2726d2ea0c0e811ef37cb23108b0db8a0fb85e4d62144b74f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      200
+    ],
+    "sha256": "7315eabdddcf7b31673b39dccc676b222bd668513d4d8ae2a183a5299f82a577"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 384
+}

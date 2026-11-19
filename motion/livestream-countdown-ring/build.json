@@ -1,0 +1,34 @@
+{
+  "id": "motion/livestream-countdown-ring",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "95170ce1e8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "4.5 s at 30 fps; 9 layers; 5 animated layers",
+  "commands": 44,
+  "document": {
+    "name": "livestream-countdown-ring.kmotion",
+    "bytes": 474652,
+    "sha256": "db529f88e40fe60fcb2782206617b6bd8e4fad5ab7f1b6f634002dfb21667e8c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "528651fca5506e9e9fb912448b0029610a2a4d7cf95ae8cdd6bc49aa239d5e30"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 42,
+    "bytes": 34008
+  },
+  "diagnostics": [],
+  "built_ms": 17
+}

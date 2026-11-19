@@ -1,0 +1,30 @@
+{
+  "id": "slide/geography-pop-quiz",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    1200
+  ],
+  "stats": "2 slides; 960 × 540 pt",
+  "commands": 172,
+  "document": {
+    "name": "geography-pop-quiz.pptx",
+    "bytes": 29473,
+    "sha256": "53459893a5db5c85e23973f4beb32b8a6eb2cb322a66dd9b7ad075a9b1622000"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "57520d62c62715643afb59debcd0d9564d509d327fdfb10b1e6bd80186b65fb2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 144
+}

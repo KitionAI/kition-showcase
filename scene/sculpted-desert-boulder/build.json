@@ -1,0 +1,30 @@
+{
+  "id": "scene/sculpted-desert-boulder",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "4 meshes; 2 materials; 1 light",
+  "commands": 36,
+  "document": {
+    "name": "sculpted-desert-boulder.kscene",
+    "bytes": 298873,
+    "sha256": "25bb620b8668b2fc8c293472484f12f39e0bf66c3b5fb4f722a4cc35128fbacc"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "f8fca8b1caa7fce1eb063859b5307c465ea3723908a286f38756e288721f88f0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 3639
+}

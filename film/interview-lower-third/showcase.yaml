@@ -1,0 +1,54 @@
+format: 1
+id: film/interview-lower-third
+title: Interview Lower Third
+summary: A name and role lower third with an accent bar slides in over documentary footage.
+category: Titles & Graphics
+tags: [titles, lower-third, shapes, keyframes, demo-footage]
+features: [film.graphics.titles, film.graphics.text-basics, film.effects.keyframes]
+description: |
+  One graphic clip holds the whole lower third: a translucent navy plate, an amber accent bar and
+  two text layers (a bold name and a tracked role line). The clip's Motion position and Opacity
+  are keyframed so the plate slides in from the left, and the role line has its own layer opacity
+  keyframes so it follows half a second later. It fades out again at the end of the clip.
+document: { name: interview-lower-third.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Interview, width: 1280, height: 720, fps: 24, video: 2, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 9, track: V1, seconds: 0, audio: false }, as: footage }
+  - { command: graphics.newRectangle, params: { position: [340, 590], size: [520, 112], seconds: 6, track: 1, time: 0 }, as: plate }
+  - { command: graphics.set, params: { clip: $plate.clip, layer: 0, props: { name: Plate, fill_color: "#14202b", opacity: 88 } } }
+  - { command: graphics.newRectangle, params: { clip: $plate.clip, position: [84, 590], size: [8, 112] } }
+  - { command: graphics.set, params: { clip: $plate.clip, layer: 1, props: { name: Accent, fill_color: "#f2a93b" } } }
+  - { command: graphics.newText, params: { clip: $plate.clip, text: Mara Lindqvist, position: [108, 587], size: 40, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $plate.clip, layer: 2, props: { fill_color: "#ffffff" } } }
+  - { command: graphics.newText, params: { clip: $plate.clip, text: FIELD ECOLOGIST  ·  HIGHLAND SURVEY, position: [110, 625], size: 19 } }
+  - { command: graphics.set, params: { clip: $plate.clip, layer: 3, props: { fill_color: "#f2a93b", tracking: 80 } } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: motion, param: position, value: [520, 360], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: motion, param: position, value: [640, 360], seconds: 0.5 } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: opacity, param: opacity, value: 0, seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: opacity, param: opacity, value: 100, seconds: 0.5 } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: 6, param: opacity, value: 0, seconds: 0.5 } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: 6, param: opacity, value: 100, seconds: 1 } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: opacity, param: opacity, value: 100, seconds: 5.5 } }
+  - { command: effects.setParam, params: { clip: $plate.clip, effect: opacity, param: opacity, value: 0, seconds: 6 } }
+  - { command: graphics.list, params: { clip: $plate.clip }, as: list }
+thumbnail: { at: 2 }
+preview: { from: 0, to: 2.5, fps: 10, max: 400 }
+expected:
+  - actual: results
+    values:
+      list.layers: { count: 4 }
+      list.layers.0: { name: Plate, kind: Rectangle }
+      list.layers.1: { name: Accent, kind: Rectangle }
+      list.layers.2: { text: Mara Lindqvist, kind: text }
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 1 }
+      sequence.video.1.items: { count: 1 }
+      # slide in and fade in over 0.5 s, the role line 0.5 s later, out over the last 0.5 s (ticks;
+      # the key at the clip's end sits one tick before it, on the clip's last instant)
+      sequence.video.1.items.0.effects.0.params.position.keyframes: [{ time: 0, value: [520, 360] }, { time: 127008000000, value: [640, 360] }]
+      sequence.video.1.items.0.effects.1.params.opacity.keyframes: [{ time: 0, value: 0 }, { time: 127008000000, value: 100 }, { time: 1397088000000, value: 100 }, { time: 1524096000000, value: 0 }]
+      sequence.video.1.items.0.effects.6.params.opacity.keyframes: [{ time: 127008000000, value: 0 }, { time: 254016000000, value: 100 }]
+diagnostics: []
+since: "2026-11-09"

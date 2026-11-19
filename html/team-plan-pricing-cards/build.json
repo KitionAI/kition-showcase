@@ -1,0 +1,30 @@
+{
+  "id": "html/team-plan-pricing-cards",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    760
+  ],
+  "stats": "1200 × 760 px; 3.8 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "team-plan-pricing-cards.html",
+    "bytes": 3900,
+    "sha256": "6e36d921de715d3ade87b312259d736e59b348030629feaec27e6bd9547c91d3"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      405
+    ],
+    "sha256": "e3f02e1fa3edb0984afed335727fc670b3a09172ba60bf273cf9cad56b112b51"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 12
+}

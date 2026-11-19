@@ -1,0 +1,34 @@
+{
+  "id": "motion/festival-ticket-card-flip",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "95170ce1e8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "6 s at 30 fps; 8 layers; 2 animated layers",
+  "commands": 24,
+  "document": {
+    "name": "festival-ticket-card-flip.kmotion",
+    "bytes": 280203,
+    "sha256": "07751c06a4bcaddacbd006e9a3f699c7d93161ec3de20858d836a729b88ca4e4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "07eeeca1516c3d4ca2d4cae44681990c19ed26174a0e0bcb41bef3c10f5bc887"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 35,
+    "bytes": 31502
+  },
+  "diagnostics": [],
+  "built_ms": 16
+}

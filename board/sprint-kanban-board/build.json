@@ -1,0 +1,30 @@
+{
+  "id": "board/sprint-kanban-board",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 32 elements",
+  "commands": 6,
+  "document": {
+    "name": "sprint-kanban-board.kboard",
+    "bytes": 11946,
+    "sha256": "178accc9f90ad59a52756c411708aaf3050d355d3b9504f1ff3537afbd0e774e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      327
+    ],
+    "sha256": "38fd7adc4c5165e1fa755a81859f6dcfdb6e26c95b2a84c4309226953a781a67"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

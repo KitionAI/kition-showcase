@@ -1,0 +1,30 @@
+{
+  "id": "note/mechanics-revision-formulas",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1333
+  ],
+  "stats": "1 page; 134 words; 6 headings; 1 table",
+  "commands": 5,
+  "document": {
+    "name": "mechanics-revision-formulas.md",
+    "bytes": 797,
+    "sha256": "3ac6f4e32cfa563cd38202ff5977e2b289dc0b115f205e958a94611c2113d558"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "7a414dda1ce8ac4e20164f3ac75deba72cc4694dbbdf8fba38751e5f69cb68ce"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 8
+}

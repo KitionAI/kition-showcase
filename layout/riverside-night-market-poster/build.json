@@ -1,0 +1,30 @@
+{
+  "id": "layout/riverside-night-market-poster",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    744,
+    994
+  ],
+  "stats": "1 page; 3 stories; 5 paragraph styles",
+  "commands": 56,
+  "document": {
+    "name": "riverside-night-market-poster.klayout",
+    "bytes": 40976,
+    "sha256": "0f553c64cab5cc68553bdfd5ea222df085be07c8273ce9efbb11e8e9d5d6f2ed"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      452,
+      640
+    ],
+    "sha256": "d57453e49d1c49d718fedf7aa7ce44dc194b323bee2dfaf1cbc72bb482ddffe7"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 138
+}

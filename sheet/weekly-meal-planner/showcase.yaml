@@ -1,0 +1,96 @@
+format: 1
+id: sheet/weekly-meal-planner
+title: Weekly Meal Planner
+summary: A seven-day meal grid with wrapped text, merged cells for batch-cooked meals and a costed shopping list.
+category: Planners & Trackers
+tags: [planner, merged-cells, wrap-text, home, shopping-list]
+features: [sheet.format.alignment, sheet.format.font, sheet.formulas.functions, sheet.format.number]
+description: |
+  Breakfast, lunch and dinner run down the side and the days across. Longer dishes wrap inside
+  taller rows, and a dinner cooked once for two nights is a single cell merged across both days,
+  as are the leftovers lunches. Each meal row has its own soft colour. Below, the shopping list
+  totals its estimated cost and counts what is already in the pantry.
+document: { name: weekly-meal-planner.xlsx, width: 1280, height: 800 }
+fonts: [carlito/Carlito-Regular.ttf, carlito/Carlito-Bold.ttf, carlito/Carlito-Italic.ttf]
+steps:
+  - { command: range.setValues, params: { range: A1, values: [["Weekly Meal Planner"], ["Week of 9 November · two adults, one child; batch-cook on Sunday"]] } }
+  - command: range.setValues
+    params:
+      range: A4
+      values:
+        - [null, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+        - [Breakfast, Overnight oats with berries, Scrambled eggs on toast, Overnight oats with berries, Yogurt and granola, Banana pancakes, Shakshuka with crusty bread, Waffles and fruit]
+        - [Lunch, Leftover lentil chili in wraps, null, Tomato soup and cheese toasties, Chickpea salad bowls, Pasta salad, Picnic in the park, Roast vegetable couscous]
+        - [Dinner, Lentil chili with rice (cook once for two nights), null, Salmon traybake with greens, Chicken stir-fry and noodles, Homemade pizza night, Mushroom risotto, Sunday roast chicken]
+        - [Snack, Apple slices and peanut butter, Hummus and carrots, Popcorn, Cheese and crackers, Fruit salad, Banana bread, Oat cookies]
+  - command: range.setValues
+    params:
+      range: A10
+      values:
+        - [Shopping list, null, Aisle, Qty, Est. cost, In pantry]
+        - [Red lentils, null, Dry goods, 1, 2.4, "No"]
+        - [Salmon fillets, null, Fish, 4, 14.8, "No"]
+        - [Chicken thighs, null, Meat, 1, 8.5, "No"]
+        - [Arborio rice, null, Dry goods, 1, 2.9, "Yes"]
+        - [Mixed berries, null, Frozen, 2, 6.0, "No"]
+        - [Free-range eggs, null, Dairy, 12, 3.6, "Yes"]
+        - [Greek yogurt, null, Dairy, 2, 4.2, "No"]
+        - [Total, null, null, null, "=SUMIF(F11:F17,\"No\",E11:E17)", "=COUNTIF(F11:F17,\"Yes\")&\" in pantry\""]
+  - { command: home.mergeCells, params: { range: "B6:C6" } }
+  - { command: home.mergeCells, params: { range: "B7:C7" } }
+  - { command: home.mergeAcross, params: { range: "A11:B18" } }
+  - { command: home.mergeCells, params: { range: "A10:B10" } }
+  - { command: home.fontSize, params: { range: A1, size: 22 } }
+  - { command: home.bold, params: { range: A1, on: true } }
+  - { command: home.fontColor, params: { range: A1, color: "#365314" } }
+  - { command: home.italic, params: { range: A2, on: true } }
+  - { command: home.fontColor, params: { range: A2, color: "#6b7280" } }
+  - { command: home.fillColor, params: { range: "B4:H4", color: "#365314" } }
+  - { command: home.fontColor, params: { range: "B4:H4", color: "#ffffff" } }
+  - { command: home.bold, params: { range: "A4:H8", on: true } }
+  - { command: home.bold, params: { range: "B5:H8", on: false } }
+  - { command: home.alignCenter, params: { range: "B4:H4" } }
+  - { command: home.wrapText, params: { range: "B5:H8" } }
+  - { command: home.alignCenter, params: { range: "B5:H8" } }
+  - { command: home.alignMiddle, params: { range: "A4:H8" } }
+  - { command: home.fillColor, params: { range: "A5:H5", color: "#fef9c3" } }
+  - { command: home.fillColor, params: { range: "A6:H6", color: "#dcfce7" } }
+  - { command: home.fillColor, params: { range: "A7:H7", color: "#ffedd5" } }
+  - { command: home.fillColor, params: { range: "A8:H8", color: "#ede9fe" } }
+  - { command: home.fontColor, params: { range: "A5", color: "#854d0e" } }
+  - { command: home.fontColor, params: { range: "A6", color: "#166534" } }
+  - { command: home.fontColor, params: { range: "A7", color: "#9a3412" } }
+  - { command: home.fontColor, params: { range: "A8", color: "#5b21b6" } }
+  - { command: home.borders, params: { range: "A4:H8", preset: all, color: "#ffffff", style: medium } }
+  - { command: home.italic, params: { range: "B6:C7", on: true } }
+  - { command: home.fillColor, params: { range: "A10:F10", color: "#365314" } }
+  - { command: home.fontColor, params: { range: "A10:F10", color: "#ffffff" } }
+  - { command: home.bold, params: { range: "A10:F10", on: true } }
+  - { command: home.numberFormat, params: { range: "E11:E18", format: "$$0.00" } }
+  - { command: home.alignCenter, params: { range: "D10:D17" } }
+  - { command: home.alignRight, params: { range: "E10" } }
+  - { command: home.alignCenter, params: { range: "F10:F18" } }
+  - { command: home.conditionalFormat, params: { range: "F11:F17", rule: { type: expression, formula: "=F11=\"Yes\"", style: { font: { color: { Rgb: 1475653 }, bold: true } } } } }
+  - { command: home.borders, params: { range: "A11:F17", preset: insideHorizontal, color: "#e5e7eb" } }
+  - { command: home.bold, params: { range: "A18:F18", on: true } }
+  - { command: home.borders, params: { range: "A18:F18", preset: topDoubleBottom, color: "#365314" } }
+  - { command: home.columnWidth, params: { cols: "A:A", width: 78 } }
+  - { command: home.columnWidth, params: { cols: "B:H", width: 106 } }
+  - { command: home.rowHeight, params: { rows: "1:1", height: 30 } }
+  - { command: home.rowHeight, params: { rows: "4:4", height: 22 } }
+  - { command: home.rowHeight, params: { rows: "5:8", height: 46 } }
+  - { command: home.rowHeight, params: { rows: "9:9", height: 12 } }
+  - { command: cell.get, params: { cell: B7 }, as: batch }
+  - { command: sheet.read, params: { range: "E18:F18" }, as: shopping }
+  - { command: document.inspect, params: {}, as: doc }
+expected:
+  - actual: results
+    values:
+      batch.merge: "B7:C7"
+      batch.style.align.wrap: true
+      batch.input: Lentil chili with rice (cook once for two nights)
+      shopping.values.0: [{ approx: 35.9, tol: 0.001 }, "2 in pantry"]
+      doc.sheets.0.merges: { count: 11, contains: "B6:C6" }
+diagnostics: []
+thumbnail: { area: [0, 0, 870, 500] }
+since: "2026-11-09"

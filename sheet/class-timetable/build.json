@@ -1,0 +1,30 @@
+{
+  "id": "sheet/class-timetable",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1862,
+    2117
+  ],
+  "stats": "1 sheet; used range A1:J12",
+  "commands": 75,
+  "document": {
+    "name": "class-timetable.xlsx",
+    "bytes": 6961,
+    "sha256": "5a4507ae1d0e66839f44f6a8cc5f7ad3a2353dcf9d4694f93cabe1efc6223f18"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      247
+    ],
+    "sha256": "4201f434e840dd4b234dc620cdeb4beaa0aa4a5b50fd314f65190ab1d00eaf46"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 71
+}

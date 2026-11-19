@@ -1,0 +1,30 @@
+{
+  "id": "board/new-hire-onboarding-brainstorm",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "04db484f2e",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 19 elements",
+  "commands": 10,
+  "document": {
+    "name": "new-hire-onboarding-brainstorm.kboard",
+    "bytes": 8826,
+    "sha256": "2afd012806675488a39c274be4c39077ff2a5a179fc10ccbac3d868357080990"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      421
+    ],
+    "sha256": "8bdeb0549810ced4fafb7ba1b78b116761b08969fdbdc30d9dfef9c928170347"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 3
+}

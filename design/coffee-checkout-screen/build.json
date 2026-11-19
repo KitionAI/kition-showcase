@@ -1,0 +1,30 @@
+{
+  "id": "design/coffee-checkout-screen",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    2000,
+    2000
+  ],
+  "stats": "1 page; 67 layers; 390 × 844 design",
+  "commands": 71,
+  "document": {
+    "name": "coffee-checkout-screen.kdesign",
+    "bytes": 67994,
+    "sha256": "4cb6877f1844fbc283b065fada8facfd901699ecfa0c69f75ee4311693e468d9"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      296,
+      640
+    ],
+    "sha256": "e58dd6096e34315c80525f064a99b421560b480bb884b20f5468b2cd4131d5a4"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 39
+}

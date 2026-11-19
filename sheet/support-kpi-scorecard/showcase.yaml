@@ -1,0 +1,102 @@
+format: 1
+id: sheet/support-kpi-scorecard
+title: Support KPI Scorecard
+summary: A monthly customer-support scorecard with attainment data bars, coloured trend arrows and rule-driven status pills.
+category: Formatting & Styles
+tags: [conditional-formatting, data-bars, kpi, dashboard, custom-formats]
+features: [sheet.format.conditional, sheet.format.number, sheet.formulas.functions]
+featured: true
+description: |
+  Each KPI states whether higher or lower is better, and the attainment formula flips the ratio
+  for lower-is-better measures such as response time, so one data bar rates every row on the
+  same scale. The status column holds 1, 0 or -1; a three-section number format shows it as
+  On target, Watch or Off track and three formula rules colour the pill. The change column
+  compares the month with the one before, with arrows from its number format and green or red
+  from two more rules; a COUNTIF at the bottom counts the KPIs on target.
+document: { name: support-kpi-scorecard.xlsx, width: 1280, height: 800 }
+fonts: [carlito/Carlito-Regular.ttf, carlito/Carlito-Bold.ttf, carlito/Carlito-Italic.ttf, jetbrains-mono/JetBrainsMono-Variable.ttf]
+steps:
+  - { command: range.setValues, params: { range: A1, values: [["Support KPI Scorecard"], ["Customer support team · October results against target"]] } }
+  - command: range.setValues
+    params:
+      range: A4
+      values:
+        - [KPI, Better, Target, Actual, Attainment, Last month, Change, Status]
+        - [First response time (h), Lower, 2, 1.6, "=IF(B5=\"Lower\",C5/D5,D5/C5)", 2.3, "=IF(B5=\"Lower\",F5-D5,D5-F5)/F5", "=IF(E5>=1,1,IF(E5>=0.9,0,-1))"]
+        - [Resolution time (h), Lower, 24, 27.5, "=IF(B6=\"Lower\",C6/D6,D6/C6)", 29.1, "=IF(B6=\"Lower\",F6-D6,D6-F6)/F6", "=IF(E6>=1,1,IF(E6>=0.9,0,-1))"]
+        - [Customer satisfaction, Higher, 0.9, 0.93, "=IF(B7=\"Lower\",C7/D7,D7/C7)", 0.91, "=IF(B7=\"Lower\",F7-D7,D7-F7)/F7", "=IF(E7>=1,1,IF(E7>=0.9,0,-1))"]
+        - [First-contact resolution, Higher, 0.75, 0.68, "=IF(B8=\"Lower\",C8/D8,D8/C8)", 0.71, "=IF(B8=\"Lower\",F8-D8,D8-F8)/F8", "=IF(E8>=1,1,IF(E8>=0.9,0,-1))"]
+        - [Tickets closed, Higher, 1800, 1932, "=IF(B9=\"Lower\",C9/D9,D9/C9)", 1764, "=IF(B9=\"Lower\",F9-D9,D9-F9)/F9", "=IF(E9>=1,1,IF(E9>=0.9,0,-1))"]
+        - [Backlog (open tickets), Lower, 120, 188, "=IF(B10=\"Lower\",C10/D10,D10/C10)", 141, "=IF(B10=\"Lower\",F10-D10,D10-F10)/F10", "=IF(E10>=1,1,IF(E10>=0.9,0,-1))"]
+        - [Escalation rate, Lower, 0.05, 0.047, "=IF(B11=\"Lower\",C11/D11,D11/C11)", 0.052, "=IF(B11=\"Lower\",F11-D11,D11-F11)/F11", "=IF(E11>=1,1,IF(E11>=0.9,0,-1))"]
+        - [Net promoter score, Higher, 40, 46, "=IF(B12=\"Lower\",C12/D12,D12/C12)", 44, "=IF(B12=\"Lower\",F12-D12,D12-F12)/F12", "=IF(E12>=1,1,IF(E12>=0.9,0,-1))"]
+  - { command: range.setValues, params: { range: A14, values: [["KPIs on target", "=COUNTIF(E5:E12,\">=1\")&\" of \"&COUNTA(A5:A12)"], ["Average attainment", "=AVERAGE(E5:E12)"]] } }
+  # number formats per row
+  - { command: home.numberFormat, params: { range: "C5:D6", format: "0.0\" h\"" } }
+  - { command: home.numberFormat, params: { range: "F5:F6", format: "0.0\" h\"" } }
+  - { command: home.numberFormat, params: { range: "C7:D8", format: "0%" } }
+  - { command: home.numberFormat, params: { range: "F7:F8", format: "0%" } }
+  - { command: home.numberFormat, params: { range: "C9:D10", format: "#,##0" } }
+  - { command: home.numberFormat, params: { range: "F9:F10", format: "#,##0" } }
+  - { command: home.numberFormat, params: { range: "C11:D11", format: "0.0%" } }
+  - { command: home.numberFormat, params: { range: "F11", format: "0.0%" } }
+  - { command: home.numberFormat, params: { range: "C12:D12", format: "0" } }
+  - { command: home.numberFormat, params: { range: "F12", format: "0" } }
+  - { command: home.numberFormat, params: { range: "E5:E12", format: "0%" } }
+  - { command: home.numberFormat, params: { range: "G5:G12", format: "▲ 0.0%;▼ 0.0%;0.0%" } }
+  - { command: home.numberFormat, params: { range: "H5:H12", format: "\"On target\";\"Off track\";\"Watch\"" } }
+  - { command: home.numberFormat, params: { range: "B15", format: "0.0%" } }
+  # conditional formats
+  - { command: home.conditionalFormat, params: { range: "E5:E12", rule: { type: dataBar, color: "#5b8def", min: { type: num, value: 0 }, max: { type: num, value: 1.25 } } } }
+  - { command: home.conditionalFormat, params: { range: "G5:G12", rule: { type: expression, formula: "=G5>0", style: { font: { color: { Rgb: 1475653 }, bold: true } } } } }
+  - { command: home.conditionalFormat, params: { range: "G5:G12", rule: { type: expression, formula: "=G5<0", style: { font: { color: { Rgb: 12592682 }, bold: true } } } } }
+  - { command: home.conditionalFormat, params: { range: "H5:H12", rule: { type: expression, formula: "=H5=1", preset: greenFill } } }
+  - { command: home.conditionalFormat, params: { range: "H5:H12", rule: { type: expression, formula: "=H5=0", preset: yellowFill } } }
+  - { command: home.conditionalFormat, params: { range: "H5:H12", rule: { type: expression, formula: "=H5=-1", preset: lightRedFillDarkRedText } } }
+  # styling
+  - { command: home.fontSize, params: { range: A1, size: 20 } }
+  - { command: home.bold, params: { range: A1 } }
+  - { command: home.fontColor, params: { range: A1, color: "#12355b" } }
+  - { command: home.fontColor, params: { range: A2, color: "#6b7280" } }
+  - { command: home.italic, params: { range: A2 } }
+  - { command: home.fillColor, params: { range: "A4:H4", color: "#12355b" } }
+  - { command: home.fontColor, params: { range: "A4:H4", color: "#ffffff" } }
+  - { command: home.bold, params: { range: "A4:H4" } }
+  - { command: home.alignCenter, params: { range: "B4:H4" } }
+  - { command: home.alignCenter, params: { range: "B5:B12" } }
+  - { command: home.alignCenter, params: { range: "H5:H12" } }
+  - { command: home.fontColor, params: { range: "B5:B12", color: "#6b7280" } }
+  - { command: home.borders, params: { range: "A5:H12", preset: insideHorizontal, color: "#dbe3ee" } }
+  - { command: home.borders, params: { range: "A12:H12", preset: bottom, color: "#12355b", style: medium } }
+  - { command: home.bold, params: { range: "A14:A15" } }
+  - { command: home.fontColor, params: { range: "A14:A15", color: "#12355b" } }
+  - { command: home.bold, params: { range: "B14:B15" } }
+  - { command: home.alignRight, params: { range: "B14:B15" } }
+  - { command: home.fillColor, params: { range: "A14:B15", color: "#eef3fa" } }
+  - { command: home.columnWidth, params: { cols: "A:A", width: 150 } }
+  - { command: home.columnWidth, params: { cols: "B:B", width: 92 } }
+  - { command: home.columnWidth, params: { cols: "C:D", width: 66 } }
+  - { command: home.columnWidth, params: { cols: "E:E", width: 110 } }
+  - { command: home.columnWidth, params: { cols: "F:F", width: 74 } }
+  - { command: home.columnWidth, params: { cols: "G:G", width: 80 } }
+  - { command: home.columnWidth, params: { cols: "H:H", width: 96 } }
+  - { command: home.rowHeight, params: { rows: "1:1", height: 28 } }
+  - { command: home.rowHeight, params: { rows: "4:15", height: 22 } }
+  - { command: home.alignMiddle, params: { range: "A4:H15" } }
+  - { command: sheet.read, params: { range: "E5:E12" }, as: attainment }
+  - { command: sheet.read, params: { range: "H5:H12", formatted: true }, as: status }
+  - { command: sheet.read, params: { range: "B14:B15" }, as: summary }
+  - { command: sheet.read, params: { range: "G5:G12", formatted: true }, as: change }
+expected:
+  - actual: results
+    values:
+      attainment.values.0.0: { approx: 1.25, tol: 0.0001 }
+      attainment.values.5.0: { approx: 0.638298, tol: 0.0001 }
+      status.values: [["On target"], ["Off track"], ["On target"], ["Watch"], ["On target"], ["Off track"], ["On target"], ["On target"]]
+      summary.values.0.0: 5 of 8
+      change.values.5.0: "▼ 33.3%"
+      change.values.0.0: "▲ 30.4%"
+      summary.values.1.0: { approx: 0.99852, tol: 0.0001 }
+diagnostics: []
+thumbnail: { area: [0, 0, 820, 380] }
+since: "2026-11-09"

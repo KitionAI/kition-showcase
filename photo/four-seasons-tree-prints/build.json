@@ -1,0 +1,30 @@
+{
+  "id": "photo/four-seasons-tree-prints",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    900
+  ],
+  "stats": "1600 × 900 px; 21 layers; 4 type layers; 12 shape layers; 4 styled layers",
+  "commands": 81,
+  "document": {
+    "name": "four-seasons-tree-prints.psd",
+    "bytes": 1351231,
+    "sha256": "e8d6a6655c448ffa21bfa9438fdfd30c22c10acd6e9c78fbb643eaa4d7da5e5a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "25fdd42d8ab205fed36423c17f9369aa786f10417ba12d51ae11a613d5de0dc0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 871
+}

@@ -1,0 +1,30 @@
+{
+  "id": "photo/novel-book-cover",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1500
+  ],
+  "stats": "1000 × 1500 px; 17 layers; 5 type layers; 7 shape layers; 1 fill layer; 2 groups; 2 styled layers; 1 mask",
+  "commands": 59,
+  "document": {
+    "name": "novel-book-cover.psd",
+    "bytes": 1391385,
+    "sha256": "abc003f74d590efd8c9bde8da58f0188d4f26ed3c97fe4c9f0faadde79061daa"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      427,
+      640
+    ],
+    "sha256": "cd1994db552b3425b0a36ece9f9fbe13d5f685ab8d6744d1003f4e169c20f613"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1390
+}

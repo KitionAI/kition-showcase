@@ -1,0 +1,30 @@
+{
+  "id": "sheet/project-appraisal-npv-irr",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1902,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:H20",
+  "commands": 44,
+  "document": {
+    "name": "project-appraisal-npv-irr.xlsx",
+    "bytes": 8954,
+    "sha256": "c6890a09e856a778500abcfa97cbc5b50a9595fcabdb943296bb8e76145861f7"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      377
+    ],
+    "sha256": "f7722702caf85c5abf90ea22150ffa62f227f103487a44a0658ece6c3fa0ac53"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 50
+}

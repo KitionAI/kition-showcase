@@ -1,0 +1,41 @@
+format: 1
+id: film/night-drive-speed-ramp
+title: Night Drive Speed Ramp
+summary: A car-culture reel cuts one long night drive into three pieces and runs them at normal speed, triple speed and half-speed slow motion.
+category: Editing & Timeline
+tags: [speed, slow-motion, razor, time-interpolation, demo-footage]
+features: [film.timeline.basics, film.clip.properties]
+description: |
+  One nine-second take of the night drive is razored at 3 s and 6 s. The middle piece is sped up to
+  300 % with ripple on, so it plays in one second and the rest of the drive follows it at once;
+  the last piece drops to 50 % with optical-flow interpolation and stretches to six seconds. The
+  audio stays linked and changes speed with the picture. The thumbnail is inside the slow-motion
+  section.
+document: { name: night-drive-speed-ramp.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Night Drive Reel, width: 1280, height: 720, fps: 24, video: 1, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 7, track: V1, seconds: 0, duration: 2286144000000 }, as: drive }
+  # each razor answers the right-hand pieces it made (video, then its linked audio)
+  - { command: timeline.razor, params: { time: 762048000000 }, as: cut1 }
+  - { command: timeline.razor, params: { time: 1524096000000 }, as: cut2 }
+  - { command: clip.speedDuration, params: { clips: [$cut1.clips.0], speed: 300, ripple: true } }
+  - { command: clip.speedDuration, params: { clips: [$cut2.clips.0], speed: 50, ripple: true, interpolation: opticalFlow } }
+thumbnail: { at: 7 }
+preview: { from: 2, to: 8, fps: 6, max: 360 }
+expected:
+  - actual: results
+    values:
+      cut1: { cuts: 2, clips: { count: 2 } }
+      cut2: { cuts: 2, clips: { count: 2 } }
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 3 }
+      sequence.video.0.items.0: { speed: 1.0, start: 0, end: 762048000000 }
+      sequence.video.0.items.1: { speed: 3.0, start: 762048000000, end: 1016064000000, sourceIn: 762048000000, sourceOut: 1524096000000 }
+      sequence.video.0.items.2: { speed: 0.5, start: 1016064000000, end: 2540160000000, timeInterpolation: opticalFlow }
+      sequence.audio.0.items: { count: 3 }
+      sequence.audio.0.items.1.speed: 3.0
+      sequence.duration: 2540160000000
+diagnostics: []
+since: "2026-11-09"

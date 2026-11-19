@@ -1,0 +1,41 @@
+format: 1
+id: film/countdown-leader-intro
+title: Countdown Leader Intro
+summary: A universal counting leader runs down to the first frame of a short film's opening title.
+category: Titles & Graphics
+tags: [titles, leader, countdown, demo-footage]
+features: [film.file.new-items, film.graphics.text-basics, film.timeline.basics]
+description: |
+  The demo project's Universal Counting Leader (an 8-second countdown with its sweep and sync
+  pop) opens the reel, with a small right-aligned REEL 1 slug on a translucent box over it. The
+  picture starts exactly where the leader ends, at frame 192, and the film's title fades in over
+  the aurora there: the frame-accurate hand-off a projectionist or a festival screener expects.
+document: { name: countdown-leader-intro.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Screener Reel 1, width: 1280, height: 720, fps: 24, video: 2, audio: 2 }, as: sequence }
+  - { command: timeline.place, params: { item: 13, track: V1, seconds: 0 }, as: leader }
+  - { command: timeline.place, params: { item: 6, track: V1, seconds: 8, audio: false }, as: footage }
+  - { command: graphics.newText, params: { text: REEL 1  ·  SCREENER, position: [1240, 690], size: 22, fontStyle: Bold, seconds: 8, track: 1, time: 0 }, as: slug }
+  - { command: graphics.set, params: { clip: $slug.clip, layer: 0, props: { align: right, tracking: 200, fill_color: "#ffffff", background: true, background_color: "#111111", background_opacity: 70, background_size: 10 } } }
+  - { command: graphics.newText, params: { text: UNDER A POLAR SKY, position: [640, 386], size: 64, fontStyle: Bold, seconds: 5, track: 1, frame: 192 }, as: title }
+  - { command: graphics.set, params: { clip: $title.clip, layer: 0, props: { align: center, tracking: 240, fill_color: "#eef6ff" } } }
+  - { command: effects.setParam, params: { clip: $title.clip, effect: opacity, param: opacity, value: 0, seconds: 8 } }
+  - { command: effects.setParam, params: { clip: $title.clip, effect: opacity, param: opacity, value: 100, seconds: 9 } }
+thumbnail: { at: 3.5 }
+preview: { from: 5, to: 9.5, fps: 8, max: 400 }
+expected:
+  - actual: results
+    values:
+      leader.clips: { count: 2 }
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 2 }
+      sequence.video.0.items.0: { name: Universal Counting Leader, startFrame: 0, durationFrames: 192 }
+      sequence.video.0.items.1: { name: Aurora_Timelapse.mp4, startFrame: 192 }
+      sequence.video.1.items.1: { name: UNDER A POLAR SKY, startFrame: 192 }
+      # the title fades in over the first second of the picture (ticks)
+      sequence.video.1.items.1.effects.1.params.opacity.keyframes: [{ time: 2032128000000, mediaTime: 0, value: 0 }, { time: 2286144000000, mediaTime: 254016000000, value: 100 }]
+      sequence.audio.0.items.0: { name: Universal Counting Leader }
+diagnostics: []
+since: "2026-11-09"

@@ -1,0 +1,76 @@
+format: 1
+id: vector/trail-club-badge
+title: Trail Club Badge
+summary: A round patch emblem with type set on two circular paths, a dashed stitch line and a sunset mountain scene clipped to a circle.
+category: Icons & Logos
+tags: [badge, emblem, type-on-path, clipping-mask]
+features: [vector.text.edit, vector.object.clipping-mask, vector.shape.primitives, vector.paint.stroke, vector.layer.panel]
+description: |
+  The club name runs clockwise over the top on one arc with `text.createInPath {mode: onPath}`; the
+  motto runs the other way along a wider arc below so it reads upright. The stitching is a dashed
+  round-capped stroke. The scene layer (gradient sky, sun, ridges, snowcaps and three pines) is
+  selected with `layer.selectAll` and clipped by its topmost circle in one clip group.
+document: { name: trail-club-badge.kvector, width: 800, height: 800 }
+steps:
+  - { command: layer.setProps, params: { name: Badge } }
+  - { command: shape.rectangle, params: { x: 0, y: 0, width: 800, height: 800 } }
+  - { command: paint.setStroke, params: { none: true } }
+  - { command: paint.setFill, params: { color: "#efe6d2" } }
+  - { command: shape.ellipse, params: { x: 100, y: 100, width: 600, height: 600 }, as: outer }
+  - { command: paint.setFill, params: { color: "#1e3a34" } }
+  - { command: shape.ellipse, params: { x: 116, y: 116, width: 568, height: 568 }, as: stitch }
+  - { command: paint.setFill, params: { none: true } }
+  - { command: paint.setStroke, params: { color: "#e9c46a" } }
+  - { command: stroke.set, params: { weight: 3, dash: [10, 7], cap: round } }
+  - { command: select.none, params: {} }
+  - { command: shape.ellipse, params: { x: 195, y: 195, width: 410, height: 410 }, as: innerRing }
+  - { command: stroke.set, params: { weight: 4, dash: null } }
+  - { command: paint.setStroke, params: { color: "#f4ecd8" } }
+  - { command: select.none, params: {} }
+  - { command: paint.setStroke, params: { none: true } }
+  - { command: shape.star, params: { cx: 158, cy: 400, radius1: 16, radius2: 7, points: 5 } }
+  - { command: paint.setFill, params: { color: "#e9c46a" } }
+  - { command: shape.star, params: { cx: 642, cy: 400, radius1: 16, radius2: 7, points: 5 } }
+  - { command: path.create, params: { d: "M172 400 A228 228 0 0 1 628 400" }, as: topArc }
+  - { command: text.createInPath, params: { path: $topArc.id, mode: onPath, text: CEDAR RIDGE TRAIL CLUB, size: 42, font: Source Sans 3, style: Bold, color: "#f4ecd8" }, as: topText }
+  - { command: text.setStyle, params: { id: $topText.id, justify: center, tracking: 80 } }
+  - { command: path.create, params: { d: "M145 400 A255 255 0 0 0 655 400" }, as: bottomArc }
+  - { command: text.createInPath, params: { path: $bottomArc.id, mode: onPath, text: "HIKE  ·  CLIMB  ·  CAMP", size: 30, font: Source Sans 3, style: Semibold, color: "#e9c46a" }, as: bottomText }
+  - { command: text.setStyle, params: { id: $bottomText.id, justify: center, tracking: 160 } }
+
+  - { command: layer.new, params: { name: Scene }, as: scene }
+  - { command: select.none, params: {} }
+  - { command: shape.rectangle, params: { x: 200, y: 200, width: 400, height: 400 }, as: sky }
+  - { command: paint.setFill, params: { gradient: { kind: linear, angle: -90, stops: [{ offset: 0, color: "#f6bd60" }, { offset: 1, color: "#f28482" }] } } }
+  - { command: shape.ellipse, params: { x: 340, y: 270, width: 120, height: 120 }, as: sun }
+  - { command: paint.setFill, params: { color: "#fff1c9" } }
+  - { command: path.create, params: { d: "M200 470 L300 330 L360 400 L430 300 L530 430 L600 380 L600 600 L200 600 Z" }, as: range }
+  - { command: paint.setFill, params: { color: "#84a59d" } }
+  - { command: path.create, params: { d: "M408 331 L430 300 L452 330 L440 324 L430 336 L420 324 Z M285 351 L300 330 L316 349 L306 345 L300 354 L293 345 Z" }, as: snow }
+  - { command: paint.setFill, params: { color: "#f7ede2" } }
+  - { command: path.create, params: { d: "M200 600 L200 500 C300 470 380 520 460 500 C520 486 570 470 600 480 L600 600 Z" }, as: hill }
+  - { command: paint.setFill, params: { color: "#2a5a50" } }
+  - { command: path.create, params: { d: "M290 430 L318 480 L306 480 L330 520 L314 520 L340 560 L296 560 L296 580 L284 580 L284 560 L240 560 L266 520 L250 520 L274 480 L262 480 Z" }, as: pine }
+  - { command: paint.setFill, params: { color: "#1e3a34" } }
+  - { command: object.move, params: { dx: 60, dy: 20, copy: true } }
+  - { command: object.scale, params: { sx: 75, origin: [350, 600] } }
+  - { command: select.set, params: { ids: [$pine.id] } }
+  - { command: object.move, params: { dx: 230, dy: 10, copy: true } }
+  - { command: object.scale, params: { sx: 85, origin: [520, 600] } }
+  - { command: shape.ellipse, params: { x: 205, y: 205, width: 390, height: 390 }, as: clip }
+  - { command: layer.selectAll, params: { id: $scene.id } }
+  - { command: object.clippingMask.make, params: {}, as: clipGroup }
+  - { command: select.none, params: {} }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 2 }
+      layers.0: { name: Scene, children: { count: 1 } }
+      layers.0.children.0: { kind: Clip Group, children: { count: 9 } }
+      layers.0.children.0.children.-1: { kind: Ellipse, fill: None }
+      layers.1: { name: Badge, children: { count: 8 } }
+      layers.1.children.0: { kind: Type, text: "HIKE  ·  CLIMB  ·  CAMP" }
+      layers.1.children.1: { kind: Type, text: CEDAR RIDGE TRAIL CLUB }
+      layers.1.children.5: { kind: Ellipse, stroke: "#e9c46a", strokeOptions: { dash: { count: 2 }, cap: round } }
+diagnostics: []
+since: "2026-11-09"

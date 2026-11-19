@@ -1,0 +1,54 @@
+format: 1
+id: photo/recipe-card-fractions
+title: Recipe Card Fractions
+summary: A pear galette recipe card where typed 1/2 and 3/4 become true fractions with the OpenType fractions feature.
+category: Typography
+tags: [type, opentype, paragraph-text, shapes]
+features: [photo.type.features, photo.type.text, photo.path.shapes]
+description: |
+  The ingredient list is typed with plain slashes ("1 1/2 cups") and `type.openType.fractions`
+  turns them into the font's diagonal fractions, so the quantities line up and read at a glance.
+  The method is a paragraph text layer with space between steps; the galette illustration is made
+  of shapes with a soft drop shadow.
+document: { name: recipe-card-fractions.psd, width: 1200, height: 900 }
+fonts: [inter/Inter-Variable.ttf, lora/Lora-Variable.ttf]
+steps:
+  - { command: layer.newFillLayer.solidColor, params: { color: "#e9e1d3" }, as: table }
+  - { command: shape.create, params: { kind: roundedRect, rect: [60, 60, 1080, 780], radii: 18, fill: "#fffaf1", name: Card }, as: card }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $card.layer, color: "#6b5a43", opacity: 25, distance: 10, size: 30, angle: 110 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [760, 60, 380, 780], radii: [0, 18, 18, 0], fill: "#f4dcc4", name: Art Panel } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [60, 60, 1080, 780], radii: 18, fill: null, stroke: { width: 2, color: "#e2d3bd", align: inside }, name: Card Edge } }
+  - { command: shape.create, params: { kind: ellipse, rect: [800, 280, 300, 300], fill: "#ecebe7", name: Plate }, as: plate }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $plate.layer, color: "#8a5a3a", opacity: 30, distance: 8, size: 20, angle: 110 } }
+  - { command: shape.create, params: { kind: star, rect: [826, 306, 248, 248], sides: 16, starRatio: 0.9, fill: "#d9954f", name: Crust } }
+  - { command: shape.create, params: { kind: ellipse, rect: [868, 348, 164, 164], fill: "#f2c97d", name: Filling } }
+  - { command: shape.create, params: { kind: ellipse, rect: [905, 360, 36, 70], fill: "#e7a94a", name: Pear Slice 1 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [955, 362, 36, 70], fill: "#e7a94a", name: Pear Slice 2 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [905, 430, 36, 70], fill: "#e7a94a", name: Pear Slice 3 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [955, 432, 36, 70], fill: "#e7a94a", name: Pear Slice 4 } }
+  - { command: type.create, params: { x: 950, y: 660, text: "Serves 6 · 1 hr 10 min", font: Lora, size: 22, italic: true, color: "#8a5a3a", align: center, name: Yield } }
+  - { command: type.create, params: { x: 110, y: 140, text: "WEEKEND BAKING · CARD 12", font: Inter, size: 14, weight: 600, tracking: 250, color: "#b5643a", name: Eyebrow } }
+  - { command: type.create, params: { x: 110, y: 205, text: Brown Butter Pear Galette, font: Lora, size: 46, weight: 700, color: "#3a2a1e", name: Title } }
+  - { command: shape.create, params: { kind: line, from: [110, 240], to: [700, 240], weight: 1, fill: "#e2d3bd", name: Title Rule } }
+  - { command: type.create, params: { x: 110, y: 284, text: INGREDIENTS, font: Inter, size: 13, weight: 700, tracking: 250, color: "#8a7560", name: Ingredients Label } }
+  - { command: type.create, params: { x: 110, y: 300, box: [110, 300, 260, 480], font: Lora, size: 21, leading: 36, color: "#3a2a1e", name: Ingredients, text: "1 1/2 cups flour\n1/2 tsp fine salt\n3/4 cup cold butter\n1/4 cup ice water\n3 ripe pears\n1/4 cup brown sugar\n1/2 lemon, juiced\n2 tbsp brown butter\n1 egg, beaten" }, as: ingredients }
+  - { command: type.openType.fractions, params: { layer: $ingredients.layer, on: true } }
+  - { command: type.create, params: { x: 400, y: 284, text: METHOD, font: Inter, size: 13, weight: 700, tracking: 250, color: "#8a7560", name: Method Label } }
+  - { command: type.create, params: { x: 400, y: 300, box: [400, 300, 310, 500], font: Lora, size: 17, leading: 25, spaceAfter: 12, color: "#4a3a2e", name: Method, text: "1. Rub the butter into the flour and salt until pea-sized, then bring together with the ice water. Chill 30 minutes.\n2. Slice the pears thinly and toss with the sugar and lemon juice.\n3. Roll the dough into a rough 12-inch round, pile the pears in the middle and fold the edges over.\n4. Brush with egg and the brown butter. Bake at 200 °C for 40 minutes, until deep golden." }, as: method }
+  - { command: type.openType.fractions, params: { layer: $method.layer, on: true } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [110, 680, 600, 104], radii: 12, fill: "#f6ecdc", name: Note Box } }
+  - { command: type.create, params: { x: 134, y: 702, box: [134, 702, 552, 70], font: Lora, size: 17, leading: 25, color: "#6b4f3a", name: Note, text: "Baker’s note: swap 1/2 of the pears for sliced figs in late summer, and add 1/4 tsp cardamom to the sugar." }, as: note }
+  - { command: type.openType.fractions, params: { layer: $note.layer, on: true } }
+  - { command: type.setStyle, params: { layer: $note.layer, range: [0, 13], weight: 700, color: "#b5643a" } }
+  - { command: type.info, params: { layer: $ingredients.layer }, as: ingredientsInfo }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 22, any: { name: Ingredients, kind: Type, text: { font: Lora } } }
+      layers.-3: { name: Card, effects: { items: { count: 1, any: { key: dropShadow } } } }
+  - actual: results
+    values:
+      ingredientsInfo.text: { contains: "1 1/2 cups flour" }
+      ingredientsInfo.runs: { all: { style: { features: { any: { tag: frac } } } } }
+diagnostics: []
+since: "2026-11-09"

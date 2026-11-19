@@ -1,0 +1,30 @@
+{
+  "id": "slide/history-of-writing-timeline",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 209,
+  "document": {
+    "name": "history-of-writing-timeline.pptx",
+    "bytes": 24012,
+    "sha256": "29a51e6175b9cc50c93a2dd615568124d3f4386ab905b70558dc87db3fbb1bab"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "5fe1baa7e5b09d2fabeb6ff9fad31c7b0e475273730c9db07bf237ace43c4870"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 217
+}

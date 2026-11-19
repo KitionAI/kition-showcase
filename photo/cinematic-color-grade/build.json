@@ -1,0 +1,30 @@
+{
+  "id": "photo/cinematic-color-grade",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    900
+  ],
+  "stats": "1600 × 900 px; 16 layers; 1 type layer; 5 shape layers; 4 adjustment layers; 2 fill layers; 1 styled layer; 5 masks",
+  "commands": 37,
+  "document": {
+    "name": "cinematic-color-grade.psd",
+    "bytes": 8329736,
+    "sha256": "977cc0d44d2e30aa3a4ff5bebde7f31afb67f7d2e34123e30795e6a8eff7b2c2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "f2e8e75e6d49289656cd6617d095d94aee9364c40de3975b3345471aa9a6f2de"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1500
+}

@@ -1,0 +1,30 @@
+{
+  "id": "board/checkout-user-journey",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 28 elements",
+  "commands": 15,
+  "document": {
+    "name": "checkout-user-journey.kboard",
+    "bytes": 11626,
+    "sha256": "740a36d1d328bfe822eea5ac877eef15f8802760850a2c051077520c63dba8d2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      327
+    ],
+    "sha256": "2cc696a1942ed3984436ccfc461b4176bf73c6c94bff776c5f64cda67295e2b0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

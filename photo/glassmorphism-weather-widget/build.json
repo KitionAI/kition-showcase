@@ -1,0 +1,30 @@
+{
+  "id": "photo/glassmorphism-weather-widget",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1200 × 900 px; 28 layers; 14 type layers; 9 shape layers; 2 fill layers; 2 styled layers; 2 masks",
+  "commands": 48,
+  "document": {
+    "name": "glassmorphism-weather-widget.psd",
+    "bytes": 3743323,
+    "sha256": "2843aedd4733f79ce159aea53152138e33f2c93690c512fbb3113911e9e77e14"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "96a2998a8654774efe9f2c2a383c9136c4058c306550c26823fc2286f99d3ce2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1546
+}

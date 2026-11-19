@@ -1,0 +1,30 @@
+{
+  "id": "sheet/weekly-timesheet",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1838,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:I17",
+  "commands": 51,
+  "document": {
+    "name": "weekly-timesheet.xlsx",
+    "bytes": 6162,
+    "sha256": "e83636073bac9613aea52abd703fdb1c1bf96f5c7c6ff985f298e659e80eac7d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      299
+    ],
+    "sha256": "1c79f3363346febacf1f33d04bdc6cc01f8d15ee30fa466d2e1620a93f3e1858"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 79
+}

@@ -1,0 +1,90 @@
+format: 1
+id: design/dark-mode-settings
+title: Dark Mode Settings Screen
+summary: A dark-theme mobile settings screen of grouped lists, built from a Toggle component with On and Off variants and a reusable list-row layout.
+category: Mobile Apps
+tags: [mobile, dark-mode, components, variants, settings]
+features: [design.component.manage, design.component.instances, design.layout.auto, design.object.frames-shapes-text, design.text.format]
+description: |
+  The Toggle is a component set of two variants (`State=On`, `State=Off`): a pill frame whose knob
+  sits at the end the auto layout aligns it to. The main components sit beside the phone; every
+  switch in the list is an instance, flipped with `instance.setProperties`. Each grouped section is
+  a vertical auto layout with rounded corners and clipped rows; rows use space-between so labels
+  and controls stay at the edges.
+document: { name: dark-mode-settings.kdesign, width: 390, height: 844 }
+fonts: [inter/Inter-Variable.ttf]
+steps:
+  - { command: select.all, params: {}, as: initial }
+  - { command: node.set, params: { ids: [$initial.selection.0], props: { name: Settings, fill: "#0B0B0F", layout: vertical, gap: 22, padding: [60, 16, 32, 16] } } }
+  # Toggle component set, kept to the right of the screen.
+  - { command: node.create, params: { type: component, name: "State=On", x: 440, y: 92, props: { layout: horizontal, padding: 2, mainAlign: max, crossAlign: center, cornerRadius: 999, fill: "#30D158", width: 51, height: 31, sizingH: fixed, sizingV: fixed } }, as: on }
+  - { command: node.create, params: { type: ellipse, parent: $on.id, name: Knob, width: 27, height: 27, props: { fill: "#FFFFFF" } } }
+  - { command: node.create, params: { type: component, name: "State=Off", x: 520, y: 92, props: { layout: horizontal, padding: 2, mainAlign: min, crossAlign: center, cornerRadius: 999, fill: "#39393D", width: 51, height: 31, sizingH: fixed, sizingV: fixed } }, as: off }
+  - { command: node.create, params: { type: ellipse, parent: $off.id, name: Knob, width: 27, height: 27, props: { fill: "#FFFFFF" } } }
+  - { command: component.combineVariants, params: { ids: [$on.id, $off.id] }, as: toggle }
+  - { command: node.set, params: { ids: [$toggle.id], props: { name: Toggle, layout: horizontal, gap: 24, padding: 20, cornerRadius: 12, fill: "#1C1C1E", stroke: "#9747FF", strokeWeight: 1, dashes: [5, 4], sizingH: hug, sizingV: hug } } }
+  - { command: page.setBackground, params: { color: "#232327" } }
+  - { command: text.create, params: { text: Toggle component, x: 430, y: 34, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 13, fills: ["#C9A7FF"] } } }
+  - { command: text.create, params: { text: "State = On / Off", x: 430, y: 162, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 12, fills: ["#A1A1AA"] } } }
+  - { command: text.create, params: { text: Settings, x: 0, y: 0, parent: $initial.selection.0, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 34, fills: ["#FFFFFF"] } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: "Profile", props: { layout: horizontal, gap: 14, crossAlign: center, padding: 14, cornerRadius: 14, fill: "#1C1C1E", sizingH: fill, sizingV: hug } }, as: profile }
+  - { command: node.create, params: { type: ellipse, parent: $profile.id, name: Avatar, width: 54, height: 54, props: { fills: [{ type: linearGradient, stops: ["#BF5AF2", "#5E5CE6"] }] } } }
+  - { command: node.create, params: { type: frame, parent: $profile.id, name: "Who", props: { layout: vertical, gap: 2, fill: none, sizingH: fill, sizingV: hug } }, as: who }
+  - { command: text.create, params: { text: "Jonah Mireles", x: 0, y: 0, parent: $who.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 18, fills: ["#FFFFFF"] } } }
+  - { command: text.create, params: { text: "Account, devices and sign-in", x: 0, y: 0, parent: $who.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 13, fills: ["#98989F"] } } }
+  - { command: text.create, params: { text: "›", x: 0, y: 0, parent: $profile.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 22, fills: ["#98989F"] } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: "Notifications Group", props: { layout: vertical, gap: 6, fill: none, sizingH: fill, sizingV: hug } }, as: g0 }
+  - { command: text.create, params: { text: "NOTIFICATIONS", x: 0, y: 0, parent: $g0.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#8E8E93"], letterSpacing: "4%" } } }
+  - { command: node.create, params: { type: frame, parent: $g0.id, name: "Notifications List", props: { layout: vertical, gap: 0, cornerRadius: 14, clip: true, fill: "#1C1C1E", sizingH: fill, sizingV: hug } }, as: l0 }
+  - { command: node.create, params: { type: frame, parent: $l0.id, name: "Allow notifications", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52, stroke: "#2C2C2E", strokeSides: [0, 0, 1, 0], strokeWeight: 1 } }, as: r0_0 }
+  - { command: text.create, params: { text: "Allow notifications", x: 0, y: 0, parent: $r0_0.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: instance.create, params: { component: $toggle.id, parent: $r0_0.id }, as: t0 }
+  - { command: node.create, params: { type: frame, parent: $l0.id, name: "Sounds", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52, stroke: "#2C2C2E", strokeSides: [0, 0, 1, 0], strokeWeight: 1 } }, as: r0_1 }
+  - { command: text.create, params: { text: "Sounds", x: 0, y: 0, parent: $r0_1.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: instance.create, params: { component: $toggle.id, parent: $r0_1.id }, as: t1 }
+  - { command: node.create, params: { type: frame, parent: $l0.id, name: "Show previews", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52 } }, as: r0_2 }
+  - { command: text.create, params: { text: "Show previews", x: 0, y: 0, parent: $r0_2.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: instance.create, params: { component: $toggle.id, parent: $r0_2.id }, as: t2 }
+  - { command: instance.setProperties, params: { ids: [$t2.id], properties: { State: "Off" } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: "Appearance Group", props: { layout: vertical, gap: 6, fill: none, sizingH: fill, sizingV: hug } }, as: g1 }
+  - { command: text.create, params: { text: "APPEARANCE", x: 0, y: 0, parent: $g1.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#8E8E93"], letterSpacing: "4%" } } }
+  - { command: node.create, params: { type: frame, parent: $g1.id, name: "Appearance List", props: { layout: vertical, gap: 0, cornerRadius: 14, clip: true, fill: "#1C1C1E", sizingH: fill, sizingV: hug } }, as: l1 }
+  - { command: node.create, params: { type: frame, parent: $l1.id, name: "Dark mode", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52, stroke: "#2C2C2E", strokeSides: [0, 0, 1, 0], strokeWeight: 1 } }, as: r1_0 }
+  - { command: text.create, params: { text: "Dark mode", x: 0, y: 0, parent: $r1_0.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: instance.create, params: { component: $toggle.id, parent: $r1_0.id }, as: t3 }
+  - { command: node.create, params: { type: frame, parent: $l1.id, name: "Match system", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52, stroke: "#2C2C2E", strokeSides: [0, 0, 1, 0], strokeWeight: 1 } }, as: r1_1 }
+  - { command: text.create, params: { text: "Match system", x: 0, y: 0, parent: $r1_1.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: instance.create, params: { component: $toggle.id, parent: $r1_1.id }, as: t4 }
+  - { command: instance.setProperties, params: { ids: [$t4.id], properties: { State: "Off" } } }
+  - { command: node.create, params: { type: frame, parent: $l1.id, name: "Text size", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52 } }, as: r1_2 }
+  - { command: text.create, params: { text: "Text size", x: 0, y: 0, parent: $r1_2.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: text.create, params: { text: "Large  ›", x: 0, y: 0, parent: $r1_2.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#8E8E93"] } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: "Privacy Group", props: { layout: vertical, gap: 6, fill: none, sizingH: fill, sizingV: hug } }, as: g2 }
+  - { command: text.create, params: { text: "PRIVACY", x: 0, y: 0, parent: $g2.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#8E8E93"], letterSpacing: "4%" } } }
+  - { command: node.create, params: { type: frame, parent: $g2.id, name: "Privacy List", props: { layout: vertical, gap: 0, cornerRadius: 14, clip: true, fill: "#1C1C1E", sizingH: fill, sizingV: hug } }, as: l2 }
+  - { command: node.create, params: { type: frame, parent: $l2.id, name: "Share usage data", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52, stroke: "#2C2C2E", strokeSides: [0, 0, 1, 0], strokeWeight: 1 } }, as: r2_0 }
+  - { command: text.create, params: { text: "Share usage data", x: 0, y: 0, parent: $r2_0.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: instance.create, params: { component: $toggle.id, parent: $r2_0.id }, as: t5 }
+  - { command: instance.setProperties, params: { ids: [$t5.id], properties: { State: "Off" } } }
+  - { command: node.create, params: { type: frame, parent: $l2.id, name: "Face unlock", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [12, 16, 12, 16], fill: none, sizingH: fill, sizingV: hug, minHeight: 52 } }, as: r2_1 }
+  - { command: text.create, params: { text: "Face unlock", x: 0, y: 0, parent: $r2_1.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 17, fills: ["#FFFFFF"] } } }
+  - { command: instance.create, params: { component: $toggle.id, parent: $r2_1.id }, as: t6 }
+  - { command: text.create, params: { text: "Version 4.2.0", x: 0, y: 0, parent: $initial.selection.0, width: 358, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 13, textAlign: center, fills: ["#8E8E93"], sizingH: fill } } }
+  - { command: component.list, params: {}, as: components }
+  - { command: node.get, params: { id: $t2.id }, as: offToggle }
+  - { command: text.missingFonts, params: {}, as: missing }
+thumbnail: { area: $inspect.contentBounds }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      background: "#232327"
+      layers: 56
+      contentBounds: { width: 588, height: 844 }
+  - actual: results
+    values:
+      components: [{ name: "State=On", type: COMPONENT, instances: 4 }, { name: "State=Off", type: COMPONENT, instances: 3 }, { name: Toggle, type: COMPONENT_SET }]
+      offToggle: { type: INSTANCE, name: Toggle }
+      missing.families: { count: 0 }
+diagnostics: []
+since: "2026-11-09"

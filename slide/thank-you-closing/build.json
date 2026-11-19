@@ -1,0 +1,30 @@
+{
+  "id": "slide/thank-you-closing",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 56,
+  "document": {
+    "name": "thank-you-closing.pptx",
+    "bytes": 22985,
+    "sha256": "7a1c756300445d96a71e20e2f271bfa1730caac01abe661c0d48f86e0d1bce8d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "1db4c0c34d8bd3a1a316bdf17a2c57c4ed8c500593e967c5631c111f4a50de82"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 66
+}

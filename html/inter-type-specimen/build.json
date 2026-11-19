@@ -1,0 +1,30 @@
+{
+  "id": "html/inter-type-specimen",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    680
+  ],
+  "stats": "1200 × 680 px; 3.7 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "inter-type-specimen.html",
+    "bytes": 3822,
+    "sha256": "8dca0da5177bedcbf1c6fa83d700beb6fb5ab267c24bb4ebef813dc769dff429"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      363
+    ],
+    "sha256": "2da62835adb950940ae4f3bd200aac0f2bd05d321336b2671c2b5a33f6f6aa91"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 6
+}

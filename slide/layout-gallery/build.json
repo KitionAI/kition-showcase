@@ -1,0 +1,30 @@
+{
+  "id": "slide/layout-gallery",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    7000
+  ],
+  "stats": "12 slides; 960 × 540 pt",
+  "commands": 154,
+  "document": {
+    "name": "layout-gallery.pptx",
+    "bytes": 114118,
+    "sha256": "4fbef42e3c4772897f6be86e857ca173ab22e5224c75ff7ae0d687e111970d1c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "db9d5711acf95ef94bc0b6b62c3156fea24797080262e06f1ed90dd3ab71d229"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 184
+}

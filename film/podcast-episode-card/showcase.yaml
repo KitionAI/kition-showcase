@@ -1,0 +1,247 @@
+format: 1
+id: film/podcast-episode-card
+title: Podcast Episode Card
+summary: A video podcast card with cover art, episode title and an animated waveform over the episode's music.
+category: Titles & Graphics
+tags: [titles, podcast, shapes, keyframes, audio, demo-footage]
+features: [film.graphics.titles, film.effects.keyframes, film.audio.basics]
+description: |
+  The opening card of a video podcast episode. The cover art is drawn from shapes (a rounded
+  orange square with a shadow, a dark disc and a stroked ring) beside the episode number, title
+  and hosts. The waveform is 24 rounded bars whose Size is keyframed every 0.4 s, so they bounce
+  for two seconds and land back where they started; the demo project's ambient score plays
+  under the card on A1.
+document: { name: podcast-episode-card.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Slow Hour 42, width: 1280, height: 720, fps: 30, video: 2, audio: 1 }, as: sequence }
+  - { command: file.newColorMatte, params: { color: "#10302e", seconds: 8 }, as: matte }
+  - { command: timeline.place, params: { item: $matte.item, track: V1, seconds: 0 } }
+  - { command: timeline.place, params: { item: 11, track: A1, seconds: 0, duration: 2032128000000 }, as: music }
+  - { command: graphics.newRectangle, params: { position: [330, 340], size: [320, 320], seconds: 8, track: 1, time: 0 }, as: card }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 0, props: { name: Cover, fill_color: "#f2a541", corner_radius: 18, shadow: true, shadow_opacity: 45, shadow_blur: 50, shadow_distance: 14, shadow_angle: 90 } } }
+  - { command: graphics.newEllipse, params: { clip: $card.clip, position: [330, 300], size: [170, 170] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 1, props: { name: Sun, fill_color: "#10302e" } } }
+  - { command: graphics.newEllipse, params: { clip: $card.clip, position: [330, 300], size: [92, 92] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 2, props: { name: Sun Core, fill: false, stroke: true, stroke_color: "#f2a541", stroke_width: 6, stroke_type: Center } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: THE SLOW HOUR, position: [330, 452], size: 26, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 3, props: { name: Cover Title, align: center, tracking: 120, fill_color: "#10302e" } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: EPISODE 42, position: [560, 220], size: 22, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 4, props: { name: Episode, tracking: 300, fill_color: "#f2a541" } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: "Building quiet tools\nfor noisy teams", position: [556, 290], size: 54, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 5, props: { name: Title, leading: 4, fill_color: "#f6f1e7" } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: with Ada Brennan and Kwame Osei, position: [560, 414], size: 24 } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 6, props: { name: Hosts, fill_color: "#a9c4bf" } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [560, 505], size: [12, 30] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 7, props: { name: Bar 01, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [582, 505], size: [12, 58] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 8, props: { name: Bar 02, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [604, 505], size: [12, 92] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 9, props: { name: Bar 03, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [626, 505], size: [12, 64] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 10, props: { name: Bar 04, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [648, 505], size: [12, 120] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 11, props: { name: Bar 05, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [670, 505], size: [12, 84] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 12, props: { name: Bar 06, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [692, 505], size: [12, 46] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 13, props: { name: Bar 07, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [714, 505], size: [12, 104] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 14, props: { name: Bar 08, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [736, 505], size: [12, 140] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 15, props: { name: Bar 09, fill_color: "#f6f1e7", corner_radius: 6, opacity: 100 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [758, 505], size: [12, 96] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 16, props: { name: Bar 10, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [780, 505], size: [12, 60] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 17, props: { name: Bar 11, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [802, 505], size: [12, 112] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 18, props: { name: Bar 12, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [824, 505], size: [12, 76] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 19, props: { name: Bar 13, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [846, 505], size: [12, 40] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 20, props: { name: Bar 14, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [868, 505], size: [12, 88] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 21, props: { name: Bar 15, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [890, 505], size: [12, 128] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 22, props: { name: Bar 16, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [912, 505], size: [12, 70] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 23, props: { name: Bar 17, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [934, 505], size: [12, 50] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 24, props: { name: Bar 18, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [956, 505], size: [12, 98] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 25, props: { name: Bar 19, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [978, 505], size: [12, 62] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 26, props: { name: Bar 20, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [1000, 505], size: [12, 34] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 27, props: { name: Bar 21, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [1022, 505], size: [12, 80] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 28, props: { name: Bar 22, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [1044, 505], size: [12, 110] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 29, props: { name: Bar 23, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  - { command: graphics.newRectangle, params: { clip: $card.clip, position: [1066, 505], size: [12, 56] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 30, props: { name: Bar 24, fill_color: "#f6f1e7", corner_radius: 6, opacity: 45 } } }
+  # the waveform: each bar's Size is keyframed every 0.4 s, back to its first height at 2 s
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 10, param: size, value: [12, 30], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 10, param: size, value: [12, 104], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 10, param: size, value: [12, 88], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 10, param: size, value: [12, 80], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 10, param: size, value: [12, 120], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 10, param: size, value: [12, 30], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 11, param: size, value: [12, 58], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 11, param: size, value: [12, 76], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 11, param: size, value: [12, 62], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 11, param: size, value: [12, 92], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 11, param: size, value: [12, 96], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 11, param: size, value: [12, 58], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 12, param: size, value: [12, 92], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 12, param: size, value: [12, 50], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 12, param: size, value: [12, 30], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 12, param: size, value: [12, 104], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 12, param: size, value: [12, 88], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 12, param: size, value: [12, 92], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 13, param: size, value: [12, 64], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 13, param: size, value: [12, 110], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 13, param: size, value: [12, 84], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 13, param: size, value: [12, 76], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 13, param: size, value: [12, 62], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 13, param: size, value: [12, 64], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 14, param: size, value: [12, 120], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 14, param: size, value: [12, 64], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 14, param: size, value: [12, 60], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 14, param: size, value: [12, 50], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 14, param: size, value: [12, 30], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 14, param: size, value: [12, 120], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 15, param: size, value: [12, 84], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 15, param: size, value: [12, 140], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 15, param: size, value: [12, 128], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 15, param: size, value: [12, 110], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 15, param: size, value: [12, 84], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 15, param: size, value: [12, 84], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 16, param: size, value: [12, 46], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 16, param: size, value: [12, 40], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 16, param: size, value: [12, 34], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 16, param: size, value: [12, 64], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 16, param: size, value: [12, 60], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 16, param: size, value: [12, 46], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 17, param: size, value: [12, 104], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 17, param: size, value: [12, 98], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 17, param: size, value: [12, 58], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 17, param: size, value: [12, 140], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 17, param: size, value: [12, 128], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 17, param: size, value: [12, 104], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 18, param: size, value: [12, 140], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 18, param: size, value: [12, 56], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 18, param: size, value: [12, 46], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 18, param: size, value: [12, 40], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 18, param: size, value: [12, 34], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 18, param: size, value: [12, 140], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 19, param: size, value: [12, 96], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 19, param: size, value: [12, 120], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 19, param: size, value: [12, 112], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 19, param: size, value: [12, 98], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 19, param: size, value: [12, 58], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 19, param: size, value: [12, 96], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 20, param: size, value: [12, 60], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 20, param: size, value: [12, 96], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 20, param: size, value: [12, 70], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 20, param: size, value: [12, 56], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 20, param: size, value: [12, 46], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 20, param: size, value: [12, 60], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 21, param: size, value: [12, 112], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 21, param: size, value: [12, 88], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 21, param: size, value: [12, 80], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 21, param: size, value: [12, 120], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 21, param: size, value: [12, 112], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 21, param: size, value: [12, 112], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 22, param: size, value: [12, 76], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 22, param: size, value: [12, 62], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 22, param: size, value: [12, 92], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 22, param: size, value: [12, 96], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 22, param: size, value: [12, 70], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 22, param: size, value: [12, 76], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 23, param: size, value: [12, 40], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 23, param: size, value: [12, 30], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 23, param: size, value: [12, 104], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 23, param: size, value: [12, 88], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 23, param: size, value: [12, 80], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 23, param: size, value: [12, 40], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 24, param: size, value: [12, 88], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 24, param: size, value: [12, 84], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 24, param: size, value: [12, 76], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 24, param: size, value: [12, 62], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 24, param: size, value: [12, 92], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 24, param: size, value: [12, 88], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 25, param: size, value: [12, 128], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 25, param: size, value: [12, 60], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 25, param: size, value: [12, 50], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 25, param: size, value: [12, 30], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 25, param: size, value: [12, 104], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 25, param: size, value: [12, 128], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 26, param: size, value: [12, 70], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 26, param: size, value: [12, 128], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 26, param: size, value: [12, 110], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 26, param: size, value: [12, 84], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 26, param: size, value: [12, 76], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 26, param: size, value: [12, 70], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 27, param: size, value: [12, 50], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 27, param: size, value: [12, 34], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 27, param: size, value: [12, 64], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 27, param: size, value: [12, 60], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 27, param: size, value: [12, 50], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 27, param: size, value: [12, 50], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 28, param: size, value: [12, 98], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 28, param: size, value: [12, 58], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 28, param: size, value: [12, 140], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 28, param: size, value: [12, 128], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 28, param: size, value: [12, 110], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 28, param: size, value: [12, 98], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 29, param: size, value: [12, 62], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 29, param: size, value: [12, 46], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 29, param: size, value: [12, 40], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 29, param: size, value: [12, 34], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 29, param: size, value: [12, 64], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 29, param: size, value: [12, 62], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 30, param: size, value: [12, 34], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 30, param: size, value: [12, 112], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 30, param: size, value: [12, 98], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 30, param: size, value: [12, 58], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 30, param: size, value: [12, 140], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 30, param: size, value: [12, 34], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 31, param: size, value: [12, 80], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 31, param: size, value: [12, 70], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 31, param: size, value: [12, 56], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 31, param: size, value: [12, 46], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 31, param: size, value: [12, 40], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 31, param: size, value: [12, 80], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 32, param: size, value: [12, 110], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 32, param: size, value: [12, 80], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 32, param: size, value: [12, 120], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 32, param: size, value: [12, 112], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 32, param: size, value: [12, 98], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 32, param: size, value: [12, 110], seconds: 2.0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 33, param: size, value: [12, 56], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 33, param: size, value: [12, 92], seconds: 0.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 33, param: size, value: [12, 96], seconds: 0.8 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 33, param: size, value: [12, 70], seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 33, param: size, value: [12, 56], seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 33, param: size, value: [12, 56], seconds: 2.0 } }
+  - { command: graphics.list, params: { clip: $card.clip }, as: list }
+thumbnail: { at: 3 }
+preview: { from: 0, to: 2, fps: 10, max: 400 }
+expected:
+  - actual: results
+    values:
+      music.clips: { count: 1 }
+      list.layers: { count: 31 }
+      list.layers.5: { name: Title, text: "Building quiet tools\nfor noisy teams" }
+      list.layers.30: { name: Bar 24, kind: Rectangle }
+  - actual: inspect
+    values:
+      sequence.audio.0.items: { count: 1 }
+      sequence.audio.0.items.0: { name: Ambient_Score.wav, durationFrames: 240 }
+      sequence.video.1.items.0.effects: { count: 34 }
+      # the first and last bars bounce every 0.4 s (ticks) and land back on their first height
+      sequence.video.1.items.0.effects.10.params.size.keyframes: [{ time: 0, value: [12, 30] }, { time: 101606400000, value: [12, 104] }, { time: 203212800000, value: [12, 88] }, { time: 304819200000, value: [12, 80] }, { time: 406425600000, value: [12, 120] }, { time: 508032000000, value: [12, 30] }]
+      sequence.video.1.items.0.effects.33.params.size.keyframes: [{ time: 0, value: [12, 56] }, { time: 101606400000, value: [12, 92] }, { time: 203212800000, value: [12, 96] }, { time: 304819200000, value: [12, 70] }, { time: 406425600000, value: [12, 56] }, { time: 508032000000, value: [12, 56] }]
+diagnostics: []
+since: "2026-11-09"

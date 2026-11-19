@@ -1,0 +1,66 @@
+{
+  "id": "film/rough-cut-with-a-hole",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 14.0 s; 4 video clips; 4 audio clips; 2 markers",
+  "commands": 10,
+  "document": {
+    "name": "rough-cut-with-a-hole.kfilm",
+    "bytes": 16686,
+    "sha256": "bda776bb06c3c224168d45094bd68299a7c1e974eda162042fe8ffecf917dedb"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "9d1af8f8a4a35eeb3b28b24d8db123c8cfa47c0da160a37b7372c2c3657bb814"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 30,
+    "bytes": 33430
+  },
+  "diagnostics": [
+    {
+      "code": "film.disabled-clip",
+      "fix": {
+        "command": "clip.enable",
+        "params": {
+          "clips": [
+            62
+          ]
+        }
+      },
+      "message": "Clip \"Neon_Loop.mov\" on Video 2 is disabled: it neither shows nor plays.",
+      "severity": "info",
+      "target": {
+        "path": "sequence:52/clip:62"
+      }
+    },
+    {
+      "code": "film.gap",
+      "fix": {
+        "command": "sequence.closeGap",
+        "params": {
+          "time": 2032128000000,
+          "track": "V1"
+        }
+      },
+      "message": "Video 1 has 2 s of black between \"Desert_Dunes.mp4\" and \"Misty_Forest.mp4\" at 8 s.",
+      "severity": "info",
+      "target": {
+        "path": "sequence:52/clip:60"
+      }
+    }
+  ],
+  "built_ms": 17
+}

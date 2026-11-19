@@ -1,0 +1,30 @@
+{
+  "id": "vector/reading-owl-mascot",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    800,
+    800
+  ],
+  "stats": "1 artboard; 2 layers; 34 objects",
+  "commands": 65,
+  "document": {
+    "name": "reading-owl-mascot.kvector",
+    "bytes": 34303,
+    "sha256": "d84c24e47624304539dd2923411a0677a1a8eb0e1275d497fb3946e8752643e1"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      640
+    ],
+    "sha256": "d86d29d4a8fd2c289f31de116c50d89f4892d4f138794aaa803587210270d9f9"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 76
+}

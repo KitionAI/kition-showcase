@@ -1,0 +1,30 @@
+{
+  "id": "board/recycling-ad-storyboard",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "2 pages; 33 elements",
+  "commands": 16,
+  "document": {
+    "name": "recycling-ad-storyboard.kboard",
+    "bytes": 13656,
+    "sha256": "bd68c21e1a6b0bb77e8e4890ea1fd26f6ccb06ec65af9d0ce17805f30fe7e33a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      442
+    ],
+    "sha256": "3950ebc50f805fb04c295548670d74dc93ff811db0a89773324c79b45e53464b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 3
+}

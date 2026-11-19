@@ -1,0 +1,30 @@
+{
+  "id": "vector/saltmarsh-bay-trail-map",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    850
+  ],
+  "stats": "1 artboard; 4 layers; 37 objects",
+  "commands": 80,
+  "document": {
+    "name": "saltmarsh-bay-trail-map.kvector",
+    "bytes": 31153,
+    "sha256": "272c5840bc5e20c6b3b50d05e59465684763a1bd7a4715096c4b2486ef1b0b98"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      453
+    ],
+    "sha256": "82350ee98b5f48cdec327aae6456297fede72322147c11f2f6013e3d676cbd01"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 25
+}

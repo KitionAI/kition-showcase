@@ -1,0 +1,34 @@
+{
+  "id": "film/neon-glitch-stream-intro",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 30 fps; 10.0 s; 3 video clips; 6 effects; 1 animated effect",
+  "commands": 15,
+  "document": {
+    "name": "neon-glitch-stream-intro.kfilm",
+    "bytes": 20657,
+    "sha256": "ce6c68a537ac5b84ac4303df60c3ca8926d6522e9ebe645e161c105bea5c609f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "d5fa8b5a9b46af3839337fea48f7562ccd9ae091f8715b3a5a60ec3bcacd9b44"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 30,
+    "bytes": 127766
+  },
+  "diagnostics": [],
+  "built_ms": 19
+}

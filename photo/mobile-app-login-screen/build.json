@@ -1,0 +1,30 @@
+{
+  "id": "photo/mobile-app-login-screen",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    750,
+    1624
+  ],
+  "stats": "750 × 1624 px; 38 layers; 14 type layers; 16 shape layers; 1 fill layer; 6 groups; 3 styled layers; 1 mask",
+  "commands": 60,
+  "document": {
+    "name": "mobile-app-login-screen.psd",
+    "bytes": 683691,
+    "sha256": "f3f4aa596014603a3ce079d248342d585f9ca1b70030f8692bf630ab4d400acb"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      296,
+      640
+    ],
+    "sha256": "d9f1984e3769ebb4ca37f3115105f80030a1a0f6beda168d3c702f442509b53b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 209
+}

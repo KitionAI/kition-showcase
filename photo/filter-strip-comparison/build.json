@@ -1,0 +1,30 @@
+{
+  "id": "photo/filter-strip-comparison",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1620,
+    1000
+  ],
+  "stats": "1620 × 1000 px; 15 layers; 12 type layers; 2 shape layers",
+  "commands": 54,
+  "document": {
+    "name": "filter-strip-comparison.psd",
+    "bytes": 3869872,
+    "sha256": "118ba7490c45091c6ec4a8fcfc9720293ad2a9e936e24abb26612b3a25bc62a3"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      395
+    ],
+    "sha256": "31af3439b4c99e5d4221daa6ddad38a496d3ce2b5405ae2e75b3025bcbf5436c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 3464
+}

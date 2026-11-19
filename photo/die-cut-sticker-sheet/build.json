@@ -1,0 +1,30 @@
+{
+  "id": "photo/die-cut-sticker-sheet",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1200 × 900 px; 13 layers; 5 type layers; 6 shape layers; 1 fill layer; 7 styled layers; 1 mask",
+  "commands": 23,
+  "document": {
+    "name": "die-cut-sticker-sheet.psd",
+    "bytes": 527544,
+    "sha256": "7cd16046409e0025de0c7eb0616e6c9f7a5f8ec4c2046d1a5784c4c6c6e04bcb"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "7235246451a8f4ee92b0dcb56c36407f36cb7cf8d973983f4d0f7f859ef37490"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 151
+}

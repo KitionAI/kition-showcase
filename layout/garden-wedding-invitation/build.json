@@ -1,0 +1,30 @@
+{
+  "id": "layout/garden-wedding-invitation",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    504,
+    648
+  ],
+  "stats": "1 page; 1 story; 6 paragraph styles",
+  "commands": 46,
+  "document": {
+    "name": "garden-wedding-invitation.klayout",
+    "bytes": 31972,
+    "sha256": "609db6d8362dafab7d98f53d7c6ffa2e4766c88ac83da168b1dc3fd996ae373f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      360,
+      504
+    ],
+    "sha256": "9afd3bd7efdb1a495e3c6b405fd3a90250db10b5fe004b06790cf75a61cb9ff6"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 281
+}

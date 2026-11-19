@@ -1,0 +1,30 @@
+{
+  "id": "vector/logo-mark-explorations",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1 artboard; 3 layers; 35 objects",
+  "commands": 79,
+  "document": {
+    "name": "logo-mark-explorations.kvector",
+    "bytes": 33238,
+    "sha256": "c171937c21adaefa5706575f38028a8b7e151b4250aebb76bb37e17e0302d32f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "4e607c992b7d397071ff538ed645649947280affbfe82c493b9955e3ce9de237"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 49
+}

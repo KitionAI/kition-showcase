@@ -1,0 +1,30 @@
+{
+  "id": "pdf/library-winter-hours-notice",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page",
+  "commands": 31,
+  "document": {
+    "name": "library-winter-hours-notice.pdf",
+    "bytes": 227466,
+    "sha256": "d881adc8c5c1f9fc48744bfb4c01aaa0fda0e5010c1cb2f574d760a794e45364"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "f3fb69578a8fa664e639b5686876df16d698e7d4846423e46564318a3bb0449b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 209
+}

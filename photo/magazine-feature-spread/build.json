@@ -1,0 +1,30 @@
+{
+  "id": "photo/magazine-feature-spread",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1000
+  ],
+  "stats": "1600 × 1000 px; 19 layers; 9 type layers; 8 shape layers; 1 fill layer; 1 mask",
+  "commands": 20,
+  "document": {
+    "name": "magazine-feature-spread.psd",
+    "bytes": 1014062,
+    "sha256": "063c1cef2fb004a7de4337d24e197e09ede2cad70483f804be20c10e9524fb7b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "e2cb1ba7b291fcfb3687aef89593071aab7b7a0384bba16b5184d960ba88567e"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 287
+}

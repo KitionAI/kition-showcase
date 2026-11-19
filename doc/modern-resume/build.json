@@ -1,0 +1,30 @@
+{
+  "id": "doc/modern-resume",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 279 words",
+  "commands": 120,
+  "document": {
+    "name": "modern-resume.docx",
+    "bytes": 8788,
+    "sha256": "5af58ca9039a050f474120eec55e108a4f5039ee034e2f4242fae93940759e95"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "1b5f8cc520e69c5e9cc62a91f9cefc02381f8aa417a70d7b364afe56719bee41"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 70
+}

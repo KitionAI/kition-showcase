@@ -1,0 +1,30 @@
+{
+  "id": "scene/apartment-facade-arrays",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "11 meshes; 8 materials; 1 light",
+  "commands": 39,
+  "document": {
+    "name": "apartment-facade-arrays.kscene",
+    "bytes": 13113,
+    "sha256": "6fcbacb36057ab70ae71a5fd50d4bc54a2ebcea65ecb202fa23d677a1f0b0e93"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "8938d660a678d5c023c911d3252fda74a7bec6631ebd8db26788d3e8f0feee2c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 5
+}

@@ -1,0 +1,109 @@
+format: 1
+id: photo/app-icon-grid
+title: App Icon Grid
+summary: Twelve rounded-square app icons for a fictional suite, with gradient fills, soft shadows and simple vector glyphs on a home-screen grid.
+category: UI & Web Design
+tags: [ui, icons, gradient, shapes, layer-styles]
+features: [photo.path.shapes, photo.paint.gradients, photo.layer.style-basics, photo.layer.basics]
+description: |
+  An icon family for a made-up productivity suite. Every tile is a rounded-rectangle shape with a
+  two-stop gradient fill and the same Drop Shadow; the glyphs are built from live shapes: combined
+  and subtracted sub-paths (the cog's hole, the inbox tray), dashed and curved strokes (the trail,
+  the waves) and type. The wallpaper is a gradient fill layer.
+document: { name: app-icon-grid.psd, width: 1200, height: 900 }
+steps:
+  - { command: layer.newFillLayer.gradient, params: { from: "#14213d", to: "#3d2c6b", angle: 120 }, as: wallpaper }
+  - { command: layer.setProps, params: { layer: $wallpaper.layer, name: Wallpaper } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [135, 120, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#1c9a8f"], [1, "#4fd1c5"]], angle: 90 } }, name: "Journal Icon" }, as: i0 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i0.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [175, 152, 74, 88], radii: [6, 14, 14, 6], fill: "#f4fffd", name: "Journal Glyph" } }
+  - { command: shape.create, params: { kind: rect, rect: [175, 152, 12, 88], fill: "#127a71", name: "Journal Spine" } }
+  - { command: shape.create, params: { kind: path, fill: "#ff7a59", name: "Journal Ribbon", path: { subpaths: [{ knots: [[227, 152], [239, 152], [239, 186], [233, 180], [227, 186]] }] } } }
+  - { command: type.create, params: { x: 210.0, y: 306, text: Journal, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Journal Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [395, 120, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#2563eb"], [1, "#7fd3ff"]], angle: 90 } }, name: "Tides Icon" }, as: i1 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i1.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: path, fill: null, stroke: { width: 8, color: "#ffffff", cap: round, join: round }, name: "Tides Glyph", path: { subpaths: [{ closed: false, knots: [[425, 174], { anchor: [455, 174], in: [437, 162], out: [467, 186] }, { anchor: [485, 174], in: [473, 162], out: [497, 186] }, { anchor: [515, 174], in: [503, 162] }] }, { closed: false, knots: [[425, 198], { anchor: [455, 198], in: [437, 186], out: [467, 210] }, { anchor: [485, 198], in: [473, 186], out: [497, 210] }, { anchor: [515, 198], in: [503, 186] }] }, { closed: false, knots: [[425, 222], { anchor: [455, 222], in: [437, 210], out: [467, 234] }, { anchor: [485, 222], in: [473, 210], out: [497, 234] }, { anchor: [515, 222], in: [503, 210] }] }] } } }
+  - { command: type.create, params: { x: 470.0, y: 306, text: Tides, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Tides Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [655, 120, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#f0632a"], [1, "#ffb35c"]], angle: 90 } }, name: "Radio Icon" }, as: i2 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i2.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: line, from: [707, 172], to: [755, 146], weight: 6, fill: "#ffffff", name: "Radio Antenna" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [683, 172, 94, 66], radii: 14, fill: "#fff6ec", name: "Radio Glyph" } }
+  - { command: shape.create, params: { kind: ellipse, rect: [697, 184, 42, 42], fill: "#f0632a", name: "Radio Speaker" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [747, 186, 18, 8], radii: 4, fill: "#f0632a", name: "Radio Dial" }, as: dial }
+  - { command: shape.create, params: { kind: roundedRect, rect: [747, 202, 18, 8], radii: 4, addTo: $dial.layer, op: combine } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [747, 218, 18, 8], radii: 4, addTo: $dial.layer, op: combine } }
+  - { command: type.create, params: { x: 730.0, y: 306, text: Radio, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Radio Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [915, 120, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#e2466b"], [1, "#ff8f8f"]], angle: 90 } }, name: "Gallery Icon" }, as: i3 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i3.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [943, 156, 94, 78], radii: 12, fill: "#fff3f3", name: "Gallery Frame" } }
+  - { command: shape.create, params: { kind: path, fill: "#e2466b", name: "Gallery Glyph", path: { subpaths: [{ knots: [[951, 226], [977, 190], [995, 212], [1009, 198], [1029, 226]] }] } } }
+  - { command: shape.create, params: { kind: ellipse, rect: [1005, 166, 18, 18], fill: "#ffb35c", name: "Gallery Sun" } }
+  - { command: type.create, params: { x: 990.0, y: 306, text: Gallery, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Gallery Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [135, 380, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#2f9e5b"], [1, "#9be27a"]], angle: 90 } }, name: "Trails Icon" }, as: i4 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i4.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: path, fill: null, stroke: { width: 8, color: "#ffffff", cap: round, join: round, dashes: [1.6, 1.6] }, name: "Trails Route", path: { subpaths: [{ closed: false, knots: [[169, 498], { anchor: [210, 464], in: [175, 464], out: [245, 464] }, [243, 436]] }] } } }
+  - { command: shape.create, params: { kind: path, fill: "#ffffff", name: "Trails Glyph", path: { subpaths: [{ knots: [[235, 440], [235, 404], [259, 412], [241, 420], [241, 440]] }] } } }
+  - { command: type.create, params: { x: 210.0, y: 566, text: Trails, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Trails Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [395, 380, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#141a2e"], [1, "#334166"]], angle: 90 } }, name: "Budget Icon" }, as: i5 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i5.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [433, 472, 74, 30], fill: "#ffcb52", stroke: { width: 3, color: "#c98a12" }, name: "Budget Coin 1" } }
+  - { command: shape.create, params: { kind: ellipse, rect: [433, 452, 74, 30], fill: "#ffcb52", stroke: { width: 3, color: "#c98a12" }, name: "Budget Coin 2" } }
+  - { command: shape.create, params: { kind: ellipse, rect: [433, 432, 74, 30], fill: "#ffcb52", stroke: { width: 3, color: "#c98a12" }, name: "Budget Coin 3" } }
+  - { command: type.create, params: { x: 470.0, y: 455, text: "$$", font: Inter, size: 20, weight: 700, color: "#9a6608", align: center, name: "Budget Glyph" } }
+  - { command: type.create, params: { x: 470.0, y: 566, text: Budget, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Budget Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [655, 380, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#8ccf2e"], [1, "#e2f86b"]], angle: 90 } }, name: "Habits Icon" }, as: i6 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i6.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [684.0, 409.0, 92, 92], fill: null, stroke: { width: 9, color: "#ffffff" }, name: "Habits Ring" } }
+  - { command: shape.create, params: { kind: path, fill: null, stroke: { width: 10, color: "#2f5d12", cap: round, join: round }, name: "Habits Glyph", path: { subpaths: [{ closed: false, knots: [[708.0, 457.0], [724.0, 473.0], [754.0, 439.0]] }] } } }
+  - { command: type.create, params: { x: 730.0, y: 566, text: Habits, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Habits Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [915, 380, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#4a5cf0"], [1, "#8fb8ff"]], angle: 90 } }, name: "Inbox Icon" }, as: i7 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i7.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: path, fill: "#ffffff", name: "Inbox Glyph", path: { subpaths: [{ knots: [[949, 460], [963, 422], [1017, 422], [1031, 460], [1031, 492], [949, 492]] }, { op: subtract, knots: [[957, 460], [967, 430], [1013, 430], [1023, 460], [1007, 460], [1001, 472], [979, 472], [973, 460]] }] } } }
+  - { command: type.create, params: { x: 990.0, y: 566, text: Inbox, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Inbox Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [135, 640, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#6d3df0"], [1, "#b18cff"]], angle: 90 } }, name: "Planner Icon" }, as: i8 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i8.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [165, 674, 90, 84], radii: 14, fill: "#ffffff", name: "Planner Page" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [165, 674, 90, 22], radii: [14, 14, 0, 0], fill: "#2e1a73", name: "Planner Header" } }
+  - { command: type.create, params: { x: 210.0, y: 746, text: "17", font: Inter, size: 42, weight: 600, color: "#6d3df0", align: center, name: "Planner Glyph" } }
+  - { command: type.create, params: { x: 210.0, y: 826, text: Planner, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Planner Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [395, 640, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#b832c9"], [1, "#ff8ad8"]], angle: 90 } }, name: "Voice Icon" }, as: i9 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i9.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [454.0, 668, 32, 58], radii: 16, fill: "#ffffff", name: "Voice Glyph" } }
+  - { command: shape.create, params: { kind: path, fill: null, stroke: { width: 7, color: "#ffffff", cap: round }, name: "Voice Stand", path: { subpaths: [{ closed: false, knots: [{ anchor: [438.0, 708], out: [438.0, 748] }, { anchor: [502.0, 708], in: [502.0, 748] }] }, { closed: false, knots: [[470.0, 738], [470.0, 760]] }] } } }
+  - { command: type.create, params: { x: 470.0, y: 826, text: Voice, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Voice Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [655, 640, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#f59e0b"], [1, "#ffd36b"]], angle: 90 } }, name: "Focus Icon" }, as: i10 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i10.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [686.0, 679.0, 88, 88], fill: "#fffaf0", name: "Focus Dial" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [718.0, 659.0, 24, 12], radii: 4, fill: "#fffaf0", name: "Focus Button" } }
+  - { command: shape.create, params: { kind: path, fill: "#f59e0b", name: "Focus Glyph", path: { subpaths: [{ knots: [[730.0, 723.0], [730.0, 687.0], { anchor: [766.0, 723.0], in: [750.0, 687.0] }] }] } } }
+  - { command: type.create, params: { x: 730.0, y: 826, text: Focus, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Focus Label" } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [915, 640, 150, 150], radii: 34, fill: { gradient: { stops: [[0, "#52667f"], [1, "#9fb3c8"]], angle: 90 } }, name: "Tools Icon" }, as: i11 }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $i11.layer, color: "#070414", opacity: 35, distance: 8, size: 18, angle: 90 } }
+  - { command: shape.create, params: { kind: star, rect: [940.0, 665.0, 100, 100], sides: 8, starRatio: 0.78, fill: "#f2f5f9", name: "Tools Glyph" }, as: g11 }
+  - { command: shape.create, params: { kind: ellipse, rect: [972.0, 697.0, 36, 36], addTo: $g11.layer, op: subtract } }
+  - { command: type.create, params: { x: 990.0, y: 826, text: Tools, font: Inter, size: 20, weight: 500, color: "#ffffff", align: center, name: "Tools Label" } }
+  - { command: shape.info, params: { layer: $i11.layer }, as: toolsTile }
+  - { command: shape.info, params: { layer: $g11.layer }, as: cog }
+expected:
+  - actual: inspect
+    values:
+      layers: { any: { name: Tools Icon, kind: Shape, effects: { items: [{ enabled: true, key: dropShadow, kind: Drop Shadow }] } } }
+  - actual: inspect
+    values:
+      layers: { any: { name: Wallpaper, kind: Fill } }
+  - actual: inspect
+    values:
+      # the dollar glyph is bold, the labels medium
+      layers: { any: { name: Budget Glyph, kind: Type, text: { font: Inter, weight: 700 } } }
+  - actual: inspect
+    values:
+      layers: { any: { name: Budget Label, kind: Type, text: { weight: 500 } } }
+  - actual: inspect
+    values:
+      layers: { all: { kind: { oneOf: [Shape, Type, Fill, Pixel] } } }
+  - actual: results
+    values:
+      toolsTile.fill.gradient.stops: [[0, "#52667f"], [1, "#9fb3c8"]]
+      cog.path.subpaths: { count: 2 }
+diagnostics: []
+since: "2026-11-09"

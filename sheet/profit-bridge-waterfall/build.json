@@ -1,0 +1,30 @@
+{
+  "id": "sheet/profit-bridge-waterfall",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1738,
+    2039
+  ],
+  "stats": "1 sheet; used range A1:B16",
+  "commands": 34,
+  "document": {
+    "name": "profit-bridge-waterfall.xlsx",
+    "bytes": 8814,
+    "sha256": "d0d69f9ed1b8924554197767b733f973a7a79662e97428c24b98a8970e66df3d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      264
+    ],
+    "sha256": "667a17e0c8fbea0319d05f6c6c0761ce337b3784ce3d35ab3995fb98079ec55d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 7
+}

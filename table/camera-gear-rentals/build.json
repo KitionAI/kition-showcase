@@ -1,0 +1,30 @@
+{
+  "id": "table/camera-gear-rentals",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1700,
+    808
+  ],
+  "stats": "2 tables",
+  "commands": 16,
+  "document": {
+    "name": "camera-gear-rentals.ktable",
+    "bytes": 241664,
+    "sha256": "caa07089c6c7b555c3c721bf6bcbf35ed5250abb9aa2b7f364a893cab6f1685c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "71ebbc12372347770e84d6c32b41952656740c43c28a62b8519696d4492d544d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 32
+}

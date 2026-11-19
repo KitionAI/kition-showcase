@@ -1,0 +1,79 @@
+format: 1
+id: note/lakeside-camping-checklist
+title: Lakeside Camping Checklist
+summary: A packing checklist for a three-night canoe camping trip, with tasks nested under each bag, half of them already packed and one section moved to the top.
+category: Checklists & Tasks
+tags: [tasks, nested-lists, checklist, sections]
+features: [note.tasks, note.structure, note.text.edit]
+featured: true
+description: |
+  Tasks grouped by bag, some with sub-tasks. The packing happens with `task.toggle` on the lines
+  `tasks.list` answers, so the checklist ends with 12 of 20 items ticked; `section.move` then puts
+  the "Day before" section first, where it belongs on the morning of departure.
+document: { name: lakeside-camping-checklist.md, width: 816, height: 1056 }
+steps:
+  - command: note.write
+    params:
+      markdown: |
+        # Lakeside Camping Checklist
+
+        Three nights at Loch Arrin by canoe, 14 to 17 May. Everything must fit in two dry bags and the barrel.
+
+        ## Dry bag 1: shelter
+
+        - [ ] Tent, poles and pegs
+            - [ ] Spare pegs for the sandy pitch
+            - [ ] Repair sleeve
+        - [ ] Two sleeping bags (rated to 2 °C)
+        - [ ] Sleeping mats and pump sack
+        - [ ] Tarp and 20 m of cord
+
+        ## Dry bag 2: clothes
+
+        - [ ] Waterproof jackets and trousers
+        - [ ] Fleece and a warm hat each
+        - [ ] Spare socks in their own bag
+        - [ ] Sandals for the shore
+
+        ## Barrel: kitchen
+
+        - [ ] Stove, two gas canisters and a lighter
+        - [ ] Pan set, mugs and sporks
+        - [ ] Water filter
+            - [ ] Spare cartridge
+        - [ ] Food for four days, breakfasts bagged by day
+        - [ ] Rubbish bags: pack it all out
+
+        ## Day before
+
+        - [ ] Check the forecast and the wind on the loch
+        - [ ] Leave the route with Morag
+        - [ ] Charge the phone and the power bank
+        - [ ] Seal the map in its case
+  - { command: tasks.list, as: all }
+  - { command: task.toggle, params: { line: $all.tasks.0.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.1.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.3.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.4.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.6.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.7.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.8.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.10.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.11.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.16.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.17.line, done: true } }
+  - { command: task.toggle, params: { line: $all.tasks.19.line, done: true } }
+  - { command: section.move, params: { heading: [Lakeside Camping Checklist, Day before], position: before, toHeading: [Lakeside Camping Checklist, "Dry bag 1: shelter"] } }
+  - { command: outline.read, as: outline }
+thumbnail: { area: [0, 0, 816, 1056] }
+expected:
+  - actual: inspect
+    values:
+      headings: 5
+      tasks: { done: 12, open: 8 }
+  - actual: results
+    values:
+      all.tasks: { count: 20 }
+      outline.headings.1: { path: [Lakeside Camping Checklist, Day before] }
+diagnostics: []
+since: "2026-11-09"

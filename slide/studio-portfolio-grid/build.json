@@ -1,0 +1,30 @@
+{
+  "id": "slide/studio-portfolio-grid",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 166,
+  "document": {
+    "name": "studio-portfolio-grid.pptx",
+    "bytes": 23690,
+    "sha256": "64fdb94e598fc13da7f5704d21844fea277a576c90dd0636419e8f13623d1e39"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "b23376632e4fe0876cfcb58031ae37778807611935bd35b068e8e6932640275d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 160
+}

@@ -1,0 +1,30 @@
+{
+  "id": "pdf/symposium-programme-links",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages",
+  "commands": 52,
+  "document": {
+    "name": "symposium-programme-links.pdf",
+    "bytes": 694189,
+    "sha256": "d61fe2c26cd4c79047b34ab1597c84a22604e4e0137e02ce0c7307e3c61b9129"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      576,
+      640
+    ],
+    "sha256": "a4f1f2cf145859016a3560308ba73d0f1f70ebfff030d5690c69b8307e6916a5"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 640
+}

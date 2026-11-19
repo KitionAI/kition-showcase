@@ -1,0 +1,65 @@
+{
+  "id": "cad/pipe-flange-dn100",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1307,
+    924
+  ],
+  "stats": "41 objects; 9 layers",
+  "commands": 64,
+  "document": {
+    "name": "pipe-flange-dn100.dxf",
+    "bytes": 39483,
+    "sha256": "3002fafd86363948576bf1d9e158d151c23c91867dd149bc247392ffb0170072"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      452
+    ],
+    "sha256": "927cce0e12e3fe17e6dbf68758cd179f446df9249abf4782cd639515f3785bf2"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "cad.dimension-text-overridden",
+      "fix": {
+        "command": "properties.set",
+        "params": {
+          "handles": [
+            "E76C30000001B"
+          ],
+          "textOverride": ""
+        }
+      },
+      "message": "Dimension E76C30000001B shows \"8X Ø18\" instead of its measurement, so it won't follow edits to the geometry.",
+      "severity": "info",
+      "target": {
+        "path": "entity:E76C30000001B"
+      }
+    },
+    {
+      "code": "cad.dimension-text-overridden",
+      "fix": {
+        "command": "properties.set",
+        "params": {
+          "handles": [
+            "E76C30000001E"
+          ],
+          "textOverride": ""
+        }
+      },
+      "message": "Dimension E76C30000001E shows \"Ø130\" instead of its measurement, so it won't follow edits to the geometry.",
+      "severity": "info",
+      "target": {
+        "path": "entity:E76C30000001E"
+      }
+    }
+  ],
+  "built_ms": 12
+}

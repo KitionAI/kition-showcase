@@ -1,0 +1,30 @@
+{
+  "id": "html/help-centre-tabs-accordion",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    500
+  ],
+  "stats": "1000 × 500 px; 3.2 KB of HTML",
+  "commands": 3,
+  "document": {
+    "name": "help-centre-tabs-accordion.html",
+    "bytes": 3279,
+    "sha256": "af30792496aee3bdbbbd77a8a99937070506f36bfb81f48ce06e7f7453bc1710"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      320
+    ],
+    "sha256": "dd863f19f19d7cd061b1d6a06793309209050a940b986434189fd0e7b71fa1df"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 57
+}

@@ -1,0 +1,30 @@
+{
+  "id": "photo/wedding-invitation",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1400
+  ],
+  "stats": "1000 × 1400 px; 22 layers; 11 type layers; 7 shape layers; 1 fill layer; 2 groups; 1 styled layer; 1 mask",
+  "commands": 29,
+  "document": {
+    "name": "wedding-invitation.psd",
+    "bytes": 1050772,
+    "sha256": "9d0595183408215901e41112d778307dd24bc8f9690ebe08909434d22e0b5302"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      457,
+      640
+    ],
+    "sha256": "fc3767f32f7e1abf7a14a75333c53b0206ce5aace5b38ec2cd41012e498eea2b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 325
+}

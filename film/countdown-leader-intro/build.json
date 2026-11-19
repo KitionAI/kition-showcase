@@ -1,0 +1,34 @@
+{
+  "id": "film/countdown-leader-intro",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 24.0 s; 4 video clips; 1 audio clip; 2 effects; 1 animated effect",
+  "commands": 9,
+  "document": {
+    "name": "countdown-leader-intro.kfilm",
+    "bytes": 18813,
+    "sha256": "2f661e79d4a01f58bcd8e6522088e42a8a4e67fb05eb3b61146fcd7bf53fd4f6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "f5698ccafc3a840d1301425ead99cb4c15d7c4341a19459576976421e280d212"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 36,
+    "bytes": 63906
+  },
+  "diagnostics": [],
+  "built_ms": 18
+}

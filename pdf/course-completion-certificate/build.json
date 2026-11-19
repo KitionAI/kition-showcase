@@ -1,0 +1,30 @@
+{
+  "id": "pdf/course-completion-certificate",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    872,
+    692
+  ],
+  "stats": "1 page",
+  "commands": 23,
+  "document": {
+    "name": "course-completion-certificate.pdf",
+    "bytes": 364753,
+    "sha256": "3fc0be18d7e768c3980da9fe271571a20f1a644817600fe1d4453c8cccfbed49"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      495
+    ],
+    "sha256": "a8d15dcfa3d616465fd8629ac46e28cf9c8ec15663214e9af311a883f5ae307f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 141
+}

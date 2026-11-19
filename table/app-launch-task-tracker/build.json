@@ -1,0 +1,30 @@
+{
+  "id": "table/app-launch-task-tracker",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1700,
+    808
+  ],
+  "stats": "2 tables",
+  "commands": 17,
+  "document": {
+    "name": "app-launch-task-tracker.ktable",
+    "bytes": 249856,
+    "sha256": "8fcf97f099544a689ffff4aec1dcd424081c23c21180201dc6a37ba6f7ca58ce"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "0cde6201e029398fbc67ad0f9d0c55a771bead97f8d63d45048a015fd1848878"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 17
+}

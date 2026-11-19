@@ -1,0 +1,30 @@
+{
+  "id": "photo/dark-mode-settings-screen",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    750,
+    1624
+  ],
+  "stats": "750 × 1624 px; 65 layers; 20 type layers; 43 shape layers; 1 fill layer; 5 styled layers; 1 mask",
+  "commands": 71,
+  "document": {
+    "name": "dark-mode-settings-screen.psd",
+    "bytes": 771130,
+    "sha256": "836a9abcf8b4adc46f6431985393d44086631250481af722a9b68a6fa9fcb36b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      296,
+      640
+    ],
+    "sha256": "af5508d8f760fc12f21f0f4b844ad11d09d3de2b16b183b8157aa6cae9111564"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 334
+}

@@ -1,0 +1,98 @@
+format: 1
+id: photo/bistro-menu
+title: Bistro Dinner Menu
+summary: A printed dinner menu on fibre-textured paper, with serif headings, dotted price leaders and a double-rule border.
+category: Print & Stationery
+tags: [print, menu, typography, shapes, groups, render-filters]
+features: [photo.type.point-text, photo.path.shapes, photo.filter.stylize, photo.layer.manage, photo.layer.solid-fill]
+featured: true
+description: |
+  A one-page menu set in Lora and Inter. The paper is a solid fill layer under rendered Fibers in
+  Multiply, the border is two stroked rectangles, and every dotted leader is an open path with a
+  round-capped dashed stroke that starts where its dish name ends: it is drawn from the name's
+  width (the step reads the name's bounds) and moved right by the 130 px margin the names start at.
+  Each course is its own group of names, leaders, prices and notes.
+document: { name: bistro-menu.psd, width: 1000, height: 1414 }
+fonts: [lora/Lora-Variable.ttf]
+steps:
+  - { command: layer.newFillLayer.solidColor, params: { color: "#f6efe2" }, as: paper }
+  - { command: layer.setProps, params: { layer: $paper.layer, name: Paper } }
+  - { command: tools.setColors, params: { foreground: "#e2d3b5", background: "#f6efe2" } }
+  - { command: layer.new.layer, params: { name: Paper Fibres }, as: fibres }
+  - { command: filter.render.fibers, params: { variance: 20, strength: 6, seed: 4 } }
+  - { command: layer.setProps, params: { layer: $fibres.layer, blend: Multiply, opacity: 0.4 } }
+  - { command: shape.create, params: { kind: rect, rect: [40, 40, 920, 1334], fill: null, stroke: { width: 2, color: "#5d6b33" }, name: Border Outer } }
+  - { command: shape.create, params: { kind: rect, rect: [52, 52, 896, 1310], fill: null, stroke: { width: 1, color: "#5d6b33" }, name: Border Inner } }
+  - { command: layer.new.group, params: { name: Masthead }, as: mast }
+  - { command: type.create, params: { x: 500, y: 170, text: Maison Olive, font: Lora, weight: 600, size: 96, color: "#2f3a17", align: center, name: Restaurant }, as: m1 }
+  - { command: type.create, params: { x: 500, y: 220, text: "BISTRO · WINE BAR · EST. 2014", font: Inter, weight: 500, size: 18, tracking: 400, color: "#7a6a4f", align: center, name: Tagline }, as: m2 }
+  - { command: shape.create, params: { kind: line, from: [330, 268], to: [470, 268], weight: 1.5, fill: "#5d6b33", name: Rule Left }, as: m3 }
+  - { command: shape.create, params: { kind: polygon, rect: [490, 258, 20, 20], sides: 4, fill: "#5d6b33", name: Diamond }, as: m4 }
+  - { command: shape.create, params: { kind: line, from: [530, 268], to: [670, 268], weight: 1.5, fill: "#5d6b33", name: Rule Right }, as: m5 }
+  - { command: type.create, params: { x: 500, y: 314, text: Autumn dinner menu, font: Lora, italic: true, size: 28, color: "#7a6a4f", align: center, name: Season }, as: m6 }
+  - { command: layer.new.group, params: { name: Starters }, as: starters }
+  - { command: layer.moveTo, params: { layer: $starters.layer, target: $mast.layer, position: above } }
+  - { command: type.create, params: { x: 500, y: 390, text: Starters, font: Lora, italic: true, weight: 500, size: 40, color: "#5d6b33", align: center, name: Starters Heading }, as: startersh }
+  - { command: type.create, params: { x: 130, y: 450, text: "Burrata & roasted peaches", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Burrata & roasted peaches" }, as: i1 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i1.bounds.2, 446], [690, 446]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 1 }, as: l1 }
+  - { command: layer.translate, params: { layer: $l1.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 450, text: "14", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 1 }, as: p1 }
+  - { command: type.create, params: { x: 130, y: 482, text: "basil oil, toasted hazelnuts, sourdough crisp", font: Inter, size: 19, color: "#7a6a4f", name: Note 1 }, as: d1 }
+  - { command: type.create, params: { x: 130, y: 534, text: "Chilled pea velouté", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Chilled pea velouté" }, as: i2 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i2.bounds.2, 530], [690, 530]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 2 }, as: l2 }
+  - { command: layer.translate, params: { layer: $l2.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 534, text: "11", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 2 }, as: p2 }
+  - { command: type.create, params: { x: 130, y: 566, text: "mint crème fraîche, lemon zest", font: Inter, size: 19, color: "#7a6a4f", name: Note 2 }, as: d2 }
+  - { command: type.create, params: { x: 130, y: 618, text: "Beef tartare", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Beef tartare" }, as: i3 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i3.bounds.2, 614], [690, 614]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 3 }, as: l3 }
+  - { command: layer.translate, params: { layer: $l3.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 618, text: "16", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 3 }, as: p3 }
+  - { command: type.create, params: { x: 130, y: 650, text: "cornichons, shallot, quail egg yolk", font: Inter, size: 19, color: "#7a6a4f", name: Note 3 }, as: d3 }
+  - { command: layer.new.group, params: { name: Mains }, as: mains }
+  - { command: layer.moveTo, params: { layer: $mains.layer, target: $starters.layer, position: above } }
+  - { command: type.create, params: { x: 500, y: 730, text: Mains, font: Lora, italic: true, weight: 500, size: 40, color: "#5d6b33", align: center, name: Mains Heading }, as: mainsh }
+  - { command: type.create, params: { x: 130, y: 790, text: "Slow-roast lamb shoulder", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Slow-roast lamb shoulder" }, as: i4 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i4.bounds.2, 786], [690, 786]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 4 }, as: l4 }
+  - { command: layer.translate, params: { layer: $l4.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 790, text: "29", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 4 }, as: p4 }
+  - { command: type.create, params: { x: 130, y: 822, text: "smoked aubergine, pomegranate, flatbread", font: Inter, size: 19, color: "#7a6a4f", name: Note 4 }, as: d4 }
+  - { command: type.create, params: { x: 130, y: 874, text: "Line-caught sea bream", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Line-caught sea bream" }, as: i5 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i5.bounds.2, 870], [690, 870]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 5 }, as: l5 }
+  - { command: layer.translate, params: { layer: $l5.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 874, text: "27", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 5 }, as: p5 }
+  - { command: type.create, params: { x: 130, y: 906, text: "fennel, saffron broth, aioli", font: Inter, size: 19, color: "#7a6a4f", name: Note 5 }, as: d5 }
+  - { command: type.create, params: { x: 130, y: 958, text: "Wild mushroom risotto", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Wild mushroom risotto" }, as: i6 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i6.bounds.2, 954], [690, 954]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 6 }, as: l6 }
+  - { command: layer.translate, params: { layer: $l6.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 958, text: "22", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 6 }, as: p6 }
+  - { command: type.create, params: { x: 130, y: 990, text: "aged parmesan, thyme butter", font: Inter, size: 19, color: "#7a6a4f", name: Note 6 }, as: d6 }
+  - { command: layer.new.group, params: { name: Desserts }, as: desserts }
+  - { command: layer.moveTo, params: { layer: $desserts.layer, target: $mains.layer, position: above } }
+  - { command: type.create, params: { x: 500, y: 1070, text: Desserts, font: Lora, italic: true, weight: 500, size: 40, color: "#5d6b33", align: center, name: Desserts Heading }, as: dessertsh }
+  - { command: type.create, params: { x: 130, y: 1130, text: "Olive oil cake", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Olive oil cake" }, as: i7 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i7.bounds.2, 1126], [690, 1126]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 7 }, as: l7 }
+  - { command: layer.translate, params: { layer: $l7.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 1130, text: "10", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 7 }, as: p7 }
+  - { command: type.create, params: { x: 130, y: 1162, text: "blood orange, mascarpone", font: Inter, size: 19, color: "#7a6a4f", name: Note 7 }, as: d7 }
+  - { command: type.create, params: { x: 130, y: 1214, text: "Dark chocolate pot", font: Lora, weight: 600, size: 28, color: "#2f3a17", name: "Dark chocolate pot" }, as: i8 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [[$i8.bounds.2, 1210], [690, 1210]] }] }, fill: null, stroke: { width: 3, color: "#b4a585", dashes: [0, 3], dashOffset: -2, cap: round }, name: Leader 8 }, as: l8 }
+  - { command: layer.translate, params: { layer: $l8.layer, dx: 130, dy: 0 } }
+  - { command: type.create, params: { x: 870, y: 1214, text: "9", font: Lora, weight: 600, size: 28, color: "#2f3a17", align: right, name: Price 8 }, as: p8 }
+  - { command: type.create, params: { x: 130, y: 1246, text: "sea salt, almond tuile", font: Inter, size: 19, color: "#7a6a4f", name: Note 8 }, as: d8 }
+  - { command: type.create, params: { x: 500, y: 1316, text: "Please tell your server about any allergies · A discretionary 12% service charge applies", font: Inter, size: 16, color: "#8c7d61", align: center, name: Footer }, as: footer }
+  - { command: layer.moveTo, params: { layer: $footer.layer, target: $desserts.layer, position: above } }
+
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 10 }
+      layers.0: { name: Footer, kind: Type }
+      layers.1: { name: Desserts, kind: Group, children: { count: 9 } }
+      layers.2: { name: Mains, kind: Group, children: { count: 13, any: { name: Leader 4, kind: Shape } } }
+      layers.3: { name: Starters, children: { count: 13, any: { name: "Burrata & roasted peaches", kind: Type, text: { font: Lora } } } }
+      layers.4: { name: Masthead, kind: Group, children: { any: { name: Restaurant, text: { text: Maison Olive } } } }
+      layers.3.children: { any: { name: Leader 1, kind: Shape, bounds: [{ min: 479, max: 486 }, 444, { min: 330, max: 340 }, 4], shape: { fill: null, stroke: { cap: round, dashes: [0, 3] } } } }
+      layers.-3: { name: Paper Fibres, kind: Pixel, blend: Multiply, opacity: { approx: 0.4, tol: 0.01 } }
+      layers.-2: { name: Paper, kind: Fill, fillContent: "#f6efe2" }
+diagnostics: []
+since: "2026-11-09"

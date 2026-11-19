@@ -1,0 +1,34 @@
+{
+  "id": "motion/mountain-tea-gathering-title",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "16723b1274",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "6 s at 30 fps; 7 layers; 5 animated layers",
+  "commands": 20,
+  "document": {
+    "name": "mountain-tea-gathering-title.kmotion",
+    "bytes": 322505,
+    "sha256": "daf4776f35e524eb8a20dee920278e381982d488680e6858244741775658e43d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "61423e2216a331e2494ab4106b43e0e1db07b228f81ddad030154d429934097a"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 40,
+    "bytes": 83036
+  },
+  "diagnostics": [],
+  "built_ms": 9
+}

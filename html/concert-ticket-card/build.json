@@ -1,0 +1,30 @@
+{
+  "id": "html/concert-ticket-card",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    900,
+    760
+  ],
+  "stats": "900 × 760 px; 2.9 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "concert-ticket-card.html",
+    "bytes": 2959,
+    "sha256": "5e57db746a0c63b6af034ab13fbda215728973f7c836450c044669d1e87dbee4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      540
+    ],
+    "sha256": "1402fd1bdbe0fbe96772cc62735887ada6931c774f20fed859f58f645aeb9de7"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 14
+}

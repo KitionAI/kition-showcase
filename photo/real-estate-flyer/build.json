@@ -1,0 +1,30 @@
+{
+  "id": "photo/real-estate-flyer",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1300
+  ],
+  "stats": "1000 × 1300 px; 38 layers; 17 type layers; 16 shape layers; 3 groups; 1 styled layer",
+  "commands": 49,
+  "document": {
+    "name": "real-estate-flyer.psd",
+    "bytes": 1891819,
+    "sha256": "37fb7dde2956f0497eb5a25bb3f0a468296f484763ce39ef2e2b095a004b383c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      492,
+      640
+    ],
+    "sha256": "5b7f0921d0b2b6c375cfcaa25daf5e60686b2ef1958359c410c89d33af0235fe"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 772
+}

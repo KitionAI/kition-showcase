@@ -1,0 +1,30 @@
+{
+  "id": "photo/lora-type-specimen",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1200 × 900 px; 23 layers; 17 type layers; 4 shape layers; 1 fill layer; 1 mask",
+  "commands": 24,
+  "document": {
+    "name": "lora-type-specimen.psd",
+    "bytes": 750490,
+    "sha256": "b3d042dbc351db7e97d5ed6052db71d5799c800b837904c567811f64ae3df484"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "92fc3395b86da329c7ba128351bd5ff1052f5737af2a3e331bf698178b1f6f91"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 186
+}

@@ -1,0 +1,30 @@
+{
+  "id": "sheet/text-cleanup-functions",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    2052,
+    2489
+  ],
+  "stats": "1 sheet; used range A1:H17",
+  "commands": 40,
+  "document": {
+    "name": "text-cleanup-functions.xlsx",
+    "bytes": 7125,
+    "sha256": "290b01cc29b265230aa4bd498c9be9ec1629b7afa1f310d6de9cbb77ae53b68c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      253
+    ],
+    "sha256": "09f79fd67577f73ee9ceae6134148f2bc77077e8e216eee7dd6666dd87c0fba8"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 24
+}

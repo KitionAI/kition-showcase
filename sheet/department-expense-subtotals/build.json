@@ -1,0 +1,30 @@
+{
+  "id": "sheet/department-expense-subtotals",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1892,
+    1969
+  ],
+  "stats": "1 sheet; used range A1:E20",
+  "commands": 32,
+  "document": {
+    "name": "department-expense-subtotals.xlsx",
+    "bytes": 5506,
+    "sha256": "e8959cfbd614c3f3b5707b3c684df939c0c363849365b044b2fbfc5e71b9d734"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      592,
+      444
+    ],
+    "sha256": "e27f702d9edf761866ef470867ab22df7600d4e3baee3a4b38a2ff2d3cecd4ef"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 13
+}

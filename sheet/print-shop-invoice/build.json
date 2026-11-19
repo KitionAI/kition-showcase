@@ -1,0 +1,30 @@
+{
+  "id": "sheet/print-shop-invoice",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    2016,
+    2039
+  ],
+  "stats": "1 sheet; used range A1:F24",
+  "commands": 60,
+  "document": {
+    "name": "print-shop-invoice.xlsx",
+    "bytes": 6258,
+    "sha256": "b4ed1ee64693519fda6be9a0caad4cb407416a99d5d33500004e20e4f2f11994"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      429
+    ],
+    "sha256": "2d9245b735eab97b117ee5a93db4c214eef79538886b40b9b82768680ff866e5"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 15
+}

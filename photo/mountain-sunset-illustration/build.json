@@ -1,0 +1,30 @@
+{
+  "id": "photo/mountain-sunset-illustration",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1000
+  ],
+  "stats": "1600 × 1000 px; 16 layers; 12 shape layers; 3 fill layers; 1 styled layer",
+  "commands": 22,
+  "document": {
+    "name": "mountain-sunset-illustration.psd",
+    "bytes": 4432378,
+    "sha256": "238025abf5958ce0944d6866899d5067e9e4de5c951a36116b5299523fc67220"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "f8317111c30c0ba7bc8785242a67f4064d6d22e2f080c1f48bdb198c30667aa6"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 228
+}

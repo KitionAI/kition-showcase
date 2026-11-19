@@ -1,0 +1,49 @@
+format: 1
+id: motion/festival-ticket-card-flip
+title: Festival Ticket Card Flip
+summary: A 3D festival ticket swings round into view in front of a camera and settles at a slight angle.
+category: Shape Animation
+tags: [3d, camera, parenting, card-flip, easing]
+features: [motion.view.3d, motion.camera.lights, motion.layer.basics, motion.keys.basics, motion.layer.styles]
+description: |
+  A ticket for a summer concert announced as a 3D card. The card shape and its three text layers are
+  3D layers parented to a null, so one Y Rotation keyframe pair on the null (90° to -16°, eased with
+  the `cardFlip` curve) turns the whole card as a single object. A 35 mm two-node camera gives the
+  turn real perspective, and a long, slow Y Rotation drift keeps it alive after it lands; the type arrives with Blur Slide and Typewriter presets.
+document: { name: festival-ticket-card-flip.kmotion, width: 1280, height: 720 }
+steps:
+  - { command: comp.settings, params: { name: Ticket Flip, duration: 6, frameRate: 30 } }
+  - { command: layer.newSolid, params: { name: Stage Haze, color: "#1a0f2e" }, as: bg }
+  - { command: effect.apply, params: { layers: [$bg.layer], effect: Gradient Ramp, params: { shape: 1, start: [640, 300], end: [640, 1200], startColor: "#4a2a6e", endColor: "#08040f" } } }
+  - { command: layer.newNull, params: { name: Card Rig }, as: rig }
+  - { command: layer.newShape, params: { kind: rounded, name: Ticket, size: [640, 340], fillGradient: ["#ff7a59", "#c2338f", "#5a2fb8"], fillAngle: 135, position: [640, 360] }, as: card }
+  - { command: layer.newShape, params: { kind: rect, name: Perforation, size: [4, 300], fill: "#ffffff", fillOpacity: 45, position: [840, 360] }, as: perf }
+  - { command: layer.newText, params: { text: SUMMER SOUNDS, position: [580, 350], size: 54, font: Inter, style: Bold, fill: "#ffffff", justify: center }, as: title }
+  - { command: layer.newText, params: { text: 12 JULY  ·  RIVERSIDE STAGE, position: [580, 402], size: 22, font: Inter, style: SemiBold, fill: "#ffe2d6", justify: center, tracking: 120 }, as: date }
+  - { command: layer.newText, params: { text: ADMIT ONE, position: [905, 368], size: 26, font: Inter, style: Bold, fill: "#ffffff", justify: center, tracking: 80 }, as: admit }
+  - { command: prop.set, params: { layer: $admit.layer, path: transform/rotation, value: -90 } }
+  - { command: layer.setSwitch, params: { layers: [$rig.layer, $card.layer, $perf.layer, $title.layer, $date.layer, $admit.layer], switch: threeD, value: true } }
+  - { command: prop.set, params: { layer: $rig.layer, path: transform/position, value: [690, 360, 0] } }
+  - { command: layer.setParent, params: { layers: [$card.layer, $perf.layer, $title.layer, $date.layer, $admit.layer], parent: $rig.layer } }
+  - { command: prop.addKey, params: { layer: $rig.layer, path: transform/rotationY, time: 0.2, value: 90 } }
+  - { command: prop.addKey, params: { layer: $rig.layer, path: transform/rotationY, time: 1.4, value: -16 } }
+  - { command: prop.addKey, params: { layer: $rig.layer, path: transform/rotationY, time: 6, value: -8 } }
+  - { command: keys.applyEase, params: { layer: $rig.layer, path: transform/rotationY, preset: cardFlip, from: 0.2, to: 1.4 } }
+  - { command: prop.addKey, params: { layer: $rig.layer, path: transform/rotationX, time: 0.2, value: 12 } }
+  - { command: prop.addKey, params: { layer: $rig.layer, path: transform/rotationX, time: 1.4, value: 6 } }
+  - { command: layer.newCamera, params: { name: Camera, preset: 35mm, position: [640, 330, -1150], poi: [640, 360, 0] }, as: cam }
+  - { command: layer.applyTextPreset, params: { layer: $title.layer, preset: blurSlide, start: 1.1 } }
+  - { command: layer.applyTextPreset, params: { layer: $date.layer, preset: blurSlide, variant: subtitle, start: 1.4 } }
+  - { command: layer.applyTextPreset, params: { layer: $admit.layer, preset: typewriter, start: 1.4 }, as: typed }
+  - { command: layer.style.add, params: { layers: [$card.layer], style: dropShadow, params: { opacity: 55, size: 40, distance: 18 } } }
+thumbnail: { at: 3.6 }
+preview: { from: 0, to: 3.5, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      comp: { name: Ticket Flip, duration: 6 }
+      info.layers.0: { name: Camera, type: Camera }
+      info.layers.1: { name: ADMIT ONE, animated: [{ name: Start, times: [1.4, 3.4] }] }
+      info.layers: { count: 8, any: { name: Card Rig, animated: [{ name: X Rotation }, { name: Y Rotation, times: [0.2, 1.4, 6] }] } }
+diagnostics: []
+since: "2026-11-09"

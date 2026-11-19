@@ -1,0 +1,30 @@
+{
+  "id": "photo/moonlit-night-vignette",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1000
+  ],
+  "stats": "1600 × 1000 px; 10 layers; 4 shape layers; 2 fill layers; 1 styled layer; 2 masks",
+  "commands": 47,
+  "document": {
+    "name": "moonlit-night-vignette.psd",
+    "bytes": 8031983,
+    "sha256": "63284b5cbbf268b8306c5c3a9afd96eba8b6f1913baf8dd1185d4b875c694fcc"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "c20a6a48b7213bb51fcdc936f62c6476f8db72ed650b4380f857dc50220295ea"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2985
+}

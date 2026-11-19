@@ -1,0 +1,30 @@
+{
+  "id": "photo/duotone-gradient-map-poster",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1100,
+    1500
+  ],
+  "stats": "1100 × 1500 px; 16 layers; 4 type layers; 6 shape layers; 1 adjustment layer; 1 fill layer; 1 mask",
+  "commands": 28,
+  "document": {
+    "name": "duotone-gradient-map-poster.psd",
+    "bytes": 7213745,
+    "sha256": "d16c3616efac1cf61a4c57fd0810656b56cfee8b8bce6eae9b0bc850960cea40"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      469,
+      640
+    ],
+    "sha256": "b2c64c6eebe58d4b59c6a784be58153f5208d5e2e9bc29081b1a8ddfc090463c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1057
+}

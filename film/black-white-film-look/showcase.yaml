@@ -1,0 +1,46 @@
+format: 1
+id: film/black-white-film-look
+title: Black & White Film Look
+summary: A misty forest turned into a grainy black-and-white film frame with extra contrast and a soft vignette, under a serif title.
+category: Effects & Color
+tags: [color, black-white, film-grain, vignette, demo-footage]
+features: [film.effects.basics, film.graphics.text-basics]
+description: |
+  Four stacked effects make the look: Black & White drops the colour, Brightness & Contrast
+  deepens the trunks, Noise adds monochrome grain and Vignette darkens the corners. The title
+  card is set in Lora, a serif from kition-fonts, in the spirit of an old picture's opening.
+document: { name: black-white-film-look.kfilm, width: 1920, height: 1080 }
+fonts: [lora/Lora-Variable.ttf]
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Hollow Woods, width: 1920, height: 1080, fps: 24, video: 2, audio: 1 } }
+  - { command: timeline.place, params: { item: 9, track: V1, seconds: 0, audio: false }, as: forest }
+  - { command: effects.apply, params: { clips: [$forest.clips.0], effect: black_white } }
+  - { command: effects.apply, params: { clips: [$forest.clips.0], effect: brightness_contrast } }
+  - { command: effects.setParam, params: { clip: $forest.clips.0, effect: brightness_contrast, param: contrast, value: 25 } }
+  - { command: effects.apply, params: { clips: [$forest.clips.0], effect: noise } }
+  - { command: effects.setParam, params: { clip: $forest.clips.0, effect: noise, param: amount, value: 30 } }
+  - { command: effects.setParam, params: { clip: $forest.clips.0, effect: noise, param: color, value: false } }
+  - { command: effects.apply, params: { clips: [$forest.clips.0], effect: vignette } }
+  - { command: effects.setParam, params: { clip: $forest.clips.0, effect: vignette, param: amount, value: -45 } }
+  - { command: graphics.newRectangle, params: { position: [960, 520], size: [1100, 300], seconds: 12, track: 1, time: 0 }, as: title }
+  - { command: graphics.set, params: { clip: $title.clip, props: { fill_color: "#0d0d0d", opacity: 78 } } }
+  - { command: graphics.newText, params: { clip: $title.clip, text: THE HOLLOW WOODS, position: [960, 530], size: 120, font: Lora } }
+  - { command: graphics.set, params: { clip: $title.clip, props: { font_style: Bold, align: center, tracking: 60, fill_color: "#f4f1ea" } } }
+  - { command: graphics.newText, params: { clip: $title.clip, text: a picture in four reels, position: [960, 610], size: 48, font: Lora } }
+  - { command: graphics.set, params: { clip: $title.clip, props: { font_style: Italic, align: center, fill_color: "#cfcac0" } } }
+thumbnail: { at: 4 }
+preview: { from: 0, to: 3, fps: 8, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items.0.effects: { count: 7 }
+      sequence.video.0.items.0.effects.0.effect: black_white
+      sequence.video.0.items.0.effects.1.params.contrast.value: 25
+      sequence.video.0.items.0.effects.2.params.amount.value: 30
+      sequence.video.0.items.0.effects.2.params.color.value: false
+      sequence.video.0.items.0.effects.3: { effect: vignette, params: { amount: { value: -45 } } }
+      sequence.video.1.items.0.effects.4.params: { font: { value: Lora }, font_style: { value: Bold } }
+      sequence.video.1.items.0.effects.5.params: { font: { value: Lora }, font_style: { value: Italic } }
+diagnostics: []
+since: "2026-11-09"

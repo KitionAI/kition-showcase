@@ -1,0 +1,30 @@
+{
+  "id": "doc/site-inspection-checklist",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 222 words",
+  "commands": 544,
+  "document": {
+    "name": "site-inspection-checklist.docx",
+    "bytes": 9126,
+    "sha256": "ee23fceec4a0b685dfe5bee2994cde57734f7261052c0e40225f6894ab1815d2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "99a7ab8035f9362101c4341daabfd9c6e6ffc6e97211413e912a2d2a006e9eb0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 230
+}

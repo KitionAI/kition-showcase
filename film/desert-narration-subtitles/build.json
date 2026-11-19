@@ -1,0 +1,34 @@
+{
+  "id": "film/desert-narration-subtitles",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 12.0 s; 1 video clip; 1 audio clip",
+  "commands": 9,
+  "document": {
+    "name": "desert-narration-subtitles.kfilm",
+    "bytes": 12505,
+    "sha256": "31540c7b63d1e81bf17e8c2f1cecab91f3afa01ea1f975903f699721c3149256"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "007638dce9df5d7276d376e11775892a9ae8be9bc696e0e5ba19b989aebbeb84"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 48,
+    "bytes": 111950
+  },
+  "diagnostics": [],
+  "built_ms": 13
+}

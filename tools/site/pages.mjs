@@ -1,0 +1,361 @@
+// The showcase's pages as HTML strings: the shared shell (head, header, footer) and the home, kit,
+// sample and not-found pages. Every page is complete without JavaScript; site.js only enhances.
+// All sample text goes through `esc`; every URL comes from `u` (lib.mjs `urls`).
+
+import { esc, fmt, jsonLdScript, kb, pad, plural, SITE_NAME } from "./lib.mjs";
+
+const GITHUB = "https://github.com/KitionAI/kition-showcase";
+
+// ---------- Shell ----------
+
+// `seo`: title, description, canonical (absolute), image {url, width, height, alt}, type, robots,
+// jsonLd. `ctx`: u, assets {css, js, logo, icon}, logo (inline svg), kitIds.
+export function shell(ctx, seo, { page, main, headExtra = "" }) {
+  const { u, assets } = ctx;
+  const og = seo.image;
+  const meta = [
+    `<title>${esc(seo.title)}</title>`,
+    `<meta name="description" content="${esc(seo.description)}">`,
+    seo.canonical ? `<link rel="canonical" href="${esc(seo.canonical)}">` : "",
+    seo.robots ? `<meta name="robots" content="${esc(seo.robots)}">` : "",
+    `<meta property="og:type" content="${esc(seo.type ?? "website")}">`,
+    `<meta property="og:site_name" content="${SITE_NAME}">`,
+    `<meta property="og:locale" content="en_US">`,
+    `<meta property="og:title" content="${esc(seo.title)}">`,
+    `<meta property="og:description" content="${esc(seo.description)}">`,
+    seo.canonical ? `<meta property="og:url" content="${esc(seo.canonical)}">` : "",
+    og ? `<meta property="og:image" content="${esc(og.url)}">\n<meta property="og:image:type" content="${/\.jpe?g$/.test(og.url) ? "image/jpeg" : "image/png"}">\n<meta property="og:image:width" content="${og.width}">\n<meta property="og:image:height" content="${og.height}">\n<meta property="og:image:alt" content="${esc(og.alt)}">` : "",
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${esc(seo.title)}">`,
+    `<meta name="twitter:description" content="${esc(seo.description)}">`,
+    og ? `<meta name="twitter:image" content="${esc(og.url)}">\n<meta name="twitter:image:alt" content="${esc(og.alt)}">` : "",
+  ].filter(Boolean).join("\n");
+  // Runs before the first paint: `js` turns on the enhanced styles, `filtered` hides the hero
+  // when the page opens on a shared search.
+  const boot = `<script>(function(d){d.classList.add("js");if(/[?&](q|tag|cat)=/.test(location.search))d.classList.add("filtered")})(document.documentElement)</script>`;
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+${boot}${headExtra}
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#07070c">
+${meta}
+<link rel="icon" href="${assets.icon}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${assets.touchIcon}">
+<link rel="preload" href="${u.asset("fonts/archivo-latin-wdth-normal.woff2")}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${u.asset("fonts/inter-tight-latin-wght-normal.woff2")}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="${assets.css}">
+<script src="${assets.js}" defer></script>
+${seo.jsonLd ? jsonLdScript(seo.jsonLd) : ""}
+</head>
+<body data-page="${page}" data-home="${esc(u.home)}">
+<a class="skip" href="#main">Skip to the content</a>
+${header(ctx, page)}
+<main id="main" tabindex="-1">
+${main}
+</main>
+${footer(ctx)}
+</body>
+</html>
+`;
+}
+
+// kition.ai's own header (portal app/components/marketing/Header.tsx, CHROME.ai in
+// app/data/site-nav.ts), so a visitor moving between kition.ai and the showcase sees the same one.
+// site.js fills in the account label and the platform's download label, and opens the mobile menu.
+// `null` is the showcase's own item: its home under the build's base, lit on every showcase page.
+export const SITE_NAV = [
+  ["Kits", "https://kition.ai/kits"],
+  ["Showcase", null],
+  ["Kition One", "https://one.kition.ai/"],
+  ["Developers", "https://developer.kition.ai/"],
+  ["KHP", "https://kition.ai/khp"],
+  ["Pricing", "https://kition.ai/pricing"],
+  ["Universe", "https://universe.kition.ai/"],
+];
+const ICON = (paths) => `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths.map((d) => `<path d="${d}"/>`).join("")}</svg>`;
+
+export function header(ctx, page) {
+  const { logo, u } = ctx;
+  const links = (cls) => SITE_NAV.map(([label, href]) => href
+    ? `<a class="${cls}" href="${href}">${label}</a>`
+    : `<a class="${cls} on" href="${esc(u.home)}"${page === "home" ? ` aria-current="page"` : ""}>${label}</a>`).join("");
+  return `<header class="top" id="top">
+  <div class="kc top-in">
+    <a class="hd-brand" href="https://kition.ai/" aria-label="Kition">${logo}<span>Kition</span></a>
+    <nav class="hd-nav" aria-label="primary">${links("hd-link")}</nav>
+    <div class="hd-acts">
+      <a class="hd-link hd-acct" href="https://kition.ai/app" data-account>Sign in</a>
+      <a class="btn-download" href="https://kition.ai/download" id="get"><span id="get-label">Download free</span><span class="arr" aria-hidden="true">&darr;</span></a>
+      <button type="button" class="hd-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="i-open">${ICON(["M4 5h16", "M4 12h16", "M4 19h16"])}</span><span class="i-close">${ICON(["M6 6l12 12", "M18 6L6 18"])}</span></button>
+    </div>
+  </div>
+  <div class="hd-menu" id="mobile-menu" hidden>
+    <div class="kc hd-menu-in">
+      <nav class="hd-menu-nav" aria-label="mobile">${links("hd-mlink")}</nav>
+      <a class="hd-macct" href="https://kition.ai/app" data-account>Sign in</a>
+    </div>
+  </div>
+</header>`;
+}
+
+// The search over the listed cards, in the filter bar of the home and kit pages.
+function searchForm(ctx, action) {
+  return `<form class="search" role="search" action="${esc(action)}" method="get">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <label class="sr" for="q">Search samples</label>
+      <input id="q" name="q" type="search" placeholder="Search ${fmt(ctx.totals.samples)} samples" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>`;
+}
+
+function footer(ctx) {
+  const { u, logo } = ctx;
+  return `<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a class="brand" href="https://kition.ai/">${logo}<b>Kition</b></a>
+      <p>The Kition Showcase: sample documents for every kit, built from the kit's own engine commands and rendered by its own engine. Every sample doubles as a regression test.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="${esc(u.home)}">Showcase</a>
+      <a href="https://kition.ai/">kition.ai</a>
+      <a href="https://developer.kition.ai">Developer docs</a>
+      <a href="${GITHUB}" rel="noopener">GitHub</a>
+      <a href="${GITHUB}/blob/main/CONTRIBUTING.md" rel="noopener">Contributing</a>
+      <a href="${GITHUB}/blob/main/LICENSE" rel="noopener">Apache-2.0 licence</a>
+    </nav>
+  </div>
+  <div class="wrap foot-low">
+    <span>Samples and code under the Apache License 2.0. Fonts: Archivo, Inter Tight and JetBrains Mono, SIL Open Font License 1.1.</span>
+    <span class="label">Built by the kits</span>
+  </div>
+</footer>`;
+}
+
+// ---------- Shared parts ----------
+
+const kitStyle = (kit) => `--c:${kit.color}`;
+
+export function crumbs(items) {
+  return `<nav class="crumbs label" aria-label="Breadcrumb"><ol>${items.map(([name, href], i) =>
+    `<li>${i === items.length - 1 ? `<span aria-current="page">${esc(name)}</span>` : `<a href="${esc(href)}">${esc(name)}</a>`}</li>`).join("")}</ol></nav>`;
+}
+
+// One sample card. `load`: "eager", "high" (eager, fetchpriority=high) or "lazy".
+export function card(ctx, s, load = "lazy") {
+  const kit = ctx.kitById[s.kit];
+  const [w, h] = s.thumbSize;
+  const attrs = [
+    `class="card"`,
+    `style="${kitStyle(kit)}"`,
+    `data-cat="${esc(s.category)}"`,
+    `data-tags="${esc(s.tags.join("|"))}"`,
+    `data-s="${esc([kit.title, ...s.features].join(" "))}"`,
+  ];
+  if (s.previewUrl) attrs.push(`data-preview="${esc(s.previewUrl)}"`, `data-thumb="${esc(s.thumbUrl)}"`);
+  const imgLoad = load === "lazy" ? `loading="lazy"` : load === "high" ? `fetchpriority="high"` : "";
+  return `<article ${attrs.join(" ")}>`
+    + `<a class="stage" href="${esc(s.path)}" tabindex="-1" aria-hidden="true">`
+    + (s.previewUrl ? `<span class="badge">animated</span>` : "")
+    + `<span class="fit"><img src="${esc(s.thumbUrl)}" width="${w}" height="${h}" style="--r:${(w / h).toFixed(4)}" ${imgLoad} decoding="async" alt="${esc(s.alt)}"></span></a>`
+    + `<div class="card-body"><div class="meta"><span class="kchip">${esc(s.kit)}</span><span class="cat">${esc(s.category)}</span></div>`
+    + `<h3><a href="${esc(s.path)}">${esc(s.title)}</a></h3>`
+    + `<p>${esc(s.summary)}</p>`
+    + `<div class="st" title="${esc(s.stats)}">${esc(s.stats)}</div>`
+    + `<div class="tags">${s.tags.map((t) => `<button type="button" class="tag" data-tag="${esc(t)}">${esc(t)}</button>`).join("")}</div>`
+    + `</div></article>`;
+}
+
+// The row of kit cards; `current` is the kit whose page this is.
+function kitRow(ctx, current, allCurrent = !current) {
+  const { kits, u } = ctx;
+  const step = Math.min(0.05, 0.8 / kits.length);
+  return `<section class="kits wrap" aria-labelledby="kits-h"><h2 class="sr" id="kits-h">Kits</h2>
+  <div class="blocks${current ? " picked" : ""}" id="blocks" style="--cols:${kits.length}">`
+    + kits.map((k, i) => `<div class="blk" style="--d:${(0.35 + i * step).toFixed(3)}s"><a class="kcard" data-kit="${k.id}" href="${esc(k.path)}" style="${kitStyle(k)}" aria-label="${esc(k.title)}: ${plural(k.count, "sample")}"${current === k.id ? ` aria-current="page"` : ""}>`
+      + `<span class="top2"><span>${pad(i + 1)}</span><span>${k.count}</span></span><span class="nm">${esc(k.id)}</span></a></div>`).join("")
+    + `</div>
+  <div class="blocks-cap label"><a class="all" id="all" href="${esc(u.home)}"${allCurrent ? ` aria-current="page"` : ""}>All kits &middot; ${fmt(ctx.totals.samples)}</a><span class="sync" id="sync" aria-hidden="true"></span></div>
+</section>`;
+}
+
+// ---------- Home ----------
+
+function heroHtml(ctx) {
+  const { kits, totals } = ctx;
+  const first = kits[0];
+  const h = first.hero;
+  let i = 0;
+  const chars = ["built", "by", "commands."].map((word, w) => `<span class="wd">${[...word].map((ch) =>
+    `<span class="ch${w === 2 && ch !== "." ? " em" : ""}" style="--i:${i++}">${esc(ch)}</span>`).join("")}</span>`).join(" ");
+  const calls = h.calls.map(([cmd, hint]) => {
+    const text = cmd + (hint ? `(${hint})` : "");
+    return `<li class="call on done"><b></b><code style="--n:${text.length}">${esc(cmd)}${hint ? `<i>(${esc(hint)})</i>` : ""}</code><em>ok</em></li>`;
+  }).join("");
+  const rest = h.commands - h.calls.length;
+  const [w, hh] = h.thumbSize;
+  return `<section class="hero wrap" id="hero" aria-labelledby="hero-title"><div class="hero-in"><div class="hero-copy">`
+    + `<p class="hud label"><span class="ok">Showcase</span><span>${fmt(totals.samples)} samples</span><span>${totals.kits} kits</span><span>${fmt(totals.commands)} commands</span></p>`
+    + `<h1 class="headline" id="hero-title"><span class="sr">Kition Showcase: ${fmt(totals.samples)} sample documents built by the kits' own commands.</span>`
+    + `<span class="row1" aria-hidden="true"><span class="slot" id="slot" style="${kitStyle(first)}"><span class="reel" id="reel"><span data-first="">${esc(first.word)}</span></span></span>`
+    + `<span class="tick" id="tick" style="${kitStyle(first)}"><i></i><b id="tick-n">01 / ${pad(kits.length)}</b><span id="tick-kit">${esc(first.id)} kit</span><span id="tick-count">${esc(plural(first.count, "sample"))}<span class="tcur"></span></span></span></span>`
+    + `<span class="row2" aria-hidden="true">${chars}</span></h1>`
+    + `<p class="lede">Every sample is a list of the kit's own engine commands, <b>the same commands an AI agent calls</b>. The kit runs them, then saves and renders the document with its own engine, so you see exactly what Kition draws. Every sample doubles as a regression test.</p>`
+    + `</div>`
+    + `<div class="run saved" id="run" role="group" aria-label="A featured sample, command by command" style="${kitStyle(first)}">`
+    + `<div class="run-bar"><i></i><i></i><i></i><span class="label" id="run-label">agent &middot; <b>${esc(first.id)}</b> kit</span><span class="label file">showcase.yaml</span></div>`
+    + `<div class="run-body"><div><ol class="calls" id="calls">${calls}</ol><div class="run-foot"><span class="more" id="run-more">${rest > 0 ? `+ ${plural(rest, "more command")} · ${fmt(h.ms)} ms` : `${fmt(h.ms)} ms`}</span><span class="saved" id="run-saved">saved → ${esc(h.document)} ✓</span></div></div>`
+    + `<a class="shot" id="shot" href="${esc(h.path)}" aria-label="Open ${esc(h.title)}"><span class="shot-stage"><img id="shot-img" src="${esc(h.thumbUrl)}" width="${w}" height="${hh}" style="--r:${(w / hh).toFixed(4)}" fetchpriority="high" decoding="async" alt="${esc(h.alt)}"><span class="scan"></span></span><span class="shot-cap"><b id="shot-title">${esc(h.title)}</b><span>Open the sample &rarr;</span></span></a></div>`
+    + `</div></div></section>`;
+}
+
+function statsHtml(totals) {
+  const rows = [["Samples", totals.samples], ["Kits", totals.kits], ["Commands run", totals.commands], ["Checks per build", totals.checks], ["Animated", totals.animated]];
+  return `<section class="wrap" id="stats-wrap" aria-labelledby="stats-h"><h2 class="sr" id="stats-h">In numbers</h2><dl class="stats">${rows.map(([label, n]) =>
+    `<div class="stat"><dt class="label">${esc(label)}</dt><dd><b data-n="${n}">${fmt(n)}</b></dd></div>`).join("")}</dl></section>`;
+}
+
+const EAGER_CARDS = 4;
+
+export function homeMain(ctx) {
+  const { samples, totals } = ctx;
+  return `<div id="list">
+${heroHtml(ctx)}
+${kitRow(ctx, null)}
+${statsHtml(totals)}
+<div class="bar" id="bar"><div class="wrap bar-in" id="bar-in"><span class="bar-kit"><i class="all-sq"></i><b>All kits</b></span><span class="query mute" id="bar-q">Every sample in every kit. Pick a kit above to see its own page.</span>${searchForm(ctx, ctx.u.home)}<span class="count label"><b id="count">${totals.samples}</b> samples</span></div></div>
+<section class="wrap" id="samples" aria-labelledby="samples-h"><h2 class="sr" id="samples-h">All samples</h2>
+<div class="grid" id="grid">${samples.map((s, i) => card(ctx, s, i < EAGER_CARDS ? "eager" : "lazy")).join("")}</div>
+<div id="empty" hidden></div>
+</section>
+</div>
+<script type="application/json" id="hero-data">${JSON.stringify(ctx.heroData).replace(/</g, "\\u003c")}</script>`;
+}
+
+// ---------- Kit ----------
+
+export const catId = (category) => `c-${String(category).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+
+export function kitMain(ctx, kit) {
+  const own = ctx.samples.filter((s) => s.kit === kit.id);
+  const cats = [...new Set(own.map((s) => s.category))].sort();
+  const animated = own.filter((s) => s.previewUrl).length;
+  let n = 0;
+  const sections = cats.map((c) => {
+    const list = own.filter((s) => s.category === c);
+    return `<section class="cat-sec" id="${catId(c)}" data-cat="${esc(c)}" aria-labelledby="${catId(c)}-h"><h2 class="cat-h label" id="${catId(c)}-h">${esc(c)} <small>${list.length}</small></h2>`
+      + `<div class="grid">${list.map((s) => card(ctx, s, n++ < EAGER_CARDS ? "eager" : "lazy")).join("")}</div></section>`;
+  }).join("\n");
+  return `<div id="list">
+<section class="khead wrap" id="khead" style="${kitStyle(kit)}">
+${crumbs([["Showcase", ctx.u.home], [kit.title, null]])}
+<p class="label">Kit ${pad(kit.index + 1)} / ${pad(ctx.kits.length)} &middot; ${plural(own.length, "sample")} &middot; ${plural(cats.length, "category", "categories")}${animated ? ` &middot; ${animated} animated` : ""}</p>
+<h1 class="d"><i aria-hidden="true"></i>${esc(kit.title)}<span class="sr"> samples</span></h1><p>${esc(kit.tagline)}</p>
+</section>
+${kitRow(ctx, kit.id)}
+<div class="bar" id="bar"><div class="wrap bar-in" id="bar-in"><span class="bar-kit" style="${kitStyle(kit)}"><i></i><b>${esc(kit.title)}</b></span>`
+    + `<nav class="chips" aria-label="Categories" style="${kitStyle(kit)}"><a class="chip" href="#samples" data-cat="" aria-current="true">All <small>${own.length}</small></a>`
+    + cats.map((c) => `<a class="chip" href="#${catId(c)}" data-cat="${esc(c)}">${esc(c)} <small>${own.filter((s) => s.category === c).length}</small></a>`).join("")
+    + `</nav>${searchForm(ctx, kit.path)}<span class="count label"><b id="count">${own.length}</b> samples</span></div></div>
+<div class="wrap" id="samples" style="${kitStyle(kit)}">
+${sections}
+<div id="empty" hidden></div>
+</div>
+</div>`;
+}
+
+// ---------- Sample ----------
+
+// Light YAML colouring: keys, strings, numbers, booleans, punctuation, comments; commands stand
+// out. The output text is always the input text, escaped.
+const YAML_TOKEN = /(#.*$)|("(?:[^"\\]|\\.)*"?|'(?:[^']|'')*'?)|([{}[\],]|-(?=\s|$)|:(?=\s|$)|[|>][-+]?(?=\s*$))|([^\s{}[\],:#"'](?:[^{}[\],:#\s]|:(?!\s|$)|[ \t]+(?=[^\s{}[\],:#]))*)|(\s+)|([\s\S])/g;
+export function yamlHtml(src) {
+  const span = (cls, text) => `<span class="${cls}">${esc(text)}</span>`;
+  return src.split("\n").map((line) => {
+    let out = "";
+    let key = null;
+    for (const m of line.matchAll(YAML_TOKEN)) {
+      const [text, comment, quoted, punct, plain] = m;
+      if (comment != null) out += span("c", text);
+      else if (punct != null) out += span("p", text);
+      else if (quoted != null || plain != null) {
+        const rest = line.slice(m.index + text.length);
+        if (/^\s*:(\s|$)/.test(rest)) { key = text.replace(/^["']|["']$/g, ""); out += span("k", text); continue; }
+        let cls = "s";
+        if (plain != null && /^(true|false|null|~)$/.test(text)) cls = "w";
+        else if (plain != null && /^[-+]?(\d[\d_]*)?\.?\d+(e[-+]?\d+)?$/i.test(text)) cls = "n";
+        if (key === "command" && cls === "s") cls = "cmd";
+        out += span(cls, text);
+        key = null;
+      } else out += esc(text);
+    }
+    return out;
+  }).join("\n");
+}
+
+function checksHtml(s) {
+  const items = [];
+  for (const e of s.expected) {
+    for (const [k, v] of Object.entries(e.values || {})) {
+      let text = JSON.stringify(v);
+      if (text.length > 160) text = `${text.slice(0, 157)}…`;
+      items.push(`<li><span><code>${esc(`${e.actual || "inspect"}.${k}`)}</code> = <span class="v">${esc(text)}</span></span></li>`);
+    }
+  }
+  items.push(`<li><span>Diagnostics: ${s.diagnostics.length ? s.diagnostics.map((c) => `<code>${esc(c)}</code>`).join(", ") : "none, the kit's own check finds nothing wrong"}</span></li>`);
+  items.push(`<li><span>The saved document opens again, and its thumbnail matches <code>thumb.png</code> within the render tolerance</span></li>`);
+  return { count: items.length, html: `<ul class="checks">${items.join("")}</ul>` };
+}
+
+export function sampleMain(ctx, s, { prev, next, related }) {
+  const { u } = ctx;
+  const kit = ctx.kitById[s.kit];
+  const [w, h] = s.thumbSize;
+  const ext = s.ext.slice(1).toUpperCase();
+  const checks = checksHtml(s);
+  const lines = s.steps.split("\n").length;
+  const spec = `<dl>`
+    + `<div><dt class="label">Contents</dt><dd>${esc(s.stats)}</dd></div>`
+    + `<div><dt class="label">Features</dt><dd class="pills">${s.features.map((f) => `<span class="pill">${esc(f)}</span>`).join("")}</dd></div>`
+    + `<div><dt class="label">Tags</dt><dd class="pills">${s.tags.map((t) => `<a class="pill" href="${esc(u.home)}?tag=${encodeURIComponent(t)}" rel="nofollow" data-tag="${esc(t)}">${esc(t)}</a>`).join("")}</dd></div>`
+    + `<div><dt class="label">Built by</dt><dd><code>${esc(s.built.repo)}</code> @ <code>${esc(s.built.commit)}</code><br><b>${plural(s.built.commands, "command")}</b> in ${fmt(s.built.ms)} ms</dd></div>`
+    + `<div><dt class="label">Format</dt><dd><b>${esc(ext)}</b> &middot; <code>${esc(s.documentName)}</code> &middot; ${kb(s.documentBytes)}</dd></div>`
+    + `</dl>`;
+  const download = s.documentUrl
+    ? `<a class="btn btn-primary btn-glow dl" href="${esc(s.documentUrl)}" download><span>Download ${esc(ext)}</span><span class="arr" aria-hidden="true">&darr;</span></a><p class="dl-meta">${esc(s.documentName)} &middot; ${kb(s.documentBytes)} &middot; opens in Kition</p>`
+    : `<p class="dl-meta">Documents were left out of this build. <a class="em" href="${GITHUB}/tree/main/${esc(s.kit)}/${esc(s.slug)}" rel="noopener">Get it on GitHub</a>.</p>`;
+  const navCard = (x, label, cls) => `<a${cls ? ` class="${cls}"` : ""} href="${esc(x.path)}" style="${kitStyle(kit)}" rel="${cls ? "next" : "prev"}"><span class="label">${label}</span><b>${esc(x.title)}</b></a>`;
+  return `<article class="wrap detail" id="detail">
+${crumbs([["Showcase", u.home], [kit.title, kit.path], [s.title, null]])}
+<header class="dhead" style="${kitStyle(kit)}"><div class="meta"><span class="kchip">${esc(s.kit)}</span><span class="cat">${esc(s.category)}</span>${s.featured ? "<span>&middot; featured</span>" : ""}</div>
+<h1 class="d" id="dtitle">${esc(s.title)}</h1><p class="sum">${esc(s.summary)}</p></header>
+<div class="dgrid"><div class="view" id="view" style="${kitStyle(kit)}"${s.previewUrl ? ` data-preview="${esc(s.previewUrl)}" data-thumb="${esc(s.thumbUrl)}"` : ""}>`
+    + (s.previewUrl ? `<button type="button" class="badge playbtn" id="playbtn" aria-pressed="false">Play preview</button>` : "")
+    + `<img src="${esc(s.thumbUrl)}" width="${w}" height="${h}" style="--r:${(w / h).toFixed(4)};--w:${Math.round(Math.max(w, 640) * 1.25)}px" fetchpriority="high" decoding="async" alt="${esc(s.alt)}"></div>
+<aside class="spec" id="spec" style="${kitStyle(kit)}" aria-label="About this sample">${spec}<div id="dl">${download}</div></aside></div>
+${s.description ? `<p class="desc">${esc(s.description)}</p>` : ""}
+${s.previewUrl ? `<p class="desc preview-note">Animated sample: <a class="em" href="${esc(s.previewUrl)}">watch the preview</a> (WebP animation).</p>` : ""}
+<section class="sec" aria-labelledby="steps-h"><div class="sec-head"><h2 class="d" id="steps-h">Steps</h2><span class="label">${plural(s.built.commands, "command")}${s.prelude ? ` &middot; after the <code>${esc(s.prelude)}</code> prelude` : ""}</span></div>
+<div class="code" style="${kitStyle(kit)}"><div class="code-bar"><i></i><i></i><i></i><span class="tab">showcase.yaml</span><span class="lines">${plural(lines, "line")}</span><button type="button" class="copy" id="copy">Copy</button></div>
+<pre tabindex="0" aria-label="The sample's steps"><code>${yamlHtml(s.steps)}</code></pre></div></section>
+<section class="sec" aria-labelledby="checks-h"><div class="sec-head"><h2 class="d" id="checks-h">Checks</h2><span class="label">${plural(checks.count, "check")} on every build</span></div>${checks.html}</section>
+${related.length ? `<section class="sec" aria-labelledby="rel-h"><div class="sec-head"><h2 class="d" id="rel-h">Related</h2><span class="label">More ${esc(kit.title)} samples</span></div><div class="grid rel">${related.map((x) => card(ctx, x)).join("")}</div></section>` : ""}
+<nav class="nav2" aria-label="More ${esc(kit.title)} samples">${navCard(prev, "&larr; Previous", "")}${navCard(next, "Next &rarr;", "nx")}</nav>
+</article>`;
+}
+
+// ---------- Not found ----------
+
+export function notFoundMain(ctx) {
+  const { u } = ctx;
+  return `<div class="wrap">
+<div class="empty nf"><p class="label">404 &middot; not found</p>
+<h1 class="d">Nothing <span class="em">here.</span></h1>
+<p>This page is not in the showcase. The sample may have moved; every sample is listed on the showcase's front page, by kit.</p>
+<div class="try"><a class="btn btn-primary btn-sm" href="${esc(u.home)}">All ${fmt(ctx.totals.samples)} samples <span class="arr" aria-hidden="true">&rarr;</span></a><a class="btn btn-ghost btn-sm" href="https://kition.ai/">kition.ai</a></div></div>
+</div>
+${kitRow(ctx, null, false)}`;
+}

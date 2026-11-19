@@ -1,0 +1,30 @@
+{
+  "id": "slide/product-roadmap-timeline",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 73,
+  "document": {
+    "name": "product-roadmap-timeline.pptx",
+    "bytes": 23240,
+    "sha256": "407cd2b42a65c1f6ccceba4b4c05e2610ec8bcd4571cdc7896d046431f88ac3e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "b3f5392a69f974fcdc11d6e2d69a2136e0298caa8dd4926a99660dc5426e215d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 86
+}

@@ -1,0 +1,30 @@
+{
+  "id": "photo/instagram-quote-post",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1080,
+    1080
+  ],
+  "stats": "1080 × 1080 px; 8 layers; 4 type layers; 1 shape layer; 1 fill layer; 1 mask",
+  "commands": 19,
+  "document": {
+    "name": "instagram-quote-post.psd",
+    "bytes": 1654024,
+    "sha256": "76667f51ab1863370b4f345c2c2ef81b81b79090657eee5759f9ab25be0b88c7"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      640
+    ],
+    "sha256": "d5e422cda4752cdd9f79819f9d0d8ef99927190d46f274ed63599785a0bc8ebe"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 672
+}

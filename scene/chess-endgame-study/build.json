@@ -1,0 +1,30 @@
+{
+  "id": "scene/chess-endgame-study",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "22 meshes; 5 materials; 2 lights",
+  "commands": 124,
+  "document": {
+    "name": "chess-endgame-study.kscene",
+    "bytes": 13676,
+    "sha256": "f8cc2889ba9d6b2d835ac4973af564cb16f2d3f18b2a881f89157fdb06b06b5e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "c3fc65131019bbd6e8dd071e03d8566bb95530bdd7c191e8c1f27fe25ab52afd"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 12
+}

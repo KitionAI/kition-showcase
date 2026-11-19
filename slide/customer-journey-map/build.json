@@ -1,0 +1,30 @@
+{
+  "id": "slide/customer-journey-map",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 82,
+  "document": {
+    "name": "customer-journey-map.pptx",
+    "bytes": 23853,
+    "sha256": "84feb6b0b3b8459a58b4808e9588b2669a2e76d457d4a1b8487daacf1a140c2b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "210a25b1f7b29b7a54058aa0c7a7da8da3d41bf2a0f45ce1d8fc00438c99ede2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 31
+}

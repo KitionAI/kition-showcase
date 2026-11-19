@@ -1,0 +1,30 @@
+{
+  "id": "slide/quarterly-review",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 20,
+  "document": {
+    "name": "quarterly-review.pptx",
+    "bytes": 26445,
+    "sha256": "e97dce4c1b874e67fb290892b9a90134d46bc0b3e2476d7aebe4a551b77dda56"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "fd47258a313cec2e4a89af0644ffca65f9ba1cbf4f179c984ef6d58536a22d4a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 84
+}

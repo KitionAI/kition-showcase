@@ -1,0 +1,30 @@
+{
+  "id": "cad/a3-sheet-template-title-block",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1848,
+    1307
+  ],
+  "stats": "76 objects; 7 layers",
+  "commands": 116,
+  "document": {
+    "name": "a3-sheet-template-title-block.dxf",
+    "bytes": 48156,
+    "sha256": "9ccae162d13ec664bad31d13b09f9dd280a22858598586145a7335c0a6160859"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      453
+    ],
+    "sha256": "417d56c563828b6fce56ce2582897e2b8f97bcf5d8c1202ee853d35c42cb9de3"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 10
+}

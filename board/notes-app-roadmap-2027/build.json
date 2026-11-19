@@ -1,0 +1,30 @@
+{
+  "id": "board/notes-app-roadmap-2027",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 47 elements",
+  "commands": 5,
+  "document": {
+    "name": "notes-app-roadmap-2027.kboard",
+    "bytes": 15788,
+    "sha256": "d86cf383c6c64174c6a3caa1b0e9df9528dfe8324da72dd7233d806e0d5019c3"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      312
+    ],
+    "sha256": "f1fa8257ced0edc93805ca6ec94d33009d7031874dfadda46d98e1374aa3c6a5"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

@@ -1,0 +1,30 @@
+{
+  "id": "pdf/catering-order-form",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 16 form fields",
+  "commands": 63,
+  "document": {
+    "name": "catering-order-form.pdf",
+    "bytes": 305655,
+    "sha256": "d03f2cb2e3c9cf149e06996bbafc8a15a6fafdd781418616e03e4844dccb121c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      612,
+      560
+    ],
+    "sha256": "95acd6ac81a0b825110daf65ec6a0f84b545f6843d0ec82a6ebd4d74dbff314e"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 628
+}

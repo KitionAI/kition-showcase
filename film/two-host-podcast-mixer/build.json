@@ -1,0 +1,30 @@
+{
+  "id": "film/two-host-podcast-mixer",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 30 fps; 10.0 s; 2 video clips; 3 audio clips; 10 effects",
+  "commands": 36,
+  "document": {
+    "name": "two-host-podcast-mixer.kfilm",
+    "bytes": 34497,
+    "sha256": "1cffae20fd48095f126dae1ed68c080c83f5b4436675fb454cfacd1e02a03596"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "924a1eebbe1c79139a1b52b4c56a1137efde1961f6091b22b8b317855937609b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 29
+}

@@ -1,0 +1,30 @@
+{
+  "id": "sheet/revenue-margin-combo",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1706,
+    2029
+  ],
+  "stats": "1 sheet; used range A1:D17",
+  "commands": 29,
+  "document": {
+    "name": "revenue-margin-combo.xlsx",
+    "bytes": 8072,
+    "sha256": "a0668fbe39bfb4753165170de3ecae43511dfa5c53e72ce49cc466c54752534d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      256
+    ],
+    "sha256": "62d3fd47b7d1da7faae2f65f4b17bd1dd5bd1d260aa93e06ecb6fdcd22e02932"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 8
+}

@@ -1,0 +1,61 @@
+format: 1
+id: pdf/allotment-plot-measurements
+title: Allotment Plot Measurements
+summary: A scaled plan of an allotment plot with a calibrated 1 pt = 5 cm viewport and measurement annotations for the frontage, the bed and pond areas and the fence line.
+category: Annotations & Review
+tags: [measurements, scale, site-plan, area]
+features: [pdf.measure, pdf.comments, pdf.content]
+description: |
+  The plan is drawn with flattened shapes. `measure_scale` adds a viewport over the drawing at
+  0.05 m per point, and the distance, area and perimeter tools add measurement annotations whose
+  readings use it: each draws its label with its reading ("Pond: 17.85 m²"), and the checks read
+  the calculated values back from `measure_list` (a 20 m frontage, a 32.5 m² bed, a 35 m fence).
+document: { name: allotment-plot-measurements.pdf, width: 612, height: 792 }
+steps:
+  - { command: doc_background, params: { color: "#fbfaf5" } }
+  # The plot.
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [106, 160, 506, 460], color: "#4a5a3f", fill: "#eef3e2", width: 2 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [106, 290, 506, 312], color: "#d9c7a3", fill: "#e8dcc2", width: 0 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [126, 180, 256, 280], color: "#6b8f3e", fill: "#a9c47f", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [276, 180, 406, 280], color: "#6b8f3e", fill: "#a9c47f", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [126, 322, 256, 442], color: "#6b8f3e", fill: "#a9c47f", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [426, 180, 490, 240], color: "#7a5230", fill: "#b98a5e", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: oval, rect: [300, 340, 410, 430], color: "#3d7ea6", fill: "#9cc9e3", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: oval, rect: [440, 360, 490, 410], color: "#4f7a33", fill: "#7fae5a", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: oval, rect: [450, 320, 480, 350], color: "#4f7a33", fill: "#7fae5a", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [72, 548, 540, 650], color: "#4a5a3f", width: 1 } }
+  - { command: comment_add, params: { page: 1, type: line, from: [380, 548], to: [380, 650], color: "#4a5a3f", width: 1 } }
+  - { command: doc_flatten, params: { comments: true } }
+  - { command: page_add_text, params: { page: 1, at: [72, 70], width: 468, text: "Plot 14, Linden Road Allotments", size: 22, bold: true, color: "#2f3b28" } }
+  - { command: page_add_text, params: { page: 1, at: [72, 100], width: 468, text: "Survey for the plot transfer  ·  measured from the site plan", size: 10.5, color: "#6b7563" } }
+  - { command: page_add_text, params: { page: 1, at: [136, 224], width: 110, text: Brassicas, size: 9, color: "#2f3b28", align: center } }
+  - { command: page_add_text, params: { page: 1, at: [286, 224], width: 110, text: Potatoes, size: 9, color: "#2f3b28", align: center } }
+  - { command: page_add_text, params: { page: 1, at: [136, 376], width: 110, text: Soft fruit, size: 9, color: "#2f3b28", align: center } }
+  - { command: page_add_text, params: { page: 1, at: [426, 206], width: 64, text: Shed, size: 9, color: "#ffffff", align: center } }
+  - { command: page_add_text, params: { page: 1, at: [310, 380], width: 90, text: Pond, size: 9, color: "#1f4e6b", align: center } }
+  - { command: page_add_text, params: { page: 1, at: [400, 296], width: 100, text: Main path, size: 8, italic: true, color: "#7a6a4a", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [86, 562], width: 280, text: "SITE NOTES", size: 9, bold: true, color: "#4a5a3f" } }
+  - { command: page_add_text, params: { page: 1, at: [86, 580], width: 280, text: "Boundary fence is post and wire on the north and east sides. Water trough is shared with plot 15. The pond is lined and must stay when the plot changes hands.", size: 9.5, color: "#2f3b28" } }
+  - { command: page_add_text, params: { page: 1, at: [394, 562], width: 140, text: "SCALE", size: 9, bold: true, color: "#4a5a3f" } }
+  - { command: page_add_text, params: { page: 1, at: [394, 580], width: 140, text: "1 pt = 5 cm on site\nSurveyed 2 Nov 2026\nDrawn by the plot committee", size: 9.5, color: "#2f3b28" } }
+  # Calibrate, then measure.
+  - { command: measure_scale, params: { page: 1, rect: [86, 140, 526, 500], units_per_point: 0.05, unit: m, name: Site plan }, as: scale }
+  - { command: measure_distance, params: { page: 1, points: [[106, 494], [506, 494]], label: Frontage } }
+  - { command: measure_area, params: { page: 1, points: [[126, 180], [256, 180], [256, 280], [126, 280]], label: Brassica bed } }
+  - { command: measure_area, params: { page: 1, points: [[300, 385], [316, 352], [355, 340], [394, 352], [410, 385], [394, 418], [355, 430], [316, 418]], label: Pond } }
+  - { command: measure_perimeter, params: { page: 1, points: [[106, 160], [506, 160], [506, 460]], label: Fence } }
+  - { command: measure_list, params: { page: 1 }, as: readings }
+thumbnail: { area: [40, 40, 612, 676] }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+  - actual: results
+    values:
+      scale.scale.ratio: 1 pt = 0.05 m
+      readings.count: 4
+      readings.measurements.0.reading: { kind: distance, value: 20, label: 20.00 m }
+      readings.measurements.1.reading: { kind: area, value: { approx: 32.5, tol: 0.01 }, unit: m², label: 32.50 m² }
+      readings.measurements.1.label: Brassica bed
+      readings.measurements.3.reading: { kind: perimeter, value: 35 }
+since: "2026-11-09"

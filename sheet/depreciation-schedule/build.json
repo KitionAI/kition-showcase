@@ -1,0 +1,30 @@
+{
+  "id": "sheet/depreciation-schedule",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1828,
+    2048
+  ],
+  "stats": "1 sheet; used range A1:H19",
+  "commands": 40,
+  "document": {
+    "name": "depreciation-schedule.xlsx",
+    "bytes": 8728,
+    "sha256": "e7c4991bb6dfe89daeacba665ce007ac673918a30ab65d95030a26dbbd819148"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      235
+    ],
+    "sha256": "77a0befbfe7aef899d185227cca37b22449d6babfff758f16a6fd73b29ec8ea7"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 16
+}

@@ -1,0 +1,30 @@
+{
+  "id": "html/travel-magazine-grid",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    860
+  ],
+  "stats": "1200 × 860 px; 4.1 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "travel-magazine-grid.html",
+    "bytes": 4187,
+    "sha256": "c4df6a69436caafca718cf62f976c15002b0e6ce2f36e843db12c26796f4b021"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      459
+    ],
+    "sha256": "22580a7a42093a44a621d3f9fe06256d90bca9d3c1a56d5017b48c5265de99ee"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 36
+}

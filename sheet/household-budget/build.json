@@ -1,0 +1,30 @@
+{
+  "id": "sheet/household-budget",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1828,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:E12",
+  "commands": 18,
+  "document": {
+    "name": "household-budget.xlsx",
+    "bytes": 8023,
+    "sha256": "e5f4b5f4aba858e5f43e3e5144f282ce41b1bef1b2d481e4c67bc94779d5a3bc"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      266
+    ],
+    "sha256": "2e8235564fb04bd200e21df23490da09bd8f226b4682bf9e0eba1263372f9930"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 44
+}

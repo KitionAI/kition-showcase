@@ -1,0 +1,30 @@
+{
+  "id": "slide/project-status-report",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 99,
+  "document": {
+    "name": "project-status-report.pptx",
+    "bytes": 23355,
+    "sha256": "b1c955b1ddd4449e446346ff3dc45c776084a2582a10f16682f46ed0726936a4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "0c5ce1015ef1d1085690dd6a5f3a04268c5a7022ec1df4ea0c66de8e4538465f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 669
+}

@@ -1,0 +1,30 @@
+{
+  "id": "layout/neighbourhood-newsletter-front",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    739,
+    986
+  ],
+  "stats": "1 page; 8 stories; 11 paragraph styles",
+  "commands": 118,
+  "document": {
+    "name": "neighbourhood-newsletter-front.klayout",
+    "bytes": 55533,
+    "sha256": "a95b9d317a8ce60bdee0fd3a5715e52f4af21f7a0e249c7ee015c8ac7746f7e6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      452,
+      640
+    ],
+    "sha256": "1e22d70c92519b65c0381e31f3f69528a26d4f4b957af9c2dd96c1f7c7f11618"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 187
+}

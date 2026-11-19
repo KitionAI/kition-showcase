@@ -1,0 +1,30 @@
+{
+  "id": "note/sourdough-starter-guide",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1248
+  ],
+  "stats": "1 page; 236 words; 3 headings",
+  "commands": 7,
+  "document": {
+    "name": "sourdough-starter-guide.md",
+    "bytes": 1332,
+    "sha256": "1ec7a4d638a8d187134bae1b94f45944e0207e449b3f1d9b7c30bd824c4f4a70"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "68f15b0c447073d3ba84d7f11281e19cd7dd0ba9f9b8ad1be6d067a7b9a90580"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 8
+}

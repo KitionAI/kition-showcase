@@ -1,0 +1,30 @@
+{
+  "id": "sheet/dynamic-array-registrations",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1778,
+    2049
+  ],
+  "stats": "1 sheet; used range A1:I23",
+  "commands": 50,
+  "document": {
+    "name": "dynamic-array-registrations.xlsx",
+    "bytes": 7273,
+    "sha256": "c7eccfd5f96c3457741124a3c7135d71815cb15932c139eb2b7424bb8434f5f8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      405
+    ],
+    "sha256": "1ca02f06bd8aa169016f2d0622c99c3c3dee0eb7d717ec7082263d2f69e24651"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 38
+}

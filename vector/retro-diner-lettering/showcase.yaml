@@ -1,0 +1,87 @@
+format: 1
+id: vector/retro-diner-lettering
+title: Retro Diner Lettering
+summary: Neon-diner lettering — type outlined to paths, filled with a sunset gradient, ringed by offset outlines and arched with a warp envelope.
+category: Lettering
+tags: [lettering, gradients, outlines, envelope]
+features: [vector.type.convert, vector.object.path, vector.object.envelope, vector.paint.fill-stroke, vector.effect.live, vector.object.pathfinder]
+description: |
+  MOONLIGHT is set in Source Sans 3 Bold and outlined with Create Outlines; one gradient vector in
+  document coordinates runs across every glyph. Offset Path (14 pt, round joins) and Unite make the
+  dark inner outline, a second offset the cyan rim with a live Outer Glow, and an Arc Upper warp
+  envelope bends the three as one group. The neon frame is two stroked rounded rectangles with a
+  glow; the moon is a Minus Front crescent.
+document: { name: retro-diner-lettering.kvector, width: 1200, height: 800 }
+steps:
+  - { command: layer.setProps, params: { name: Backdrop } }
+  - { command: shape.rectangle, params: { x: 0, y: 0, width: 1200, height: 800 } }
+  - { command: paint.setStroke, params: { none: true } }
+  - { command: paint.setFill, params: { color: "#1b1033" } }
+  - { command: shape.rectangle, params: { x: 50, y: 50, width: 1100, height: 700, radius: 40 }, as: frame }
+  - { command: paint.setFill, params: { none: true } }
+  - { command: paint.setStroke, params: { color: "#ff4f9a" } }
+  - { command: stroke.set, params: { weight: 5 } }
+  - { command: effect.apply, params: { effect: stylize.outerGlow, params: { color: "#ff4f9a", blur: 18, opacity: 90 } } }
+  - { command: shape.rectangle, params: { x: 66, y: 66, width: 1068, height: 668, radius: 28 } }
+  - { command: stroke.set, params: { weight: 2 } }
+  - { command: transparency.set, params: { opacity: 50 } }
+  - { command: select.none, params: {} }
+  - { command: paint.setStroke, params: { none: true } }
+  - { command: shape.ellipse, params: { x: 550, y: 110, width: 100, height: 100 }, as: moonDisc }
+  - { command: paint.setFill, params: { color: "#ffe66d" } }
+  - { command: shape.ellipse, params: { x: 578, y: 94, width: 92, height: 92 }, as: moonBite }
+  - { command: select.set, params: { ids: [$moonDisc.id, $moonBite.id] } }
+  - { command: object.pathfinder.minusFront, params: {}, as: moon }
+  - { command: effect.apply, params: { effect: stylize.outerGlow, params: { color: "#ffe66d", blur: 20, opacity: 70 } } }
+  - { command: shape.star, params: { cx: 470, cy: 150, radius1: 12, radius2: 4, points: 4 } }
+  - { command: paint.setFill, params: { color: "#ffffff" } }
+  - { command: shape.star, params: { cx: 720, cy: 130, radius1: 16, radius2: 5, points: 4 } }
+  - { command: shape.star, params: { cx: 410, cy: 205, radius1: 7, radius2: 2.5, points: 4 } }
+  - { command: shape.star, params: { cx: 790, cy: 200, radius1: 8, radius2: 3, points: 4 } }
+  - { command: layer.new, params: { name: Lettering }, as: lettering }
+  - { command: select.none, params: {} }
+  - { command: text.create, params: { x: 600, y: 420, text: MOONLIGHT, size: 150, font: Source Sans 3, style: Bold, color: "#ffffff" }, as: word }
+  - { command: text.setStyle, params: { id: $word.id, justify: center, tracking: 20 } }
+  - { command: select.set, params: { ids: [$word.id] } }
+  - { command: type.createOutlines, params: {}, as: outlined }
+  - { command: paint.setFill, params: { ids: [$outlined.ids.0], gradient: { kind: linear, start: [600, 312], end: [600, 422], stops: [{ offset: 0, color: "#fff27a" }, { offset: 0.5, color: "#ff8a3d" }, { offset: 1, color: "#ff2f7d" }] } } }
+  - { command: select.set, params: { ids: [$outlined.ids.0] } }
+  - { command: object.path.offsetPath, params: { offset: 14, joins: round }, as: inner }
+  - { command: select.set, params: { ids: $inner.ids } }
+  - { command: object.pathfinder.unite, params: {}, as: innerShape }
+  - { command: paint.setFill, params: { color: "#2a0f4f" } }
+  - { command: object.arrange.sendBackward, params: {} }
+  - { command: object.path.offsetPath, params: { offset: 12, joins: round }, as: outer }
+  - { command: paint.setFill, params: { color: "#38e0f0" } }
+  - { command: object.arrange.sendBackward, params: {} }
+  - { command: effect.apply, params: { effect: stylize.outerGlow, params: { color: "#38e0f0", blur: 28, opacity: 80 } } }
+  - { command: select.set, params: { ids: [$outlined.ids.0, $innerShape.ids.0, $outer.ids.0] } }
+  - { command: object.group, params: {}, as: sign }
+  - { command: object.envelope.makeWithWarp, params: { style: arcUpper, bend: 30 }, as: warp }
+  - { command: select.none, params: {} }
+  - { command: shape.rectangle, params: { x: 380, y: 478, width: 440, height: 74, radius: 37 }, as: pill }
+  - { command: paint.setFill, params: { color: "#ff2f7d" } }
+  - { command: text.create, params: { x: 612, y: 532, text: DINER, size: 50, font: Source Sans 3, style: Bold, color: "#fff4e0" }, as: diner }
+  - { command: text.setStyle, params: { id: $diner.id, justify: center, tracking: 600 } }
+  - { command: text.create, params: { x: 600, y: 640, text: "BURGERS  ·  SHAKES  ·  OPEN ALL NIGHT", size: 24, font: Inter, style: SemiBold, color: "#38e0f0" }, as: tagline }
+  - { command: text.setStyle, params: { id: $tagline.id, justify: center, tracking: 220 } }
+  - { command: text.create, params: { x: 600, y: 690, text: "Route 9 at the old quarry road", size: 18, font: Source Serif 4, color: "#b9a6d9" }, as: address }
+  - { command: text.setStyle, params: { id: $address.id, justify: center } }
+  - { command: select.none, params: {} }
+  - { command: text.fonts, params: {}, as: fonts }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 2 }
+      layers.0: { name: Lettering, children: { count: 5 } }
+      layers.0.children.4: { kind: Envelope, children: { count: 1, all: { kind: Group } } }
+      layers.0.children.2: { kind: Type, text: DINER }
+      layers.1: { name: Backdrop, children: { count: 8, any: { kind: Path, fill: "#ffe66d" } } }
+  - actual: results
+    values:
+      outlined.ids: { count: 1 }
+      innerShape.ids: { count: 1 }
+      warp.id: { min: 1 }
+      fonts: { count: 3, all: { status: exact, missingGlyphs: 0, noGlyph: 0 } }
+diagnostics: []
+since: "2026-11-09"

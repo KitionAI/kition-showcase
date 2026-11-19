@@ -1,0 +1,40 @@
+{
+  "id": "note/new-starter-wiki-page",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1181
+  ],
+  "stats": "1 page; 147 words; 5 headings; 1 table",
+  "commands": 3,
+  "document": {
+    "name": "new-starter-wiki-page.md",
+    "bytes": 916,
+    "sha256": "b406c869d218d016902bf029b18c9a61429cdba35806225f76707c530c118e8b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "2950e26d7dcdff0b6f0745807486c51850390a539574c103977ac97f3c6a866e"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "note.broken-anchor",
+      "message": "The link at line 7 (under Welcome to the Studio) points at #Laptop and accounts, which this note has no heading or block for.",
+      "severity": "error",
+      "target": {
+        "objectId": "note",
+        "path": "body:7:5"
+      }
+    }
+  ],
+  "built_ms": 11
+}

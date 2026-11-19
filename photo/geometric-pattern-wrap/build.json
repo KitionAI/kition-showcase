@@ -1,0 +1,30 @@
+{
+  "id": "photo/geometric-pattern-wrap",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1000
+  ],
+  "stats": "1600 × 1000 px; 6 layers; 3 type layers; 1 shape layer; 1 fill layer; 1 styled layer; 1 mask",
+  "commands": 23,
+  "document": {
+    "name": "geometric-pattern-wrap.psd",
+    "bytes": 803047,
+    "sha256": "1d54b27223d618ba94e089e6d73af01bd041cb10a1f1a17104bdd307812a9aea"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "0dea9e514884144f4ae97772aef62a8c65658172eded6b9b6f64e9ff81f823fb"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 257
+}

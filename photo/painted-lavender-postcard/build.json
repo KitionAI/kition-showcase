@@ -1,0 +1,30 @@
+{
+  "id": "photo/painted-lavender-postcard",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1500,
+    1000
+  ],
+  "stats": "1500 × 1000 px; 8 layers; 3 type layers; 3 shape layers; 1 smart object; 1 styled layer",
+  "commands": 47,
+  "document": {
+    "name": "painted-lavender-postcard.psd",
+    "bytes": 16250293,
+    "sha256": "830b4451d0ffcc28381ad293d7d8426011116701ed6dde244c9e681c4b5c9c3a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      427
+    ],
+    "sha256": "f52fb437cbf96b42d36b6f576070adbec60fbb1634875a74f3f7cd6eb63e55c5"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2767
+}

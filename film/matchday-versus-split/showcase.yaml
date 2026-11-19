@@ -1,0 +1,62 @@
+format: 1
+id: film/matchday-versus-split
+title: Matchday Versus Split
+summary: A diagonal split-screen versus card for a local match, with outlined type and a fixture bar.
+category: Titles & Graphics
+tags: [titles, sports, shapes, typography]
+features: [film.graphics.titles, film.graphics.text-basics]
+description: |
+  A versus card for a local club's social channels and stadium screen, made in one graphic clip
+  with no footage. A four-point path shape cuts the frame diagonally into the home navy and the
+  away red. The team names show three text treatments: a solid fill with a hard drop shadow, an
+  outline only (fill off, centered stroke), and the yellow VS with two strokes, black 8 px inside
+  a yellow 16 px. The fixture line is a text layer on a white rounded Background. The sides slide
+  in, the names fly in from the edges and the VS pops past 100 % before it settles.
+document: { name: matchday-versus-split.kfilm, width: 1280, height: 720 }
+steps:
+  - { command: sequence.settings, params: { name: Matchday, width: 1280, height: 720, fps: 25 } }
+  - { command: graphics.newRectangle, params: { position: [640, 360], size: [1280, 720], seconds: 6, track: 0, time: 0 }, as: card }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 0, props: { name: Away Side, fill_color: "#b3202f" } } }
+  - { command: graphics.newShape, params: { clip: $card.clip, shape: path, position: [0, 0], points: [[0, 0], [720, 0], [560, 720], [0, 720]] } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 1, props: { name: Home Side, fill_color: "#0f2a52", shadow: true, shadow_opacity: 60, shadow_distance: 0, shadow_blur: 50, shadow_size: 0 } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: "HARBOR\nHAWKS", position: [300, 300], size: 92, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 2, props: { name: Home, align: center, leading: -12, fill_color: "#ffffff", shadow: true, shadow_opacity: 50, shadow_distance: 8, shadow_blur: 0 } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: "RIDGE\nRUNNERS", position: [990, 300], size: 92, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 3, props: { name: Away, align: center, leading: -12, fill: false, stroke: true, stroke_color: "#ffffff", stroke_width: 3, stroke_type: Center } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: VS, position: [640, 400], size: 120, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 4, props: { name: Versus, align: center, fill_color: "#ffd23f", stroke: true, stroke_color: "#111111", stroke_width: 8, stroke2: true, stroke2_color: "#ffd23f", stroke2_width: 16 } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: "SAT 19:30  ·  EASTPORT GROUND  ·  LEAGUE ROUND 7", position: [640, 640], size: 24, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $card.clip, layer: 5, props: { name: Fixture, align: center, tracking: 120, fill_color: "#111111", background: true, background_color: "#ffffff", background_opacity: 100, background_size: 16, background_radius: 4 } } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 4, param: position, value: [-760, 0], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 4, param: position, value: [0, 0], seconds: 0.6 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 5, param: position, value: [-460, 300], seconds: 0.1 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 5, param: position, value: [300, 300], seconds: 0.7 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 6, param: position, value: [1500, 300], seconds: 0.1 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 6, param: position, value: [990, 300], seconds: 0.7 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 7, param: scale, value: 0, seconds: 0.7 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 7, param: scale, value: 130, seconds: 0.9 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 7, param: scale, value: 100, seconds: 1.05 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 8, param: opacity, value: 0, seconds: 1 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: 8, param: opacity, value: 100, seconds: 1.4 } }
+  - { command: graphics.list, params: { clip: $card.clip }, as: list }
+thumbnail: { at: 3 }
+preview: { from: 0, to: 2, fps: 12, max: 400 }
+expected:
+  - actual: results
+    values:
+      list.layers: { count: 6 }
+      list.layers.1: { name: Home Side, kind: Path }
+      list.layers.4: { name: Versus, text: VS }
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 1 }
+      # the home side: frame-pixel points around a layer origin at the top-left corner, sliding in over 0.6 s
+      sequence.video.0.items.0.effects.4.params.points.value: [[0, 0], [720, 0], [560, 720], [0, 720]]
+      sequence.video.0.items.0.effects.4.params.position.keyframes: [{ time: 0, value: [-760, 0] }, { time: 152409600000, value: [0, 0] }]
+      sequence.video.0.items.0.effects.6.params: { fill: { value: false }, stroke: { value: true } }
+      sequence.video.0.items.0.effects.7.params.stroke2.value: true
+      # the VS pops past 100 % before it settles (ticks)
+      sequence.video.0.items.0.effects.7.params.scale.keyframes: [{ time: 177811200000, value: 0 }, { time: 228614400000, value: 130 }, { time: 266716800000, value: 100 }]
+      sequence.video.0.items.0.effects.8.params.background.value: true
+diagnostics: []
+since: "2026-11-09"

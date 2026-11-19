@@ -1,0 +1,30 @@
+{
+  "id": "html/home-energy-dashboard",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    800
+  ],
+  "stats": "1280 × 800 px; 6.0 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "home-energy-dashboard.html",
+    "bytes": 6170,
+    "sha256": "e2bc267d6f44a9840cb151d9f1d1ca7aa62e47f57e0e8d38aa1a5eddca10f5aa"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "0d7a14b72234c8ec97c71ce746b33bf5d20524c92c54d82fd62da2357e80f02d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 11
+}

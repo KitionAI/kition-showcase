@@ -1,0 +1,30 @@
+{
+  "id": "photo/lunar-new-year-card",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "e511ae24a4",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1400
+  ],
+  "stats": "1000 × 1400 px; 26 layers; 6 type layers; 14 shape layers; 1 fill layer; 3 groups; 5 styled layers; 1 mask",
+  "commands": 29,
+  "document": {
+    "name": "lunar-new-year-card.psd",
+    "bytes": 1758964,
+    "sha256": "d1970ecd7926cbd99789e168816b939f81e764c3aca1bf05f32a683dcca4e656"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      457,
+      640
+    ],
+    "sha256": "8b900c49147e7209196982342759534b6aa62db72a016664f5953679c6ac0b03"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 94
+}

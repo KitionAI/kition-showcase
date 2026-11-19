@@ -1,0 +1,30 @@
+{
+  "id": "doc/product-spec-sheet",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 294 words",
+  "commands": 171,
+  "document": {
+    "name": "product-spec-sheet.docx",
+    "bytes": 9033,
+    "sha256": "bd2423ab81a988b3afb3d81ba8154cf9168009697aeb1cd3328a00bbd8e6ac1b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "5896cb8684a73381da449f32664ea79533f90b9ae2c78759dcdf34007dc825dc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 87
+}

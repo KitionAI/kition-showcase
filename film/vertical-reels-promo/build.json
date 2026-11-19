@@ -1,0 +1,34 @@
+{
+  "id": "film/vertical-reels-promo",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1080,
+    1920
+  ],
+  "stats": "1080 × 1920 @ 30 fps; 14.0 s; 3 video clips; 7 effects; 2 animated effects",
+  "commands": 22,
+  "document": {
+    "name": "vertical-reels-promo.kfilm",
+    "bytes": 26442,
+    "sha256": "c193cbf795ad5eab67e41999888e283f407f0aaeccc4381f5cbac894ac1a398c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      360,
+      640
+    ],
+    "sha256": "34deac0a86180d515cf7847021238209b098450b8f3706768b877b46300c0e53"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 20,
+    "bytes": 113572
+  },
+  "diagnostics": [],
+  "built_ms": 56
+}

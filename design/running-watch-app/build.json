@@ -1,0 +1,30 @@
+{
+  "id": "design/running-watch-app",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    2000,
+    2000
+  ],
+  "stats": "1 page; 30 layers; 860 × 420 design",
+  "commands": 34,
+  "document": {
+    "name": "running-watch-app.kdesign",
+    "bytes": 42119,
+    "sha256": "f4753c50265b97aaf2c7dc00e4e520cb473b60521991bb7f28bccd2b6ed2ab66"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      313
+    ],
+    "sha256": "9b46ef98b9a1dfe76576c1592575d90c9f4a9c647e550e8666572be9ea4551ff"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 11
+}

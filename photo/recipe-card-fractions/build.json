@@ -1,0 +1,30 @@
+{
+  "id": "photo/recipe-card-fractions",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1200 × 900 px; 22 layers; 8 type layers; 12 shape layers; 1 fill layer; 2 styled layers; 1 mask",
+  "commands": 28,
+  "document": {
+    "name": "recipe-card-fractions.psd",
+    "bytes": 957351,
+    "sha256": "58096c23b4169d4087685d5cab42a0e1aa208331c499505f39a68bc7a2f6f89c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "074bc5f76fa9e550f75caa6cf751dc9b95bdf568924261995ec0d800765d5d7d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 343
+}

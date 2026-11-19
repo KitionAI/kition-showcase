@@ -1,0 +1,30 @@
+{
+  "id": "table/podcast-episode-planner",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1496,
+    772
+  ],
+  "stats": "2 tables",
+  "commands": 15,
+  "document": {
+    "name": "podcast-episode-planner.ktable",
+    "bytes": 237568,
+    "sha256": "919761ece52f69bf05ba58b898f820c69558516ec33a4df01094c80e1d129501"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "9597b8099fa6d706afda9e61e55acff3ba340394624540c6feb5995f40f1b87f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 47
+}

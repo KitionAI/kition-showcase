@@ -1,0 +1,59 @@
+format: 1
+id: pdf/library-winter-hours-notice
+title: Library Winter Hours Notice
+summary: A large-print notice of a branch library's winter opening hours, given a document title and language by the accessibility checker's own fixes.
+category: Reports & Documents
+tags: [notice, accessibility, large-print, table]
+features: [pdf.accessibility, pdf.content, pdf.document, pdf.page-marks]
+description: |
+  A one-page notice set in large, high-contrast type. The Accessibility Checker runs before and
+  after: `accessibility_fix` gives the file a title (shown in the window title bar) and an
+  English primary language, which turns two failed rules into passes. The checks record that the
+  remaining failures are the tagging rules: content added with `page_add_text` is not tagged.
+document: { name: library-winter-hours-notice.pdf, width: 612, height: 792 }
+steps:
+  - { command: doc_background, params: { color: "#fffdf7" } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [0, 0, 612, 230], color: "#123c69", fill: "#123c69", width: 0 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [72, 300, 540, 342], color: "#e8eef5", fill: "#e8eef5", width: 0 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [72, 384, 540, 426], color: "#e8eef5", fill: "#e8eef5", width: 0 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [72, 468, 540, 510], color: "#e8eef5", fill: "#e8eef5", width: 0 } }
+  - { command: comment_add, params: { page: 1, type: rectangle, rect: [72, 590, 540, 662], color: "#f4b942", fill: "#fdf1d6", width: 2 } }
+  - { command: doc_flatten, params: { comments: true } }
+  - { command: page_add_text, params: { page: 1, at: [72, 60], width: 468, text: "SALTMARSH BRANCH LIBRARY", size: 14, bold: true, color: "#f4b942" } }
+  - { command: page_add_text, params: { page: 1, at: [72, 86], width: 468, text: "Winter opening hours", size: 40, bold: true, color: "#ffffff" } }
+  - { command: page_add_text, params: { page: 1, at: [72, 146], width: 468, text: "From Monday 30 November 2026 until Sunday 28 February 2027", size: 16, color: "#d6e2ee" } }
+  - { command: page_add_text, params: { page: 1, at: [72, 262], width: 468, text: "Day", size: 13, bold: true, color: "#5a6b7d" } }
+  - { command: page_add_text, params: { page: 1, at: [340, 262], width: 200, text: "Open", size: 13, bold: true, color: "#5a6b7d", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [86, 311], width: 250, text: Monday and Tuesday, size: 18, color: "#1b2733" } }
+  - { command: page_add_text, params: { page: 1, at: [300, 311], width: 226, text: "10:00 to 18:00", size: 18, bold: true, color: "#1b2733", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [86, 353], width: 250, text: Wednesday, size: 18, color: "#1b2733" } }
+  - { command: page_add_text, params: { page: 1, at: [300, 353], width: 226, text: "10:00 to 20:00", size: 18, bold: true, color: "#1b2733", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [86, 395], width: 250, text: Thursday, size: 18, color: "#1b2733" } }
+  - { command: page_add_text, params: { page: 1, at: [300, 395], width: 226, text: "10:00 to 18:00", size: 18, bold: true, color: "#1b2733", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [86, 437], width: 250, text: Friday, size: 18, color: "#1b2733" } }
+  - { command: page_add_text, params: { page: 1, at: [300, 437], width: 226, text: "10:00 to 17:00", size: 18, bold: true, color: "#1b2733", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [86, 479], width: 250, text: Saturday, size: 18, color: "#1b2733" } }
+  - { command: page_add_text, params: { page: 1, at: [300, 479], width: 226, text: "9:30 to 16:00", size: 18, bold: true, color: "#1b2733", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [86, 521], width: 250, text: Sunday, size: 18, color: "#1b2733" } }
+  - { command: page_add_text, params: { page: 1, at: [300, 521], width: 226, text: "Closed", size: 18, bold: true, color: "#1b2733", align: right } }
+  - { command: page_add_text, params: { page: 1, at: [92, 606], width: 420, text: "Closed on 25, 26 December and 1 January. Book returns stay open around the clock at the side door.", size: 15, color: "#1b2733" } }
+  - { command: page_add_text, params: { page: 1, at: [72, 700], width: 468, text: "Large print and audio copies of this notice are at the help desk.", size: 12, italic: true, color: "#5a6b7d", align: center } }
+  - { command: accessibility_check, params: { categories: [document] }, as: before }
+  - { command: accessibility_fix, params: { rule: title, value: "Saltmarsh Branch Library: winter opening hours" }, as: title }
+  - { command: accessibility_fix, params: { rule: primary-language, value: en-GB }, as: language }
+  - { command: accessibility_check, params: { categories: [document] }, as: after }
+  - { command: doc_info, as: info }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+  - actual: results
+    values:
+      before.failed: 3
+      before.results: { any: { rule: title, status: failed } }
+      title.status: passed
+      language.status: passed
+      after.failed: 1
+      after.results: { any: { rule: tagged-pdf, status: failed }, none: { rule: primary-language, status: failed } }
+      info.title: "Saltmarsh Branch Library: winter opening hours"
+since: "2026-11-09"

@@ -1,0 +1,30 @@
+{
+  "id": "table/estate-agency-listings",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1496,
+    634
+  ],
+  "stats": "2 tables",
+  "commands": 18,
+  "document": {
+    "name": "estate-agency-listings.ktable",
+    "bytes": 237568,
+    "sha256": "5b4a1d69f9e0b264c388e80506a4d50fdd2c6ae6c2da1c0e8fe86120ac0d92d7"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "ceb2c70ae12ddbadc309dec5af2f7e4aff6a531fe10cfd4b9e174b97c0df65a8"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 43
+}

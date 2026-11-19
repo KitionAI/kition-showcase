@@ -1,0 +1,30 @@
+{
+  "id": "board/web-shop-architecture",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 29 elements",
+  "commands": 17,
+  "document": {
+    "name": "web-shop-architecture.kboard",
+    "bytes": 11641,
+    "sha256": "c023f60cd3c2219e8c6639b9171ac837ce4c7486f32f9ab5aecd527f29ceb11e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      356
+    ],
+    "sha256": "45a84f6499f3bc0b9dcf72af858b5cdf6716b19741e57943cd48e5461a6c23f2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

@@ -1,0 +1,30 @@
+{
+  "id": "vector/alpine-lake-sunrise",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    800
+  ],
+  "stats": "1 artboard; 5 layers; 27 objects",
+  "commands": 54,
+  "document": {
+    "name": "alpine-lake-sunrise.kvector",
+    "bytes": 23216,
+    "sha256": "5bbe1933675261efedb1d2f314115ef5c52fd3bab692ee3d0e9aef476596e950"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      427
+    ],
+    "sha256": "82650c1b1eb00e0a716272d9faa0e9b8be972c7bb789a07abaaf7a5d7a949041"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 11
+}

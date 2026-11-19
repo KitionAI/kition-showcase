@@ -1,0 +1,30 @@
+{
+  "id": "sheet/mortgage-comparison",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1916,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:D20",
+  "commands": 36,
+  "document": {
+    "name": "mortgage-comparison.xlsx",
+    "bytes": 8162,
+    "sha256": "226aa568e5d5b5cb21f084a7722fa408466a23a301ff44e925869bf49702fef3"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      333
+    ],
+    "sha256": "f8cbcbab1b517c6df7eb988a2f22366f7b42e0bb521bf3f68c37f8d9af56248f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 25
+}

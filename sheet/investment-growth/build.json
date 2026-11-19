@@ -1,0 +1,30 @@
+{
+  "id": "sheet/investment-growth",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1876,
+    2043
+  ],
+  "stats": "1 sheet; used range A1:F36",
+  "commands": 39,
+  "document": {
+    "name": "investment-growth.xlsx",
+    "bytes": 11065,
+    "sha256": "c8c7ca593f22499b10b50a1d51f1fdf046e54325a446fe6891797e896277ad6f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      317
+    ],
+    "sha256": "ef8d528de0dfd301680f39cea850e9dc5043ffeb0b67de8bf4b5b5706d3db819"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 79
+}

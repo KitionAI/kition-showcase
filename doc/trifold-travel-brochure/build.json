@@ -1,0 +1,30 @@
+{
+  "id": "doc/trifold-travel-brochure",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    872,
+    692
+  ],
+  "stats": "1 page; 283 words; 1 shape",
+  "commands": 129,
+  "document": {
+    "name": "trifold-travel-brochure.docx",
+    "bytes": 9288,
+    "sha256": "cc5ce8ca2fdfebdec9aa75b5b8aa45626b21894d84a0367ef91e2f21acdf4528"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      495
+    ],
+    "sha256": "10290ea36020ff030b288238c2937919d2119b5118b6d2b4f6629f78fcd00269"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 60
+}

@@ -1,0 +1,30 @@
+{
+  "id": "table/mobile-bug-tracker",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1496,
+    772
+  ],
+  "stats": "1 table",
+  "commands": 12,
+  "document": {
+    "name": "mobile-bug-tracker.ktable",
+    "bytes": 233472,
+    "sha256": "8e6a678222c2d241bc6314c838e9f5a2b2995f18f1db1474ac03943d58193453"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "0fe3ce23b74f5c627933fcc8e8d9e179c1fb01a7436e3e1599d57a79975d6d8c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 14
+}

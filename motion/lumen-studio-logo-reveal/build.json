@@ -1,0 +1,34 @@
+{
+  "id": "motion/lumen-studio-logo-reveal",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "95170ce1e8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "5 s at 30 fps; 5 layers; 4 animated layers",
+  "commands": 25,
+  "document": {
+    "name": "lumen-studio-logo-reveal.kmotion",
+    "bytes": 326375,
+    "sha256": "d8038384af22dee7f75e4e767e501676be341a0f2ae3539e4203e8e81eb35cca"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "04e4a6a1847765621ce317b354b1114c6b4364fa1d17fd7272c5725881a2fb38"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 40,
+    "bytes": 26344
+  },
+  "diagnostics": [],
+  "built_ms": 15
+}

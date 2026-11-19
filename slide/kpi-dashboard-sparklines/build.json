@@ -1,0 +1,30 @@
+{
+  "id": "slide/kpi-dashboard-sparklines",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 85,
+  "document": {
+    "name": "kpi-dashboard-sparklines.pptx",
+    "bytes": 28454,
+    "sha256": "cb6807b6099b47c5784b8f10136f5ffde3d975708ac2df5ef0088f9e2925127c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "287fc9c8622c69544ca657cf2c187376354f66d4b9ff8bf06220a0db93c8aa42"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 117
+}

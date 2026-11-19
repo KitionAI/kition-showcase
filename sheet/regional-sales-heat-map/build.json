@@ -1,0 +1,30 @@
+{
+  "id": "sheet/regional-sales-heat-map",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1510,
+    2053
+  ],
+  "stats": "1 sheet; used range A1:N17",
+  "commands": 41,
+  "document": {
+    "name": "regional-sales-heat-map.xlsx",
+    "bytes": 7001,
+    "sha256": "a20bd5c4084c9d0581e2946da9655bdf52a4252b39aa91f47ee94c04e78dbd76"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      318
+    ],
+    "sha256": "e950b86fa752bdee0fb88f0388565b63ae391dca4cca60c9222b309e3e7332cc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 86
+}

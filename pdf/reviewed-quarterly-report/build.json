@@ -1,0 +1,30 @@
+{
+  "id": "pdf/reviewed-quarterly-report",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page",
+  "commands": 40,
+  "document": {
+    "name": "reviewed-quarterly-report.pdf",
+    "bytes": 270466,
+    "sha256": "6c8a6e152d30249f41ea0f3bfa3cabb018c66310558e98f111c855ef5fb92dd9"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      612,
+      580
+    ],
+    "sha256": "01787b103a88b7bb9f80583fefa7fe00a83f598d1df6138d2bfd119f44ddb45e"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 258
+}

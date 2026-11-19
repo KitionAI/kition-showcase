@@ -1,0 +1,30 @@
+{
+  "id": "doc/project-proposal",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    3320
+  ],
+  "stats": "4 pages; 478 words",
+  "commands": 149,
+  "document": {
+    "name": "project-proposal.docx",
+    "bytes": 10818,
+    "sha256": "1b04818bead553be337c0ce498f027786ebbe0bcdc46713e852bcc9e12c2d9cf"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "d62f5ea9990ecf5f23591208021a35f955109b54826f10935c272540d41f8bed"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 74
+}

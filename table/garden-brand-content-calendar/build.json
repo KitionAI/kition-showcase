@@ -1,0 +1,30 @@
+{
+  "id": "table/garden-brand-content-calendar",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    2100,
+    808
+  ],
+  "stats": "1 table",
+  "commands": 10,
+  "document": {
+    "name": "garden-brand-content-calendar.ktable",
+    "bytes": 233472,
+    "sha256": "698ce4afa029f8c84be7bc07c37c7f3d6dc931574c1faf249ef1fdf6f34873fc"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "bb2cd94258fdbdf87e71fdb8a040e186948a52fe4f2064dcd14a2182eaa00b42"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 42
+}

@@ -1,0 +1,30 @@
+{
+  "id": "slide/study-habits-bullet-build",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 58,
+  "document": {
+    "name": "study-habits-bullet-build.pptx",
+    "bytes": 23614,
+    "sha256": "57078cdc97c7a0ea771a59bf41fc52aea1f8eb958a39b84aa3755878cd851515"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "ea83d9d7efec8293196cdbf73a92732f83cbeadd0de7ed7bbd7e53b06a7b297b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 122
+}

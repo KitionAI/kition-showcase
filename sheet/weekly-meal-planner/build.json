@@ -1,0 +1,30 @@
+{
+  "id": "sheet/weekly-meal-planner",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    2018,
+    2129
+  ],
+  "stats": "1 sheet; used range A1:H18",
+  "commands": 50,
+  "document": {
+    "name": "weekly-meal-planner.xlsx",
+    "bytes": 6296,
+    "sha256": "273a921c33720300296f7947364d675b095ef3d6888cf925ead660aaa9c0ad79"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      368
+    ],
+    "sha256": "20640632d6a98121c9bf63478f4084ed56e15634a65ca5962d64ba16f4b4fda2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 31
+}

@@ -1,0 +1,30 @@
+{
+  "id": "sheet/payroll-register",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1772,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:L14",
+  "commands": 50,
+  "document": {
+    "name": "payroll-register.xlsx",
+    "bytes": 6710,
+    "sha256": "66ae4eed29a82bf740f871b1711ed5387ffcf20d45d705af273e11c0179c96cf"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      245
+    ],
+    "sha256": "0da63afdef034d0bb11d347c032b1a1bc89ba5c72ceba5af4c327e9fb6705fa0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 39
+}

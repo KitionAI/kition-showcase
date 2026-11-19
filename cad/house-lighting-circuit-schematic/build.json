@@ -1,0 +1,30 @@
+{
+  "id": "cad/house-lighting-circuit-schematic",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1307,
+    924
+  ],
+  "stats": "68 objects; 7 layers",
+  "commands": 161,
+  "document": {
+    "name": "house-lighting-circuit-schematic.dxf",
+    "bytes": 36649,
+    "sha256": "d2a8c592b67a33d4c8c9a9673de846ca98f606c3ed3b1a236fca80e34805f457"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      452
+    ],
+    "sha256": "028169111483fcd591ea282a4e1cb9c025f01864c189e7e15928d93aa5fb765d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 20
+}

@@ -1,0 +1,30 @@
+{
+  "id": "doc/press-release",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 373 words",
+  "commands": 88,
+  "document": {
+    "name": "press-release.docx",
+    "bytes": 8837,
+    "sha256": "88e626a8d1fe78fb6c102d51fad93aece168c3c71ce43cda39d7d611f83f4c87"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "f9719c7edd6dcf03feee85db69b35153542fb916980647517e6f8f79110150ce"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 51
+}

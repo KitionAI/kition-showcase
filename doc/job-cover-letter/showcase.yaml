@@ -1,0 +1,97 @@
+format: 1
+id: doc/job-cover-letter
+title: Job Cover Letter
+summary: A one-page application letter with a shaded name banner, a contact line and a short, well-spaced body.
+category: Letters & Memos
+tags: [letter, cover-letter, paragraph-shading, careers]
+features: [doc.text.typing, doc.format.character, doc.format.paragraph, doc.styles.manage, doc.layout.page-setup]
+description: |
+  The banner is one paragraph with dark green shading and white Lora type, extended into the
+  margins with negative indents; the contact line below it is small letter-spaced Inter over a hairline rule.
+  The body text comes from a modified Normal style (Inter, 10.5 pt, generous line spacing), so the
+  letter itself is plain typing.
+document: { name: job-cover-letter.docx, width: 816, height: 1056 }
+fonts:
+  - lora/Lora-Variable.ttf
+  - inter/Inter-Variable.ttf
+steps:
+  - { command: review.proofing }
+  - { command: design.themeFonts, params: { heading: Lora, body: Inter } }
+  - { command: styles.modify, params: { style: Normal, chr: { size: 10.5 }, para: { spaceAfter: 9, lineSpacing: { rule: multiple, value: 1.25 } } } }
+  - { command: layout.margins, params: { top: 54, bottom: 72, left: 80, right: 80 } }
+  # The name banner.
+  - { command: para.indents, params: { left: -12, right: -12 } }
+  - { command: para.shading, params: { color: "1E4D4A" } }
+  - { command: para.spacing, params: { before: 0, after: 0 } }
+  - { command: para.lineSpacing, params: { exactly: 54 } }
+  - { command: format.set, params: { props: { font: Lora, size: 30, bold: true } } }
+  - { command: format.color, params: { color: "FFFFFF" } }
+  - { command: text.insert, params: { text: " Imogen Varga-Lindqvist" } }
+  - { command: text.newParagraph }
+  - { command: para.lineSpacing, params: { exactly: 20 } }
+  - { command: format.set, params: { props: { font: Inter, size: 9.5, bold: false, spacing: 1 } } }
+  - { command: format.color, params: { color: "D8E6E2" } }
+  - { command: text.insert, params: { text: "  SENIOR LANDSCAPE ECOLOGIST" } }
+  - { command: text.newParagraph }
+  - { command: para.lineSpacing, params: { exactly: 12 } }
+  - { command: text.newParagraph }
+  - { command: para.shading, params: { color: null } }
+  - { command: para.indents, params: { left: 0, right: 0 } }
+  - { command: para.lineSpacing, params: { value: 1.25 } }
+  - { command: para.spacing, params: { before: 10, after: 30 } }
+  - { command: para.borders, params: { kind: bottom, width: 0.75, color: "B9C9C5" } }
+  - { command: format.set, params: { props: { size: 8.5, spacing: 0.5 } } }
+  - { command: format.color, params: { color: "4F5B59" } }
+  - { command: text.insert, params: { text: "Fenwick Road 27, Halden   ·   +44 7700 900 318   ·   imogen.vl@mailbox.example" } }
+  - { command: text.newParagraph }
+  - { command: para.borders, params: { kind: none } }
+  - { command: para.spacing, params: { before: 0, after: 9 } }
+  - { command: format.set, params: { props: { size: 10.5, spacing: 0 } } }
+  - { command: format.color, params: { color: auto } }
+  # The letter.
+  - { command: text.insert, params: { text: 9 November 2026 } }
+  - { command: text.newParagraph }
+  - { command: para.spacing, params: { after: 0 } }
+  - { command: text.insert, params: { text: "Hiring Panel, Rivers and Wetlands Programme" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: Westmoor Conservation Trust } }
+  - { command: text.newParagraph }
+  - { command: para.spacing, params: { after: 18 } }
+  - { command: text.insert, params: { text: "Old Mill House, Westmoor WM2 9LP" } }
+  - { command: text.newParagraph }
+  - { command: para.spacing, params: { after: 9 } }
+  - { command: text.insert, params: { text: "Dear members of the panel," } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "I am writing to apply for the post of Lead Ecologist on the Rivers and Wetlands Programme. For the past seven years I have designed and monitored floodplain restorations across three river catchments, and the chance to lead that work at the scale of the Westmoor valleys is exactly the next step I have been preparing for." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "At Halden Landscape Partnership I led the restoration of 140 hectares of drained meadow along the River Lisle. We re-meandered two kilometres of channel, reconnected four oxbow ponds and worked with eleven farming families to agree new grazing plans. Within three seasons breeding wader pairs on the site had doubled, and the scheme now holds back an estimated 90,000 cubic metres of winter flood water." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Much of that success came from listening early. I run open site walks before any design is drawn, and I write monitoring reports that landowners actually read: short, illustrated and honest about what has not worked. I would bring the same habits to your team, together with field skills in botanical survey, hydrological modelling and drone mapping." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "I would welcome the chance to discuss how I could help the programme meet its 2030 targets. Thank you for considering my application; my CV and two project summaries are attached." } }
+  - { command: text.newParagraph }
+  - { command: para.spacing, params: { after: 30 } }
+  - { command: text.insert, params: { text: "With kind regards," } }
+  - { command: text.newParagraph }
+  - { command: para.spacing, params: { after: 0 } }
+  - { command: format.set, params: { props: { font: Lora, size: 14, bold: true } } }
+  - { command: format.color, params: { color: "1E4D4A" } }
+  - { command: text.insert, params: { text: Imogen Varga-Lindqvist } }
+  - { command: text.newParagraph }
+  - { command: format.set, params: { props: { font: Inter, size: 9, bold: false } } }
+  - { command: format.color, params: { color: "4F5B59" } }
+  - { command: text.insert, params: { text: "Enclosures: Curriculum vitae; River Lisle and Coldbrook project summaries" } }
+  - { command: caret.docStart }
+  - { command: document.paragraph, params: { path: [0] }, as: banner }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      words: { min: 230, max: 300 }
+  - actual: results
+    values:
+      banner.paragraph.text: { contains: Imogen }
+      banner.paragraph.props.shading: [30, 77, 74]
+      banner.paragraph.props.indentLeft: -12
+diagnostics: []
+since: "2026-11-09"

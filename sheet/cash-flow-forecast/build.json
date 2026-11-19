@@ -1,0 +1,30 @@
+{
+  "id": "sheet/cash-flow-forecast",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1626,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:N25",
+  "commands": 48,
+  "document": {
+    "name": "cash-flow-forecast.xlsx",
+    "bytes": 7822,
+    "sha256": "f6a1e28ac760b40731bd1a37ad7f57036a02b8f8973bb77023463c97cd42bc41"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      412
+    ],
+    "sha256": "194bd98e5f38955ef6c9c562fde0a0a1c28b50b65f3969fa264c358d55b012c2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 43
+}

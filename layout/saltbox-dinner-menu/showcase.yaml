@@ -1,0 +1,106 @@
+format: 1
+id: layout/saltbox-dinner-menu
+title: Saltbox Dinner Menu
+summary: A two-column restaurant menu in one story — section heads, dishes with right-tabbed prices, italic descriptions and a column rule.
+category: Brochures & Flyers
+tags: [menu, tabs, columns, paragraph-styles, column-rule]
+features: [layout.type.styles, layout.type.format, layout.text.frames, layout.object.fill-stroke, layout.color.swatches]
+description: |
+  The whole menu is one story in a two-column frame with a half-tint brick column rule. Dishes use
+  a "Dish" paragraph style whose right tab stop puts each price on the column edge; descriptions
+  are Caladea Italic in "Dish Note", and section heads carry a paragraph rule below. Dishes and
+  sections are found with GREP (tabs and the five head lines) and styled by paragraph; a
+  column-break character sends "From the land" to the top of the second column. The page
+  background is an Oyster CMYK swatch.
+document: { name: saltbox-dinner-menu.klayout, width: 595, height: 842 }
+fonts: [lora/Lora-Variable.ttf, caladea/Caladea-Italic.ttf]
+steps:
+  - { command: layout.documentSetup, params: { bleed: 9 } }
+  - { command: layout.marginsAndColumns, params: { margins: { top: 48, bottom: 48, inside: 48, outside: 48 }, columns: 2, gutter: 36 } }
+  - { command: swatch.create, params: { name: Ink Navy, color: { c: 90, m: 75, y: 35, k: 35 } } }
+  - { command: swatch.create, params: { name: Brick, color: { c: 10, m: 75, y: 75, k: 15 } } }
+  - { command: swatch.create, params: { name: Oyster, color: { c: 3, m: 4, y: 10, k: 0 } } }
+  - { command: page.background, params: { color: Oyster } }
+  - { command: style.paragraph.create, params: { name: Section, para: { spaceBefore: 30, spaceAfter: 10, hyphenate: false, ruleBelow: { on: true, weight: 0.75, color: Brick, offset: 5, columnWidth: true } }, chars: { fontFamily: Inter, fontStyle: SemiBold, size: 9, tracking: 260, capitalization: allCaps, fill: Brick } } }
+  - { command: style.paragraph.create, params: { name: Dish, para: { spaceBefore: 14, tabs: [{ position: 225.5, align: right }] }, chars: { fontFamily: Lora, fontStyle: Bold, size: 14, leading: { kind: points, value: 18 }, fill: Ink Navy } } }
+  - { command: style.paragraph.create, params: { name: Dish Note, para: { rightIndent: 40 }, chars: { fontFamily: Caladea, fontStyle: Italic, size: 11.5, leading: { kind: points, value: 15 }, fill: Ink Navy } } }
+  - { command: frame.create, params: { rect: [48, 40, 547, 150], text: "Saltbox\nKitchen & bar on the harbour wall  ·  dinner from 17:30" }, as: masthead }
+  - { command: text.select, params: { story: $masthead.story, anchor: 0, focus: 1 } }
+  - { command: type.para, params: { attrs: { align: center } } }
+  - { command: type.char, params: { attrs: { fontFamily: Lora, fontStyle: Bold, size: 64, leading: { kind: points, value: 70 }, fill: Ink Navy } } }
+  - { command: text.select, params: { story: $masthead.story, anchor: 0, focus: 7 } }
+  - { command: type.char, params: { attrs: { fontFamily: Lora, fontStyle: Bold, size: 64, leading: { kind: points, value: 70 }, fill: Ink Navy } } }
+  - { command: text.select, params: { story: $masthead.story, anchor: 8, focus: 70 } }
+  - { command: type.para, params: { attrs: { align: center } } }
+  - { command: type.char, params: { attrs: { fontFamily: Inter, fontStyle: Medium, size: 9, tracking: 200, capitalization: allCaps, fill: Brick } } }
+  - { command: text.exitToFrame, params: {} }
+  - { command: frame.create, params: { rect: [48, 160, 547, 730], text: "To start\nSourdough & cultured butter\t5\nBaked this morning, sea salt flakes\nOysters, three ways\t14\nShallot vinegar, chilli butter, raw with lemon\nSmoked mackerel pâté\t9\nPickled cucumber, rye crackers\nCharred leeks\t8\nHazelnut romesco, soft egg\nFrom the sea\nHake on the bone\t24\nMussel and saffron broth, sea herbs\nWhole lemon sole\t28\nBrown butter, capers, new potatoes\nCrab linguine\t21\nChilli, garlic, parsley, a lot of crab\uE002\nFrom the land\nSlow lamb shoulder\t26\nWhite beans, salsa verde\nMushroom & barley risotto\t18\nAged cheese, crisp sage\nOn the side\nTriple-cooked chips\t5\nGreens with anchovy butter\t5\nTomato & red onion salad\t5\nTo finish\nBrown sugar tart\t8\nCrème fraîche, poached rhubarb\nCheese from the coast\t12\nThree cheeses, oatcakes, chutney\nAffogato\t6\nVanilla ice cream, harbour espresso" }, as: menu }
+  - { command: object.textFrameOptions, params: { ids: [$menu.id], columns: 2, gutter: 36, columnRule: true, columnRuleWeight: 0.5, columnRuleColor: Brick, columnRuleTint: 0.5 } }
+  - { command: story.get, params: { frame: $menu.id }, as: menuText }
+  - { command: text.select, params: { story: $menu.story, anchor: 0, focus: $menuText.length } }
+  - { command: style.paragraph.apply, params: { name: Dish Note } }
+  - { command: find.find, params: { find: "\\t", grep: true, story: $menu.story, scope: story }, as: prices }
+  - { command: find.find, params: { find: "^(To start|From the sea|From the land|On the side|To finish)$", grep: true, story: $menu.story, scope: story }, as: sections }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.0.start, focus: $prices.0.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.1.start, focus: $prices.1.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.2.start, focus: $prices.2.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.3.start, focus: $prices.3.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.4.start, focus: $prices.4.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.5.start, focus: $prices.5.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.6.start, focus: $prices.6.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.7.start, focus: $prices.7.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.8.start, focus: $prices.8.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.9.start, focus: $prices.9.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.10.start, focus: $prices.10.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.11.start, focus: $prices.11.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.12.start, focus: $prices.12.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.13.start, focus: $prices.13.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $prices.14.start, focus: $prices.14.end } }
+  - { command: style.paragraph.apply, params: { name: Dish } }
+  - { command: text.select, params: { story: $menu.story, anchor: $sections.0.start, focus: $sections.0.end } }
+  - { command: style.paragraph.apply, params: { name: Section } }
+  - { command: text.select, params: { story: $menu.story, anchor: $sections.1.start, focus: $sections.1.end } }
+  - { command: style.paragraph.apply, params: { name: Section } }
+  - { command: text.select, params: { story: $menu.story, anchor: $sections.2.start, focus: $sections.2.end } }
+  - { command: style.paragraph.apply, params: { name: Section } }
+  - { command: text.select, params: { story: $menu.story, anchor: $sections.3.start, focus: $sections.3.end } }
+  - { command: style.paragraph.apply, params: { name: Section } }
+  - { command: text.select, params: { story: $menu.story, anchor: $sections.4.start, focus: $sections.4.end } }
+  - { command: style.paragraph.apply, params: { name: Section } }
+  - { command: text.exitToFrame, params: {} }
+  - { command: frame.create, params: { rect: [48, 760, 547, 800], text: "Please tell us about any allergies before you order. Fish comes from day boats landing at the quay; the menu changes when the boats do." }, as: footer }
+  - { command: text.select, params: { story: $footer.story, anchor: 0, focus: 1 } }
+  - { command: style.paragraph.apply, params: { name: Dish Note } }
+  - { command: type.para, params: { attrs: { align: center, rightIndent: 0 } } }
+  - { command: text.exitToFrame, params: {} }
+  - { command: font.list, params: {}, as: fonts }
+thumbnail: { area: $inspect.canvas.spreads.0 }
+expected:
+  - actual: inspect
+    values:
+      pageCount: 1
+      spreads.0.pages.0.background: Oyster
+      spreads.0.items: { any: { kind: <text frame>, columns: 2, columnRule: true } }
+      paragraphStyles: { contains: Dish Note }
+      stories: { count: 3, all: { overset: false } }
+  - actual: results
+    values:
+      prices: { count: 15 }
+      sections: { count: 5 }
+      fonts: { all: { missing: false, styleMissing: false } }
+diagnostics: []
+since: "2026-11-09"

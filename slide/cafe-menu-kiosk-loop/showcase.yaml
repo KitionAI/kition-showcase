@@ -1,0 +1,241 @@
+format: 1
+id: slide/cafe-menu-kiosk-loop
+title: Café Menu Kiosk Loop
+summary: A three-board café menu that runs unattended; each slide pushes up to the next after eight seconds, in a looping kiosk show.
+category: Animations & Transitions
+tags: [transitions, timing, kiosk, menu, theme]
+features: [slide.transitions.set, slide.show.slideshow, slide.design.themes]
+description: |
+  Breakfast, lunch and drinks boards for a screen above the counter. Every slide has a Push
+  transition with advance on click turned off and automatic advance after 8 s, and the show is set
+  up as a kiosk that loops until Esc, so it can play all day. The tilted stamp is three shapes and
+  a text box rotated together; the dots at the bottom show which board is up.
+document: { name: cafe-menu-kiosk-loop.pptx, width: 960, height: 540 }
+fonts: [inter/Inter-Variable.ttf, lora/Lora-Variable.ttf]
+steps:
+  - { command: design.theme, params: { name: "Ember" } }
+  - { command: design.fonts, params: { major: "Lora", minor: "Inter" } }
+  - { command: slide.layout, params: { layout: "blank", index: 0 } }
+  - { command: design.background, params: { color: "#2b1a12" } }
+  - { command: insert.textBox, params: { rect: [60, 48, 400, 22], text: "THE LANTERN CAFÉ" }, as: brand0 }
+  - { command: format.size, params: { ids: ["$brand0.id"], size: 12, onSlide: 1 } }
+  - { command: format.bold, params: { ids: ["$brand0.id"], onSlide: 1 } }
+  - { command: format.spacing, params: { ids: ["$brand0.id"], pt: 3, onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$brand0.id"], color: "#F59F00", onSlide: 1 } }
+  - { command: insert.textBox, params: { rect: [60, 72, 500, 70], text: "Breakfast" }, as: t0 }
+  - { command: format.font, params: { ids: ["$t0.id"], family: "Lora", onSlide: 1 } }
+  - { command: format.size, params: { ids: ["$t0.id"], size: 52, onSlide: 1 } }
+  - { command: format.bold, params: { ids: ["$t0.id"], onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$t0.id"], color: "#fbefdc", onSlide: 1 } }
+  - { command: insert.textBox, params: { rect: [60, 140, 400, 24], text: "served 7:30 – 11:30" }, as: w0 }
+  - { command: format.size, params: { ids: ["$w0.id"], size: 14, onSlide: 1 } }
+  - { command: format.italic, params: { ids: ["$w0.id"], onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$w0.id"], color: "#c9a98a", onSlide: 1 } }
+  - { command: insert.textBox, params: { rect: [60, 196, 440, 280], text: "Buttermilk pancakes, maple butter\nShakshuka with sourdough\nGranola, yoghurt and poached pear\nMushroom and gruyère toastie" }, as: n0 }
+  - { command: insert.textBox, params: { rect: [500, 196, 90, 280], text: "9.50\n11.00\n8.00\n10.50" }, as: p0 }
+  - { command: format.size, params: { ids: ["$n0.id"], size: 19, onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$n0.id"], color: "#fbefdc", onSlide: 1 } }
+  - { command: format.paragraph, params: { ids: ["$n0.id"], spaceAfter: 26, onSlide: 1 } }
+  - { command: format.size, params: { ids: ["$p0.id"], size: 19, onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$p0.id"], color: "#fbefdc", onSlide: 1 } }
+  - { command: format.paragraph, params: { ids: ["$p0.id"], spaceAfter: 26, onSlide: 1 } }
+  - { command: format.align, params: { ids: ["$p0.id"], align: "right", onSlide: 1 } }
+  - { command: format.bold, params: { ids: ["$p0.id"], onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$p0.id"], color: "#F59F00", onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 235.0, 530, 0] }, as: r0_1 }
+  - { command: shape.line, params: { ids: ["$r0_1.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 284.4, 530, 0] }, as: r0_2 }
+  - { command: shape.line, params: { ids: ["$r0_2.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 333.8, 530, 0] }, as: r0_3 }
+  - { command: shape.line, params: { ids: ["$r0_3.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [640, 120, 260, 260] }, as: c0 }
+  - { command: shape.fill, params: { ids: ["$c0.id"], color: "#F59F00", onSlide: 1 } }
+  - { command: shape.line, params: { ids: ["$c0.id"], none: true, onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [652, 132, 236, 236] }, as: cr0 }
+  - { command: shape.fill, params: { ids: ["$cr0.id"], none: true, onSlide: 1 } }
+  - { command: shape.line, params: { ids: ["$cr0.id"], color: "#2b1a12", width: 1.5, dash: "dash", onSlide: 1 } }
+  - { command: insert.textBox, params: { rect: [660, 170, 220, 160], text: "TODAY\nRhubarb\nbrioche\n4.20" }, as: sp0 }
+  - { command: format.align, params: { ids: ["$sp0.id"], align: "center", onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$sp0.id"], color: "#2b1a12", onSlide: 1 } }
+  - { command: format.size, params: { ids: ["$sp0.id"], size: 13, onSlide: 1 } }
+  - { command: format.bold, params: { ids: ["$sp0.id"], onSlide: 1 } }
+  - { command: format.anchor, params: { ids: ["$sp0.id"], anchor: "middle", onSlide: 1 } }
+  - { command: text.edit, params: { id: $sp0.id, at: [1, 0], onSlide: 1 } }
+  - { command: text.select, params: { anchor: [1, 0], caret: [2, 7] } }
+  - { command: format.font, params: { family: "Lora" } }
+  - { command: format.size, params: { size: 30 } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $sp0.id, at: [3, 0], onSlide: 1 } }
+  - { command: text.selectParagraph, params: { at: [3, 0] } }
+  - { command: format.size, params: { size: 22 } }
+  - { command: text.exit, params: {  } }
+  - { command: shape.rotate, params: { ids: ["$c0.id", "$cr0.id", "$sp0.id"], deg: -8, onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [60, 496, 9, 9] }, as: dot0_0 }
+  - { command: shape.fill, params: { ids: ["$dot0_0.id"], color: "#F59F00", onSlide: 1 } }
+  - { command: shape.line, params: { ids: ["$dot0_0.id"], none: true, onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [78, 496, 9, 9] }, as: dot0_1 }
+  - { command: shape.fill, params: { ids: ["$dot0_1.id"], color: "#5a3b2a", onSlide: 1 } }
+  - { command: shape.line, params: { ids: ["$dot0_1.id"], none: true, onSlide: 1 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [96, 496, 9, 9] }, as: dot0_2 }
+  - { command: shape.fill, params: { ids: ["$dot0_2.id"], color: "#5a3b2a", onSlide: 1 } }
+  - { command: shape.line, params: { ids: ["$dot0_2.id"], none: true, onSlide: 1 } }
+  - { command: insert.textBox, params: { rect: [600, 488, 300, 24], text: "Order at the counter  ·  all prices in €" }, as: f0 }
+  - { command: format.size, params: { ids: ["$f0.id"], size: 12, onSlide: 1 } }
+  - { command: format.align, params: { ids: ["$f0.id"], align: "right", onSlide: 1 } }
+  - { command: format.color, params: { ids: ["$f0.id"], color: "#c9a98a", onSlide: 1 } }
+  - { command: slide.new, params: { layout: "blank" } }
+  - { command: design.background, params: { color: "#2b1a12" } }
+  - { command: insert.textBox, params: { rect: [60, 48, 400, 22], text: "THE LANTERN CAFÉ" }, as: brand1 }
+  - { command: format.size, params: { ids: ["$brand1.id"], size: 12, onSlide: 2 } }
+  - { command: format.bold, params: { ids: ["$brand1.id"], onSlide: 2 } }
+  - { command: format.spacing, params: { ids: ["$brand1.id"], pt: 3, onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$brand1.id"], color: "#F59F00", onSlide: 2 } }
+  - { command: insert.textBox, params: { rect: [60, 72, 500, 70], text: "Lunch" }, as: t1 }
+  - { command: format.font, params: { ids: ["$t1.id"], family: "Lora", onSlide: 2 } }
+  - { command: format.size, params: { ids: ["$t1.id"], size: 52, onSlide: 2 } }
+  - { command: format.bold, params: { ids: ["$t1.id"], onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$t1.id"], color: "#fbefdc", onSlide: 2 } }
+  - { command: insert.textBox, params: { rect: [60, 140, 400, 24], text: "served 12:00 – 15:00" }, as: w1 }
+  - { command: format.size, params: { ids: ["$w1.id"], size: 14, onSlide: 2 } }
+  - { command: format.italic, params: { ids: ["$w1.id"], onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$w1.id"], color: "#c9a98a", onSlide: 2 } }
+  - { command: insert.textBox, params: { rect: [60, 196, 440, 280], text: "Roast squash, farro and feta salad\nHam hock and pea soup\nGrilled cheese with pickles\nChickpea curry with flatbread" }, as: n1 }
+  - { command: insert.textBox, params: { rect: [500, 196, 90, 280], text: "12.50\n9.00\n10.00\n11.50" }, as: p1 }
+  - { command: format.size, params: { ids: ["$n1.id"], size: 19, onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$n1.id"], color: "#fbefdc", onSlide: 2 } }
+  - { command: format.paragraph, params: { ids: ["$n1.id"], spaceAfter: 26, onSlide: 2 } }
+  - { command: format.size, params: { ids: ["$p1.id"], size: 19, onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$p1.id"], color: "#fbefdc", onSlide: 2 } }
+  - { command: format.paragraph, params: { ids: ["$p1.id"], spaceAfter: 26, onSlide: 2 } }
+  - { command: format.align, params: { ids: ["$p1.id"], align: "right", onSlide: 2 } }
+  - { command: format.bold, params: { ids: ["$p1.id"], onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$p1.id"], color: "#F59F00", onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 235.0, 530, 0] }, as: r1_1 }
+  - { command: shape.line, params: { ids: ["$r1_1.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 284.4, 530, 0] }, as: r1_2 }
+  - { command: shape.line, params: { ids: ["$r1_2.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 333.8, 530, 0] }, as: r1_3 }
+  - { command: shape.line, params: { ids: ["$r1_3.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [640, 120, 260, 260] }, as: c1 }
+  - { command: shape.fill, params: { ids: ["$c1.id"], color: "#F59F00", onSlide: 2 } }
+  - { command: shape.line, params: { ids: ["$c1.id"], none: true, onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [652, 132, 236, 236] }, as: cr1 }
+  - { command: shape.fill, params: { ids: ["$cr1.id"], none: true, onSlide: 2 } }
+  - { command: shape.line, params: { ids: ["$cr1.id"], color: "#2b1a12", width: 1.5, dash: "dash", onSlide: 2 } }
+  - { command: insert.textBox, params: { rect: [660, 170, 220, 160], text: "CHEF'S PICK\nLemon\nsole bap\n13.00" }, as: sp1 }
+  - { command: format.align, params: { ids: ["$sp1.id"], align: "center", onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$sp1.id"], color: "#2b1a12", onSlide: 2 } }
+  - { command: format.size, params: { ids: ["$sp1.id"], size: 13, onSlide: 2 } }
+  - { command: format.bold, params: { ids: ["$sp1.id"], onSlide: 2 } }
+  - { command: format.anchor, params: { ids: ["$sp1.id"], anchor: "middle", onSlide: 2 } }
+  - { command: text.edit, params: { id: $sp1.id, at: [1, 0], onSlide: 2 } }
+  - { command: text.select, params: { anchor: [1, 0], caret: [2, 8] } }
+  - { command: format.font, params: { family: "Lora" } }
+  - { command: format.size, params: { size: 30 } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $sp1.id, at: [3, 0], onSlide: 2 } }
+  - { command: text.selectParagraph, params: { at: [3, 0] } }
+  - { command: format.size, params: { size: 22 } }
+  - { command: text.exit, params: {  } }
+  - { command: shape.rotate, params: { ids: ["$c1.id", "$cr1.id", "$sp1.id"], deg: -8, onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [60, 496, 9, 9] }, as: dot1_0 }
+  - { command: shape.fill, params: { ids: ["$dot1_0.id"], color: "#5a3b2a", onSlide: 2 } }
+  - { command: shape.line, params: { ids: ["$dot1_0.id"], none: true, onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [78, 496, 9, 9] }, as: dot1_1 }
+  - { command: shape.fill, params: { ids: ["$dot1_1.id"], color: "#F59F00", onSlide: 2 } }
+  - { command: shape.line, params: { ids: ["$dot1_1.id"], none: true, onSlide: 2 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [96, 496, 9, 9] }, as: dot1_2 }
+  - { command: shape.fill, params: { ids: ["$dot1_2.id"], color: "#5a3b2a", onSlide: 2 } }
+  - { command: shape.line, params: { ids: ["$dot1_2.id"], none: true, onSlide: 2 } }
+  - { command: insert.textBox, params: { rect: [600, 488, 300, 24], text: "Order at the counter  ·  all prices in €" }, as: f1 }
+  - { command: format.size, params: { ids: ["$f1.id"], size: 12, onSlide: 2 } }
+  - { command: format.align, params: { ids: ["$f1.id"], align: "right", onSlide: 2 } }
+  - { command: format.color, params: { ids: ["$f1.id"], color: "#c9a98a", onSlide: 2 } }
+  - { command: slide.new, params: { layout: "blank" } }
+  - { command: design.background, params: { color: "#2b1a12" } }
+  - { command: insert.textBox, params: { rect: [60, 48, 400, 22], text: "THE LANTERN CAFÉ" }, as: brand2 }
+  - { command: format.size, params: { ids: ["$brand2.id"], size: 12, onSlide: 3 } }
+  - { command: format.bold, params: { ids: ["$brand2.id"], onSlide: 3 } }
+  - { command: format.spacing, params: { ids: ["$brand2.id"], pt: 3, onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$brand2.id"], color: "#F59F00", onSlide: 3 } }
+  - { command: insert.textBox, params: { rect: [60, 72, 500, 70], text: "Drinks" }, as: t2 }
+  - { command: format.font, params: { ids: ["$t2.id"], family: "Lora", onSlide: 3 } }
+  - { command: format.size, params: { ids: ["$t2.id"], size: 52, onSlide: 3 } }
+  - { command: format.bold, params: { ids: ["$t2.id"], onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$t2.id"], color: "#fbefdc", onSlide: 3 } }
+  - { command: insert.textBox, params: { rect: [60, 140, 400, 24], text: "all day" }, as: w2 }
+  - { command: format.size, params: { ids: ["$w2.id"], size: 14, onSlide: 3 } }
+  - { command: format.italic, params: { ids: ["$w2.id"], onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$w2.id"], color: "#c9a98a", onSlide: 3 } }
+  - { command: insert.textBox, params: { rect: [60, 196, 440, 280], text: "Flat white or cortado\nFilter coffee, single origin\nChai latte with oat milk\nFresh mint tea" }, as: n2 }
+  - { command: insert.textBox, params: { rect: [500, 196, 90, 280], text: "3.40\n3.00\n3.80\n2.80" }, as: p2 }
+  - { command: format.size, params: { ids: ["$n2.id"], size: 19, onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$n2.id"], color: "#fbefdc", onSlide: 3 } }
+  - { command: format.paragraph, params: { ids: ["$n2.id"], spaceAfter: 26, onSlide: 3 } }
+  - { command: format.size, params: { ids: ["$p2.id"], size: 19, onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$p2.id"], color: "#fbefdc", onSlide: 3 } }
+  - { command: format.paragraph, params: { ids: ["$p2.id"], spaceAfter: 26, onSlide: 3 } }
+  - { command: format.align, params: { ids: ["$p2.id"], align: "right", onSlide: 3 } }
+  - { command: format.bold, params: { ids: ["$p2.id"], onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$p2.id"], color: "#F59F00", onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 235.0, 530, 0] }, as: r2_1 }
+  - { command: shape.line, params: { ids: ["$r2_1.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 284.4, 530, 0] }, as: r2_2 }
+  - { command: shape.line, params: { ids: ["$r2_2.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "line", rect: [60, 333.8, 530, 0] }, as: r2_3 }
+  - { command: shape.line, params: { ids: ["$r2_3.id"], color: "#5a3b2a", width: 0.75, dash: "dot", onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [640, 120, 260, 260] }, as: c2 }
+  - { command: shape.fill, params: { ids: ["$c2.id"], color: "#F59F00", onSlide: 3 } }
+  - { command: shape.line, params: { ids: ["$c2.id"], none: true, onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [652, 132, 236, 236] }, as: cr2 }
+  - { command: shape.fill, params: { ids: ["$cr2.id"], none: true, onSlide: 3 } }
+  - { command: shape.line, params: { ids: ["$cr2.id"], color: "#2b1a12", width: 1.5, dash: "dash", onSlide: 3 } }
+  - { command: insert.textBox, params: { rect: [660, 170, 220, 160], text: "NEW\nIced\nhoney latte\n4.50" }, as: sp2 }
+  - { command: format.align, params: { ids: ["$sp2.id"], align: "center", onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$sp2.id"], color: "#2b1a12", onSlide: 3 } }
+  - { command: format.size, params: { ids: ["$sp2.id"], size: 13, onSlide: 3 } }
+  - { command: format.bold, params: { ids: ["$sp2.id"], onSlide: 3 } }
+  - { command: format.anchor, params: { ids: ["$sp2.id"], anchor: "middle", onSlide: 3 } }
+  - { command: text.edit, params: { id: $sp2.id, at: [1, 0], onSlide: 3 } }
+  - { command: text.select, params: { anchor: [1, 0], caret: [2, 11] } }
+  - { command: format.font, params: { family: "Lora" } }
+  - { command: format.size, params: { size: 30 } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $sp2.id, at: [3, 0], onSlide: 3 } }
+  - { command: text.selectParagraph, params: { at: [3, 0] } }
+  - { command: format.size, params: { size: 22 } }
+  - { command: text.exit, params: {  } }
+  - { command: shape.rotate, params: { ids: ["$c2.id", "$cr2.id", "$sp2.id"], deg: -8, onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [60, 496, 9, 9] }, as: dot2_0 }
+  - { command: shape.fill, params: { ids: ["$dot2_0.id"], color: "#5a3b2a", onSlide: 3 } }
+  - { command: shape.line, params: { ids: ["$dot2_0.id"], none: true, onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [78, 496, 9, 9] }, as: dot2_1 }
+  - { command: shape.fill, params: { ids: ["$dot2_1.id"], color: "#5a3b2a", onSlide: 3 } }
+  - { command: shape.line, params: { ids: ["$dot2_1.id"], none: true, onSlide: 3 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [96, 496, 9, 9] }, as: dot2_2 }
+  - { command: shape.fill, params: { ids: ["$dot2_2.id"], color: "#F59F00", onSlide: 3 } }
+  - { command: shape.line, params: { ids: ["$dot2_2.id"], none: true, onSlide: 3 } }
+  - { command: insert.textBox, params: { rect: [600, 488, 300, 24], text: "Order at the counter  ·  all prices in €" }, as: f2 }
+  - { command: format.size, params: { ids: ["$f2.id"], size: 12, onSlide: 3 } }
+  - { command: format.align, params: { ids: ["$f2.id"], align: "right", onSlide: 3 } }
+  - { command: format.color, params: { ids: ["$f2.id"], color: "#c9a98a", onSlide: 3 } }
+  - { command: transition.set, params: { kind: "push", option: "u", duration: 900, index: 0 } }
+  - { command: transition.timing, params: { onClick: false, after: 8000, index: 0 } }
+  - { command: transition.set, params: { kind: "push", option: "u", duration: 900, index: 1 } }
+  - { command: transition.timing, params: { onClick: false, after: 8000, index: 1 } }
+  - { command: transition.set, params: { kind: "push", option: "u", duration: 900, index: 2 } }
+  - { command: transition.timing, params: { onClick: false, after: 8000, index: 2 } }
+  - { command: show.setup, params: { type: "kiosk", loop: true, useTimings: true }, as: show }
+  - { command: document.inspect, params: {  }, as: deck }
+  - { command: slide.inspect, params: { index: 1, select: false }, as: lunch }
+expected:
+  - actual: inspect
+    values:
+      slides: { count: 3 }
+  - actual: results
+    values:
+      show: { showType: kiosk, loopUntilEsc: true, useTimings: true }
+      deck.slides: { all: { transition: push } }
+      lunch.transition: { kind: push, option: u, advanceOnClick: false, advanceAfterMs: 8000 }
+diagnostics: []
+since: "2026-11-09"

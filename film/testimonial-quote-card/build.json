@@ -1,0 +1,34 @@
+{
+  "id": "film/testimonial-quote-card",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 6.0 s; 2 video clips; 6 effects; 2 animated effects",
+  "commands": 20,
+  "document": {
+    "name": "testimonial-quote-card.kfilm",
+    "bytes": 17176,
+    "sha256": "8956ea442fc5b1acd4a4f8d0b4e2ef7b0511c99f2909ab50e9a61dea08b2b8ed"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "8195654c1169a59d5bac111cd20c0172196b7960845c5f2c6ca6d9e745323868"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 18,
+    "bytes": 19404
+  },
+  "diagnostics": [],
+  "built_ms": 44
+}

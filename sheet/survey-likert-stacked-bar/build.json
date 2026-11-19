@@ -1,0 +1,30 @@
+{
+  "id": "sheet/survey-likert-stacked-bar",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1808,
+    2049
+  ],
+  "stats": "1 sheet; used range A1:H12",
+  "commands": 30,
+  "document": {
+    "name": "survey-likert-stacked-bar.xlsx",
+    "bytes": 8354,
+    "sha256": "2cd6be3b6dfef73eb01cdcea1385125239f5569d833f3e6b0daf56615fd75947"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      558
+    ],
+    "sha256": "5af32b2c085437071c49cfdf4f4ce5afea90217a68baae4a57d02f1369f9dbf6"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 37
+}

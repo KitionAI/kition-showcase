@@ -1,0 +1,30 @@
+{
+  "id": "photo/business-card-front",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1050,
+    600
+  ],
+  "stats": "1050 × 600 px; 17 layers; 9 type layers; 5 shape layers; 1 fill layer; 1 group; 1 mask",
+  "commands": 26,
+  "document": {
+    "name": "business-card-front.psd",
+    "bytes": 469685,
+    "sha256": "786316eaeb460772b44f592a4bdda44d598b619d4a116529c128be8010c0faaf"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      366
+    ],
+    "sha256": "9317bb7c4d1f04b123463140b94b98388576c0880c47abc1991279e6fd1be855"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 262
+}

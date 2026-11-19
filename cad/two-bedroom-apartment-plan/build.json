@@ -1,0 +1,30 @@
+{
+  "id": "cad/two-bedroom-apartment-plan",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1815,
+    1430
+  ],
+  "stats": "95 objects; 9 layers",
+  "commands": 115,
+  "document": {
+    "name": "two-bedroom-apartment-plan.dxf",
+    "bytes": 50163,
+    "sha256": "28a5033655a90f46736346dac45e4cb24328de90f4f570fb61de3add13302a2d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      504
+    ],
+    "sha256": "60ab3b5c9fdfe12548ee1ef55a573b38653c831ebe718f16ee228d052fc37265"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 10
+}

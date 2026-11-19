@@ -1,0 +1,30 @@
+{
+  "id": "doc/academic-cv",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages; 485 words",
+  "commands": 161,
+  "document": {
+    "name": "academic-cv.docx",
+    "bytes": 10236,
+    "sha256": "4b2537408b01bc7b8e62609476f0b7e2ef67e630c851aadaefb24f2fbbc71d5d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "44385b91154c6909649e1404d1f471f2dd2a4591b9ea5540e7bd9a457bd99488"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 71
+}

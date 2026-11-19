@@ -1,0 +1,64 @@
+format: 1
+id: design/running-watch-app
+title: Running Watch App
+summary: Three smartwatch screens for a running app — activity rings from arc ellipses, a live workout readout and a pace alert — on a dark presentation board.
+category: Mobile Apps
+tags: [wearable, watch, arcs, auto-layout, dark-mode]
+features: [design.shape.primitives, design.layout.auto, design.object.frames-shapes-text, design.paint.fill-stroke, design.text.format]
+description: |
+  Each 198 × 242 screen is a frame with 46 px corners and clipped content. The rings are pairs of
+  ellipses: a dim full track and a bright arc on top, both with `arcInner` making a ring and
+  `arcSweep` the progress. The workout screen stacks its numbers with vertical auto layout and
+  tabular figures; the alert screen is a centred layout with a pill button. The board is the
+  document's frame, with captions under each screen.
+document: { name: running-watch-app.kdesign, width: 860, height: 420 }
+fonts: [inter/Inter-Variable.ttf]
+steps:
+  - { command: select.all, params: {}, as: initial }
+  - { command: node.set, params: { ids: [$initial.selection.0], props: { name: Board, fill: "#16171C" } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: "Rings", x: 70, y: 64, width: 198, height: 242, props: { fill: "#000000", cornerRadius: 46, clip: true, stroke: "#2A2B31", strokeWeight: 6, strokeAlign: outside } }, as: w0 }
+  - { command: text.create, params: { text: "RINGS", x: 70, y: 340, parent: $initial.selection.0, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#8B8D98"], letterSpacing: "8%", width: 198, textAlign: center } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: "Workout", x: 331, y: 64, width: 198, height: 242, props: { fill: "#000000", cornerRadius: 46, clip: true, stroke: "#2A2B31", strokeWeight: 6, strokeAlign: outside, layout: vertical, gap: 2, padding: [22, 18, 18, 18] } }, as: w1 }
+  - { command: text.create, params: { text: "WORKOUT", x: 331, y: 340, parent: $initial.selection.0, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#8B8D98"], letterSpacing: "8%", width: 198, textAlign: center } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: "Pace Alert", x: 592, y: 64, width: 198, height: 242, props: { fill: "#000000", cornerRadius: 46, clip: true, stroke: "#2A2B31", strokeWeight: 6, strokeAlign: outside, layout: vertical, gap: 10, crossAlign: center, mainAlign: center, padding: 18 } }, as: w2 }
+  - { command: text.create, params: { text: "PACE ALERT", x: 592, y: 340, parent: $initial.selection.0, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#8B8D98"], letterSpacing: "8%", width: 198, textAlign: center } } }
+  - { command: text.create, params: { text: "10:09", x: 140, y: 14, parent: $w0.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 15, fills: ["#FFFFFF"] } } }
+  - { command: node.create, params: { type: ellipse, parent: $w0.id, name: "Track 1", x: 24.0, y: 59.0, width: 150, height: 150, props: { fill: "#FF2D55", opacity: 0.22, arcInner: 0.813 } } }
+  - { command: node.create, params: { type: ellipse, parent: $w0.id, name: "Ring 1", x: 24.0, y: 59.0, width: 150, height: 150, props: { fill: "#FF2D55", arcStart: -90, arcSweep: 300, arcInner: 0.813 } }, as: ring0 }
+  - { command: node.create, params: { type: ellipse, parent: $w0.id, name: "Track 2", x: 43.0, y: 78.0, width: 112, height: 112, props: { fill: "#A3FF12", opacity: 0.22, arcInner: 0.75 } } }
+  - { command: node.create, params: { type: ellipse, parent: $w0.id, name: "Ring 2", x: 43.0, y: 78.0, width: 112, height: 112, props: { fill: "#A3FF12", arcStart: -90, arcSweep: 250, arcInner: 0.75 } }, as: ring1 }
+  - { command: node.create, params: { type: ellipse, parent: $w0.id, name: "Track 3", x: 62.0, y: 97.0, width: 74, height: 74, props: { fill: "#22D3EE", opacity: 0.22, arcInner: 0.62 } } }
+  - { command: node.create, params: { type: ellipse, parent: $w0.id, name: "Ring 3", x: 62.0, y: 97.0, width: 74, height: 74, props: { fill: "#22D3EE", arcStart: -90, arcSweep: 200, arcInner: 0.62 } }, as: ring2 }
+  - { command: text.create, params: { text: "Outdoor run", x: 0, y: 0, parent: $w1.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 13, fills: ["#A3FF12"] } } }
+  - { command: text.create, params: { text: "5.42", x: 0, y: 0, parent: $w1.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 44, fills: ["#FFFFFF"], features: { tnum: true }, letterSpacing: "-2%" } } }
+  - { command: text.create, params: { text: "KILOMETRES", x: 0, y: 0, parent: $w1.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 11, fills: ["#8B8D98"], letterSpacing: "6%" } } }
+  - { command: node.create, params: { type: frame, parent: $w1.id, name: Stats, props: { layout: horizontal, gap: 18, padding: [12, 0, 0, 0], fill: none, sizingH: fill, sizingV: hug } }, as: stats }
+  - { command: node.create, params: { type: frame, parent: $stats.id, name: "TIME", props: { layout: vertical, gap: 0, fill: none, sizingH: hug, sizingV: hug } }, as: s_TIME }
+  - { command: text.create, params: { text: "28:14", x: 0, y: 0, parent: $s_TIME.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 22, fills: ["#FFFFFF"], features: { tnum: true } } } }
+  - { command: text.create, params: { text: "TIME", x: 0, y: 0, parent: $s_TIME.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 10, fills: ["#8B8D98"], letterSpacing: "6%" } } }
+  - { command: node.create, params: { type: frame, parent: $stats.id, name: "BPM", props: { layout: vertical, gap: 0, fill: none, sizingH: hug, sizingV: hug } }, as: s_BPM }
+  - { command: text.create, params: { text: "152", x: 0, y: 0, parent: $s_BPM.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 22, fills: ["#FF2D55"], features: { tnum: true } } } }
+  - { command: text.create, params: { text: "BPM", x: 0, y: 0, parent: $s_BPM.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 10, fills: ["#8B8D98"], letterSpacing: "6%" } } }
+  - { command: node.create, params: { type: frame, parent: $w2.id, name: Badge, width: 44, height: 44, props: { layout: horizontal, mainAlign: center, crossAlign: center, cornerRadius: 22, fill: "#FF9F0A" } }, as: badge }
+  - { command: text.create, params: { text: "!", x: 0, y: 0, parent: $badge.id, props: { fontFamily: Inter, fontStyle: Black, fontSize: 24, fills: ["#000000"] } } }
+  - { command: text.create, params: { text: "Pace up", x: 0, y: 0, parent: $w2.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 20, fills: ["#FFFFFF"] } } }
+  - { command: text.create, params: { text: "You're 18 s/km behind your target", x: 0, y: 0, parent: $w2.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 13, fills: ["#C7C8CF"], width: 150, textAlign: center, textAutoResize: height } } }
+  - { command: node.create, params: { type: frame, parent: $w2.id, name: Dismiss, props: { layout: horizontal, padding: [8, 22, 8, 22], cornerRadius: 999, fill: "#2A2B31", sizingH: hug, sizingV: hug } }, as: dismiss }
+  - { command: text.create, params: { text: "OK", x: 0, y: 0, parent: $dismiss.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 14, fills: ["#FF9F0A"] } } }
+  - { command: node.get, params: { id: $ring1.id }, as: moveRing }
+  - { command: node.get, params: { id: $w1.id }, as: workout }
+  - { command: text.missingFonts, params: {}, as: missing }
+thumbnail: { area: $inspect.contentBounds }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      layers: 30
+      contentBounds: { width: 860, height: 420 }
+  - actual: results
+    values:
+      moveRing: { name: Ring 2, type: ELLIPSE, arc: { start: -90, inner: 0.75, sweep: 250 } }
+      workout: { name: Workout, cornerRadius: 46, clip: true, layout: { mode: vertical }, children: { count: 4 } }
+      missing.families: { count: 0 }
+diagnostics: []
+since: "2026-11-09"

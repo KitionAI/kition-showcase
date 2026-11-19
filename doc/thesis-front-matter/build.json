@@ -1,0 +1,30 @@
+{
+  "id": "doc/thesis-front-matter",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    8216
+  ],
+  "stats": "10 pages; 612 words",
+  "commands": 163,
+  "document": {
+    "name": "thesis-front-matter.docx",
+    "bytes": 9456,
+    "sha256": "bb4719aa4be66af10520f8c6bca2e0b2f577492a27f68f73f9b575f6def6a2f1"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "3d92e3fba9c82b1918c7938cd873ccd93709a43a82dca2f1962b660345abcbd5"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 82
+}

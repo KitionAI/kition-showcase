@@ -1,0 +1,137 @@
+format: 1
+id: slide/project-status-report
+title: Project Status Report
+summary: A programme status slide with a red-amber-green summary strip and a six-workstream table whose status cells are filled by state.
+category: Business Reports
+tags: [table, status, rag, cell-fill, project-management]
+features: [slide.tables.edit, slide.shapes.edit, slide.format.character]
+description: |
+  The weekly steering-committee slide. Three tiles count the workstreams in each state; the table
+  below has a dark header, bold workstream names, muted owners and a status column whose cells
+  take the state's tint and text colour, so the one red row is found before anything is read.
+document: { name: project-status-report.pptx, width: 960, height: 540 }
+fonts: [inter/Inter-Variable.ttf]
+steps:
+  - { command: slide.layout, params: { layout: blank, index: 0 } }
+  - { command: insert.textBox, params: { rect: [40, 28, 620, 44], text: ERP replacement · week 46 status }, as: title }
+  - { command: format.size, params: { ids: [$title.id], size: 28 } }
+  - { command: format.bold, params: { ids: [$title.id] } }
+  - { command: format.color, params: { ids: [$title.id], color: "#0f172a" } }
+  - { command: insert.textBox, params: { rect: [40, 68, 620, 24], text: "Steering committee, 13 November · go-live stays 2 February" }, as: lede }
+  - { command: format.size, params: { ids: [$lede.id], size: 13 } }
+  - { command: format.color, params: { ids: [$lede.id], color: "#475569" } }
+  - { command: shape.insert, params: { preset: roundRect, rect: [40, 108, 284, 70], adj: [10000] }, as: g }
+  - { command: shape.insert, params: { preset: roundRect, rect: [338, 108, 284, 70], adj: [10000] }, as: y }
+  - { command: shape.insert, params: { preset: roundRect, rect: [636, 108, 284, 70], adj: [10000] }, as: r }
+  - { command: shape.fill, params: { ids: [$g.id], color: "#dcfce7" } }
+  - { command: shape.fill, params: { ids: [$y.id], color: "#fef3c7" } }
+  - { command: shape.fill, params: { ids: [$r.id], color: "#fee2e2" } }
+  - { command: shape.line, params: { ids: [$g.id, $y.id, $r.id], none: true } }
+  - { command: insert.textBox, params: { rect: [56, 116, 260, 54], text: "3  on track" }, as: gt }
+  - { command: insert.textBox, params: { rect: [354, 116, 260, 54], text: "1  at risk · vendor access" }, as: yt }
+  - { command: insert.textBox, params: { rect: [652, 116, 260, 54], text: "1  off track · sales cube" }, as: rt }
+  - { command: format.anchor, params: { ids: [$gt.id, $yt.id, $rt.id], anchor: middle } }
+  - { command: format.size, params: { ids: [$gt.id, $yt.id, $rt.id], size: 15 } }
+  - { command: format.bold, params: { ids: [$gt.id, $yt.id, $rt.id] } }
+  - { command: format.color, params: { ids: [$gt.id], color: "#166534" } }
+  - { command: format.color, params: { ids: [$yt.id], color: "#92400e" } }
+  - { command: format.color, params: { ids: [$rt.id], color: "#991b1b" } }
+  - { command: text.edit, params: { id: $gt.id, at: [0, 0] } }
+  - { command: text.select, params: { anchor: [0, 0], caret: [0, 1] } }
+  - { command: format.size, params: { size: 30 } }
+  - { command: text.edit, params: { id: $yt.id, at: [0, 0] } }
+  - { command: text.select, params: { anchor: [0, 0], caret: [0, 1] } }
+  - { command: format.size, params: { size: 30 } }
+  - { command: text.edit, params: { id: $rt.id, at: [0, 0] } }
+  - { command: text.select, params: { anchor: [0, 0], caret: [0, 1] } }
+  - { command: format.size, params: { size: 30 } }
+  - { command: text.exit, params: {} }
+  - command: insert.table
+    params:
+      rows: 7
+      cols: 5
+      rect: [40, 196, 880, 300]
+      data:
+        - ["Workstream", "Owner", "Status", "Next milestone", "Due"]
+        - ["Data migration", "R. Osei", "On track", "Cut over finance data", "Nov 21"]
+        - ["Payroll integration", "L. Brandt", "At risk", "Vendor sandbox access", "Nov 28"]
+        - ["Store rollout, wave 2", "M. Ivanova", "On track", "Train 40 store leads", "Dec 5"]
+        - ["Reporting dashboards", "A. Kaur", "Off track", "Rebuild sales cube", "Dec 12"]
+        - ["Training and change", "J. Moreau", "On track", "Publish handbook v2", "Dec 15"]
+        - ["Decommission old ERP", "T. Nakamura", "Not started", "Archive sign-off", "Jan 30"]
+    as: tb
+  - { command: table.style, params: { id: $tb.id, style: none } }
+  - { command: table.cellFormat, params: { id: $tb.id, anchor: center } }
+  - { command: format.size, params: { ids: [$tb.id], size: 14 } }
+  - { command: format.color, params: { ids: [$tb.id], color: "#1e293b" } }
+  - { command: table.columnWidth, params: { id: $tb.id, col: 0, width: 260 } }
+  - { command: table.columnWidth, params: { id: $tb.id, col: 1, width: 160 } }
+  - { command: table.columnWidth, params: { id: $tb.id, col: 2, width: 140 } }
+  - { command: table.columnWidth, params: { id: $tb.id, col: 3, width: 220 } }
+  - { command: table.columnWidth, params: { id: $tb.id, col: 4, width: 100 } }
+  - { command: table.rowHeight, params: { id: $tb.id, row: 0, height: 36 } }
+  - { command: table.rowHeight, params: { id: $tb.id, row: 1, height: 44 } }
+  - { command: table.rowHeight, params: { id: $tb.id, row: 2, height: 44 } }
+  - { command: table.rowHeight, params: { id: $tb.id, row: 3, height: 44 } }
+  - { command: table.rowHeight, params: { id: $tb.id, row: 4, height: 44 } }
+  - { command: table.rowHeight, params: { id: $tb.id, row: 5, height: 44 } }
+  - { command: table.rowHeight, params: { id: $tb.id, row: 6, height: 44 } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [0, 0], to: [0, 4] } }
+  - { command: table.cellFill, params: { id: $tb.id, color: "#1e293b" } }
+  - { command: format.size, params: { size: 12 } }
+  - { command: format.bold, params: {} }
+  - { command: format.color, params: { color: "#f8fafc" } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [1, 0], to: [6, 0] } }
+  - { command: format.bold, params: {} }
+  - { command: table.selectCells, params: { id: $tb.id, from: [1, 1], to: [6, 1] } }
+  - { command: format.color, params: { color: "#64748b" } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [0, 2], to: [6, 2] } }
+  - { command: format.align, params: { align: center } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [0, 4], to: [6, 4] } }
+  - { command: format.align, params: { align: right } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [1, 2], to: [1, 2] } }
+  - { command: table.cellFill, params: { id: $tb.id, color: "#dcfce7" } }
+  - { command: format.color, params: { color: "#166534" } }
+  - { command: format.bold, params: {} }
+  - { command: format.size, params: { size: 13 } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [2, 2], to: [2, 2] } }
+  - { command: table.cellFill, params: { id: $tb.id, color: "#fef3c7" } }
+  - { command: format.color, params: { color: "#92400e" } }
+  - { command: format.bold, params: {} }
+  - { command: format.size, params: { size: 13 } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [3, 2], to: [3, 2] } }
+  - { command: table.cellFill, params: { id: $tb.id, color: "#dcfce7" } }
+  - { command: format.color, params: { color: "#166534" } }
+  - { command: format.bold, params: {} }
+  - { command: format.size, params: { size: 13 } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [4, 2], to: [4, 2] } }
+  - { command: table.cellFill, params: { id: $tb.id, color: "#fee2e2" } }
+  - { command: format.color, params: { color: "#991b1b" } }
+  - { command: format.bold, params: {} }
+  - { command: format.size, params: { size: 13 } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [5, 2], to: [5, 2] } }
+  - { command: table.cellFill, params: { id: $tb.id, color: "#dcfce7" } }
+  - { command: format.color, params: { color: "#166534" } }
+  - { command: format.bold, params: {} }
+  - { command: format.size, params: { size: 13 } }
+  - { command: table.selectCells, params: { id: $tb.id, from: [6, 2], to: [6, 2] } }
+  - { command: table.cellFill, params: { id: $tb.id, color: "#f1f5f9" } }
+  - { command: format.color, params: { color: "#475569" } }
+  - { command: format.bold, params: {} }
+  - { command: format.size, params: { size: 13 } }
+  - { command: table.border, params: { id: $tb.id, edges: insideH, color: "#e2e8f0", width: 1, from: [1, 0], to: [6, 4] } }
+  - { command: table.border, params: { id: $tb.id, edges: bottom, color: "#cbd5e1", width: 1, from: [6, 0], to: [6, 4] } }
+  - { command: table.border, params: { id: $tb.id, edges: insideV, color: "#ffffff", width: 3, from: [1, 2], to: [6, 2] } }
+  - { command: table.state, params: { id: $tb.id }, as: state }
+  - { command: slide.inspect, params: { index: 0 }, as: slide }
+expected:
+  - actual: inspect
+    values:
+      slides: { count: 1 }
+  - actual: results
+    values:
+      state: { rows: 7, cols: 5 }
+      slide.shapes: { any: { kind: table, table: { cells: { contains: [Reporting dashboards, A. Kaur, Off track, Rebuild sales cube, Dec 12] } } } }
+      slide.design: { none: { code: design.low-contrast } }
+diagnostics: []
+since: "2026-11-09"

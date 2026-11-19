@@ -1,0 +1,30 @@
+{
+  "id": "layout/community-garden-trifold",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    936,
+    1440
+  ],
+  "stats": "2 pages; 7 stories; 10 paragraph styles",
+  "commands": 152,
+  "document": {
+    "name": "community-garden-trifold.klayout",
+    "bytes": 78376,
+    "sha256": "4cc2fd3cfc2cdda049e852b6847949bd0f156c2f052adc6d7015dd69e0585d38"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      495
+    ],
+    "sha256": "24f38ea80b150566ffe84544d90e14397d7813cb026d4ad1514902acaa47b692"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 281
+}

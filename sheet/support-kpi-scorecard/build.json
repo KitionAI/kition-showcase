@@ -1,0 +1,30 @@
+{
+  "id": "sheet/support-kpi-scorecard",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1932,
+    2053
+  ],
+  "stats": "1 sheet; used range A1:H15",
+  "commands": 56,
+  "document": {
+    "name": "support-kpi-scorecard.xlsx",
+    "bytes": 6500,
+    "sha256": "320b90eeba2e3a15dc8c774ee03651d886ed9d68bc8e98543f6d4d2a9bafa474"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      297
+    ],
+    "sha256": "a7aced8e7c0dc0fd0a706fcaf73f023e14a8acfa3454dd904218dd57ebd2145c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 21
+}

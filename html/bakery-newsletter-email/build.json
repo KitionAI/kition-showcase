@@ -1,0 +1,30 @@
+{
+  "id": "html/bakery-newsletter-email",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    760,
+    980
+  ],
+  "stats": "760 × 980 px; 3.4 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "bakery-newsletter-email.html",
+    "bytes": 3526,
+    "sha256": "49bbbceab9c665201e13b17969bce594216d3d04dec075134b1e7772c5e0867c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      496,
+      640
+    ],
+    "sha256": "e81f9fd2fb9016ed74345f3d7f1773eb85cb68b106e31159e1b9316c83b4b35d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 5
+}

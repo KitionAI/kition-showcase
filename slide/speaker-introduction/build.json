@@ -1,0 +1,30 @@
+{
+  "id": "slide/speaker-introduction",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 79,
+  "document": {
+    "name": "speaker-introduction.pptx",
+    "bytes": 26629,
+    "sha256": "97bef72446e5a74bae4e107bc58c8daf066d8f7569a70ed42c69d97e6dcdaf92"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "710109a45ce0edad3c5a25f16485b44e9d4282b69979afaa76667dd6181312f8"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 92
+}

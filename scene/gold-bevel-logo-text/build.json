@@ -1,0 +1,30 @@
+{
+  "id": "scene/gold-bevel-logo-text",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "1 mesh; 2 materials; 3 lights",
+  "commands": 24,
+  "document": {
+    "name": "gold-bevel-logo-text.kscene",
+    "bytes": 5457,
+    "sha256": "67ddf4cdf691240ade3e2a5a28392fa0fa39cbc1fb7970b3a57b62997a9eeb56"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "1527b24c6d9a919d1d1af9763b938629279f401305b95a2e8becfd517f715610"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

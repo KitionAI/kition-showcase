@@ -1,0 +1,72 @@
+format: 1
+id: motion/milestone-confetti-burst
+title: Milestone Confetti Burst
+summary: A gold badge pops in for a 100K-listener milestone while rays and two rings of dots burst outward around it.
+category: Shape Animation
+tags: [burst, repeater, shape-layers, keyframes, easing, celebration]
+features: [motion.shape.paths, motion.keys.basics, motion.layer.styles, motion.text.animate, motion.layer.basics]
+description: |
+  A social milestone sting built only from shape layers. The rays are one rounded rectangle and a
+  Repeater (16 copies, 22.5° apart): keying the group's Position pushes every copy outward at
+  once while its Scale shrinks them to sparks. Two dot rings use the same trick at different
+  speeds and colours, and the badge pops in with the `pop` curve before the number letterpresses in.
+document: { name: milestone-confetti-burst.kmotion, width: 1280, height: 720 }
+steps:
+  - { command: comp.settings, params: { name: Milestone, duration: 4, frameRate: 30 } }
+  - { command: layer.newSolid, params: { name: Backdrop, color: "#0f1430" }, as: bg }
+  - { command: effect.apply, params: { layers: [$bg.layer], effect: Gradient Ramp, params: { shape: 1, start: [640, 330], end: [640, 1050], startColor: "#2b3a8c", endColor: "#060818" } } }
+  # rays
+  - { command: layer.newShape, params: { kind: rounded, name: Rays, size: [12, 70], fill: "#ffd36b", position: [640, 330] }, as: rays }
+  - { command: layer.addShapeItem, params: { layer: $rays.layer, kind: repeater } }
+  - { command: prop.set, params: { layer: $rays.layer, path: contents/repeater/copies, value: 16 } }
+  - { command: prop.set, params: { layer: $rays.layer, path: contents/repeater/transform/position, value: [0, 0] } }
+  - { command: prop.set, params: { layer: $rays.layer, path: contents/repeater/transform/rotation, value: 22.5 } }
+  - { command: prop.addKey, params: { layer: $rays.layer, path: contents/group/transform/position, time: 0.3, value: [0, -150] } }
+  - { command: prop.addKey, params: { layer: $rays.layer, path: contents/group/transform/position, time: 1.3, value: [0, -240] } }
+  - { command: keys.applyEase, params: { layer: $rays.layer, path: contents/group/transform/position, preset: snappy, from: 0.3, to: 1.3 } }
+  - { command: prop.addKey, params: { layer: $rays.layer, path: contents/group/transform/scale, time: 0.3, value: [100, 160] } }
+  - { command: prop.addKey, params: { layer: $rays.layer, path: contents/group/transform/scale, time: 1.3, value: [60, 0] } }
+  # dot rings
+  - { command: layer.newShape, params: { kind: ellipse, name: Pink Dots, size: [18, 18], fill: "#ff6fae", position: [640, 330] }, as: dots }
+  - { command: layer.addShapeItem, params: { layer: $dots.layer, kind: repeater } }
+  - { command: prop.set, params: { layer: $dots.layer, path: contents/repeater/copies, value: 12 } }
+  - { command: prop.set, params: { layer: $dots.layer, path: contents/repeater/transform/position, value: [0, 0] } }
+  - { command: prop.set, params: { layer: $dots.layer, path: contents/repeater/transform/rotation, value: 30 } }
+  - { command: prop.set, params: { layer: $dots.layer, path: transform/rotation, value: 15 } }
+  - { command: prop.addKey, params: { layer: $dots.layer, path: contents/group/transform/position, time: 0.4, value: [0, -160] } }
+  - { command: prop.addKey, params: { layer: $dots.layer, path: contents/group/transform/position, time: 1.6, value: [0, -280] } }
+  - { command: keys.applyEase, params: { layer: $dots.layer, path: contents/group/transform/position, preset: snappy, from: 0.4, to: 1.6 } }
+  - { command: prop.addKey, params: { layer: $dots.layer, path: contents/group/transform/scale, time: 1.0, value: [100, 100] } }
+  - { command: prop.addKey, params: { layer: $dots.layer, path: contents/group/transform/scale, time: 1.8, value: [0, 0] } }
+  - { command: layer.newShape, params: { kind: ellipse, name: Mint Dots, size: [12, 12], fill: "#6ff2d2", position: [640, 330] }, as: mint }
+  - { command: layer.addShapeItem, params: { layer: $mint.layer, kind: repeater } }
+  - { command: prop.set, params: { layer: $mint.layer, path: contents/repeater/copies, value: 24 } }
+  - { command: prop.set, params: { layer: $mint.layer, path: contents/repeater/transform/position, value: [0, 0] } }
+  - { command: prop.set, params: { layer: $mint.layer, path: contents/repeater/transform/rotation, value: 15 } }
+  - { command: prop.addKey, params: { layer: $mint.layer, path: contents/group/transform/position, time: 0.5, value: [0, -170] } }
+  - { command: prop.addKey, params: { layer: $mint.layer, path: contents/group/transform/position, time: 2.0, value: [0, -360] } }
+  - { command: keys.applyEase, params: { layer: $mint.layer, path: contents/group/transform/position, preset: out, from: 0.5, to: 2.0 } }
+  - { command: prop.addKey, params: { layer: $mint.layer, path: contents/group/transform/scale, time: 1.2, value: [100, 100] } }
+  - { command: prop.addKey, params: { layer: $mint.layer, path: contents/group/transform/scale, time: 2.0, value: [0, 0] } }
+  - { command: layer.style.add, params: { layers: [$rays.layer, $dots.layer, $mint.layer], style: outerGlow, params: { color: "#ffffff", opacity: 40, size: 14 } } }
+  # badge
+  - { command: layer.newShape, params: { kind: ellipse, name: Badge, size: [300, 300], fillGradient: ["#ffe7a3", "#f5a524"], fillAngle: 90, position: [640, 330] }, as: badge }
+  - { command: prop.addKey, params: { layer: $badge.layer, path: transform/scale, time: 0.1, value: [0, 0, 100] } }
+  - { command: prop.addKey, params: { layer: $badge.layer, path: transform/scale, time: 0.6, value: [100, 100, 100] } }
+  - { command: keys.applyEase, params: { layer: $badge.layer, path: transform/scale, preset: pop, from: 0.1, to: 0.6 } }
+  - { command: layer.style.add, params: { layers: [$badge.layer], style: outerGlow, params: { color: "#ffc44d", opacity: 75, size: 50 } } }
+  - { command: layer.newText, params: { text: 100K, position: [640, 362], size: 104, font: Inter, style: Bold, fill: "#3b2300", justify: center }, as: num }
+  - { command: layer.applyTextPreset, params: { layer: $num.layer, preset: letterpress, start: 0.4 } }
+  - { command: layer.newText, params: { text: LISTENERS  ·  THANK YOU, position: [640, 676], size: 28, font: Inter, style: Bold, fill: "#ffe7a3", justify: center, tracking: 300 }, as: thanks }
+  - { command: layer.applyTextPreset, params: { layer: $thanks.layer, preset: blurSlide, variant: subtitle, start: 0.3 } }
+thumbnail: { at: 1.0 }
+preview: { from: 0, to: 2.5, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      comp: { name: Milestone, duration: 4 }
+      info.layers: { count: 7 }
+      info.layers.5: { name: Rays, type: Shape, animated: [{ name: Position, times: [0.3, 1.3] }, { name: Scale, times: [0.3, 1.3] }] }
+      info.layers.2: { name: Badge, animated: [{ name: Scale, times: [0.1, 0.6] }] }
+diagnostics: []
+since: "2026-11-09"

@@ -1,0 +1,72 @@
+format: 1
+id: note/release-plan-review
+title: Release Plan Review
+summary: A release plan under review, with comment threads anchored to quoted text, replies from the team, one thread resolved, and a section restructured after the discussion.
+category: Project Docs
+tags: [comments, review, release-plan, sections]
+features: [note.comments, note.structure, note.text.edit, note.tasks]
+description: |
+  Comments live beside the note, anchored to the text they talk about. `comment.add` starts
+  three threads (on a quote, on a heading and on a date), `comment.reply` answers two of them and
+  `comment.resolve` closes the settled one. Acting on the review, `section.move` and
+  `heading.setLevel` make Risks a subsection of the Plan and `section.replace` rewrites its body. `comment.threads` reads
+  the threads back with the text each is anchored to.
+document: { name: release-plan-review.md, width: 816, height: 1056 }
+steps:
+  - command: note.write
+    params:
+      markdown: |
+        # Harbourmaster 3.0 Release Plan
+
+        Owner: Priya · Reviewers: Aleksander, Wen, Tomasz · Target: **2 March 2027**
+
+        ## Plan
+
+        1. Feature freeze on 26 January.
+        2. Two weeks of beta with the twelve pilot marinas.
+        3. Release candidate on 16 February, store submission on 23 February.
+
+        ## Scope
+
+        - Berth booking with deposits
+        - Offline logbook that syncs when back in signal
+        - New tide widget (moved from 2.9)
+
+        ## Risks
+
+        The payments provider certifies the deposit flow on its own schedule.
+
+        ## Checklist
+
+        - [x] Pilot marinas confirmed
+        - [ ] Release notes drafted
+        - [ ] Support team trained on deposits
+  - { command: comment.add, params: { quote: "Two weeks of beta with the twelve pilot marinas.", body: "Two weeks is tight if the deposit certification slips. Can we say two to three?", author: Aleksander, created: "2026-11-09T10:12:00Z" }, as: beta }
+  - { command: comment.add, params: { heading: [Harbourmaster 3.0 Release Plan, Scope], body: "Is the tide widget really in? It was cut from 2.9 for battery use.", author: Wen, created: "2026-11-09T10:40:00Z" }, as: scope }
+  - { command: comment.add, params: { quote: "2 March 2027", body: "Marketing needs the date fixed by the end of January.", author: Tomasz, created: "2026-11-09T11:05:00Z" }, as: date }
+  - { command: comment.reply, params: { thread: $scope.thread, body: "Yes: the battery fix landed in October. Measured at under 1% a day.", author: Priya, created: "2026-11-09T12:00:00Z" } }
+  - { command: comment.resolve, params: { thread: $scope.thread } }
+  - { command: comment.reply, params: { thread: $beta.thread, body: "Agreed. I'll make it two to three weeks and move the candidate date with it.", author: Priya, created: "2026-11-09T12:05:00Z" } }
+  - { command: section.move, params: { heading: [Harbourmaster 3.0 Release Plan, Risks], position: end, toHeading: [Harbourmaster 3.0 Release Plan, Plan] } }
+  - { command: heading.setLevel, params: { heading: [Harbourmaster 3.0 Release Plan, Risks], level: 3 } }
+  - command: section.replace
+    params:
+      heading: [Harbourmaster 3.0 Release Plan, Plan, Risks]
+      markdown: |
+        > [!WARNING] Deposit certification
+        > The payments provider certifies the deposit flow on its own schedule. If it is not done by 9 February, deposits ship turned off and follow in 3.0.1.
+  - { command: comment.threads, as: threads }
+  - { command: outline.read, as: outline }
+thumbnail: { area: [0, 0, 816, 720] }
+expected:
+  - actual: inspect
+    values:
+      comments: { open: 2, resolved: 1 }
+      callouts: 1
+      tasks: { done: 1, open: 2 }
+  - actual: results
+    values:
+      threads.threads: { count: 3 }
+      outline.headings.2: { level: 3, path: [Harbourmaster 3.0 Release Plan, Plan, Risks] }
+diagnostics: []
+since: "2026-11-09"

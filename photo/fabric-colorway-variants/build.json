@@ -1,0 +1,30 @@
+{
+  "id": "photo/fabric-colorway-variants",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1000
+  ],
+  "stats": "1600 × 1000 px; 16 layers; 10 type layers; 1 shape layer; 3 adjustment layers; 1 styled layer; 3 masks",
+  "commands": 34,
+  "document": {
+    "name": "fabric-colorway-variants.psd",
+    "bytes": 7513343,
+    "sha256": "42812f56e5a0cd91478e704908219bc071267a31f439da4b3fc013b2b755b43f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "3c60120f0b3b84bc80277ee0254193f1b5e362ae8fadde854f23df371046db98"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1349
+}

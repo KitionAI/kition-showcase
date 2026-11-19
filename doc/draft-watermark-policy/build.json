@@ -1,0 +1,30 @@
+{
+  "id": "doc/draft-watermark-policy",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 213 words",
+  "commands": 104,
+  "document": {
+    "name": "draft-watermark-policy.docx",
+    "bytes": 9663,
+    "sha256": "fc5028ac5c785a993e523aa7305a39545c94488894555a05f8a59cf741b852ac"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "bf516016d55201fbe09493367cf6045f0232567f5473666240006e6ef6b00583"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 48
+}

@@ -1,0 +1,30 @@
+{
+  "id": "doc/poetry-chapbook-page",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    692
+  ],
+  "stats": "1 page; 109 words",
+  "commands": 48,
+  "document": {
+    "name": "poetry-chapbook-page.docx",
+    "bytes": 7613,
+    "sha256": "c308b9f4f5a9d4892b8e4968d5853e924142a4df97f80fe3d088ceab005651a8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      396,
+      612
+    ],
+    "sha256": "f58d4455b8a4b1ebac20f3503d8caf77c84ea4d261f60cae86db983a4b80ab67"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 253
+}

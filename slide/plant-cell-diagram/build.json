@@ -1,0 +1,30 @@
+{
+  "id": "slide/plant-cell-diagram",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 113,
+  "document": {
+    "name": "plant-cell-diagram.pptx",
+    "bytes": 23825,
+    "sha256": "01160b34e533e0968b9c2b205dcd2d8ad8d9243485b44012cac5289b2c1fdbea"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "0156e2f2be70733366a599c6c38a53b06d926518d97fecfbfe32f8c70add681c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 114
+}

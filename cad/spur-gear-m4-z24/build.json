@@ -1,0 +1,30 @@
+{
+  "id": "cad/spur-gear-m4-z24",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1307,
+    924
+  ],
+  "stats": "14 objects; 7 layers",
+  "commands": 35,
+  "document": {
+    "name": "spur-gear-m4-z24.dxf",
+    "bytes": 52029,
+    "sha256": "6bb9eb9332cad1042636dbe09f85f06ccaa9f8e4304c03bd5752fbc39c3e63aa"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      452
+    ],
+    "sha256": "ce492e1c06b3032283dc3d8edd9ef67bc3fd966347ca8a9ba50bd4dea68f0fef"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 21
+}

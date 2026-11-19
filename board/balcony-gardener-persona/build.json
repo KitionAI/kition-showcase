@@ -1,0 +1,30 @@
+{
+  "id": "board/balcony-gardener-persona",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 36 elements",
+  "commands": 8,
+  "document": {
+    "name": "balcony-gardener-persona.kboard",
+    "bytes": 13122,
+    "sha256": "8a6bfd58b0aecf9453220764438ff45a4ebef91e13dbcda448369cb40ff6b94f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      379
+    ],
+    "sha256": "1f986a78100af7bf377201fa05b82dc9082b071c1e9b8a9d15c48181bb536435"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 6
+}

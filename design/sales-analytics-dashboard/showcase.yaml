@@ -1,0 +1,171 @@
+format: 1
+id: design/sales-analytics-dashboard
+title: Sales Analytics Dashboard
+summary: A 1440 × 900 desktop dashboard — sidebar navigation, KPI cards that share the width, a bar chart from auto-layout columns, a donut from arc ellipses and an orders list.
+category: Dashboards
+tags: [dashboard, desktop, auto-layout, charts]
+features: [design.layout.auto, design.layout.auto-row, design.object.frames-shapes-text, design.shape.primitives, design.paint.fill-stroke, design.text.format]
+featured: true
+description: |
+  The whole screen is nested auto layout: a horizontal root with a fixed-width sidebar and a main
+  column that fills the rest; the four KPI cards fill the row equally. The bar chart is a
+  horizontal auto layout frame aligned to the bottom whose twelve bars are rectangles of different
+  heights, the donut is three ellipses with `arcStart`, `arcSweep` and `arcInner`, and the orders
+  list is rows with space-between alignment and status pills that hug their text.
+document: { name: sales-analytics-dashboard.kdesign, width: 1440, height: 900 }
+fonts: [inter/Inter-Variable.ttf]
+steps:
+  - { command: select.all, params: {}, as: initial }
+  - { command: node.set, params: { ids: [$initial.selection.0], props: { name: Dashboard, fill: "#F4F6FA", layout: horizontal, gap: 0, crossAlign: min } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: Sidebar, width: 240, height: 900, props: { layout: vertical, padding: [28, 20, 28, 20], gap: 6, fill: "#0F172A", sizingV: fill, sizingH: fixed } }, as: side }
+  - { command: node.create, params: { type: frame, parent: $side.id, name: Logo Row, props: { layout: horizontal, gap: 10, crossAlign: center, fill: none, padding: [0, 8, 24, 8], sizingH: fill, sizingV: hug } }, as: logoRow }
+  - { command: node.create, params: { type: rectangle, parent: $logoRow.id, name: Mark, width: 28, height: 28, props: { cornerRadius: 8, fills: [{ type: linearGradient, stops: ["#38BDF8", "#6366F1"] }] } } }
+  - { command: text.create, params: { text: "Tallyhouse", x: 0, y: 0, parent: $logoRow.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 18, fills: ["#FFFFFF"] } } }
+  - { command: node.create, params: { type: frame, parent: $side.id, name: Nav Overview, props: { layout: horizontal, gap: 12, crossAlign: center, padding: [11, 12, 11, 12], cornerRadius: 10, fill: "#1E293B", sizingH: fill, sizingV: hug } }, as: nav0 }
+  - { command: node.create, params: { type: rectangle, parent: $nav0.id, name: Icon, width: 16, height: 16, props: { cornerRadius: 4, fill: "#38BDF8" } } }
+  - { command: text.create, params: { text: "Overview", x: 0, y: 0, parent: $nav0.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 14, fills: ["#FFFFFF"] } } }
+  - { command: node.create, params: { type: frame, parent: $side.id, name: Nav Orders, props: { layout: horizontal, gap: 12, crossAlign: center, padding: [11, 12, 11, 12], cornerRadius: 10, fill: none, sizingH: fill, sizingV: hug } }, as: nav1 }
+  - { command: node.create, params: { type: rectangle, parent: $nav1.id, name: Icon, width: 16, height: 16, props: { cornerRadius: 4, fill: "#475569" } } }
+  - { command: text.create, params: { text: "Orders", x: 0, y: 0, parent: $nav1.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#94A3B8"] } } }
+  - { command: node.create, params: { type: frame, parent: $side.id, name: Nav Products, props: { layout: horizontal, gap: 12, crossAlign: center, padding: [11, 12, 11, 12], cornerRadius: 10, fill: none, sizingH: fill, sizingV: hug } }, as: nav2 }
+  - { command: node.create, params: { type: rectangle, parent: $nav2.id, name: Icon, width: 16, height: 16, props: { cornerRadius: 4, fill: "#475569" } } }
+  - { command: text.create, params: { text: "Products", x: 0, y: 0, parent: $nav2.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#94A3B8"] } } }
+  - { command: node.create, params: { type: frame, parent: $side.id, name: Nav Customers, props: { layout: horizontal, gap: 12, crossAlign: center, padding: [11, 12, 11, 12], cornerRadius: 10, fill: none, sizingH: fill, sizingV: hug } }, as: nav3 }
+  - { command: node.create, params: { type: rectangle, parent: $nav3.id, name: Icon, width: 16, height: 16, props: { cornerRadius: 4, fill: "#475569" } } }
+  - { command: text.create, params: { text: "Customers", x: 0, y: 0, parent: $nav3.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#94A3B8"] } } }
+  - { command: node.create, params: { type: frame, parent: $side.id, name: Nav Reports, props: { layout: horizontal, gap: 12, crossAlign: center, padding: [11, 12, 11, 12], cornerRadius: 10, fill: none, sizingH: fill, sizingV: hug } }, as: nav4 }
+  - { command: node.create, params: { type: rectangle, parent: $nav4.id, name: Icon, width: 16, height: 16, props: { cornerRadius: 4, fill: "#475569" } } }
+  - { command: text.create, params: { text: "Reports", x: 0, y: 0, parent: $nav4.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#94A3B8"] } } }
+  - { command: node.create, params: { type: frame, parent: $side.id, name: Nav Settings, props: { layout: horizontal, gap: 12, crossAlign: center, padding: [11, 12, 11, 12], cornerRadius: 10, fill: none, sizingH: fill, sizingV: hug } }, as: nav5 }
+  - { command: node.create, params: { type: rectangle, parent: $nav5.id, name: Icon, width: 16, height: 16, props: { cornerRadius: 4, fill: "#475569" } } }
+  - { command: text.create, params: { text: "Settings", x: 0, y: 0, parent: $nav5.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#94A3B8"] } } }
+  - { command: node.create, params: { type: frame, parent: $initial.selection.0, name: Main, props: { layout: vertical, padding: [28, 32, 28, 32], gap: 24, fill: none, sizingH: fill, sizingV: fill } }, as: main }
+  - { command: node.create, params: { type: frame, parent: $main.id, name: Top Bar, props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, fill: none, sizingH: fill, sizingV: hug } }, as: top }
+  - { command: node.create, params: { type: frame, parent: $top.id, name: Heading, props: { layout: vertical, gap: 4, fill: none, sizingH: hug, sizingV: hug } }, as: heading }
+  - { command: text.create, params: { text: "Overview", x: 0, y: 0, parent: $heading.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 26, fills: ["#0F172A"] } } }
+  - { command: text.create, params: { text: "Sales across all stores  ·  last 12 months", x: 0, y: 0, parent: $heading.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 14, fills: ["#475569"] } } }
+  - { command: node.create, params: { type: frame, parent: $top.id, name: Range, props: { layout: horizontal, gap: 8, padding: [9, 14, 9, 14], cornerRadius: 10, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: hug, sizingV: hug } }, as: range }
+  - { command: text.create, params: { text: "Nov 2025 – Oct 2026", x: 0, y: 0, parent: $range.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $main.id, name: KPIs, props: { layout: horizontal, gap: 20, fill: none, sizingH: fill, sizingV: hug } }, as: kpis }
+  - { command: node.create, params: { type: frame, parent: $kpis.id, name: KPI Revenue, props: { layout: vertical, gap: 8, padding: 20, cornerRadius: 14, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: k0 }
+  - { command: text.create, params: { text: "Revenue", x: 0, y: 0, parent: $k0.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 13, fills: ["#475569"] } } }
+  - { command: text.create, params: { text: "£1.84m", x: 0, y: 0, parent: $k0.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 28, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $k0.id, name: Delta, props: { layout: horizontal, padding: [3, 8, 3, 8], cornerRadius: 999, fill: "#DCFCE7", sizingH: hug, sizingV: hug } }, as: d0 }
+  - { command: text.create, params: { text: "+12.4%", x: 0, y: 0, parent: $d0.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#166534"] } } }
+  - { command: node.create, params: { type: frame, parent: $kpis.id, name: KPI Orders, props: { layout: vertical, gap: 8, padding: 20, cornerRadius: 14, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: k1 }
+  - { command: text.create, params: { text: "Orders", x: 0, y: 0, parent: $k1.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 13, fills: ["#475569"] } } }
+  - { command: text.create, params: { text: "24,310", x: 0, y: 0, parent: $k1.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 28, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $k1.id, name: Delta, props: { layout: horizontal, padding: [3, 8, 3, 8], cornerRadius: 999, fill: "#DCFCE7", sizingH: hug, sizingV: hug } }, as: d1 }
+  - { command: text.create, params: { text: "+8.1%", x: 0, y: 0, parent: $d1.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#166534"] } } }
+  - { command: node.create, params: { type: frame, parent: $kpis.id, name: KPI Avg. order, props: { layout: vertical, gap: 8, padding: 20, cornerRadius: 14, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: k2 }
+  - { command: text.create, params: { text: "Avg. order", x: 0, y: 0, parent: $k2.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 13, fills: ["#475569"] } } }
+  - { command: text.create, params: { text: "£75.70", x: 0, y: 0, parent: $k2.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 28, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $k2.id, name: Delta, props: { layout: horizontal, padding: [3, 8, 3, 8], cornerRadius: 999, fill: "#DCFCE7", sizingH: hug, sizingV: hug } }, as: d2 }
+  - { command: text.create, params: { text: "+3.9%", x: 0, y: 0, parent: $d2.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#166534"] } } }
+  - { command: node.create, params: { type: frame, parent: $kpis.id, name: KPI Refund rate, props: { layout: vertical, gap: 8, padding: 20, cornerRadius: 14, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: k3 }
+  - { command: text.create, params: { text: "Refund rate", x: 0, y: 0, parent: $k3.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 13, fills: ["#475569"] } } }
+  - { command: text.create, params: { text: "1.6%", x: 0, y: 0, parent: $k3.id, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 28, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $k3.id, name: Delta, props: { layout: horizontal, padding: [3, 8, 3, 8], cornerRadius: 999, fill: "#E0F2FE", sizingH: hug, sizingV: hug } }, as: d3 }
+  - { command: text.create, params: { text: "−0.4 pt", x: 0, y: 0, parent: $d3.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#075985"] } } }
+  - { command: node.create, params: { type: frame, parent: $main.id, name: Charts, props: { layout: horizontal, gap: 20, fill: none, sizingH: fill, sizingV: hug } }, as: charts }
+  - { command: node.create, params: { type: frame, parent: $charts.id, name: Revenue Chart, props: { layout: vertical, gap: 16, padding: 20, cornerRadius: 14, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: chart }
+  - { command: node.create, params: { type: frame, parent: $chart.id, name: Chart Head, props: { layout: horizontal, mainAlign: spaceBetween, fill: none, sizingH: fill, sizingV: hug } }, as: chartHead }
+  - { command: text.create, params: { text: "Monthly revenue", x: 0, y: 0, parent: $chartHead.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 16, fills: ["#0F172A"] } } }
+  - { command: text.create, params: { text: "£ thousands", x: 0, y: 0, parent: $chartHead.id, props: { fontFamily: Inter, fontStyle: Regular, fontSize: 13, fills: ["#64748B"] } } }
+  - { command: node.create, params: { type: frame, parent: $chart.id, name: Bars, height: 220, props: { layout: horizontal, gap: 14, crossAlign: max, padding: [0, 4, 0, 4], fill: none, stroke: "#E2E8F0", strokeSides: [0, 0, 1, 0], strokeWeight: 1, sizingH: fill, sizingV: fixed } }, as: bars }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M1", width: 30, height: 76, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M2", width: 30, height: 88, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M3", width: 30, height: 102, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M4", width: 30, height: 98, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M5", width: 30, height: 120, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M6", width: 30, height: 144, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M7", width: 30, height: 138, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M8", width: 30, height: 156, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M9", width: 30, height: 166, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M10", width: 30, height: 182, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M11", width: 30, height: 192, props: { cornerRadius: [6, 6, 0, 0], fill: "#C7D2FE", sizingH: fill } } }
+  - { command: node.create, params: { type: rectangle, parent: $bars.id, name: "M12", width: 30, height: 208, props: { cornerRadius: [6, 6, 0, 0], fill: "#6366F1", sizingH: fill } } }
+  - { command: node.create, params: { type: frame, parent: $chart.id, name: Months, props: { layout: horizontal, mainAlign: spaceBetween, padding: [0, 6, 0, 6], fill: none, sizingH: fill, sizingV: hug } }, as: months }
+  - { command: text.create, params: { text: "N", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "D", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "J", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "F", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "M", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "A", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "M", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "J", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "J", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "A", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "S", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: text.create, params: { text: "O", x: 0, y: 0, parent: $months.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 12, fills: ["#64748B"] } } }
+  - { command: node.create, params: { type: frame, parent: $charts.id, name: Channels, width: 320, props: { layout: vertical, gap: 16, padding: 20, cornerRadius: 14, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: fixed, sizingV: fill } }, as: channels }
+  - { command: text.create, params: { text: "Sales by channel", x: 0, y: 0, parent: $channels.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 16, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $channels.id, name: Donut, width: 280, height: 150, props: { fill: none, sizingH: fill } }, as: donut }
+  - { command: node.create, params: { type: ellipse, parent: $donut.id, name: Arc 1, x: 65, y: 0, width: 150, height: 150, props: { fill: "#6366F1", arcStart: -90, arcSweep: 198, arcInner: 0.62 } }, as: arc0 }
+  - { command: node.create, params: { type: ellipse, parent: $donut.id, name: Arc 2, x: 65, y: 0, width: 150, height: 150, props: { fill: "#38BDF8", arcStart: 108, arcSweep: 108, arcInner: 0.62 } }, as: arc1 }
+  - { command: node.create, params: { type: ellipse, parent: $donut.id, name: Arc 3, x: 65, y: 0, width: 150, height: 150, props: { fill: "#F59E0B", arcStart: 216, arcSweep: 54, arcInner: 0.62 } }, as: arc2 }
+  - { command: text.create, params: { text: "55%", x: 100, y: 60, parent: $donut.id, width: 80, props: { fontFamily: Inter, fontStyle: Bold, fontSize: 24, textAlign: center, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $channels.id, name: Legend Online store, props: { layout: horizontal, gap: 10, crossAlign: center, fill: none, sizingH: fill, sizingV: hug } }, as: lg0 }
+  - { command: node.create, params: { type: rectangle, parent: $lg0.id, name: Chip, width: 10, height: 10, props: { cornerRadius: 3, fill: "#6366F1" } } }
+  - { command: text.create, params: { text: "Online store", x: 0, y: 0, parent: $lg0.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 13, fills: ["#334155"], sizingH: fill } } }
+  - { command: text.create, params: { text: "55%", x: 0, y: 0, parent: $lg0.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 13, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $channels.id, name: Legend Retail, props: { layout: horizontal, gap: 10, crossAlign: center, fill: none, sizingH: fill, sizingV: hug } }, as: lg1 }
+  - { command: node.create, params: { type: rectangle, parent: $lg1.id, name: Chip, width: 10, height: 10, props: { cornerRadius: 3, fill: "#38BDF8" } } }
+  - { command: text.create, params: { text: "Retail", x: 0, y: 0, parent: $lg1.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 13, fills: ["#334155"], sizingH: fill } } }
+  - { command: text.create, params: { text: "30%", x: 0, y: 0, parent: $lg1.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 13, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $channels.id, name: Legend Wholesale, props: { layout: horizontal, gap: 10, crossAlign: center, fill: none, sizingH: fill, sizingV: hug } }, as: lg2 }
+  - { command: node.create, params: { type: rectangle, parent: $lg2.id, name: Chip, width: 10, height: 10, props: { cornerRadius: 3, fill: "#F59E0B" } } }
+  - { command: text.create, params: { text: "Wholesale", x: 0, y: 0, parent: $lg2.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 13, fills: ["#334155"], sizingH: fill } } }
+  - { command: text.create, params: { text: "15%", x: 0, y: 0, parent: $lg2.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 13, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $main.id, name: Recent Orders, props: { layout: vertical, gap: 0, padding: [16, 20, 8, 20], cornerRadius: 14, fill: "#FFFFFF", stroke: "#E2E8F0", strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: orders }
+  - { command: node.create, params: { type: frame, parent: $orders.id, name: Orders Head, props: { layout: horizontal, padding: [0, 0, 8, 0], fill: none, sizingH: fill, sizingV: hug } }, as: oh }
+  - { command: text.create, params: { text: "Recent orders", x: 0, y: 0, parent: $oh.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 16, fills: ["#0F172A"] } } }
+  - { command: node.create, params: { type: frame, parent: $orders.id, name: "Order 24310", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [10, 0, 10, 0], fill: none, stroke: "#F1F5F9", strokeSides: [1, 0, 0, 0], strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: o0 }
+  - { command: text.create, params: { text: "#24310", x: 0, y: 0, parent: $o0.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#64748B"], sizingH: fixed, width: 120 } } }
+  - { command: text.create, params: { text: "Harbour Kitchen", x: 0, y: 0, parent: $o0.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#0F172A"], sizingH: fill } } }
+  - { command: text.create, params: { text: "£412.00", x: 0, y: 0, parent: $o0.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 14, fills: ["#0F172A"], sizingH: fixed, width: 120 } } }
+  - { command: node.create, params: { type: frame, parent: $o0.id, name: Status, props: { layout: horizontal, padding: [3, 10, 3, 10], cornerRadius: 999, fill: "#DCFCE7", sizingH: hug, sizingV: hug } }, as: s0 }
+  - { command: text.create, params: { text: "Paid", x: 0, y: 0, parent: $s0.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#166534"] } } }
+  - { command: node.create, params: { type: frame, parent: $orders.id, name: "Order 24309", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [10, 0, 10, 0], fill: none, stroke: "#F1F5F9", strokeSides: [1, 0, 0, 0], strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: o1 }
+  - { command: text.create, params: { text: "#24309", x: 0, y: 0, parent: $o1.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#64748B"], sizingH: fixed, width: 120 } } }
+  - { command: text.create, params: { text: "Nora Lindqvist", x: 0, y: 0, parent: $o1.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#0F172A"], sizingH: fill } } }
+  - { command: text.create, params: { text: "£86.50", x: 0, y: 0, parent: $o1.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 14, fills: ["#0F172A"], sizingH: fixed, width: 120 } } }
+  - { command: node.create, params: { type: frame, parent: $o1.id, name: Status, props: { layout: horizontal, padding: [3, 10, 3, 10], cornerRadius: 999, fill: "#E0F2FE", sizingH: hug, sizingV: hug } }, as: s1 }
+  - { command: text.create, params: { text: "Shipped", x: 0, y: 0, parent: $s1.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#075985"] } } }
+  - { command: node.create, params: { type: frame, parent: $orders.id, name: "Order 24308", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [10, 0, 10, 0], fill: none, stroke: "#F1F5F9", strokeSides: [1, 0, 0, 0], strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: o2 }
+  - { command: text.create, params: { text: "#24308", x: 0, y: 0, parent: $o2.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#64748B"], sizingH: fixed, width: 120 } } }
+  - { command: text.create, params: { text: "Oak & Ember", x: 0, y: 0, parent: $o2.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#0F172A"], sizingH: fill } } }
+  - { command: text.create, params: { text: "£1,120.00", x: 0, y: 0, parent: $o2.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 14, fills: ["#0F172A"], sizingH: fixed, width: 120 } } }
+  - { command: node.create, params: { type: frame, parent: $o2.id, name: Status, props: { layout: horizontal, padding: [3, 10, 3, 10], cornerRadius: 999, fill: "#FEF3C7", sizingH: hug, sizingV: hug } }, as: s2 }
+  - { command: text.create, params: { text: "Pending", x: 0, y: 0, parent: $s2.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#92400E"] } } }
+  - { command: node.create, params: { type: frame, parent: $orders.id, name: "Order 24307", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [10, 0, 10, 0], fill: none, stroke: "#F1F5F9", strokeSides: [1, 0, 0, 0], strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: o3 }
+  - { command: text.create, params: { text: "#24307", x: 0, y: 0, parent: $o3.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#64748B"], sizingH: fixed, width: 120 } } }
+  - { command: text.create, params: { text: "Field Notes Café", x: 0, y: 0, parent: $o3.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#0F172A"], sizingH: fill } } }
+  - { command: text.create, params: { text: "£264.80", x: 0, y: 0, parent: $o3.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 14, fills: ["#0F172A"], sizingH: fixed, width: 120 } } }
+  - { command: node.create, params: { type: frame, parent: $o3.id, name: Status, props: { layout: horizontal, padding: [3, 10, 3, 10], cornerRadius: 999, fill: "#DCFCE7", sizingH: hug, sizingV: hug } }, as: s3 }
+  - { command: text.create, params: { text: "Paid", x: 0, y: 0, parent: $s3.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#166534"] } } }
+  - { command: node.create, params: { type: frame, parent: $orders.id, name: "Order 24306", props: { layout: horizontal, mainAlign: spaceBetween, crossAlign: center, padding: [10, 0, 10, 0], fill: none, stroke: "#F1F5F9", strokeSides: [1, 0, 0, 0], strokeWeight: 1, sizingH: fill, sizingV: hug } }, as: o4 }
+  - { command: text.create, params: { text: "#24306", x: 0, y: 0, parent: $o4.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#64748B"], sizingH: fixed, width: 120 } } }
+  - { command: text.create, params: { text: "Iris Moreau", x: 0, y: 0, parent: $o4.id, props: { fontFamily: Inter, fontStyle: Medium, fontSize: 14, fills: ["#0F172A"], sizingH: fill } } }
+  - { command: text.create, params: { text: "£58.00", x: 0, y: 0, parent: $o4.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 14, fills: ["#0F172A"], sizingH: fixed, width: 120 } } }
+  - { command: node.create, params: { type: frame, parent: $o4.id, name: Status, props: { layout: horizontal, padding: [3, 10, 3, 10], cornerRadius: 999, fill: "#F1F5F9", sizingH: hug, sizingV: hug } }, as: s4 }
+  - { command: text.create, params: { text: "Refunded", x: 0, y: 0, parent: $s4.id, props: { fontFamily: Inter, fontStyle: Semi Bold, fontSize: 12, fills: ["#334155"] } } }
+  - { command: node.get, params: { id: $kpis.id }, as: kpiRow }
+  - { command: node.get, params: { id: $bars.id }, as: barRow }
+  - { command: node.get, params: { id: $arc0.id }, as: arc }
+  - { command: text.missingFonts, params: {}, as: missing }
+thumbnail: { area: $inspect.contentBounds }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      layers: 134
+      contentBounds: { width: 1440, height: 900 }
+  - actual: results
+    values:
+      kpiRow: { layout: { mode: horizontal, gap: 20 }, sizing: { horizontal: fill }, children: { count: 4, all: { sizing: { horizontal: fill, vertical: hug }, layout: { mode: vertical } } } }
+      barRow: { layout: { mode: horizontal, crossAlign: max }, children: { count: 12, all: { type: RECTANGLE } } }
+      arc: { type: ELLIPSE, arc: { start: -90, sweep: 198, inner: 0.62 } }
+      missing.families: { count: 0 }
+diagnostics: []
+since: "2026-11-09"

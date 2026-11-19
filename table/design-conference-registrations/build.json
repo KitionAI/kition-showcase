@@ -1,0 +1,30 @@
+{
+  "id": "table/design-conference-registrations",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    644
+  ],
+  "stats": "2 tables; 1 dashboard",
+  "commands": 18,
+  "document": {
+    "name": "design-conference-registrations.ktable",
+    "bytes": 266240,
+    "sha256": "c0221f9905d61e7055d61bc11e83a4785551c01ac5d069ba3e2953de0640fb0e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "ae8bfc2c55220def9a6b64abf03ddff199b34729ca62b9977ca9d0ee1a1140fa"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 89
+}

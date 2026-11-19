@@ -1,0 +1,40 @@
+{
+  "id": "pdf/design-services-agreement",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages; 8 form fields",
+  "commands": 44,
+  "document": {
+    "name": "design-services-agreement.pdf",
+    "bytes": 651444,
+    "sha256": "0531ff400175cb437e882fc642e0104f36c6542a006e46deadc2d08db8cded1e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "4ba0aeb0d1a443951ffc1d478b3136dd56753a2bc31164ae78e2dba00cd26fd2"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "pdf.font-not-embedded",
+      "message": "The font Helvetica is not embedded; it is one of the standard 14 fonts, which viewers supply.",
+      "severity": "info",
+      "target": {
+        "page": 1,
+        "path": "font:Helvetica"
+      }
+    }
+  ],
+  "built_ms": 483
+}

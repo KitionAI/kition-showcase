@@ -1,0 +1,30 @@
+{
+  "id": "board/start-stop-continue-retro",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 45 elements",
+  "commands": 8,
+  "document": {
+    "name": "start-stop-continue-retro.kboard",
+    "bytes": 17310,
+    "sha256": "d17d579fd28f4b95d9f50763c5e254389765f1bd710b06b6bc4c0c256feffdc7"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      378
+    ],
+    "sha256": "917ceaed07e35e7c3fa194cdc8ddb7432c8cf4b06d2a0b061a157b07df4123b2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

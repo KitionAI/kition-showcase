@@ -1,0 +1,72 @@
+format: 1
+id: html/ferry-departures-board
+title: Ferry Departures Board
+summary: A harbour departures table with zebra rows, right-aligned times in tabular figures, coloured status pills and a summary row, styled entirely with CSS.
+category: Tables & Data
+tags: [tables, zebra-rows, status-pills, nth-child]
+features: [html.page.edit, html.agent.act]
+description: |
+  A real `<table>` with `<thead>`, `<tbody>` and `<tfoot>`: `border-collapse`, zebra stripes
+  from `tr:nth-child(even)`, numeric columns aligned right with `font-variant-numeric:
+  tabular-nums`, status pills as rounded inline blocks, and a delayed row picked out with a
+  left border. Times are set in JetBrains Mono, from a monospace stack.
+document: { name: ferry-departures-board.html, width: 1100, height: 540 }
+steps:
+  - command: html.setSource
+    as: page
+    params:
+      source: |
+        <!doctype html>
+        <html lang="en">
+        <head>
+        <meta charset="utf-8">
+        <title>Departures, Port Arran</title>
+        <style>
+          body { margin: 0; padding: 36px 44px; font-family: Inter, sans-serif; background: #0b1d33; color: #e2e8f0; }
+          .top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+          h1 { margin: 0; font-size: 30px; letter-spacing: -0.5px; }
+          h1 span { color: #38bdf8; }
+          .clock { font-family: "JetBrains Mono", Menlo, monospace; font-size: 28px; font-weight: 700; color: #fbbf24; }
+          table { width: 100%; border-collapse: collapse; background: #143150; border-radius: 12px; font-size: 16px; }
+          th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #7dd3fc; padding: 14px 18px; border-bottom: 2px solid #1e3a5f; }
+          td { padding: 13px 18px; border-bottom: 1px solid #16324f; }
+          tbody tr:nth-child(even) td { background: #0d2440; }
+          .num { text-align: right; font-variant-numeric: tabular-nums; }
+          td.time { font-family: "JetBrains Mono", Menlo, monospace; font-weight: 700; font-size: 18px; }
+          .vessel { color: #94a3b8; font-size: 14px; }
+          .pill { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; }
+          .ok { background: #064e3b; color: #6ee7b7; }
+          .board { background: #1e3a8a; color: #bfdbfe; }
+          .late { background: #78350f; color: #fcd34d; }
+          .off { background: #7f1d1d; color: #fecaca; }
+          tr.delayed td:first-child { border-left: 4px solid #f59e0b; }
+          tfoot td { color: #94a3b8; font-size: 13px; border-bottom: none; }
+        </style>
+        </head>
+        <body>
+          <div class="top"><h1>Port Arran <span>Departures</span></h1><div class="clock">14:32</div></div>
+          <table>
+            <thead><tr><th>Time</th><th>Destination</th><th>Vessel</th><th class="num">Berth</th><th class="num">Cars</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="time">14:45</td><td>Brodick Pier</td><td class="vessel">MV Caledonian Wren</td><td class="num">2</td><td class="num">12 / 64</td><td><span class="pill board">Boarding</span></td></tr>
+              <tr class="delayed"><td class="time">15:05</td><td>Lochranza</td><td class="vessel">MV Isle of Fennick</td><td class="num">1</td><td class="num">31 / 40</td><td><span class="pill late">Delayed 20 min</span></td></tr>
+              <tr><td class="time">15:30</td><td>Claonaig</td><td class="vessel">MV Loch Seil</td><td class="num">3</td><td class="num">8 / 36</td><td><span class="pill ok">On time</span></td></tr>
+              <tr><td class="time">16:10</td><td>Campbeltown</td><td class="vessel">MV Kintyre Star</td><td class="num">4</td><td class="num">55 / 90</td><td><span class="pill ok">On time</span></td></tr>
+              <tr><td class="time">16:45</td><td>Holy Isle (foot only)</td><td class="vessel">Launch Saint Molaise</td><td class="num">5</td><td class="num">n/a</td><td><span class="pill off">Cancelled: swell</span></td></tr>
+              <tr><td class="time">17:20</td><td>Brodick Pier</td><td class="vessel">MV Caledonian Wren</td><td class="num">2</td><td class="num">0 / 64</td><td><span class="pill ok">On time</span></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="6">Wind southwest 5 to 6. Foot passengers board 10 minutes before departure. Times are local.</td></tr></tfoot>
+          </table>
+        </body>
+        </html>
+expected:
+  - actual: inspect
+    values:
+      width: 1100
+      height: 540
+      source: { contains: "tr:nth-child(even)" }
+  - actual: results
+    values:
+      page.changed: true
+diagnostics: []
+since: "2026-11-09"

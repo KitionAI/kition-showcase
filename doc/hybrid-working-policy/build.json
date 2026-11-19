@@ -1,0 +1,30 @@
+{
+  "id": "doc/hybrid-working-policy",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages; 405 words",
+  "commands": 115,
+  "document": {
+    "name": "hybrid-working-policy.docx",
+    "bytes": 10356,
+    "sha256": "329ec5588a156f0b4c285fa602c023d051ed62381dfaf3ce54942df4befb2618"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "73385c0de3eb278780a30371c73b2aee6aa97d03d713af6f846a8dda0d7b7cdf"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 45
+}

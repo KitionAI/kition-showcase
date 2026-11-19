@@ -1,0 +1,30 @@
+{
+  "id": "sheet/sales-commission-calculator",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1738,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:M13",
+  "commands": 59,
+  "document": {
+    "name": "sales-commission-calculator.xlsx",
+    "bytes": 7294,
+    "sha256": "cbbe943373f9d8bdb06e5b677ab5884622744506f699ee339b3c8e264eba634e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      217
+    ],
+    "sha256": "5ce52eadec7e1bdf0077a96e9daaec252b20f0e83ca957f75ad1ff643bf01cf3"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 32
+}

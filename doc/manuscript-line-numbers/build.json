@@ -1,0 +1,30 @@
+{
+  "id": "doc/manuscript-line-numbers",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages; 318 words",
+  "commands": 52,
+  "document": {
+    "name": "manuscript-line-numbers.docx",
+    "bytes": 8372,
+    "sha256": "6aa5f7735c5ad5522b0bb02fbe77cffbc220d865ff8278ce8cb873bdd7cf08a2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "85e13a3e80e29375308b1b8d76c41b115df01209e6cc7d80dd0a07c2837c723c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 27
+}

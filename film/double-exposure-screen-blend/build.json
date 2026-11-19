@@ -1,0 +1,34 @@
+{
+  "id": "film/double-exposure-screen-blend",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 12.0 s; 3 video clips; 3 effects",
+  "commands": 12,
+  "document": {
+    "name": "double-exposure-screen-blend.kfilm",
+    "bytes": 17264,
+    "sha256": "612895508ba183dad0cf6fbd1dfb9bd2526327f5706685d06c43aeb31ae3cdce"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "78aa76f516107839ed0089aa666ab70cbea709f643e896248179ca36110603d5"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 24,
+    "bytes": 101476
+  },
+  "diagnostics": [],
+  "built_ms": 15
+}

@@ -1,0 +1,30 @@
+{
+  "id": "doc/programme-status-report",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    872,
+    692
+  ],
+  "stats": "1 page; 277 words",
+  "commands": 196,
+  "document": {
+    "name": "programme-status-report.docx",
+    "bytes": 10505,
+    "sha256": "5678491fa9fec727e923b4a1ada35c42b13747dde7f87276f8d7d367d5ce4ac0"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      495
+    ],
+    "sha256": "16076ffc3abe98ce6ed7de97aae6d6027dbdc57c95bff09e5bfc197e62ea26bc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 75
+}

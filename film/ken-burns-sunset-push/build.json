@@ -1,0 +1,34 @@
+{
+  "id": "film/ken-burns-sunset-push",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 18.0 s; 2 video clips; 2 effects; 2 animated effects",
+  "commands": 16,
+  "document": {
+    "name": "ken-burns-sunset-push.kfilm",
+    "bytes": 16828,
+    "sha256": "a1b537af1432afcf59970aadb5bca34bc39f1c8b505dc82f5a829bfe0b892aa6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "dc4bbb376dd52f3c5e2a651a881a076ac5a715fd30cb837e3e8ab79429c70111"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 48,
+    "bytes": 91314
+  },
+  "diagnostics": [],
+  "built_ms": 16
+}

@@ -1,0 +1,30 @@
+{
+  "id": "html/volunteer-signup-form",
+  "kit": {
+    "repo": "kition-html",
+    "commit": "7f15327df8",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    780
+  ],
+  "stats": "1200 × 780 px; 4.2 KB of HTML",
+  "commands": 1,
+  "document": {
+    "name": "volunteer-signup-form.html",
+    "bytes": 4275,
+    "sha256": "27cb044430f3be4a9a50338138ad56c77a9cd466ab0758354dcc5799b31970fc"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      416
+    ],
+    "sha256": "402a8550fb341d67b799c238095c5fb8a78014d6394c6b8689f2f8767f0047bf"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 11
+}

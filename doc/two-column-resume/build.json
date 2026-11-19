@@ -1,0 +1,30 @@
+{
+  "id": "doc/two-column-resume",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 214 words",
+  "commands": 141,
+  "document": {
+    "name": "two-column-resume.docx",
+    "bytes": 8791,
+    "sha256": "9e7afe8d6ece9f73e889328df7295accaf7757a7fd6bd8cf2e774a52d871f747"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "057439cf0ddf6820e8921db2a00fc44a00bf0530ff3b8949a029fb10bf1f227e"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 82
+}

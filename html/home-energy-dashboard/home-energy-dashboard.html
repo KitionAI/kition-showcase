@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home energy, this week</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 28px 36px; font-family: Inter, sans-serif; background: #0f1419; color: #e6edf3; }
+  header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+  h1 { margin: 0; font-size: 24px; }
+  header p { margin: 4px 0 0; color: #8b98a5; font-size: 14px; }
+  .range { display: flex; gap: 6px; background: #1a222c; padding: 4px; border-radius: 10px; font-size: 13px; }
+  .range span { padding: 7px 14px; border-radius: 8px; color: #8b98a5; }
+  .range .on { background: #2a3644; color: #e6edf3; font-weight: 600; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .card { background: #18202a; border: 1px solid #243040; border-radius: 16px; padding: 20px; }
+  .kpi small { color: #8b98a5; font-size: 13px; }
+  .kpi b { display: block; font-size: 30px; margin: 8px 0 6px; letter-spacing: -0.5px; }
+  .up { color: #f87171; font-size: 13px; font-weight: 600; }
+  .down { color: #4ade80; font-size: 13px; font-weight: 600; }
+  .wide { grid-column: span 2; }
+  h3 { margin: 0 0 14px; font-size: 15px; display: flex; justify-content: space-between; }
+  h3 span { color: #8b98a5; font-weight: 500; font-size: 13px; }
+  .bar { margin-bottom: 14px; font-size: 13px; }
+  .bar div { display: flex; justify-content: space-between; margin-bottom: 6px; color: #c9d4de; }
+  .track { height: 8px; background: #243040; border-radius: 999px; }
+  .fill { height: 8px; border-radius: 999px; }
+  .device { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-top: 1px solid #243040; font-size: 14px; }
+  .device:first-of-type { border-top: none; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .device em { margin-left: auto; font-style: normal; color: #8b98a5; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <header><div><h1>Willow Cottage · Energy</h1><p>Week of 2 to 8 November 2026 · tariff: Agile Night</p></div>
+    <div class="range"><span>Day</span><span class="on">Week</span><span>Month</span><span>Year</span></div></header>
+  <div class="grid">
+    <div class="card kpi"><small>Electricity used</small><b>142 kWh</b><span class="up">▲ 9% on last week</span></div>
+    <div class="card kpi"><small>Solar generated</small><b>38 kWh</b><span class="down">▼ 21% (shorter days)</span></div>
+    <div class="card kpi"><small>Cost so far</small><b>£31.80</b><span class="up">▲ £2.40</span></div>
+    <div class="card kpi"><small>Battery cycles</small><b>6.5</b><span class="down">Healthy · 97% capacity</span></div>
+    <div class="card wide">
+      <h3>Daily use <span>kWh · peak hours in coral</span></h3>
+      <svg width="560" height="206" viewBox="0 0 560 206">
+        <line x1="0" y1="180" x2="560" y2="180" stroke="#243040"/>
+        <line x1="0" y1="120" x2="560" y2="120" stroke="#1e2833" stroke-dasharray="4 4"/>
+        <line x1="0" y1="60" x2="560" y2="60" stroke="#1e2833" stroke-dasharray="4 4"/>
+        <g fill="#3b82f6"><rect x="22" y="72" width="44" height="108" rx="6"/><rect x="100" y="90" width="44" height="90" rx="6"/><rect x="178" y="80" width="44" height="100" rx="6"/><rect x="256" y="64" width="44" height="116" rx="6"/><rect x="334" y="96" width="44" height="84" rx="6"/><rect x="412" y="40" width="44" height="140" rx="6"/><rect x="490" y="52" width="44" height="128" rx="6"/></g>
+        <g fill="#fb7185"><rect x="22" y="72" width="44" height="30" rx="6"/><rect x="100" y="90" width="44" height="22" rx="6"/><rect x="178" y="80" width="44" height="26" rx="6"/><rect x="256" y="64" width="44" height="34" rx="6"/><rect x="334" y="96" width="44" height="20" rx="6"/><rect x="412" y="40" width="44" height="44" rx="6"/><rect x="490" y="52" width="44" height="38" rx="6"/></g>
+        <g font-family="Inter, sans-serif" font-size="12" fill="#8b98a5" text-anchor="middle"><text x="44" y="200">Mon</text><text x="122" y="200">Tue</text><text x="200" y="200">Wed</text><text x="278" y="200">Thu</text><text x="356" y="200">Fri</text><text x="434" y="200">Sat</text><text x="512" y="200">Sun</text></g>
+      </svg>
+    </div>
+    <div class="card">
+      <h3>Solar today <span>peak 2.1 kW</span></h3>
+      <svg width="250" height="120" viewBox="0 0 250 120">
+        <defs><linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.55"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0 110 L20 108 L40 100 L60 84 L80 60 L100 38 L120 24 L140 20 L160 30 L180 52 L200 78 L220 98 L250 110 Z" fill="url(#sun)"/>
+        <polyline points="0,110 20,108 40,100 60,84 80,60 100,38 120,24 140,20 160,30 180,52 200,78 220,98 250,110" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <div class="bar" style="margin-top:14px"><div><span>Self-consumed</span><span>74%</span></div><div class="track"><div class="fill" style="width:74%;background:#fbbf24"></div></div></div>
+    </div>
+    <div class="card">
+      <h3>Monthly budget</h3>
+      <div class="bar"><div><span>Electricity</span><span>£96 / £140</span></div><div class="track"><div class="fill" style="width:69%;background:#3b82f6"></div></div></div>
+      <div class="bar"><div><span>Gas</span><span>£58 / £70</span></div><div class="track"><div class="fill" style="width:83%;background:#f59e0b"></div></div></div>
+      <div class="bar"><div><span>Water</span><span>£19 / £35</span></div><div class="track"><div class="fill" style="width:54%;background:#22d3ee"></div></div></div>
+    </div>
+    <div class="card wide" style="grid-column: span 4;">
+      <h3>Biggest users this week <span>kWh</span></h3>
+      <div class="device"><span class="dot" style="background:#4ade80"></span>Heat pump<em>61.2</em></div>
+      <div class="device"><span class="dot" style="background:#4ade80"></span>Car charger (overnight)<em>34.8</em></div>
+      <div class="device"><span class="dot" style="background:#facc15"></span>Tumble dryer<em>12.1</em></div>
+    </div>
+  </div>
+</body>
+</html>

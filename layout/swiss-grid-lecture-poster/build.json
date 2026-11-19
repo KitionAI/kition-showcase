@@ -1,0 +1,30 @@
+{
+  "id": "layout/swiss-grid-lecture-poster",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    986,
+    1335
+  ],
+  "stats": "1 page; 4 stories; 4 paragraph styles",
+  "commands": 51,
+  "document": {
+    "name": "swiss-grid-lecture-poster.klayout",
+    "bytes": 39103,
+    "sha256": "dc64ec4e036bfed3d3356cec5027ea0a4e626734983ce26c032a91c505369a8c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      452,
+      640
+    ],
+    "sha256": "95a446aeb0eecea6b43d38cce7a3ce331036714443e4d2dd5472addee9dfcdb2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 58
+}

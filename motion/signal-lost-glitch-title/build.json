@@ -1,0 +1,34 @@
+{
+  "id": "motion/signal-lost-glitch-title",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "95170ce1e8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "5 s at 30 fps; 4 layers; 3 animated layers",
+  "commands": 22,
+  "document": {
+    "name": "signal-lost-glitch-title.kmotion",
+    "bytes": 245876,
+    "sha256": "02b4d6850af745707d5c6811e752171984a683f61b7b9d00ad78377ca50dcfca"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "c2090077984a72ad895bc0f059d6b6f9c38319626cf2d242f3f0facc68dd599f"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 40,
+    "bytes": 69816
+  },
+  "diagnostics": [],
+  "built_ms": 9
+}

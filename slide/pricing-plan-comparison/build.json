@@ -1,0 +1,30 @@
+{
+  "id": "slide/pricing-plan-comparison",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 82,
+  "document": {
+    "name": "pricing-plan-comparison.pptx",
+    "bytes": 23108,
+    "sha256": "8117b4701506074e4be911d62480c4be12b25f57ce4f7be91f516d2c01166f0e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "e27976dd260c4f33defb68f579fe1e76d447d3885db0bd9384158ce8bb9705a5"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 535
+}

@@ -1,0 +1,30 @@
+format: 1
+id: photo/autumn-sale-poster
+title: Autumn Sale Poster
+summary: A retail poster with a gradient fill layer, a shadowed card, a star badge and type.
+category: Posters & Marketing
+tags: [gradient, shapes, layer-styles, type]
+features: [photo.paint.gradients, photo.path.shapes, photo.layer.style-basics, photo.type.point-text]
+featured: true
+description: |
+  Every element stays editable: the background is a gradient fill layer, the card and the badge are
+  live shapes, the shadow and stroke are layer styles, and every line of text is a type layer.
+document: { name: autumn-sale-poster.psd, width: 1200, height: 800 }
+steps:
+  - { command: layer.newFillLayer.gradient, params: { from: "#f6d365", to: "#fda085", angle: 135, style: linear }, as: background }
+  - { command: shape.create, params: { kind: roundedRect, rect: [110, 130, 560, 540], radii: 28, fill: "#fffaf2", name: Card }, as: card }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $card.layer, color: "#7a3410", opacity: 35, distance: 18, size: 40, angle: 120 } }
+  - { command: shape.create, params: { kind: star, rect: [800, 150, 280, 280], sides: 12, starRatio: 0.82, fill: "#c0392b", name: Badge }, as: badge }
+  - { command: layer.layerStyle.stroke, params: { layer: $badge.layer, size: 6, position: outside, color: "#fffaf2" } }
+  - { command: type.create, params: { x: 940, y: 312, text: "-30%", font: Inter, size: 64, color: "#fffaf2", align: center, name: Discount } }
+  - { command: type.create, params: { x: 160, y: 330, text: Fall Sale, font: Inter, size: 112, weight: 700, color: "#3b1f0e", name: Headline } }
+  - { command: type.create, params: { x: 164, y: 430, text: Autumn Collection 2026, font: Inter, size: 40, color: "#a0522d", name: Subtitle } }
+  - { command: shape.create, params: { kind: line, from: [164, 480], to: [520, 480], weight: 3, fill: "#a0522d", name: Rule } }
+  - { command: type.create, params: { x: 164, y: 600, text: "Nov 11 – Nov 30 · All stores", font: Inter, size: 30, color: "#3b1f0e", name: Dates } }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 9, any: { name: Headline, kind: Type, text: { text: Fall Sale } } }
+      layers.0: { kind: Type, name: Dates }
+diagnostics: []
+since: "2026-11-09"

@@ -1,0 +1,34 @@
+{
+  "id": "film/black-white-film-look",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 12.0 s; 2 video clips; 7 effects",
+  "commands": 16,
+  "document": {
+    "name": "black-white-film-look.kfilm",
+    "bytes": 18106,
+    "sha256": "722b991f7c8e67d27208d6c49b31ab26c6a1521bbc03e966422920c814980782"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "a4a283bb593c409f878cfa332d92fdab722a0ebd4b2e1606f4895383dc8baa45"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 24,
+    "bytes": 118142
+  },
+  "diagnostics": [],
+  "built_ms": 23
+}

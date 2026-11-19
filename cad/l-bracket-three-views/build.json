@@ -1,0 +1,30 @@
+{
+  "id": "cad/l-bracket-three-views",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1307,
+    924
+  ],
+  "stats": "50 objects; 8 layers",
+  "commands": 67,
+  "document": {
+    "name": "l-bracket-three-views.dxf",
+    "bytes": 47530,
+    "sha256": "723484765e72741b149a6b7ad3a377efd614997908e395b7be95a0f8715ce987"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      452
+    ],
+    "sha256": "77d968efeb2f31e861b6d98d07a1093d7e29d19f92045774d20082084d7645f1"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 27
+}

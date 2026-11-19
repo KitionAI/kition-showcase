@@ -1,0 +1,34 @@
+{
+  "id": "film/four-up-video-wall",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 10.0 s; 6 video clips; 1 effect; 5 animated effects",
+  "commands": 27,
+  "document": {
+    "name": "four-up-video-wall.kfilm",
+    "bytes": 20590,
+    "sha256": "17d9927561ffd496a7e41d014b1ed1db44831024572569e11006dfa2f0054545"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "84efb13f1b09091fbb386d004a6eca96e665b1640176b5a167a0cfccee0df4fa"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 30,
+    "bytes": 64692
+  },
+  "diagnostics": [],
+  "built_ms": 19
+}

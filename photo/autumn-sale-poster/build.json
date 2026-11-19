@@ -1,0 +1,30 @@
+{
+  "id": "photo/autumn-sale-poster",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "3fe24b1662",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    800
+  ],
+  "stats": "1200 × 800 px; 9 layers; 4 type layers; 3 shape layers; 1 fill layer; 2 styled layers; 1 mask",
+  "commands": 10,
+  "document": {
+    "name": "autumn-sale-poster.psd",
+    "bytes": 579883,
+    "sha256": "f09ae50d51268baab300b89f4eae31cf50aee1713c2ef07a0f1bfbbcb973b343"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      427
+    ],
+    "sha256": "ae1c00fabb7a7ae8afc0cd60a6f086944cc8da416934a48cab9cc297a78b67d6"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 44
+}

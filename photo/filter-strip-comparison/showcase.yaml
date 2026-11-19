@@ -1,0 +1,92 @@
+format: 1
+id: photo/filter-strip-comparison
+title: Filter Strip Comparison
+summary: One harbor scene cut into six bands, each run through a different filter, from Gaussian Blur and Mosaic to Color Halftone, Emboss and Oil Paint.
+category: Filters & Textures
+tags: [filters, render-filters, selections, reference]
+features: [photo.filter.blur, photo.filter.stylize, photo.select.make, photo.layer.basics]
+description: |
+  A harbor at sunset is drawn with shapes (sky, sun, sea, sailboats, gulls) plus rendered clouds,
+  then merged into one pixel layer. Six rectangular selections split it into bands, and each band
+  gets one filter applied inside its selection only: the original, Gaussian Blur, Mosaic, Color
+  Halftone, Emboss and Oil Paint. The labels underneath name the filter and its main setting.
+document: { name: filter-strip-comparison.psd, width: 1620, height: 1000 }
+steps:
+  - { command: gradient.fill.create, params: { from: [0, 0], to: [0, 600], stops: [[0, "#3d348b"], [0.55, "#e76f51"], [1, "#f4a261"]] }, as: sky }
+  - { command: layer.new.layer, params: { name: Clouds }, as: clouds }
+  - { command: tools.setColors, params: { foreground: "#000000", background: "#ffd6a5" } }
+  - { command: filter.render.clouds, params: { seed: 90 } }
+  - { command: image.adjustments.levels, params: { inBlack: 120 } }
+  - { command: filter.blur.motionBlur, params: { angle: 0, distance: 90 } }
+  - { command: layer.setProps, params: { layer: $clouds.layer, blend: Screen, opacity: 0.7 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [825, 380, 240, 240], fill: "#ffd166", name: Sun } }
+  - { command: shape.create, params: { kind: rect, rect: [0, 560, 1620, 440], fill: { gradient: { stops: [[0, "#f4a261"], [0.3, "#9c4f6b"], [1, "#1d1b4b"]], angle: -90 } }, name: Sea } }
+  - { command: shape.create, params: { kind: path, name: Boat 1, fill: "#2b2d42", path: { subpaths: [ { knots: [[51, 620], [249, 620], [227, 643], [73, 643]] }, { knots: [[147, 467], [153, 467], [153, 620], [147, 620]] } ] } } }
+  - { command: shape.create, params: { kind: path, name: Sail 1, fill: "#fdf0d5", path: { subpaths: [ { knots: [[158, 477], [158, 608], [235, 608]] }, { knots: [[142, 506], [142, 608], [87, 608]] } ] } } }
+  - { command: shape.create, params: { kind: rect, rect: [51, 649, 198, 6], fill: "#2b2d42", name: Ripple 1 } }
+  - { command: shape.create, params: { kind: path, name: Boat 2, fill: "#2b2d42", path: { subpaths: [ { knots: [[514, 650], [766, 650], [738, 679], [542, 679]] }, { knots: [[637, 455], [643, 455], [643, 650], [637, 650]] } ] } } }
+  - { command: shape.create, params: { kind: path, name: Sail 2, fill: "#fdf0d5", path: { subpaths: [ { knots: [[648, 465], [648, 638], [749, 638]] }, { knots: [[632, 504], [632, 638], [560, 638]] } ] } } }
+  - { command: shape.create, params: { kind: rect, rect: [514, 685, 252, 6], fill: "#2b2d42", name: Ripple 2 } }
+  - { command: shape.create, params: { kind: path, name: Boat 3, fill: "#2b2d42", path: { subpaths: [ { knots: [[1105, 630], [1325, 630], [1300, 656], [1130, 656]] }, { knots: [[1212, 460], [1218, 460], [1218, 630], [1212, 630]] } ] } } }
+  - { command: shape.create, params: { kind: path, name: Sail 3, fill: "#fdf0d5", path: { subpaths: [ { knots: [[1223, 470], [1223, 618], [1310, 618]] }, { knots: [[1207, 503], [1207, 618], [1145, 618]] } ] } } }
+  - { command: shape.create, params: { kind: rect, rect: [1105, 662, 220, 6], fill: "#2b2d42", name: Ripple 3 } }
+  - { command: shape.create, params: { kind: path, name: Boat 4, fill: "#2b2d42", path: { subpaths: [ { knots: [[1408, 600], [1572, 600], [1554, 619], [1426, 619]] }, { knots: [[1487, 473], [1493, 473], [1493, 600], [1487, 600]] } ] } } }
+  - { command: shape.create, params: { kind: path, name: Sail 4, fill: "#fdf0d5", path: { subpaths: [ { knots: [[1498, 483], [1498, 588], [1561, 588]] }, { knots: [[1482, 505], [1482, 588], [1438, 588]] } ] } } }
+  - { command: shape.create, params: { kind: rect, rect: [1408, 625, 164, 6], fill: "#2b2d42", name: Ripple 4 } }
+  - { command: shape.create, params: { kind: path, name: Gulls, fill: null, stroke: { width: 5, color: "#2b2d42", cap: round, join: round }, path: { subpaths: [ { closed: false, knots: [[330, 200], [350, 186], [366, 200], [382, 186], [402, 200]] }, { closed: false, knots: [[420, 260], [434, 250], [445, 260], [456, 250], [470, 260]] }, { closed: false, knots: [[1180, 170], [1196, 159], [1208, 170], [1220, 159], [1236, 170]] } ] } } }
+  - { command: layer.mergeVisible, as: merged }
+  - { command: layer.renameLayer, params: { name: Harbor Scene } }
+  - { command: select.rect, params: { x: 270, y: 0, width: 270, height: 860 } }
+  - { command: filter.blur.gaussianBlur, params: { radius: 12 } }
+  - { command: select.rect, params: { x: 540, y: 0, width: 270, height: 860 } }
+  - { command: filter.pixelate.mosaic, params: { cellSize: 30 } }
+  - { command: select.rect, params: { x: 810, y: 0, width: 270, height: 860 } }
+  - { command: filter.pixelate.colorHalftone, params: { maxRadius: 10 } }
+  - { command: select.rect, params: { x: 1080, y: 0, width: 270, height: 860 } }
+  - { command: filter.stylize.emboss, params: { angle: 135, height: 4, amount: 160 } }
+  - { command: select.rect, params: { x: 1350, y: 0, width: 270, height: 860 } }
+  - { command: filter.stylize.oilPaint, params: { stylization: 6, cleanliness: 6, scale: 2, bristleDetail: 4 } }
+  - { command: select.deselect }
+  - { command: shape.create, params: { kind: rect, rect: [0, 860, 1620, 140], fill: "#14132b", name: Label Bar } }
+  - { command: shape.create, params: { kind: rect, rect: [269, 0, 2, 860], fill: "#ffffff", name: Dividers }, as: div }
+  - { command: shape.create, params: { kind: rect, rect: [539, 0, 2, 860], fill: "#ffffff", addTo: $div.layer, op: combine } }
+  - { command: shape.create, params: { kind: rect, rect: [809, 0, 2, 860], fill: "#ffffff", addTo: $div.layer, op: combine } }
+  - { command: shape.create, params: { kind: rect, rect: [1079, 0, 2, 860], fill: "#ffffff", addTo: $div.layer, op: combine } }
+  - { command: shape.create, params: { kind: rect, rect: [1349, 0, 2, 860], fill: "#ffffff", addTo: $div.layer, op: combine } }
+  - { command: layer.setProps, params: { layer: $div.layer, opacity: 0.6 } }
+  - { command: type.create, params: { x: 135, y: 922, text: "Original", font: Inter, size: 28, weight: 700, color: "#ffffff", align: center, name: "Original Label" } }
+  - { command: type.create, params: { x: 135, y: 958, text: "no filter", font: Inter, size: 20, color: "#a5a3c9", align: center, name: "Original Setting" } }
+  - { command: type.create, params: { x: 405, y: 922, text: "Gaussian Blur", font: Inter, size: 28, weight: 700, color: "#ffffff", align: center, name: "Gaussian Blur Label" } }
+  - { command: type.create, params: { x: 405, y: 958, text: "radius 12 px", font: Inter, size: 20, color: "#a5a3c9", align: center, name: "Gaussian Blur Setting" } }
+  - { command: type.create, params: { x: 675, y: 922, text: "Mosaic", font: Inter, size: 28, weight: 700, color: "#ffffff", align: center, name: "Mosaic Label" } }
+  - { command: type.create, params: { x: 675, y: 958, text: "cell 30 px", font: Inter, size: 20, color: "#a5a3c9", align: center, name: "Mosaic Setting" } }
+  - { command: type.create, params: { x: 945, y: 922, text: "Color Halftone", font: Inter, size: 28, weight: 700, color: "#ffffff", align: center, name: "Color Halftone Label" } }
+  - { command: type.create, params: { x: 945, y: 958, text: "max radius 10 px", font: Inter, size: 20, color: "#a5a3c9", align: center, name: "Color Halftone Setting" } }
+  - { command: type.create, params: { x: 1215, y: 922, text: "Emboss", font: Inter, size: 28, weight: 700, color: "#ffffff", align: center, name: "Emboss Label" } }
+  - { command: type.create, params: { x: 1215, y: 958, text: "height 4 px", font: Inter, size: 20, color: "#a5a3c9", align: center, name: "Emboss Setting" } }
+  - { command: type.create, params: { x: 1485, y: 922, text: "Oil Paint", font: Inter, size: 28, weight: 700, color: "#ffffff", align: center, name: "Oil Paint Label" } }
+  - { command: type.create, params: { x: 1485, y: 958, text: "stylization 6", font: Inter, size: 20, color: "#a5a3c9", align: center, name: "Oil Paint Setting" } }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 15 }
+      layers.-1: { name: Harbor Scene, kind: Pixel }
+      layers.12: { name: Dividers, kind: Shape, opacity: { approx: 0.6, tol: 0.01 } }
+      history: { contains: Merge Visible }
+  - actual: inspect
+    values:
+      history: { contains: Gaussian Blur }
+  - actual: inspect
+    values:
+      history: { contains: Mosaic }
+  - actual: inspect
+    values:
+      history: { contains: Color Halftone }
+  - actual: inspect
+    values:
+      history: { contains: Emboss }
+  - actual: inspect
+    values:
+      history: { contains: Oil Paint }
+diagnostics: []
+since: "2026-11-09"

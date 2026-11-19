@@ -1,0 +1,40 @@
+{
+  "id": "pdf/confidential-exhibit-bates",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    2504
+  ],
+  "stats": "3 pages",
+  "commands": 21,
+  "document": {
+    "name": "confidential-exhibit-bates.pdf",
+    "bytes": 348814,
+    "sha256": "81397f3bab2de7bef6c5de10d359597894f1214a06aa1be8e3a29968ba19ec2d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "0f1aa96a4508e92e5772d2bb58eb191cf673cb080f0c4c3120456f2131ef7e06"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "pdf.font-not-embedded",
+      "message": "The font Helvetica is not embedded; it is one of the standard 14 fonts, which viewers supply.",
+      "severity": "info",
+      "target": {
+        "page": 1,
+        "path": "font:Helvetica"
+      }
+    }
+  ],
+  "built_ms": 203
+}

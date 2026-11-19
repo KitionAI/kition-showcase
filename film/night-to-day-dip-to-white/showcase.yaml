@@ -1,0 +1,30 @@
+format: 1
+id: film/night-to-day-dip-to-white
+title: Night to Day Dip to White
+summary: A road-trip film jumps from the aurora night to the next morning in the dunes through a flash of white.
+category: Transitions
+tags: [transitions, dip-to-white, demo-footage]
+features: [film.transitions.basics, film.timeline.basics]
+description: |
+  A Dip to White 20 frames long sits on the cut at 4 s between the aurora and the desert: the
+  short, bright kind of dip that marks a jump in time. The thumbnail is four frames after the cut,
+  with the morning dunes still coming up out of the white.
+document: { name: night-to-day-dip-to-white.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Next Morning, width: 1280, height: 720, fps: 24, video: 1, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 6, track: V1, seconds: 0, sourceIn: 762048000000, duration: 1016064000000 }, as: night }
+  - { command: timeline.place, params: { item: 8, track: V1, seconds: 4, sourceIn: 254016000000, duration: 1016064000000 }, as: morning }
+  - { command: sequence.applyVideoTransition, params: { clip: $morning.clips.0, edge: in, effect: dip_to_white, frames: 20 }, as: flash }
+thumbnail: { at: 4.17 }
+preview: { from: 2.5, to: 5.5, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 2 }
+      sequence.video.0.items.1.name: Desert_Dunes.mp4
+      sequence.video.0.transitions: { count: 1 }
+      sequence.video.0.transitions.0.effect: dip_to_white
+      sequence.video.0.transitions.0.duration: 211680000000
+diagnostics: []
+since: "2026-11-09"

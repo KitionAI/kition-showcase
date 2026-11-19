@@ -1,0 +1,71 @@
+format: 1
+id: photo/podcast-cover-art
+title: Podcast Cover Art
+summary: Square podcast artwork with a halftone-textured gradient, a dark disc, a gradient waveform and a stacked bold title.
+category: Social Media
+tags: [social, podcast, cover-art, gradient, shapes, halftone, layer-styles]
+features: [photo.layer.adjustment, photo.path.shapes, photo.layer.styles, photo.filter.stylize, photo.type.point-text]
+description: |
+  Cover art at 1400 × 1400, the smallest size podcast directories accept. A Color Halftone of
+  rendered clouds, set to Soft Light, gives the gradient fill a printed texture. The waveform is
+  27 rounded rectangles combined into one shape layer with a Gradient Overlay, sitting on a dark
+  disc with an Outer Glow; the title words stack in Bricolage Grotesque.
+document: { name: podcast-cover-art.psd, width: 1400, height: 1400 }
+fonts: [inter/Inter-Variable.ttf, bricolage-grotesque/BricolageGrotesque-Variable.ttf]
+steps:
+  - { command: layer.newFillLayer.gradient, params: { from: "#ff3d6e", to: "#ff8a3d", angle: 45, style: linear }, as: bg }
+  - { command: layer.setProps, params: { layer: $bg.layer, name: Gradient } }
+  - { command: tools.setColors, params: { foreground: "#000000", background: "#ffffff" } }
+  - { command: layer.new.layer, params: { name: Halftone }, as: halftone }
+  - { command: filter.render.clouds, params: { seed: 21 } }
+  - { command: filter.pixelate.colorHalftone, params: { maxRadius: 14 } }
+  - { command: image.adjustments.desaturate }
+  - { command: layer.setProps, params: { layer: $halftone.layer, blend: Soft Light, opacity: 0.45 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [300, 200, 800, 800], fill: "#1b1030", name: Disc }, as: disc }
+  - { command: layer.layerStyle.outerGlow, params: { layer: $disc.layer, color: "#ffb347", opacity: 45, size: 80, spread: 0 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [364.4, 580.0, 16, 40], radii: 8, fill: "#ffd166", name: Waveform }, as: wave }
+  - { command: shape.create, params: { kind: roundedRect, rect: [389.6, 546.0, 16, 108], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [414.8, 513.0, 16, 174], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [440.0, 500.5, 16, 199], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [465.2, 474.0, 16, 252], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [490.4, 475.5, 16, 249], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [515.6, 469.5, 16, 261], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [540.8, 475.0, 16, 250], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [566.0, 510.0, 16, 180], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [591.2, 535.5, 16, 129], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [616.4, 574.5, 16, 51], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [641.6, 527.0, 16, 146], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [666.8, 481.5, 16, 237], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [692.0, 461.5, 16, 277], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [717.2, 432.5, 16, 335], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [742.4, 434.0, 16, 332], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [767.6, 429.5, 16, 341], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [792.8, 437.0, 16, 326], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [818.0, 473.5, 16, 253], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [843.2, 497.5, 16, 205], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [868.4, 542.5, 16, 115], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [893.6, 567.5, 16, 65], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [918.8, 543.5, 16, 113], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [944.0, 537.0, 16, 126], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [969.2, 523.5, 16, 153], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [994.4, 543.0, 16, 114], radii: 8, addTo: $wave.layer } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [1019.6, 572.5, 16, 55], radii: 8, addTo: $wave.layer }, as: wavelast }
+  - { command: layer.layerStyle.gradientOverlay, params: { layer: $wave.layer, from: "#ff3d6e", to: "#ffd166", angle: 0 } }
+  - { command: type.create, params: { x: 700, y: 130, text: A PODCAST ABOUT MAKING THINGS, font: Inter, weight: 700, size: 30, tracking: 300, color: "#1b1030", align: center, name: Kicker } }
+  - { command: type.create, params: { x: 100, y: 1180, text: THE LONG, font: Bricolage Grotesque, weight: 800, size: 200, tracking: -30, color: "#ffffff", name: Title Line 1 }, as: t1 }
+  - { command: type.create, params: { x: 100, y: 1340, text: SIGNAL, font: Bricolage Grotesque, weight: 800, size: 200, tracking: -30, color: "#1b1030", name: Title Line 2 }, as: t2 }
+  - { command: shape.create, params: { kind: roundedRect, rect: [1020, 1250, 280, 80], radii: 40, fill: "#1b1030", name: Episode Pill } }
+  - { command: type.create, params: { x: 1160, y: 1303, text: WEEKLY, font: Inter, weight: 800, size: 30, tracking: 250, color: "#ffd166", align: center, name: Episode Label } }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 10 }
+      layers.5: { name: Waveform, kind: Shape, effects: { items: { any: { key: gradientOverlay } } } }
+      layers.6: { name: Disc, effects: { items: { any: { key: outerGlow } } } }
+      layers.7: { name: Halftone, kind: Pixel, blend: Soft Light, opacity: { approx: 0.45, tol: 0.01 } }
+      layers.4: { name: Kicker, kind: Type }
+  - actual: results
+    values:
+      wavelast.path.subpaths: { count: 27 }
+diagnostics: []
+since: "2026-11-09"

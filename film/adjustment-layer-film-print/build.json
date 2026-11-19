@@ -1,0 +1,34 @@
+{
+  "id": "film/adjustment-layer-film-print",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 10.0 s; 5 video clips; 6 effects",
+  "commands": 22,
+  "document": {
+    "name": "adjustment-layer-film-print.kfilm",
+    "bytes": 20952,
+    "sha256": "1ceea186fa56d573e80a2ee6820e53b341b52a85cc2ab5ae3f9ce350a0236f53"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "a39c2e7fa058b0a6523013d797bd6c82987a3fdfb49e59e3df13875751b83afb"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 24,
+    "bytes": 50168
+  },
+  "diagnostics": [],
+  "built_ms": 17
+}

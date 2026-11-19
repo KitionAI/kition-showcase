@@ -1,0 +1,30 @@
+{
+  "id": "note/reading-list-tracker",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1056
+  ],
+  "stats": "1 page; 102 words; 3 headings; 1 table",
+  "commands": 15,
+  "document": {
+    "name": "reading-list-tracker.md",
+    "bytes": 932,
+    "sha256": "0ca714d6a07dbbee3ca83bc44aec4c3a75fbc4eb023062d004530a2a7cbe4baa"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      596
+    ],
+    "sha256": "42364e79b83be8f884ba0e7f56337cb6c2de0816a55a0be2c62298c8470bc8eb"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 7
+}

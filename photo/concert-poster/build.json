@@ -1,0 +1,30 @@
+{
+  "id": "photo/concert-poster",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1400
+  ],
+  "stats": "1000 × 1400 px; 18 layers; 6 type layers; 6 shape layers; 1 fill layer; 2 groups; 2 styled layers; 1 mask",
+  "commands": 40,
+  "document": {
+    "name": "concert-poster.psd",
+    "bytes": 6199643,
+    "sha256": "357acc442e3a9d70c4c83c31eec86ffa20586dd53243b4db85a08d53b8010e27"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      457,
+      640
+    ],
+    "sha256": "88e6ffdf9fd2042598b4220081789c5637d3a606b16ecbebc79815f4a7934004"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1289
+}

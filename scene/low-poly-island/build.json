@@ -1,0 +1,30 @@
+{
+  "id": "scene/low-poly-island",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "20 meshes; 8 materials; 1 light",
+  "commands": 44,
+  "document": {
+    "name": "low-poly-island.kscene",
+    "bytes": 22286,
+    "sha256": "3952815049837bda493946da2cb65158cf1fb3b976d67e328b54b5ba41372a0c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "b21acaaaea1f865ddac5288843be20a5d53cc453070ac0baf711364416ee3ae7"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 14
+}

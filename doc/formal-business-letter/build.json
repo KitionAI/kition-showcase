@@ -1,0 +1,30 @@
+{
+  "id": "doc/formal-business-letter",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 233 words",
+  "commands": 71,
+  "document": {
+    "name": "formal-business-letter.docx",
+    "bytes": 8837,
+    "sha256": "74eaac50ca09d6423a098fc899706afd342ecf72896ab010b96564568ba11e2c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "9c2dbc3908f973dc454aeaca751cc707dca7e022c0984524a0de26a8295893a9"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 32
+}

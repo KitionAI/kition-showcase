@@ -1,0 +1,34 @@
+{
+  "id": "film/story-launch-countdown",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1080,
+    1920
+  ],
+  "stats": "1080 × 1920 @ 30 fps; 10.0 s; 2 video clips; 7 effects; 3 animated effects",
+  "commands": 34,
+  "document": {
+    "name": "story-launch-countdown.kfilm",
+    "bytes": 27242,
+    "sha256": "95b6e2b315bf24a6f010122833cab56f557cca487599d1f1ed808b7d2af04bd9"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      360,
+      640
+    ],
+    "sha256": "17b02afcbceb061fbc892fdbf4bff71ce7626f9980fd6c68777c1c4b7228b2ff"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 40,
+    "bytes": 83118
+  },
+  "diagnostics": [],
+  "built_ms": 62
+}

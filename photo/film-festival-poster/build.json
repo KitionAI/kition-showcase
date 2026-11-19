@@ -1,0 +1,30 @@
+{
+  "id": "photo/film-festival-poster",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1400
+  ],
+  "stats": "1000 × 1400 px; 13 layers; 6 type layers; 4 shape layers; 1 fill layer; 1 styled layer; 1 mask",
+  "commands": 74,
+  "document": {
+    "name": "film-festival-poster.psd",
+    "bytes": 8627825,
+    "sha256": "7d0c4ad50e65cfa3a2cee82dfe3a760f33c3f9b7bc49f8f8146370b6897f3832"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      457,
+      640
+    ],
+    "sha256": "bc9be7e4a109f98b2d67f3f158ba2ee46e023b17b486382399ffd6253e402e01"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2173
+}

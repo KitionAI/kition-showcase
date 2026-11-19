@@ -1,0 +1,30 @@
+{
+  "id": "photo/long-shadow-flat-icons",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1400,
+    620
+  ],
+  "stats": "1400 × 620 px; 25 layers; 6 type layers; 17 shape layers; 1 fill layer; 4 styled layers; 1 mask",
+  "commands": 33,
+  "document": {
+    "name": "long-shadow-flat-icons.psd",
+    "bytes": 417438,
+    "sha256": "f6273572f1e021ea834418d25b6d9b8dfa2e83f06b28fddb5b893e68abc02462"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      283
+    ],
+    "sha256": "ce6286f7977964bddc5fcfe5cb59092eb6d812a18d3e696a83e698d19833caac"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 176
+}

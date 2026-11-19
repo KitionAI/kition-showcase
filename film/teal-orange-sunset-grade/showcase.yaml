@@ -1,0 +1,41 @@
+format: 1
+id: film/teal-orange-sunset-grade
+title: Teal & Orange Sunset Grade
+summary: A sunset at sea graded with Lumetri Color into a cinematic teal-and-orange look, framed in a 2.39:1 letterbox.
+category: Effects & Color
+tags: [color, lumetri, grading, letterbox, demo-footage]
+features: [film.color.lumetri, film.effects.basics, film.graphics.text-basics]
+featured: true
+description: |
+  One Lumetri Color effect does the whole grade: the built-in Teal & Orange creative look, a
+  little more contrast and vibrance, and the shadow wheel pushed toward teal so the water goes
+  green-blue while the sky and the sun's path stay warm. Two black graphic bars crop the 16:9 frame
+  to a 2.39:1 letterbox, and a subtitle sits in the lower bar.
+document: { name: teal-orange-sunset-grade.kfilm, width: 1920, height: 1080 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Sunset Grade, width: 1920, height: 1080, fps: 24, video: 3, audio: 1 } }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 0, audio: false }, as: shot }
+  - { command: effects.apply, params: { clips: [$shot.clips.0], effect: lumetri } }
+  - { command: lumetri.setLook, params: { clip: $shot.clips.0, lut: "builtin:look-teal-orange" } }
+  - { command: effects.setParam, params: { clip: $shot.clips.0, effect: lumetri, param: contrast, value: 15 } }
+  - { command: effects.setParam, params: { clip: $shot.clips.0, effect: lumetri, param: vibrance, value: 15 } }
+  - { command: effects.setParam, params: { clip: $shot.clips.0, effect: lumetri, param: wheel_shadows, value: [-0.4, 0.2] } }
+  - { command: graphics.newRectangle, params: { position: [960, 70], size: [1920, 140], seconds: 18, track: 1, time: 0 }, as: bars }
+  - { command: graphics.set, params: { clip: $bars.clip, props: { fill_color: "#000000" } } }
+  - { command: graphics.newRectangle, params: { clip: $bars.clip, position: [960, 1010], size: [1920, 140] } }
+  - { command: graphics.set, params: { clip: $bars.clip, props: { fill_color: "#000000" } } }
+  - { command: graphics.newText, params: { text: We kept sailing until the light ran out., position: [960, 1024], size: 40, seconds: 18, track: 2, time: 0 }, as: subtitle }
+  - { command: graphics.set, params: { clip: $subtitle.clip, props: { align: center, fill_color: "#f3e6c8" } } }
+thumbnail: { at: 3 }
+preview: { from: 0, to: 3, fps: 8, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items.0.effects.0.effect: lumetri
+      sequence.video.0.items.0.effects.0.params.look_lut.value: { contains: look-teal-orange }
+      sequence.video.0.items.0.effects.0.params: { contrast: { value: 15 }, vibrance: { value: 15 }, wheel_shadows: { value: [-0.4, 0.2] } }
+      sequence.video.1.items.0.effects: { count: 5 }
+      sequence.video.2.items.0.name: We kept sailing until the light ran out.
+diagnostics: []
+since: "2026-11-09"

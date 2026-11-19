@@ -1,0 +1,30 @@
+{
+  "id": "slide/okr-progress-dashboard",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 122,
+  "document": {
+    "name": "okr-progress-dashboard.pptx",
+    "bytes": 23867,
+    "sha256": "9f54f911049dd9bd7f731bb2112639607d70bb8d2f260365ce932ef3c5f97846"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "54ae81dd4597800fd02acd42d3d42771b68dcffd58a14b59475565fb623e52a0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 169
+}

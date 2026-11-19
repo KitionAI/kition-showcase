@@ -1,0 +1,34 @@
+{
+  "id": "film/spotlight-mask-callout",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 15.0 s; 3 video clips; 3 effects",
+  "commands": 13,
+  "document": {
+    "name": "spotlight-mask-callout.kfilm",
+    "bytes": 20267,
+    "sha256": "85b70a81d960b58948704d5b834a3e695fa1e51d1144b7b6cf1fd9b4aca1eef0"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "1031309ba2527f82641fc4cf2b19a2a5b0f9820d7c26ea2d1ebe1c9cc3596c9e"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 24,
+    "bytes": 35654
+  },
+  "diagnostics": [],
+  "built_ms": 24
+}

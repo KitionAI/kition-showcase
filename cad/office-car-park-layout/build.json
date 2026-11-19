@@ -1,0 +1,30 @@
+{
+  "id": "cad/office-car-park-layout",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1619,
+    950
+  ],
+  "stats": "71 objects; 9 layers",
+  "commands": 75,
+  "document": {
+    "name": "office-car-park-layout.dxf",
+    "bytes": 41907,
+    "sha256": "b70fed8c885ca5bcd881761095f8eb828fa7f400d46035ed9bf45709e7b1aea0"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      376
+    ],
+    "sha256": "5daeac67d095353ef728a4197c5c920bb55614a034e34de32b49ce8bd7b881f7"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 31
+}

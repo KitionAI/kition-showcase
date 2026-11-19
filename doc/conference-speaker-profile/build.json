@@ -1,0 +1,30 @@
+{
+  "id": "doc/conference-speaker-profile",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "1b00044864",
+    "dirty": false
+  },
+  "size": [
+    692,
+    922
+  ],
+  "stats": "1 page; 312 words",
+  "commands": 142,
+  "document": {
+    "name": "conference-speaker-profile.docx",
+    "bytes": 9643,
+    "sha256": "0f01a6d857e5f4d442031d44c918aeb0d4f7e9b28fd03b50beac2c9b1b440491"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      453,
+      640
+    ],
+    "sha256": "d7dc24619a72ba75d8489e0ecd7885983650182fce04b4bb415f1b0d5bcdceea"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 190
+}

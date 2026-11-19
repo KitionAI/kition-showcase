@@ -1,0 +1,115 @@
+format: 1
+id: sheet/website-relaunch-gantt
+title: Website Relaunch Gantt
+summary: A seven-week project plan whose Gantt bars, progress fill and status-date column are all drawn by conditional formatting.
+category: Planners & Trackers
+tags: [gantt, project-plan, conditional-formatting, dates, workday]
+features: [sheet.format.conditional, sheet.formulas.functions, sheet.format.number, sheet.view.window]
+featured: true
+description: |
+  The timeline is thirty working days: the first date is the plan start and each next column is
+  WORKDAY of the one before, with merged week labels above. End dates are WORKDAY formulas over
+  start and length. Three formula rules colour the grid: a light bar between start and end, a
+  dark bar for the share already done, and a pale stripe down the status-date column. Change a
+  start, a length or a percentage and the chart redraws itself. Task names are frozen in place.
+document: { name: website-relaunch-gantt.xlsx, width: 1280, height: 800 }
+fonts: [carlito/Carlito-Regular.ttf, carlito/Carlito-Bold.ttf, carlito/Carlito-Italic.ttf]
+steps:
+  - { command: range.setValues, params: { range: A1, values: [["Website Relaunch Plan"], ["Seven-week plan in working days · bars follow the start, length and progress columns"]] } }
+  - { command: range.setValues, params: { range: A3, values: [["Plan start", 46328, null, "Status", 46346, null]] } }
+  - { command: range.setValues, params: { range: A5, values: [["Task", "Owner", "Start", "Days", "End", "Done", "=B3", "=WORKDAY(G5,1)", "=WORKDAY(H5,1)", "=WORKDAY(I5,1)", "=WORKDAY(J5,1)", "=WORKDAY(K5,1)", "=WORKDAY(L5,1)", "=WORKDAY(M5,1)", "=WORKDAY(N5,1)", "=WORKDAY(O5,1)", "=WORKDAY(P5,1)", "=WORKDAY(Q5,1)", "=WORKDAY(R5,1)", "=WORKDAY(S5,1)", "=WORKDAY(T5,1)", "=WORKDAY(U5,1)", "=WORKDAY(V5,1)", "=WORKDAY(W5,1)", "=WORKDAY(X5,1)", "=WORKDAY(Y5,1)", "=WORKDAY(Z5,1)", "=WORKDAY(AA5,1)", "=WORKDAY(AB5,1)", "=WORKDAY(AC5,1)", "=WORKDAY(AD5,1)", "=WORKDAY(AE5,1)", "=WORKDAY(AF5,1)", "=WORKDAY(AG5,1)", "=WORKDAY(AH5,1)", "=WORKDAY(AI5,1)"], ["Discovery", null, null, null, null, null], ["Stakeholder interviews", "Ines", 46328, 4, "=WORKDAY(C7,D7-1)", 1], ["Analytics review", "Marco", 46330, 3, "=WORKDAY(C8,D8-1)", 1], ["Design", null, null, null, null, null], ["Sitemap and wireframes", "Yuki", 46335, 6, "=WORKDAY(C10,D10-1)", 1], ["Visual design", "Yuki", 46342, 7, "=WORKDAY(C11,D11-1)", 0.6], ["Build", null, null, null, null, null], ["Content migration", "Marco", 46344, 8, "=WORKDAY(C13,D13-1)", 0.25], ["Front-end build", "Sven", 46345, 10, "=WORKDAY(C14,D14-1)", 0.1], ["Search and forms", "Sven", 46356, 5, "=WORKDAY(C15,D15-1)", 0], ["Launch", null, null, null, null, null], ["Accessibility testing", "Ines", 46357, 5, "=WORKDAY(C17,D17-1)", 0], ["Go-live and redirects", "Sven", 46364, 2, "=WORKDAY(C18,D18-1)", 0]] } }
+  - { command: range.setValues, params: { range: G4, values: [["=G5"]] } }
+  - { command: home.mergeCenter, params: { range: "G4:K4" } }
+  - { command: range.setValues, params: { range: L4, values: [["=L5"]] } }
+  - { command: home.mergeCenter, params: { range: "L4:P4" } }
+  - { command: range.setValues, params: { range: Q4, values: [["=Q5"]] } }
+  - { command: home.mergeCenter, params: { range: "Q4:U4" } }
+  - { command: range.setValues, params: { range: V4, values: [["=V5"]] } }
+  - { command: home.mergeCenter, params: { range: "V4:Z4" } }
+  - { command: range.setValues, params: { range: AA4, values: [["=AA5"]] } }
+  - { command: home.mergeCenter, params: { range: "AA4:AE4" } }
+  - { command: range.setValues, params: { range: AF4, values: [["=AF5"]] } }
+  - { command: home.mergeCenter, params: { range: "AF4:AJ4" } }
+  - { command: home.numberFormat, params: { range: "G4:AJ4", format: "\"Week of \"d mmm" } }
+  - { command: home.numberFormat, params: { range: "G5:AJ5", format: "d" } }
+  - { command: home.numberFormat, params: { range: "B3:F3", format: "d mmm yyyy" } }
+  - { command: home.numberFormat, params: { range: "C6:C18", format: "d mmm" } }
+  - { command: home.numberFormat, params: { range: "E6:E18", format: "d mmm" } }
+  - { command: home.numberFormat, params: { range: "F6:F18", format: "0%" } }
+  - { command: home.conditionalFormat, params: { range: "G6:AJ18", rule: { type: expression, formula: "=G$5=$E$3", style: { fill: { fg: { Rgb: 16774348 }, pattern: Solid } } } } }
+  - { command: home.conditionalFormat, params: { range: "G6:AJ18", rule: { type: expression, formula: "=AND($C6<>\"\",G$5>=$C6,G$5<=$E6)", style: { fill: { fg: { Rgb: 10476536 }, pattern: Solid } } } } }
+  - { command: home.conditionalFormat, params: { range: "G6:AJ18", rule: { type: expression, formula: "=AND($C6<>\"\",$F6>0,G$5>=$C6,G$5<WORKDAY($C6,ROUND($D6*$F6,0)))", style: { fill: { fg: { Rgb: 2585800 }, pattern: Solid } } } } }
+  - { command: home.fontSize, params: { range: A1, size: 20 } }
+  - { command: home.bold, params: { range: A1, on: true } }
+  - { command: home.fontColor, params: { range: A1, color: "#1e3a5f" } }
+  - { command: home.italic, params: { range: A2, on: true } }
+  - { command: home.fontColor, params: { range: A2, color: "#6b7280" } }
+  - { command: home.fontColor, params: { range: "A3", color: "#6b7280" } }
+  - { command: home.mergeCells, params: { range: "B3:C3" } }
+  - { command: home.mergeCells, params: { range: "E3:F3" } }
+  - { command: home.alignLeft, params: { range: "B3:F3" } }
+  - { command: home.alignRight, params: { range: "D3" } }
+  - { command: home.bold, params: { range: "B3:F3", on: true } }
+  - { command: home.fontColor, params: { range: "B3:F3", color: "#111827" } }
+  - { command: home.fontColor, params: { range: "D3", color: "#6b7280" } }
+  - { command: home.fillColor, params: { range: "E3:F3", color: "#fff4cc" } }
+  - { command: home.fillColor, params: { range: "A5:AJ5", color: "#1e3a5f" } }
+  - { command: home.fontColor, params: { range: "A5:AJ5", color: "#ffffff" } }
+  - { command: home.bold, params: { range: "A5:F5", on: true } }
+  - { command: home.fontSize, params: { range: "G4:AJ5", size: 9 } }
+  - { command: home.fontColor, params: { range: "G4:AJ4", color: "#1e3a5f" } }
+  - { command: home.bold, params: { range: "G4:AJ4", on: true } }
+  - { command: home.alignCenter, params: { range: "G5:AJ5" } }
+  - { command: home.alignCenter, params: { range: "B5:F18" } }
+  - { command: home.fillColor, params: { range: "A6:F6", color: "#e8eef5" } }
+  - { command: home.fillColor, params: { range: "A9:F9", color: "#e8eef5" } }
+  - { command: home.fillColor, params: { range: "A12:F12", color: "#e8eef5" } }
+  - { command: home.fillColor, params: { range: "A16:F16", color: "#e8eef5" } }
+  - { command: home.bold, params: { range: "A6", on: true } }
+  - { command: home.bold, params: { range: "A9", on: true } }
+  - { command: home.bold, params: { range: "A12", on: true } }
+  - { command: home.bold, params: { range: "A16", on: true } }
+  - { command: home.fontColor, params: { range: "A6:A16", color: "#1e3a5f" } }
+  - { command: home.increaseIndent, params: { range: "A7:A8" } }
+  - { command: home.increaseIndent, params: { range: "A10:A11" } }
+  - { command: home.increaseIndent, params: { range: "A13:A15" } }
+  - { command: home.increaseIndent, params: { range: "A17:A18" } }
+  - { command: home.fontColor, params: { range: "A7:A8", color: "#111827" } }
+  - { command: home.fontColor, params: { range: "A10:A11", color: "#111827" } }
+  - { command: home.fontColor, params: { range: "A13:A15", color: "#111827" } }
+  - { command: home.fontColor, params: { range: "A17:A18", color: "#111827" } }
+  - { command: home.fontColor, params: { range: "B6:F18", color: "#4b5563" } }
+  - { command: home.borders, params: { range: "G6:AJ18", preset: insideVertical, color: "#eef2f7" } }
+  - { command: home.borders, params: { range: "A6:AJ18", preset: insideHorizontal, color: "#ffffff", style: medium } }
+  - { command: home.borders, params: { range: "K4:K18", preset: right, color: "#c7d2e0" } }
+  - { command: home.borders, params: { range: "P4:P18", preset: right, color: "#c7d2e0" } }
+  - { command: home.borders, params: { range: "U4:U18", preset: right, color: "#c7d2e0" } }
+  - { command: home.borders, params: { range: "Z4:Z18", preset: right, color: "#c7d2e0" } }
+  - { command: home.borders, params: { range: "AE4:AE18", preset: right, color: "#c7d2e0" } }
+  - { command: home.borders, params: { range: "A18:AJ18", preset: bottom, color: "#1e3a5f" } }
+  - { command: home.columnWidth, params: { cols: "A:A", width: 150 } }
+  - { command: home.columnWidth, params: { cols: "B:B", width: 50 } }
+  - { command: home.columnWidth, params: { cols: "C:C", width: 50 } }
+  - { command: home.columnWidth, params: { cols: "D:D", width: 34 } }
+  - { command: home.columnWidth, params: { cols: "E:E", width: 50 } }
+  - { command: home.columnWidth, params: { cols: "F:F", width: 40 } }
+  - { command: home.columnWidth, params: { cols: "G:AJ", width: 19 } }
+  - { command: home.rowHeight, params: { rows: "1:1", height: 28 } }
+  - { command: home.rowHeight, params: { rows: "6:18", height: 20 } }
+  - { command: view.freezePanes, params: { cell: G6 } }
+  - { command: sheet.read, params: { range: "E7:E18" }, as: ends }
+  - { command: sheet.read, params: { range: "G5:AJ5" }, as: days }
+  - { command: document.inspect, params: {}, as: doc }
+expected:
+  - actual: results
+    values:
+      days.values.0: { count: 30 }
+      days.values.0.0: 46328
+      days.values.0.5: 46335
+      days.values.0.29: 46367
+      ends.values: [[46331], [46332], [null], [46342], [46350], [null], [46353], [46358], [46360], [null], [46363], [46365]]
+      doc.sheets.0.conditionalFormats: 3
+      doc.sheets.0.freeze: [5, 6]
+diagnostics: []
+thumbnail: { area: [0, 0, 1000, 400] }
+since: "2026-11-09"

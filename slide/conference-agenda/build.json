@@ -1,0 +1,30 @@
+{
+  "id": "slide/conference-agenda",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 137,
+  "document": {
+    "name": "conference-agenda.pptx",
+    "bytes": 23618,
+    "sha256": "734d66038999347b99b1c4aa549506cb83b096eda84db0a22d28ee865c40c7e2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "04828c8a767892e6e74747d6ddd9c31df98eb4a9ce7269eb57da94781bc630b3"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 104
+}

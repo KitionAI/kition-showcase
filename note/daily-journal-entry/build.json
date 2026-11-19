@@ -1,0 +1,30 @@
+{
+  "id": "note/daily-journal-entry",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1301
+  ],
+  "stats": "1 page; 148 words; 5 headings",
+  "commands": 8,
+  "document": {
+    "name": "daily-journal-entry.md",
+    "bytes": 1001,
+    "sha256": "9f91453ef54fff03ae450715c501ae597bfbc0598cfb3ed77578ed1fce8a2299"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "10793ff50b5e3ea28881cdfd6c79eb3480cdfa309275ec4543d02b4a55801912"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 5
+}

@@ -1,0 +1,30 @@
+{
+  "id": "doc/meeting-minutes",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 284 words",
+  "commands": 140,
+  "document": {
+    "name": "meeting-minutes.docx",
+    "bytes": 9464,
+    "sha256": "c2e93df6ee5f717ce6e0a356d41e7ed9fa97c45f0b95757a323dd1a6f8ce376f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "318418620c91dfee400445748efee8637b9ff2d1c599fe05ca3d67ad898427f8"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 56
+}

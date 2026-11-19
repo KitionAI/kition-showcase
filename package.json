@@ -1,0 +1,21 @@
+{
+  "name": "kition-showcase",
+  "private": true,
+  "type": "module",
+  "description": "Sample documents for every Kition kit, built with the kits' own commands and rendered by their own engines.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "check": "node tools/build.mjs --check",
+    "export": "node tools/export.mjs",
+    "gallery": "node tools/gallery.mjs",
+    "site": "node tools/site.mjs",
+    "test": "node --test tools/*.test.mjs",
+    "site:cloudflare": "node tools/site.mjs --out .cloudflare/showcase && cp tools/site/cloudflare-headers .cloudflare/_headers",
+    "deploy": "npm run site:cloudflare && npx wrangler@4 deploy"
+  },
+  "dependencies": {
+    "pngjs": "7.0.0",
+    "yaml": "2.8.1"
+  },
+  "packageManager": "pnpm@11.23.0"
+}

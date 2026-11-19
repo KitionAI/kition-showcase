@@ -1,0 +1,30 @@
+{
+  "id": "film/bars-and-tone-lineup",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 25 fps; 15.0 s; 3 video clips; 2 audio clips; 4 effects",
+  "commands": 15,
+  "document": {
+    "name": "bars-and-tone-lineup.kfilm",
+    "bytes": 16007,
+    "sha256": "4f979d7940b950fb36a9a17ea8278255699e795a002aa6fd5489178c3e04ff3e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "163152abc675c306ed66ba04f44f7eb3264802f1676861920afa3b49aa3bd684"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 25
+}

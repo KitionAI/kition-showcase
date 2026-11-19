@@ -1,0 +1,112 @@
+format: 1
+id: photo/kids-birthday-card
+title: Kids Birthday Card
+summary: A cheerful seventh-birthday card front with arched headline type, balloons, a big number badge and scattered confetti.
+category: Print & Stationery
+tags: [print, greeting-card, warp-text, shapes, layer-styles, groups, illustration]
+features: [photo.type.text, photo.path.shapes, photo.layer.styles, photo.layer.style-basics, photo.layer.manage]
+description: |
+  The front of a folded 5 × 7 card. "HAPPY BIRTHDAY" is live type bent with Warp Text (Arc), with
+  a white Stroke and a soft Drop Shadow. The confetti is five shape layers, one per colour, each
+  combining dots, stars and rotated strips; the balloons are groups of an ellipse, a knot, a
+  highlight and a bezier string; the badge number has a Bevel & Emboss.
+document: { name: kids-birthday-card.psd, width: 1000, height: 1400 }
+fonts: [inter/Inter-Variable.ttf, bricolage-grotesque/BricolageGrotesque-Variable.ttf, lora/Lora-Variable.ttf]
+steps:
+  - { command: layer.newFillLayer.solidColor, params: { color: "#fff6e6" }, as: paper }
+  - { command: layer.setProps, params: { layer: $paper.layer, name: Paper } }
+  - { command: layer.new.group, params: { name: Confetti }, as: confetti }
+  - { command: shape.create, params: { kind: ellipse, rect: [800, 943, 19, 19], fill: "#ff5d73", name: Confetti 1 }, as: conf0 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[198.4, 959.5], [198.2, 968.6], [169.0, 968.0], [169.2, 958.9]] }] }, addTo: $conf0.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[396.6, 84.7], [388.5, 85.3], [386.4, 57.0], [394.5, 56.4]] }] }, addTo: $conf0.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[802.7, 708.9], [794.6, 714.0], [780.3, 691.1], [788.4, 686.0]] }] }, addTo: $conf0.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [520, 68, 20, 20], addTo: $conf0.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [176, 71, 14, 14], addTo: $conf0.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[474.8, 1074.0], [477.5, 1082.8], [450.3, 1091.0], [447.6, 1082.1]] }] }, addTo: $conf0.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[912.1, 1001.1], [909.3, 1010.9], [884.1, 1003.9], [886.8, 994.0]] }] }, addTo: $conf0.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [882, 109, 18, 18], fill: "#ffc93c", name: Confetti 2 }, as: conf1 }
+  - { command: shape.create, params: { kind: ellipse, rect: [126, 767, 17, 17], addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: star, rect: [79, 645, 29, 29], sides: 5, starRatio: 0.5, addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [754, 488, 17, 17], addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[926.7, 1217.4], [932.3, 1224.6], [913.0, 1239.4], [907.5, 1232.2]] }] }, addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[873.7, 586.9], [875.3, 594.9], [852.8, 599.6], [851.2, 591.5]] }] }, addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[719.4, 436.4], [722.7, 443.8], [695.5, 456.0], [692.2, 448.6]] }] }, addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [254, 469, 13, 13], addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[321.3, 34.9], [329.8, 39.7], [318.5, 59.8], [310.0, 55.0]] }] }, addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[538.8, 439.2], [549.3, 442.2], [542.2, 467.5], [531.7, 464.5]] }] }, addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [427, 1144, 13, 13], addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: star, rect: [823, 175, 29, 29], sides: 5, starRatio: 0.5, addTo: $conf1.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[55.5, 536.2], [49.5, 544.9], [24.9, 528.1], [30.9, 519.4]] }] }, fill: "#4d96ff", name: Confetti 3 }, as: conf2 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[666.8, 510.3], [662.3, 517.8], [640.8, 504.7], [645.3, 497.3]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[258.6, 173.0], [268.6, 173.8], [266.8, 198.0], [256.8, 197.2]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [333, 1085, 17, 17], addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[378.9, 143.9], [373.3, 152.3], [350.0, 136.8], [355.5, 128.4]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: star, rect: [267, 92, 29, 29], sides: 5, starRatio: 0.5, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [202, 1087, 18, 18], addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[609.1, 1294.8], [614.4, 1301.9], [591.8, 1318.6], [586.5, 1311.4]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [898, 834, 15, 15], addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[156.6, 619.2], [150.4, 625.1], [135.1, 609.1], [141.2, 603.2]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[185.0, 851.8], [189.9, 860.4], [168.3, 872.6], [163.4, 864.1]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[672.0, 173.9], [665.1, 178.6], [650.6, 157.2], [657.4, 152.5]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[171.4, 131.9], [166.7, 139.9], [145.6, 127.2], [150.3, 119.3]] }] }, addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [826, 108, 17, 17], addTo: $conf2.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[239.9, 1341.9], [248.9, 1345.2], [239.8, 1369.8], [230.8, 1366.5]] }] }, fill: "#6bcb77", name: Confetti 4 }, as: conf3 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[252.6, 609.9], [244.3, 617.1], [225.1, 595.1], [233.4, 587.9]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[484.1, 1328.5], [475.3, 1329.7], [471.3, 1301.0], [480.1, 1299.8]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[931.2, 726.9], [925.2, 733.5], [903.3, 713.8], [909.3, 707.1]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [533, 1087, 12, 12], addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[228.1, 817.3], [236.9, 819.3], [230.3, 848.0], [221.5, 846.0]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[613.3, 160.0], [614.9, 169.8], [587.6, 174.3], [586.0, 164.4]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[934.6, 955.4], [926.0, 956.4], [923.3, 933.6], [931.9, 932.6]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: star, rect: [785, 873, 30, 30], sides: 5, starRatio: 0.5, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: star, rect: [841, 1356, 23, 23], sides: 5, starRatio: 0.5, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[136.0, 1008.5], [139.5, 1016.2], [116.4, 1026.8], [112.9, 1019.1]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: ellipse, rect: [163, 481, 19, 19], addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[945.3, 636.6], [947.2, 646.5], [917.7, 652.0], [915.9, 642.1]] }] }, addTo: $conf3.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[120.9, 837.9], [121.7, 848.2], [96.2, 850.1], [95.5, 839.7]] }] }, fill: "#b980f0", name: Confetti 5 }, as: conf4 }
+  - { command: shape.create, params: { kind: star, rect: [951, 780, 29, 29], sides: 5, starRatio: 0.5, addTo: $conf4.layer } }
+  - { command: shape.create, params: { kind: star, rect: [877, 1088, 25, 25], sides: 5, starRatio: 0.5, addTo: $conf4.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[891.1, 466.7], [893.9, 474.3], [866.0, 484.5], [863.2, 476.8]] }] }, addTo: $conf4.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[701.4, 1093.2], [696.2, 1102.4], [672.4, 1089.1], [677.7, 1079.8]] }] }, addTo: $conf4.layer } }
+  - { command: shape.create, params: { kind: star, rect: [794, 1088, 26, 26], sides: 5, starRatio: 0.5, addTo: $conf4.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[889.6, 1281.8], [898.0, 1283.7], [892.8, 1306.8], [884.4, 1304.9]] }] }, addTo: $conf4.layer } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[783.1, 1329.3], [782.0, 1337.4], [759.5, 1334.3], [760.6, 1326.1]] }] }, addTo: $conf4.layer } }
+  - { command: layer.new.group, params: { name: Balloon Left }, as: bl }
+  - { command: layer.moveTo, params: { layer: $bl.layer, target: $confetti.layer, position: above } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [{ anchor: [205, 800], in: [205, 800], out: [240, 880] }, { anchor: [250, 1000], in: [170, 930], out: [300, 1050] }, { anchor: [300, 1130], in: [300, 1100], out: [300, 1130] }] }] }, fill: null, stroke: { width: 3, color: "#8a7f72", cap: round }, name: String }, as: bl1 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[193, 806], [217, 806], [205, 786]] }] }, fill: "#e0485e", name: Knot }, as: bl2 }
+  - { command: shape.create, params: { kind: ellipse, rect: [110, 560, 190, 235], fill: "#ff5d73", name: Balloon }, as: bl3 }
+  - { command: shape.create, params: { kind: ellipse, rect: [148, 595, 36, 60], fill: "#ffffff", name: Shine }, as: bl4 }
+  - { command: layer.setProps, params: { layer: $bl4.layer, opacity: 0.45 } }
+  - { command: layer.new.group, params: { name: Balloon Right }, as: br }
+  - { command: layer.moveTo, params: { layer: $br.layer, target: $bl.layer, position: above } }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ closed: false, knots: [{ anchor: [805, 760], in: [805, 760], out: [770, 850] }, { anchor: [760, 960], in: [830, 900], out: [700, 1020] }, { anchor: [700, 1130], in: [700, 1080], out: [700, 1130] }] }] }, fill: null, stroke: { width: 3, color: "#8a7f72", cap: round }, name: String }, as: br1 }
+  - { command: shape.create, params: { kind: path, path: { subpaths: [{ knots: [[793, 766], [817, 766], [805, 746]] }] }, fill: "#3a7ee0", name: Knot }, as: br2 }
+  - { command: shape.create, params: { kind: ellipse, rect: [710, 520, 190, 235], fill: "#4d96ff", name: Balloon }, as: br3 }
+  - { command: shape.create, params: { kind: ellipse, rect: [748, 555, 36, 60], fill: "#ffffff", name: Shine }, as: br4 }
+  - { command: layer.setProps, params: { layer: $br4.layer, opacity: 0.45 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [320, 560, 360, 360], fill: "#ffc93c", stroke: { width: 10, color: "#ffffff" }, name: Badge }, as: badge }
+  - { command: layer.moveTo, params: { layer: $badge.layer, target: $br.layer, position: above } }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $badge.layer, color: "#c98a00", opacity: 40, distance: 12, size: 20, angle: 90 } }
+  - { command: type.create, params: { x: 500, y: 650, text: TODAY YOU ARE, font: Inter, weight: 800, size: 24, tracking: 250, color: "#7a4b00", align: center, name: Badge Caption } }
+  - { command: type.create, params: { x: 500, y: 860, text: "7", font: Bricolage Grotesque, weight: 800, size: 260, color: "#ff5d73", align: center, name: Age }, as: age }
+  - { command: layer.layerStyle.bevelEmboss, params: { layer: $age.layer, style: inner, technique: smooth, size: 8, depth: 150, soften: 2 } }
+  - { command: type.create, params: { x: 500, y: 380, text: HAPPY BIRTHDAY, font: Bricolage Grotesque, weight: 800, size: 118, tracking: -10, color: "#ff5d73", align: center, name: Headline }, as: headline }
+  - { command: type.warpText, params: { layer: $headline.layer, style: arc, bend: 28 } }
+  - { command: layer.layerStyle.stroke, params: { layer: $headline.layer, size: 8, position: outside, color: "#ffffff" } }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $headline.layer, add: true, color: "#b03a4c", opacity: 35, distance: 8, size: 10, angle: 90 } }
+  - { command: type.create, params: { x: 500, y: 1240, text: "Have the best day, Milo!", font: Lora, italic: true, weight: 600, size: 64, color: "#3a2f5b", align: center, name: Wish } }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 10 }
+      layers.1: { name: Headline, kind: Type, text: { text: HAPPY BIRTHDAY }, effects: { items: { count: 2, any: { key: stroke } } } }
+      layers.2: { name: Age, text: { text: "7" }, effects: { items: { any: { key: bevelEmboss } } } }
+      layers.4: { name: Badge, kind: Shape, shape: { fill: "#ffc93c", stroke: { fill: "#ffffff", width: 10 } }, effects: { items: { any: { key: dropShadow } } } }
+      layers.7: { name: Confetti, kind: Group, children: { count: 5, all: { kind: Shape } } }
+      layers.7.children.0.shape.fill: "#b980f0"
+      layers.7.children.4.shape.fill: "#ff5d73"
+      layers.8: { name: Paper, kind: Fill, fillContent: "#fff6e6" }
+      layers.5: { name: Balloon Right, kind: Group, children: { count: 4 } }
+diagnostics: []
+since: "2026-11-09"

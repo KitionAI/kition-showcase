@@ -1,0 +1,30 @@
+{
+  "id": "doc/pendulum-lab-report",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 319 words",
+  "commands": 140,
+  "document": {
+    "name": "pendulum-lab-report.docx",
+    "bytes": 9679,
+    "sha256": "a916a5612278914bca70a77449190a51a78a4e5d68be012e0ae1a6c39381746d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "f6593887f7c88ed5f3018e816aaa04440cb75cb1e49e3f0958d5e457c1489fdb"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 53
+}

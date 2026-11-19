@@ -1,0 +1,46 @@
+format: 1
+id: film/before-after-grade-split
+title: Before & After Grade Split
+summary: A split-screen comparison of an aurora shot, ungraded on the left and colour-graded on the right, with a divider and labels.
+category: Effects & Color
+tags: [color, lumetri, grading, split-screen, crop, demo-footage]
+features: [film.color.lumetri, film.effects.basics, film.graphics.text-basics]
+description: |
+  The same aurora clip sits on V1 and V2. The copy on V2 carries the grade (Lumetri Color: more
+  exposure, contrast and saturation, deeper blacks) and a Crop effect that removes its left half,
+  so the untouched clip on V1 shows through. A thin white bar marks the split and two labels name
+  the halves: the usual way to show a client what the grade does.
+document: { name: before-after-grade-split.kfilm, width: 1920, height: 1080 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Grade Comparison, width: 1920, height: 1080, fps: 24, video: 3, audio: 1 } }
+  - { command: timeline.place, params: { item: 6, track: V1, seconds: 0, audio: false }, as: before }
+  - { command: timeline.place, params: { item: 6, track: V2, seconds: 0, audio: false }, as: after }
+  - { command: effects.apply, params: { clips: [$after.clips.0], effect: lumetri } }
+  - { command: effects.setParam, params: { clip: $after.clips.0, effect: lumetri, param: exposure, value: 0.6 } }
+  - { command: effects.setParam, params: { clip: $after.clips.0, effect: lumetri, param: contrast, value: 30 } }
+  - { command: effects.setParam, params: { clip: $after.clips.0, effect: lumetri, param: blacks, value: -20 } }
+  - { command: effects.setParam, params: { clip: $after.clips.0, effect: lumetri, param: saturation, value: 150 } }
+  - { command: effects.setParam, params: { clip: $after.clips.0, effect: lumetri, param: vibrance, value: 30 } }
+  - { command: effects.apply, params: { clips: [$after.clips.0], effect: crop } }
+  - { command: effects.setParam, params: { clip: $after.clips.0, effect: crop, param: left, value: 50 } }
+  - { command: graphics.newRectangle, params: { position: [960, 540], size: [6, 1080], seconds: 16, track: 2, time: 0 }, as: labels }
+  - { command: graphics.set, params: { clip: $labels.clip, props: { fill_color: "#ffffff" } } }
+  - { command: graphics.newText, params: { clip: $labels.clip, text: BEFORE, position: [80, 120], size: 44 } }
+  - { command: graphics.set, params: { clip: $labels.clip, props: { font_style: Bold, tracking: 200, fill_color: "#ffffff", background: true, background_color: "#000000", background_opacity: 55, background_size: 18 } } }
+  - { command: graphics.newText, params: { clip: $labels.clip, text: AFTER, position: [1840, 120], size: 44 } }
+  - { command: graphics.set, params: { clip: $labels.clip, props: { font_style: Bold, align: right, tracking: 200, fill_color: "#ffffff", background: true, background_color: "#000000", background_opacity: 55, background_size: 18 } } }
+thumbnail: { at: 3 }
+preview: { from: 0, to: 3, fps: 8, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items.0.item: 6
+      sequence.video.0.items.0.effects: { none: { effect: lumetri } }
+      sequence.video.1.items.0.item: 6
+      sequence.video.1.items.0.effects.0.effect: lumetri
+      sequence.video.1.items.0.effects.0.params: { exposure: { value: 0.6 }, contrast: { value: 30 }, blacks: { value: -20 }, saturation: { value: 150 }, vibrance: { value: 30 } }
+      sequence.video.1.items.0.effects.1: { effect: crop, params: { left: { value: 50 } } }
+      sequence.video.2.items.0.effects: { count: 6 }
+diagnostics: []
+since: "2026-11-09"

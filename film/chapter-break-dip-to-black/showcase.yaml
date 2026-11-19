@@ -1,0 +1,46 @@
+format: 1
+id: film/chapter-break-dip-to-black
+title: Chapter Break Dip to Black
+summary: A documentary leaves the city at night through a two-second dip to black and comes up on the dunes under its chapter title.
+category: Transitions
+tags: [transitions, dip-to-black, titles, opacity, demo-footage]
+features: [film.transitions.basics, film.graphics.text-basics, film.effects.keyframes]
+description: |
+  The cut from the night drive to the desert sits at 6 s, and a Dip to Black 48 frames long is
+  centred on it: the city fades to black over the first second and the dunes fade up over the
+  second. The chapter card on Video 2 fades in while the picture is black, so the title is already
+  there when the new scene arrives. The thumbnail is 0.2 s after the cut, with the desert still
+  coming up out of black.
+document: { name: chapter-break-dip-to-black.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Part Two, width: 1280, height: 720, fps: 24, video: 2, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 7, track: V1, seconds: 0, duration: 1524096000000 }, as: city }
+  - { command: timeline.place, params: { item: 8, track: V1, seconds: 6, sourceIn: 508032000000, duration: 1524096000000 }, as: desert }
+  - { command: sequence.applyVideoTransition, params: { clip: $desert.clips.0, edge: in, effect: dip_to_black, frames: 48 }, as: dip }
+  - { command: graphics.newText, params: { text: PART TWO, position: [640, 318], size: 30, seconds: 4.5, track: 1, time: 1397088000000 }, as: card }
+  - { command: graphics.set, params: { clip: $card.clip, props: { font_style: Bold, align: center, tracking: 400, fill_color: "#e8d3b0" } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: The Dunes, position: [640, 410], size: 92 }, as: headline }
+  - { command: graphics.set, params: { clip: $card.clip, layer: $headline.layer, props: { font_style: Bold, align: center, tracking: 20, fill_color: "#fffaf0", shadow: true } } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 0, seconds: 5.5 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 100, seconds: 6.2 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 100, seconds: 9.4 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 0, seconds: 10 } }
+thumbnail: { at: 6.2 }
+preview: { from: 4.5, to: 8, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 2 }
+      sequence.video.0.transitions: { count: 1 }
+      sequence.video.0.transitions.0.effect: dip_to_black
+      sequence.video.0.transitions.0.duration: 508032000000
+      sequence.video.0.transitions.0.start: 1270080000000
+      sequence.video.1.items: { count: 1 }
+      # the card starts at 5.5 s: in while the picture is black, out at the end (ticks)
+      sequence.video.1.items.0.effects.1.params.opacity.keyframes: [{ time: 1397088000000, mediaTime: 0, value: 0 }, { time: 1574899200000, value: 100 }, { time: 2387750400000, value: 100 }, { time: 2540160000000, value: 0 }]
+  - actual: results
+    values:
+      dip.transition: { exists: true }
+diagnostics: []
+since: "2026-11-09"

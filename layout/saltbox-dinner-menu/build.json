@@ -1,0 +1,30 @@
+{
+  "id": "layout/saltbox-dinner-menu",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    739,
+    986
+  ],
+  "stats": "1 page; 3 stories; 5 paragraph styles",
+  "commands": 73,
+  "document": {
+    "name": "saltbox-dinner-menu.klayout",
+    "bytes": 29702,
+    "sha256": "16adaccff6651cccc4419dd6539a3daa0b0dbe2a6536b4a436295a9127bf7aea"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      452,
+      640
+    ],
+    "sha256": "d6c4a4210eeaeda863322b421a97ac02074e935e86572dcc05fa8b6dbc72f935"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 126
+}

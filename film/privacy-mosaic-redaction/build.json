@@ -1,0 +1,30 @@
+{
+  "id": "film/privacy-mosaic-redaction",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 30 fps; 8.0 s; 3 video clips; 10 effects",
+  "commands": 29,
+  "document": {
+    "name": "privacy-mosaic-redaction.kfilm",
+    "bytes": 23817,
+    "sha256": "929ddbfbad6cb8b9e0ee64b215be5ec4663cba53e0977efc8d2fff47eb1c1fcf"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "0dd25170e264af2858f2797ede7b3d791144bc841c455ffd8dfb6e7dd58c9809"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 26
+}

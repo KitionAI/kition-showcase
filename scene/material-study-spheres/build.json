@@ -1,0 +1,30 @@
+{
+  "id": "scene/material-study-spheres",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "6 meshes; 6 materials; 2 lights",
+  "commands": 30,
+  "document": {
+    "name": "material-study-spheres.kscene",
+    "bytes": 28857,
+    "sha256": "9cef33b4e67a5c602ed5f44977b2c9563c78423ee75c5fdb61712cded798eac6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "2e24908188607ebd506bc3ce0027c57d7ad42a4a9d25e6fc66d2eb6fede36e3a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 30
+}

@@ -1,0 +1,30 @@
+{
+  "id": "photo/bistro-menu",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1414
+  ],
+  "stats": "1000 × 1414 px; 51 layers; 31 type layers; 13 shape layers; 1 fill layer; 4 groups; 1 mask",
+  "commands": 66,
+  "document": {
+    "name": "bistro-menu.psd",
+    "bytes": 9157479,
+    "sha256": "c66bce16994f0fe46aa7d12bd390913e2ec52db77c6f74ad20a8f667d16dfbc2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      453,
+      640
+    ],
+    "sha256": "0842ebe63d3846283e96402ad4dcabd955ddca769433a5837fa2a4737a99d630"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 506
+}

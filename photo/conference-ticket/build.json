@@ -1,0 +1,30 @@
+{
+  "id": "photo/conference-ticket",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1500,
+    600
+  ],
+  "stats": "1500 × 600 px; 26 layers; 17 type layers; 4 shape layers; 1 fill layer; 3 groups; 1 styled layer; 1 mask",
+  "commands": 59,
+  "document": {
+    "name": "conference-ticket.psd",
+    "bytes": 849437,
+    "sha256": "f9d16ea389590fbc88c203c2b232b817c18db0eaa232cd996a8eb6abcdaa21ba"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      256
+    ],
+    "sha256": "cc39afacd1aa969fcdf473be33aacf470803616e991433ab522644bbdc29c0a4"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 303
+}

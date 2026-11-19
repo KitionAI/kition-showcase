@@ -1,0 +1,30 @@
+{
+  "id": "slide/webinar-promo",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 86,
+  "document": {
+    "name": "webinar-promo.pptx",
+    "bytes": 27543,
+    "sha256": "bff745af19d93fb92e8e477400997ccd29b8af5d18188bc26515857c1782e71c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "bd4c9c78e81ba8d4459110f11b35498ad46e32ddf3ff2fcf9fcc32801d8d1f9d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 67
+}

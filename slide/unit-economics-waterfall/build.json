@@ -1,0 +1,30 @@
+{
+  "id": "slide/unit-economics-waterfall",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 81,
+  "document": {
+    "name": "unit-economics-waterfall.pptx",
+    "bytes": 23386,
+    "sha256": "d950d87098fc18fbe8f68760bb8a4f5f11375d76e5e3b3d4b2bbfc61ae73af2d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "30cbe45d2a60ad660ab79c45f042e76dfb0c9123df8e4e080840221f0bf38039"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 149
+}

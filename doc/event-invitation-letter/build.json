@@ -1,0 +1,30 @@
+{
+  "id": "doc/event-invitation-letter",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 217 words",
+  "commands": 98,
+  "document": {
+    "name": "event-invitation-letter.docx",
+    "bytes": 7557,
+    "sha256": "c9fd2e2594b693ead8e196ce36808d8538a63eaca1bb6ae5c3ee26bf2a854d48"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "b90a321c409877b1812a67631fe5dc1bc0505f5888c8ae64052135011af0f5cb"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 38
+}

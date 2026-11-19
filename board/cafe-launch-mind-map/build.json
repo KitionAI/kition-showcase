@@ -1,0 +1,30 @@
+{
+  "id": "board/cafe-launch-mind-map",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 47 elements",
+  "commands": 49,
+  "document": {
+    "name": "cafe-launch-mind-map.kboard",
+    "bytes": 22892,
+    "sha256": "b6d9064cf11ac5da4c618d3c72cf9c3a712e8f6d8e7c520847bc76588a7fa50a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      440
+    ],
+    "sha256": "955556cd58a8a6f7de95fb515746068440af712c3fea4e5e60d47c5e393eb590"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 28
+}

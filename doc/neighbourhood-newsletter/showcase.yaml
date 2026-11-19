@@ -1,0 +1,157 @@
+format: 1
+id: doc/neighbourhood-newsletter
+title: Neighbourhood Newsletter
+summary: A one-page community newsletter — a shaded masthead over three columns, a drop cap, a floating pull quote, an events list and a noticeboard.
+category: Newsletters & Layout
+tags: [newsletter, columns, drop-cap, text-box, section-break]
+features: [doc.layout.page-setup, doc.format.paragraph, doc.drawing.objects, doc.layout.float-position, doc.styles.manage]
+featured: true
+description: |
+  The masthead is full width; a continuous section break switches the rest of the page to three
+  columns (with separator lines set, and a column break ahead of the diary). The lead story opens
+  with a three-line drop cap, the pull quote is a floating text box with a tinted fill that the
+  third column flows around, and the noticeboard items are shaded paragraphs with a left rule.
+  Headlines, kickers and body text are paragraph styles, so the whole issue restyles from one
+  place.
+document: { name: neighbourhood-newsletter.docx, width: 816, height: 1056 }
+fonts:
+  - lora/Lora-Variable.ttf
+  - inter/Inter-Variable.ttf
+steps:
+  - { command: review.proofing, as: proofing }
+  - { command: design.themeFonts, params: { heading: Lora, body: Inter } }
+  - { command: layout.margins, params: { top: 40, bottom: 40, left: 44, right: 44 } }
+  - { command: layout.hyphenation, as: hyphenation }
+  - { command: styles.modify, params: { style: Normal, chr: { size: 9.5 }, para: { align: justify, spaceBefore: 0, spaceAfter: 5, lineSpacing: { rule: multiple, value: 1.15 } } } }
+  - { command: styles.modify, params: { style: Title, chr: { size: 40, color: { Rgb: [31, 58, 52] } }, para: { align: center, spaceBefore: 0, spaceAfter: 0 } } }
+  - { command: styles.modify, params: { style: Heading 1, chr: { size: 17, bold: true, color: { Rgb: [31, 58, 52] } }, para: { align: left, spaceBefore: 4, spaceAfter: 4, keepNext: true, suppressHyphens: true, lineSpacing: { rule: multiple, value: 1.0 } } } }
+  - { command: styles.modify, params: { style: Heading 2, chr: { size: 12, bold: true, color: { Rgb: [178, 84, 40] } }, para: { align: left, spaceBefore: 8, spaceAfter: 3, keepNext: true } } }
+  - { command: styles.create, params: { name: Kicker, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Kicker, chr: { size: 7.5, bold: true, caps: true, spacing: 1, color: { Rgb: [178, 84, 40] } }, para: { align: left, spaceAfter: 2, keepNext: true } } }
+  - { command: styles.create, params: { name: Masthead Bar, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Masthead Bar, chr: { size: 8.5, bold: true, color: { Rgb: [255, 255, 255] }, spacing: 0.5 }, para: { align: left, spaceBefore: 4, spaceAfter: 14 } } }
+  - { command: styles.create, params: { name: Tagline, basedOn: Kicker } }
+  - { command: styles.modify, params: { style: Tagline, para: { align: center } } }
+  # Masthead
+  - { command: para.style, params: { style: Tagline } }
+  - { command: text.insert, params: { text: "News and notices for the residents of Willow Street and Alder Row" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Title } }
+  - { command: text.insert, params: { text: "The Willow Street Gazette" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Masthead Bar } }
+  - { command: para.shading, params: { color: "1F3A34" } }
+  - { command: para.tabs, params: { tabs: [ { pos: 262, align: center }, { pos: 524, align: right } ] } }
+  - { command: text.insert, params: { text: " ISSUE 38" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "WINTER 2026" } }
+  - { command: text.tab }
+  - { command: text.insert, params: { text: "FREE TO EVERY DOOR " } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Kicker } }
+  - { command: para.shading, params: { color: null } }
+  # Three columns from here on
+  - { command: layout.break, params: { kind: continuous } }
+  - { command: layout.columns, params: { count: 3, space: 16, separator: true }, as: columns }
+  - { command: text.insert, params: { text: "Community garden" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: "The orchard plot finally gets its fence" } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: text.insert, params: { text: "After three winters of borrowed hurdles and hopeful string, the orchard plot at the end of Alder Row has a proper fence. Twelve volunteers spent two Saturdays in October setting chestnut posts and weaving hazel between them, using wood thinned from the allotment hedge." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "The fence keeps the deer away from the young apple and pear trees, which lost most of their buds last spring. It also gives the plot a gate that can be locked at night, something the insurers asked for before the tool shed could be rebuilt." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Grafting lessons start in February, and anyone who wants a cutting from the old Bramley tree by the bus stop should put their name on the list in the shed." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "The committee thanks the timber yard on Mill Lane for lending a post driver, and the café for keeping everyone in soup." } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Kicker } }
+  - { command: text.insert, params: { text: "Streets" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: "New crossing by the school gates" } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: text.insert, params: { text: "The council has agreed to a raised crossing outside the primary school after a petition signed by four hundred households. Work is planned for the February half-term, when the road will close for five days and buses will divert along Station Road." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Parents who walk with the morning crossing group are asked to keep to the canal path during the works. The group still needs two more volunteers for Thursdays; it takes twenty minutes and comes with a very bright coat." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Residents on the east side of the street will be able to reach their driveways at all times, though deliveries may need to come before eight in the morning or after four in the afternoon." } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Kicker } }
+  - { command: text.insert, params: { text: "Library corner" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: "A shelf of seeds to borrow" } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: text.insert, params: { text: "The little library on the corner of Alder Row now lends seeds as well as books. Take a packet in spring, grow it out, and bring back a few seeds from your best plant in the autumn. Beans, poppies and the tall yellow tomatoes from number 14 are already on the shelf." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Donated paperbacks are welcome again now that the new weatherproof door is fitted. Please leave cookery books and large atlases at the church hall instead, where there is room for them." } }
+  - { command: text.newParagraph }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Kicker } }
+  - { command: text.insert, params: { text: "Volunteers" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: "Snow wardens wanted" } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: text.insert, params: { text: "When the hill freezes, the grit bins at the top of Willow Street need someone with a shovel and half an hour. Sign up for one cold morning this winter and we will lend you boots, gloves and a flask." } }
+  - { command: text.columnBreak }
+  - { command: text.newParagraph }
+  - { command: para.heading2 }
+  - { command: text.insert, params: { text: "Dates for the diary" } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: para.alignLeft }
+  - { command: para.bullets, params: { kind: "▪" } }
+  - { command: text.insert, params: { text: "6 December — lantern walk from the green, 5 pm" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "14 December — repair café in the church hall" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "10 January — seed swap and soup lunch" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "7 February — grafting class at the orchard plot" } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  - { command: para.style, params: { style: Kicker } }
+  - { command: text.insert, params: { text: "Letters to the editors: the green box by the post office" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Kicker } }
+  - { command: para.spacing, params: { before: 10 } }
+  - { command: text.insert, params: { text: "Noticeboard" } }
+  - { command: text.newParagraph }
+  - { command: para.normal }
+  - { command: para.alignLeft }
+  - { command: para.shading, params: { color: "EEF2EF" } }
+  - { command: para.borders, params: { sides: { left: { style: single, width: 3, color: "1F3A34" } } } }
+  - { command: text.insert, params: { text: "Found: a child's red mitten on the green. Now waiting on the post office windowsill." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "For loan: ladder, wallpaper table and a cherry pitter. Ask at number 22." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Wanted: a home for six wooden chairs from the old chapel, free to collect." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Choir practice moves to Tuesdays from January; new voices welcome, no audition." } }
+  # Pull quote floating over the middle column
+  - { command: drawing.insert, params: { kind: textBox, frame: { x: 402, y: 290, w: 166, h: 116 }, placement: { page: 0, wrap: topAndBottom }, fill: "#F4E9DF", stroke: { none: true }, paragraphs: [ { align: center, runs: [ { text: "“It finally feels like a garden you can lock, and a place you want to stay.”", italic: true, size: 13, font: Lora, color: "#1F3A34" } ] }, { align: center, runs: [ { text: "— Ruth, plot holder since 2009", size: 8, font: Inter, color: "#B25428" } ] } ], body: { anchor: middle, insets: [10, 8, 10, 8] } }, as: quote }
+  - { command: insert.closeHeader }
+  # The drop cap goes on last: a new paragraph would inherit it.
+  - { command: select.text, params: { text: "After three winters" } }
+  - { command: select.collapse }
+  - { command: insert.dropCap, params: { lines: 3 }, as: dropcap }
+  - { command: drawing.describe, as: drawings }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      words: { min: 550 }
+  - actual: results
+    values:
+      columns.columns: { count: 3, separator: true }
+      columns.start: continuous
+      drawings.objects: { count: 1, any: { kind: textBox, placement: { kind: float, wrap: topAndBottom } } }
+diagnostics: []
+since: "2026-11-09"

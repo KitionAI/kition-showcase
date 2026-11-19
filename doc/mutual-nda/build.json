@@ -1,0 +1,30 @@
+{
+  "id": "doc/mutual-nda",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages; 395 words",
+  "commands": 269,
+  "document": {
+    "name": "mutual-nda.docx",
+    "bytes": 10199,
+    "sha256": "3ec373362f5af9877394c87374437a72b112018ff702ac05dfeffe922dbf05a7"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "c8ccd7d07861bd2f4c1863e18dac36799837068cd7a97d0d00043e0505c48425"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 90
+}

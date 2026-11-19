@@ -1,0 +1,30 @@
+{
+  "id": "board/field-app-feature-brainstorm",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 47 elements",
+  "commands": 5,
+  "document": {
+    "name": "field-app-feature-brainstorm.kboard",
+    "bytes": 16504,
+    "sha256": "750036a84d567721fb5351aaaea95b522edba57468426162a2762e1f53f7c380"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      380
+    ],
+    "sha256": "f7ada3d345662d05d721b9339ca288eb1e6ee1fd3785200ff612caa91bdb7b34"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

@@ -1,0 +1,30 @@
+{
+  "id": "slide/alphabet-history-lecture",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "07254159e1",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 145,
+  "document": {
+    "name": "alphabet-history-lecture.pptx",
+    "bytes": 31730,
+    "sha256": "7c8325dd6424a167d84f5696929e3b2472b6a8c9e9f04563ae6470d3cb69ab9b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "887f8a64bbb15d025ae6221e1ae67fe06e566d8f7667934947379fca333d4d99"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 416
+}

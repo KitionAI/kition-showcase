@@ -1,0 +1,30 @@
+{
+  "id": "sheet/mortgage-rate-sensitivity",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1742,
+    2050
+  ],
+  "stats": "1 sheet; used range A1:J12",
+  "commands": 50,
+  "document": {
+    "name": "mortgage-rate-sensitivity.xlsx",
+    "bytes": 6234,
+    "sha256": "5c9840dedbd083a555aaea78cd3349dd675f4e07ee98cf54e887bf25c1fcebc1"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      218
+    ],
+    "sha256": "5877279e46205e8faa3f0fd41611fea9e7bc6dd9c1cf800495576a9e6b2dc4bc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 12
+}

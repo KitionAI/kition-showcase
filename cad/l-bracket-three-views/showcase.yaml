@@ -1,0 +1,89 @@
+format: 1
+id: cad/l-bracket-three-views
+title: L-Bracket in Three Views
+summary: A bent steel angle bracket in third-angle projection - front, top and right views - with hidden lines, centre lines, a fillet and dimensions.
+category: Mechanical Parts
+tags: [mechanical, orthographic, hidden-lines, centre-lines, dimensions]
+features: [cad.draw.basic-geometry, cad.draw.centers, cad.dimension.basic, cad.layer.basics, cad.properties.edit]
+description: |
+  Three aligned views of one part. Edges that are out of sight are on a magenta HIDDEN layer, axes on
+  a red CENTER layer, and the inner bend of the right view is a polyline arc (a bulge). The projection
+  symbol beside the title block says third angle.
+document: { name: l-bracket-three-views.dxf, width: 1600, height: 1131 }
+steps:
+  - {"command": "grid", "params": {"on": false}}
+  - {"command": "lwdisplay", "params": {"on": true}}
+  - {"command": "limits", "params": {"min": [0, 0], "max": [297, 210]}}
+  - {"command": "linetype", "params": {"load": "CENTER"}}
+  - {"command": "linetype", "params": {"load": "HIDDEN"}}
+  - {"command": "dimstyle", "params": {"name": "Bracket", "DIMTXT": 3, "DIMASZ": 2.5, "DIMEXO": 1, "DIMEXE": 1.5, "DIMGAP": 0.8, "DIMDEC": 0}, "as": "dimstyle"}
+  - {"command": "layer.new", "params": {"name": "Visible", "color": "7", "lineweight": "0.50"}}
+  - {"command": "layer.new", "params": {"name": "Hidden", "color": "6", "lineweight": "0.25", "linetype": "HIDDEN"}}
+  - {"command": "layer.new", "params": {"name": "Center", "color": "1", "linetype": "CENTER"}}
+  - {"command": "layer.new", "params": {"name": "Dims", "color": "5"}}
+  - {"command": "layer.new", "params": {"name": "Frame", "color": "7", "lineweight": "0.50"}}
+  - {"command": "layer.new", "params": {"name": "Text", "color": "7"}}
+  - {"command": "ltscale", "params": {"scale": 0.3}}
+  - {"command": "layer.current", "params": {"name": "Visible"}}
+  - {"command": "rectang", "params": {"p1": [40, 56], "p2": [120, 116]}}
+  - {"command": "line", "params": {"points": [[40, 64], [120, 64]]}}
+  - {"command": "circle", "params": {"center": [80, 94], "radius": 6}, "as": "fh"}
+  - {"command": "rectang", "params": {"p1": [40, 128], "p2": [120, 178]}}
+  - {"command": "line", "params": {"points": [[40, 170], [120, 170]]}}
+  - {"command": "circle", "params": {"center": [60, 148], "radius": 5}, "as": "th1"}
+  - {"command": "circle", "params": {"center": [100, 148], "radius": 5}, "as": "th2"}
+  - {"command": "pline", "params": {"points": [{"p": [150, 56]}, {"p": [200, 56]}, {"p": [200, 116]}, {"p": [192, 116]}, {"p": [192, 70], "bulge": -0.4142135623730951}, {"p": [186, 64]}, {"p": [150, 64]}], "closed": true}, "as": "rp"}
+  - {"command": "layer.current", "params": {"name": "Hidden"}}
+  - {"command": "line", "params": {"points": [[55, 56], [55, 64]]}}
+  - {"command": "line", "params": {"points": [[65, 56], [65, 64]]}}
+  - {"command": "line", "params": {"points": [[95, 56], [95, 64]]}}
+  - {"command": "line", "params": {"points": [[105, 56], [105, 64]]}}
+  - {"command": "line", "params": {"points": [[74, 170], [74, 178]]}}
+  - {"command": "line", "params": {"points": [[86, 170], [86, 178]]}}
+  - {"command": "line", "params": {"points": [[165, 56], [165, 64]]}}
+  - {"command": "line", "params": {"points": [[175, 56], [175, 64]]}}
+  - {"command": "line", "params": {"points": [[192, 88], [200, 88]]}}
+  - {"command": "line", "params": {"points": [[192, 100], [200, 100]]}}
+  - {"command": "layer.current", "params": {"name": "Center"}}
+  - {"command": "centermark", "params": {"handles": ["$fh.handle", "$th1.handle", "$th2.handle"]}}
+  - {"command": "line", "params": {"points": [[60, 53], [60, 67]]}}
+  - {"command": "line", "params": {"points": [[100, 53], [100, 67]]}}
+  - {"command": "line", "params": {"points": [[80, 167], [80, 181]]}}
+  - {"command": "line", "params": {"points": [[170, 53], [170, 67]]}}
+  - {"command": "line", "params": {"points": [[189, 94], [203, 94]]}}
+  - {"command": "layer.current", "params": {"name": "Dims"}}
+  - {"command": "dimlinear", "params": {"p1": [40, 56], "p2": [120, 56], "at": [80, 46]}}
+  - {"command": "dimlinear", "params": {"p1": [40, 56], "p2": [40, 116], "at": [30, 86]}}
+  - {"command": "dimlinear", "params": {"p1": [120, 56], "p2": [120, 94], "at": [130, 75]}}
+  - {"command": "dimdiameter", "params": {"handle": "$fh.handle", "at": [98, 108]}}
+  - {"command": "dimlinear", "params": {"p1": [40, 128], "p2": [40, 178], "at": [30, 153]}}
+  - {"command": "dimlinear", "params": {"p1": [60, 148], "p2": [100, 148], "at": [80, 136]}}
+  - {"command": "dimdiameter", "params": {"handle": "$th2.handle", "at": [114, 160]}}
+  - {"command": "dimlinear", "params": {"p1": [192, 116], "p2": [200, 116], "at": [196, 124]}}
+  - {"command": "dimlinear", "params": {"p1": [150, 64], "p2": [150, 56], "at": [142, 60]}}
+  - {"command": "dimradius", "params": {"center": [186, 70], "point": [190.2426406871193, 65.75735931288071], "at": [174, 82]}}
+  - {"command": "layer.current", "params": {"name": "Text"}}
+  - {"command": "text", "params": {"at": [80, 36], "text": "FRONT", "height": 3.5, "justify": "MC"}}
+  - {"command": "text", "params": {"at": [80, 186], "text": "TOP", "height": 3.5, "justify": "MC"}}
+  - {"command": "text", "params": {"at": [175, 36], "text": "RIGHT", "height": 3.5, "justify": "MC"}}
+  - {"command": "layer.current", "params": {"name": "Frame"}}
+  - {"command": "rectang", "params": {"p1": [10, 10], "p2": [287, 200]}}
+  - {"command": "rectang", "params": {"p1": [167, 10], "p2": [287, 30]}}
+  - {"command": "line", "params": {"points": [[257, 10], [257, 30]]}}
+  - {"command": "layer.current", "params": {"name": "Text"}}
+  - {"command": "text", "params": {"at": [171, 22], "text": "ANGLE BRACKET  AB-80", "height": 4}}
+  - {"command": "text", "params": {"at": [171, 14], "text": "S355 STEEL 8 mm   1:1   A4", "height": 2.8}}
+  - {"command": "layer.current", "params": {"name": "Visible"}}
+  - {"command": "pline", "params": {"points": [[260, 17], [268, 15], [268, 25], [260, 23]], "closed": true}}
+  - {"command": "circle", "params": {"center": [278, 20], "radius": 5}}
+  - {"command": "circle", "params": {"center": [278, 20], "radius": 2.5}}
+  - {"command": "drawing.inspect", "params": {}, "as": "di"}
+expected:
+  - actual: inspect
+    values:
+      layers: { any: { name: Hidden }, count: 8 }
+  - actual: results
+    values:
+      di.counts: { Circle: 5, Dimension: 10 }
+diagnostics: []
+since: "2026-11-09"

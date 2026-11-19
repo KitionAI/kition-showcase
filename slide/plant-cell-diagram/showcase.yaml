@@ -1,0 +1,136 @@
+format: 1
+id: slide/plant-cell-diagram
+title: Plant Cell Diagram
+summary: A labelled biology diagram of a plant cell drawn from shapes, with six callouts joined to the organelles by connectors.
+category: Education
+tags: [diagram, connectors, lesson, shapes]
+features: [slide.shapes.edit, slide.format.paragraph, slide.text.edit]
+description: |
+  The cell is layered rounded rectangles and ellipses (wall, membrane, vacuole, nucleus, rotated
+  chloroplasts and mitochondria). Each label is a text shape glued to its organelle with a straight
+  connector ending in a dot, so the leader lines follow if a part is moved.
+document: { name: plant-cell-diagram.pptx, width: 960, height: 540 }
+fonts: [inter/Inter-Variable.ttf, bricolage-grotesque/BricolageGrotesque-Variable.ttf]
+steps:
+  - { command: design.fonts, params: { major: "Bricolage Grotesque", minor: "Inter" } }
+  - { command: slide.layout, params: { layout: "blank", index: 0 } }
+  - { command: design.background, params: { color: "#f3f8f2" } }
+  - { command: insert.textBox, params: { rect: [60, 30, 500, 22], text: "BIOLOGY  ·  CELLS AND ORGANISATION" }, as: k }
+  - { command: format.size, params: { ids: ["$k.id"], size: 11 } }
+  - { command: format.bold, params: { ids: ["$k.id"] } }
+  - { command: format.spacing, params: { ids: ["$k.id"], pt: 2 } }
+  - { command: format.color, params: { ids: ["$k.id"], color: "#2f855a" } }
+  - { command: insert.textBox, params: { rect: [60, 52, 700, 50], text: "Inside a plant cell" }, as: t }
+  - { command: format.font, params: { ids: ["$t.id"], family: "Bricolage Grotesque" } }
+  - { command: format.size, params: { ids: ["$t.id"], size: 34 } }
+  - { command: format.bold, params: { ids: ["$t.id"] } }
+  - { command: format.color, params: { ids: ["$t.id"], color: "#14332a" } }
+  - { command: shape.insert, params: { preset: "roundRect", rect: [290, 140, 380, 300] }, as: wall }
+  - { command: shape.fill, params: { ids: ["$wall.id"], color: "#cfe8c4" } }
+  - { command: shape.line, params: { ids: ["$wall.id"], color: "#4d7c3a", width: 4 } }
+  - { command: shape.adjust, params: { ids: ["$wall.id"], index: 0, value: 9000 } }
+  - { command: shape.insert, params: { preset: "roundRect", rect: [302, 152, 356, 276] }, as: memb }
+  - { command: shape.fill, params: { ids: ["$memb.id"], color: "#eaf6e3" } }
+  - { command: shape.line, params: { ids: ["$memb.id"], color: "#8bbf73", width: 1.5, dash: "dash" } }
+  - { command: shape.adjust, params: { ids: ["$memb.id"], index: 0, value: 8000 } }
+  - { command: shape.insert, params: { preset: "roundRect", rect: [420, 190, 190, 200] }, as: vac }
+  - { command: shape.fill, params: { ids: ["$vac.id"], color: "#cfe6f5" } }
+  - { command: shape.line, params: { ids: ["$vac.id"], color: "#6aa7cf", width: 1.5 } }
+  - { command: shape.adjust, params: { ids: ["$vac.id"], index: 0, value: 30000 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [320, 170, 86, 86] }, as: nuc }
+  - { command: shape.fill, params: { ids: ["$nuc.id"], gradient: {"stops": [[0, "#d6b4f0"], [1, "#9b6bc7"]], "kind": "radial"} } }
+  - { command: shape.line, params: { ids: ["$nuc.id"], color: "#6b46a1", width: 1.5 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [352, 200, 24, 24] }, as: nucl }
+  - { command: shape.fill, params: { ids: ["$nucl.id"], color: "#5b3a8a" } }
+  - { command: shape.line, params: { ids: ["$nucl.id"], none: true } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [318, 296, 52, 26] }, as: ch0 }
+  - { command: shape.rotate, params: { ids: ["$ch0.id"], deg: -25 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [332, 390, 52, 26] }, as: ch1 }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [560, 402, 52, 26] }, as: ch2 }
+  - { command: shape.rotate, params: { ids: ["$ch2.id"], deg: -10 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [620, 240, 52, 26] }, as: ch3 }
+  - { command: shape.rotate, params: { ids: ["$ch3.id"], deg: 70 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [450, 162, 52, 26] }, as: ch4 }
+  - { command: shape.fill, params: { ids: ["$ch0.id", "$ch1.id", "$ch2.id", "$ch3.id", "$ch4.id"], gradient: {"stops": [[0, "#7cc46a"], [1, "#2f7d32"]], "angle": 90} } }
+  - { command: shape.line, params: { ids: ["$ch0.id", "$ch1.id", "$ch2.id", "$ch3.id", "$ch4.id"], color: "#22571f", width: 1 } }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [352, 330, 40, 20] }, as: mi0 }
+  - { command: shape.insert, params: { preset: "ellipse", rect: [612, 330, 40, 20] }, as: mi1 }
+  - { command: shape.rotate, params: { ids: ["$mi1.id"], deg: -40 } }
+  - { command: shape.fill, params: { ids: ["$mi0.id", "$mi1.id"], color: "#f4a259" } }
+  - { command: shape.line, params: { ids: ["$mi0.id", "$mi1.id"], color: "#b5651d", width: 1 } }
+  - { command: shape.insert, params: { preset: "rect", rect: [60, 266, 190, 48], text: "Cell wall\nStiff cellulose layer outside" }, as: wallL }
+  - { command: shape.connect, params: { from: $wallL.id, to: $wall.id, fromSite: 3, toSite: 1, preset: "straightConnector1" }, as: wallLC }
+  - { command: shape.line, params: { ids: ["$wallLC.id"], color: "#14332a", width: 1, tail: "oval" } }
+  - { command: shape.insert, params: { preset: "rect", rect: [60, 189, 190, 48], text: "Nucleus\nHolds the DNA and directs the cell" }, as: nucL }
+  - { command: shape.connect, params: { from: $nucL.id, to: $nuc.id, fromSite: 3, toSite: 1, preset: "straightConnector1" }, as: nucLC }
+  - { command: shape.line, params: { ids: ["$nucLC.id"], color: "#14332a", width: 1, tail: "oval" } }
+  - { command: shape.insert, params: { preset: "rect", rect: [60, 316, 190, 48], text: "Mitochondrion\nReleases energy from sugar" }, as: mitL }
+  - { command: shape.connect, params: { from: $mitL.id, to: $mi0.id, fromSite: 3, toSite: 1, preset: "straightConnector1" }, as: mitLC }
+  - { command: shape.line, params: { ids: ["$mitLC.id"], color: "#14332a", width: 1, tail: "oval" } }
+  - { command: shape.insert, params: { preset: "rect", rect: [60, 379, 190, 48], text: "Chloroplast\nCaptures light to make sugar" }, as: chlL }
+  - { command: shape.connect, params: { from: $chlL.id, to: $ch1.id, fromSite: 3, toSite: 1, preset: "straightConnector1" }, as: chlLC }
+  - { command: shape.line, params: { ids: ["$chlLC.id"], color: "#14332a", width: 1, tail: "oval" } }
+  - { command: shape.insert, params: { preset: "rect", rect: [710, 266, 190, 48], text: "Vacuole\nStores water and keeps the cell firm" }, as: vacL }
+  - { command: shape.connect, params: { from: $vacL.id, to: $vac.id, fromSite: 1, toSite: 3, preset: "straightConnector1" }, as: vacLC }
+  - { command: shape.line, params: { ids: ["$vacLC.id"], color: "#14332a", width: 1, tail: "oval" } }
+  - { command: shape.insert, params: { preset: "rect", rect: [710, 376, 190, 48], text: "Cell membrane\nControls what enters and leaves" }, as: memL }
+  - { command: shape.freeform, params: { points: [[710, 400], [658, 400]] }, as: memLC }
+  - { command: shape.line, params: { ids: ["$memLC.id"], color: "#14332a", width: 1, tail: "oval" } }
+  - { command: shape.fill, params: { ids: ["$wallL.id", "$nucL.id", "$mitL.id", "$chlL.id", "$vacL.id", "$memL.id"], none: true } }
+  - { command: shape.line, params: { ids: ["$wallL.id", "$nucL.id", "$mitL.id", "$chlL.id", "$vacL.id", "$memL.id"], none: true } }
+  - { command: format.size, params: { ids: ["$wallL.id", "$nucL.id", "$mitL.id", "$chlL.id", "$vacL.id", "$memL.id"], size: 11 } }
+  - { command: format.color, params: { ids: ["$wallL.id", "$nucL.id", "$mitL.id", "$chlL.id", "$vacL.id", "$memL.id"], color: "#3f5f53" } }
+  - { command: format.anchor, params: { ids: ["$wallL.id", "$nucL.id", "$mitL.id", "$chlL.id", "$vacL.id", "$memL.id"], anchor: "middle" } }
+  - { command: format.margins, params: { ids: ["$wallL.id", "$nucL.id", "$mitL.id", "$chlL.id", "$vacL.id", "$memL.id"], left: 0, right: 0 } }
+  - { command: format.align, params: { ids: ["$wallL.id", "$nucL.id", "$mitL.id", "$chlL.id"], align: "right" } }
+  - { command: format.align, params: { ids: ["$vacL.id", "$memL.id"], align: "left" } }
+  - { command: text.edit, params: { id: $wallL.id, at: [0, 0] } }
+  - { command: text.selectParagraph, params: { at: [0, 0] } }
+  - { command: format.size, params: { size: 15 } }
+  - { command: format.bold, params: { on: true } }
+  - { command: format.color, params: { color: "#14332a" } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $nucL.id, at: [0, 0] } }
+  - { command: text.selectParagraph, params: { at: [0, 0] } }
+  - { command: format.size, params: { size: 15 } }
+  - { command: format.bold, params: { on: true } }
+  - { command: format.color, params: { color: "#14332a" } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $mitL.id, at: [0, 0] } }
+  - { command: text.selectParagraph, params: { at: [0, 0] } }
+  - { command: format.size, params: { size: 15 } }
+  - { command: format.bold, params: { on: true } }
+  - { command: format.color, params: { color: "#14332a" } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $chlL.id, at: [0, 0] } }
+  - { command: text.selectParagraph, params: { at: [0, 0] } }
+  - { command: format.size, params: { size: 15 } }
+  - { command: format.bold, params: { on: true } }
+  - { command: format.color, params: { color: "#14332a" } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $vacL.id, at: [0, 0] } }
+  - { command: text.selectParagraph, params: { at: [0, 0] } }
+  - { command: format.size, params: { size: 15 } }
+  - { command: format.bold, params: { on: true } }
+  - { command: format.color, params: { color: "#14332a" } }
+  - { command: text.exit, params: {  } }
+  - { command: text.edit, params: { id: $memL.id, at: [0, 0] } }
+  - { command: text.selectParagraph, params: { at: [0, 0] } }
+  - { command: format.size, params: { size: 15 } }
+  - { command: format.bold, params: { on: true } }
+  - { command: format.color, params: { color: "#14332a" } }
+  - { command: text.exit, params: {  } }
+  - { command: insert.textBox, params: { rect: [710, 446, 220, 50], text: "Animal cells have no wall, no chloroplasts and only small vacuoles." }, as: note }
+  - { command: format.size, params: { ids: ["$note.id"], size: 11 } }
+  - { command: format.italic, params: { ids: ["$note.id"] } }
+  - { command: format.color, params: { ids: ["$note.id"], color: "#2f855a" } }
+  - { command: slide.inspect, params: { index: 0 }, as: cell }
+expected:
+  - actual: inspect
+    values:
+      slides: { count: 1 }
+  - actual: results
+    values:
+      cell.shapes: { any: { preset: straightConnector1 }, all: { kind: { oneOf: [shape, textBox, connector] } } }
+diagnostics: []
+since: "2026-11-09"

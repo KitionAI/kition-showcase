@@ -1,0 +1,30 @@
+{
+  "id": "sheet/loan-amortization",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1864,
+    2048
+  ],
+  "stats": "1 sheet; used range A1:H69",
+  "commands": 45,
+  "document": {
+    "name": "loan-amortization.xlsx",
+    "bytes": 16040,
+    "sha256": "648347619037e65a1ece3e447c8b1a78bf738f6e024f43715f7199b03560b50d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      310
+    ],
+    "sha256": "adbbedafef33946dd3ef3024dd1d9310d32fc85df18bfc230525e70933b538bc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 197
+}

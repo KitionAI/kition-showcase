@@ -1,0 +1,30 @@
+{
+  "id": "slide/product-launch-keynote",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    1200
+  ],
+  "stats": "2 slides; 960 × 540 pt",
+  "commands": 65,
+  "document": {
+    "name": "product-launch-keynote.pptx",
+    "bytes": 24652,
+    "sha256": "bea8cc68cfa47b59841146ae9dcccec573f98bad8a0e432e9c2dca0f5925630f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "91ae2385516f6dc8f4b6addac266e9cb9f5df016d0f3d4e099cfc89c16b5c09d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 111
+}

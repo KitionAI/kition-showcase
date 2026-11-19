@@ -1,0 +1,30 @@
+{
+  "id": "table/family-recipe-box",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    1114
+  ],
+  "stats": "2 tables",
+  "commands": 16,
+  "document": {
+    "name": "family-recipe-box.ktable",
+    "bytes": 258048,
+    "sha256": "766575d88e10e850676d99b247d839f9b5e2522a04afc6a54bed00e8d560c03d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "f19598ab1458811c958027d90beff09796dceaa9b489dec1fd4bd2904e23c6e8"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 51
+}

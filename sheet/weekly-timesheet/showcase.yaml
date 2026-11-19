@@ -1,0 +1,106 @@
+format: 1
+id: sheet/weekly-timesheet
+title: Weekly Timesheet
+summary: Clock-in and clock-out times turned into daily hours, daily overtime past eight hours and the week's pay, with time arithmetic.
+category: Business Templates
+tags: [timesheet, template, date-functions, formulas, conditional-formatting]
+features: [sheet.formulas.functions, sheet.edit.fill-clear, sheet.format.number, sheet.format.conditional]
+description: |
+  Times are typed as clock times and stored as fractions of a day, so a shift is end minus start,
+  less the lunch break, times 24; MOD keeps a shift that crosses midnight positive and ROUND keeps
+  quarter hours exact. Anything over eight hours in a day is overtime at time and a half. The dates
+  follow from the week-start cell, TEXT names each day, the weekend rows are shaded, and the
+  signature block is ready for printing.
+document: { name: weekly-timesheet.xlsx, width: 1280, height: 800 }
+fonts: [carlito/Carlito-Regular.ttf, carlito/Carlito-Bold.ttf, carlito/Carlito-Italic.ttf]
+steps:
+  - command: range.setValues
+    params:
+      range: A1
+      values:
+        - [Weekly Timesheet]
+        - [Employee, Jordan Ellis, null, Week starting, "2027-06-14"]
+        - [Role, Warehouse lead, null, Hourly rate, 24]
+  - command: range.setValues
+    params:
+      range: A5
+      values:
+        - [Day, Date, Start, Lunch out, Lunch in, Finish, Hours, Regular, Overtime]
+        - ["=TEXT(B6,\"dddd\")", "=$E$2", "08:00", "12:00", "12:30", "16:45", "=IF(C6=\"\",0,ROUND(MOD(F6-C6,1)*24-(E6-D6)*24,2))", "=MIN(G6,8)", "=G6-H6"]
+        - ["=TEXT(B7,\"dddd\")", "=B6+1", "07:45", "12:00", "12:45", "17:15"]
+        - [null, null, "08:00", "12:15", "12:45", "16:30"]
+        - [null, null, "08:30", "12:30", "13:00", "18:00"]
+        - [null, null, "08:00", "12:00", "12:30", "15:30"]
+        - [null, null, "09:00", null, null, "13:00"]
+        - [null, null, null, null, null, null]
+        - [Total, null, null, null, null, null, "=SUM(G6:G12)", "=SUM(H6:H12)", "=SUM(I6:I12)"]
+  - { command: edit.fillDown, params: { range: "A7:B12" } }
+  - { command: edit.fillDown, params: { range: "G6:I12" } }
+  - command: range.setValues
+    params:
+      range: F15
+      values:
+        - [Regular pay, null, "=H13", "=H15*$E$3"]
+        - [Overtime pay (1.5×), null, "=I13", "=H16*$E$3*1.5"]
+        - [Total pay, null, null, "=I15+I16"]
+  - command: range.setValues
+    params:
+      range: A15
+      values:
+        - [Employee signature]
+        - [null]
+        - [Supervisor approval]
+  - { command: home.fontSize, params: { range: A1, size: 20 } }
+  - { command: home.bold, params: { range: A1 } }
+  - { command: home.fontColor, params: { range: A1, color: "#155e75" } }
+  - { command: home.fontColor, params: { range: "A2:A3", color: "#6b7280" } }
+  - { command: home.fontColor, params: { range: "D2:D3", color: "#6b7280" } }
+  - { command: home.bold, params: { range: "B2:B3" } }
+  - { command: home.bold, params: { range: "E2:E3" } }
+  - { command: home.fontColor, params: { range: "E2:E3", color: "#1d4ed8" } }
+  - { command: home.numberFormat, params: { range: "E2", format: "d mmm yyyy" } }
+  - { command: home.numberFormat, params: { range: "E3", format: "$$0.00" } }
+  - { command: home.alignLeft, params: { range: "E2:E3" } }
+  - { command: home.fillColor, params: { range: "A5:I5", color: "#155e75" } }
+  - { command: home.fontColor, params: { range: "A5:I5", color: "#ffffff" } }
+  - { command: home.bold, params: { range: "A5:I5" } }
+  - { command: home.alignCenter, params: { range: "B5:I5" } }
+  - { command: home.numberFormat, params: { range: "B6:B12", format: "d mmm" } }
+  - { command: home.numberFormat, params: { range: "C6:F12", format: "h:mm AM/PM" } }
+  - { command: home.alignCenter, params: { range: "B6:F12" } }
+  - { command: home.fontColor, params: { range: "C6:F12", color: "#1d4ed8" } }
+  - { command: home.numberFormat, params: { range: "G6:I13", format: "0.00;;\"\"" } }
+  - { command: home.alignCenter, params: { range: "G6:I13" } }
+  - { command: home.bold, params: { range: "G6:G13" } }
+  - { command: home.borders, params: { range: "A6:I12", preset: insideHorizontal, color: "#e5e7eb" } }
+  - { command: home.conditionalFormat, params: { range: "A6:I12", rule: { type: expression, formula: "=WEEKDAY($B6,2)>5", style: { fill: { fg: { Rgb: 14873076 }, pattern: Solid } } } } }
+  - { command: home.conditionalFormat, params: { range: "I6:I12", rule: { type: expression, formula: "=I6>0", preset: yellowFillDarkYellowText } } }
+  - { command: home.bold, params: { range: "A13:I13" } }
+  - { command: home.fillColor, params: { range: "A13:I13", color: "#ecfeff" } }
+  - { command: home.borders, params: { range: "A13:I13", preset: topDoubleBottom } }
+  - { command: home.numberFormat, params: { range: "H15:H16", format: "0.00 \"h\"" } }
+  - { command: home.numberFormat, params: { range: "I15:I17", format: "$$#,##0.00" } }
+  - { command: home.fontColor, params: { range: "F15:H16", color: "#4b5563" } }
+  - { command: home.bold, params: { range: "F17:I17" } }
+  - { command: home.fillColor, params: { range: "F17:I17", color: "#155e75" } }
+  - { command: home.fontColor, params: { range: "F17:I17", color: "#ffffff" } }
+  - { command: home.borders, params: { range: "B15:D15", preset: bottom, color: "#6b7280" } }
+  - { command: home.borders, params: { range: "B17:D17", preset: bottom, color: "#6b7280" } }
+  - { command: home.fontColor, params: { range: "A15:A17", color: "#6b7280" } }
+  - { command: home.italic, params: { range: "A15:A17" } }
+  - { command: home.columnWidth, params: { cols: "A:A", width: 118 } }
+  - { command: home.columnWidth, params: { cols: "B:B", width: 92 } }
+  - { command: home.columnWidth, params: { cols: "C:F", width: 74 } }
+  - { command: home.columnWidth, params: { cols: "G:I", width: 66 } }
+  - { command: sheet.read, params: { range: "A6:B12" }, as: days }
+  - { command: sheet.read, params: { range: "G6:I13" }, as: hours }
+  - { command: sheet.read, params: { range: "I15:I17" }, as: pay }
+expected:
+  - actual: results
+    values:
+      days.values: [[Monday, 46552], [Tuesday, 46553], [Wednesday, 46554], [Thursday, 46555], [Friday, 46556], [Saturday, 46557], [Sunday, 46558]]
+      hours.values: [[8.25, 8, 0.25], [8.75, 8, 0.75], [8, 8, 0], [9, 8, 1], [7, 7, 0], [4, 4, 0], [0, 0, 0], [45, 43, 2]]
+      pay.values: [[1032], [72], [1104]]
+diagnostics: []
+thumbnail: { area: [0, 0, 840, 392] }
+since: "2026-11-09"

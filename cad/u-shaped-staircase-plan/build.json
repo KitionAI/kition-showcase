@@ -1,0 +1,30 @@
+{
+  "id": "cad/u-shaped-staircase-plan",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1539,
+    1727
+  ],
+  "stats": "45 objects; 9 layers",
+  "commands": 44,
+  "document": {
+    "name": "u-shaped-staircase-plan.dxf",
+    "bytes": 39817,
+    "sha256": "b93c4718c25c29464ea6f310942d2abb7d9f874fac7ea0a5de9e27536bf39ec8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      570,
+      640
+    ],
+    "sha256": "20f1d29eb695f7a4bceb3710f7ee0bafc91212aabc33724fac44aa51924e8052"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 16
+}

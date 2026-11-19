@@ -1,0 +1,34 @@
+{
+  "id": "film/radio-theme-volume-fades",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 12.0 s; 4 video clips; 1 audio clip; 5 effects; 3 animated effects",
+  "commands": 30,
+  "document": {
+    "name": "radio-theme-volume-fades.kfilm",
+    "bytes": 25542,
+    "sha256": "77fed3210051426eaea996590d99069337b4bb38ed7a47a093393355ed9e8585"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "cb1c745215ea90ce3004fffe15547c3cae55fad81abc8c5ae3216fba6babd119"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 48,
+    "bytes": 139828
+  },
+  "diagnostics": [],
+  "built_ms": 25
+}

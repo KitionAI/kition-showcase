@@ -1,0 +1,30 @@
+{
+  "id": "design/plant-care-login",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    2000,
+    2000
+  ],
+  "stats": "1 page; 32 layers; 390 × 844 design",
+  "commands": 37,
+  "document": {
+    "name": "plant-care-login.kdesign",
+    "bytes": 44805,
+    "sha256": "8b9fe539c6375d925ebeb42b1cc3fd317aa4ccf8ab5fd9811562fd5708fd1c8f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      296,
+      640
+    ],
+    "sha256": "0eebbcdd98a38ade45c7443605a0f9918844e7cccb6128d2e971bf8242bc750e"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 13
+}

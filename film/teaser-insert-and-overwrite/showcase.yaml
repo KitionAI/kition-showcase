@@ -1,0 +1,45 @@
+format: 1
+id: film/teaser-insert-and-overwrite
+title: Teaser Insert and Overwrite
+summary: A teaser recut takes two shots from the source monitor, one inserted to push the cut later and one overwritten on top of it.
+category: Editing & Timeline
+tags: [insert-edit, overwrite-edit, three-point-edit, source-monitor, demo-footage]
+features: [film.source.playhead, film.timeline.edit, film.markers.in-out]
+description: |
+  The first assembly is three four-second scenes: ocean, dunes, city. Two three-point edits
+  follow. The forest is opened in the source monitor with In at 1 s and Out on the last frame
+  before 3 s, and inserted at 4 s: the dunes and the city move two seconds later and the teaser
+  grows to 14 s. The neon loop is then marked for two seconds and overwritten at 12 s: it replaces
+  the end of the city shot instead of pushing anything, so the teaser stays 14 s long. The
+  thumbnail is the overwritten neon shot at the end of the teaser.
+document: { name: teaser-insert-and-overwrite.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Teaser v2, width: 1280, height: 720, fps: 24, video: 1, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 0, duration: 1016064000000 }, as: ocean }
+  - { command: timeline.place, params: { item: 8, track: V1, seconds: 4, duration: 1016064000000 }, as: dunes }
+  - { command: timeline.place, params: { item: 7, track: V1, seconds: 8, duration: 1016064000000 }, as: city }
+  - { command: source.open, params: { item: 9 } }
+  - { command: markers.markIn, params: { target: source, time: 254016000000 } }
+  - { command: markers.markOut, params: { target: source, time: 751464000000 } }
+  - { command: playhead.set, params: { seconds: 4 } }
+  - { command: source.insert, as: inserted }
+  - { command: source.open, params: { item: 10 } }
+  - { command: markers.markIn, params: { target: source, time: 0 } }
+  - { command: markers.markOut, params: { target: source, time: 497448000000 } }
+  - { command: playhead.set, params: { seconds: 12 } }
+  - { command: source.overwrite, as: overwritten }
+thumbnail: { at: 13 }
+preview: { from: 2, to: 14, fps: 4, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 5 }
+      sequence.video.0.items.1: { name: Misty_Forest.mp4, start: 1016064000000, end: 1524096000000, sourceIn: 254016000000 }
+      sequence.video.0.items.2: { name: Desert_Dunes.mp4, start: 1524096000000 }
+      sequence.video.0.items.3: { name: City_Night_Drive.mp4, start: 2540160000000, end: 3048192000000 }
+      sequence.video.0.items.4: { name: Neon_Loop.mov, start: 3048192000000, end: 3556224000000 }
+      sequence.audio.0.items: { count: 5 }
+      sequence.duration: 3556224000000
+diagnostics: []
+since: "2026-11-09"

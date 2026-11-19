@@ -1,0 +1,30 @@
+{
+  "id": "slide/sales-funnel-stages",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 70,
+  "document": {
+    "name": "sales-funnel-stages.pptx",
+    "bytes": 23195,
+    "sha256": "1a874104706865d9025fb280e632a8ac918297f3ffc7d04f3bb0c426bef1f07d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "a44fddd7f73d403f6693c67f6ea9fd1fd101b0574ccf59582e7aaa7c8072520a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 60
+}

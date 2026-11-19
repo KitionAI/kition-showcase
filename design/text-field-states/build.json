@@ -1,0 +1,30 @@
+{
+  "id": "design/text-field-states",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    3000,
+    2000
+  ],
+  "stats": "1 page; 48 layers; 1000 × 700 design",
+  "commands": 57,
+  "document": {
+    "name": "text-field-states.kdesign",
+    "bytes": 60947,
+    "sha256": "46ca9ba21beeb5df6adce9d3c835a1d1e6db12d87aa6d773ebc9f2d64e22367e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      448
+    ],
+    "sha256": "3a0cb925d6127b03e2eb0d4fc59de47dd00cd3d0cfd558e71a05996b4faf6bee"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 15
+}

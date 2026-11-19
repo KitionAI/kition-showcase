@@ -1,0 +1,30 @@
+{
+  "id": "photo/variable-font-axes-poster",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    900,
+    1200
+  ],
+  "stats": "900 × 1200 px; 22 layers; 18 type layers; 2 shape layers; 1 fill layer; 1 mask",
+  "commands": 23,
+  "document": {
+    "name": "variable-font-axes-poster.psd",
+    "bytes": 587644,
+    "sha256": "f909e88c8f79bfdea31473633b70d715d2ec79e246a11660e12d8e248aaa75af"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      480,
+      640
+    ],
+    "sha256": "9542b9d6a6c95fc8dce2e50889ceea49e5fd50445939a7ce6f59df39ade49271"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 84
+}

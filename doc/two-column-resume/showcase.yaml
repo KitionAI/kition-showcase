@@ -1,0 +1,180 @@
+format: 1
+id: doc/two-column-resume
+title: Two-Column Resume
+summary: A one-page resume built on a borderless two-column table, with a shaded sidebar for contact details, skill ratings and languages.
+category: Resumes
+tags: [resume, table, custom-styles, tab-stops]
+features: [doc.tables.edit, doc.styles.manage, doc.format.paragraph, doc.lists.bullets-numbering]
+featured: true
+description: |
+  The page is one table row of two cells with every border removed: the narrow left cell is
+  shaded sand and holds the name, contact lines, skills rated with filled and open dots on a
+  right-aligned tab stop, and languages. The wide right cell carries the profile, experience and
+  education. All text is set by paragraph styles (two created with styles.create), so the cells
+  hold almost no direct formatting.
+document: { name: two-column-resume.docx, width: 816, height: 1056 }
+fonts:
+  - carlito/Carlito-Regular.ttf
+  - carlito/Carlito-Bold.ttf
+  - carlito/Carlito-Italic.ttf
+  - lora/Lora-Variable.ttf
+steps:
+  - { command: review.proofing }
+  - { command: design.themeFonts, params: { heading: Lora, body: Carlito } }
+  - { command: layout.margins, params: { top: 36, bottom: 30, left: 36, right: 36 } }
+  # Styles: headings, a role line with the dates on a right tab, and two styles of our own.
+  - { command: styles.modify, params: { style: Normal, chr: { size: 10.5 }, para: { spaceAfter: 2, lineSpacing: { rule: multiple, value: 1.1 } } } }
+  - { command: styles.modify, params: { style: Heading 1, chr: { size: 11.5, bold: true, caps: true, spacing: 1, color: { Rgb: [42, 111, 115] } }, para: { spaceBefore: 16, spaceAfter: 5, borders: { bottom: { style: single, width: 0.75, color: [42, 111, 115], space: 2 } } } } }
+  - { command: styles.modify, params: { style: Heading 2, chr: { font: Carlito, size: 11, bold: true, color: { Rgb: [30, 41, 59] } }, para: { spaceBefore: 9, spaceAfter: 0, tabs: [ { pos: 322, align: right, leader: none } ] } } }
+  - { command: styles.create, params: { name: Organisation, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Organisation, chr: { italic: true, color: { Rgb: [90, 100, 114] } }, para: { spaceAfter: 3 } } }
+  - { command: styles.create, params: { name: Sidebar, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Sidebar, chr: { size: 10 }, para: { spaceAfter: 3, tabs: [ { pos: 158, align: right, leader: none } ] } } }
+  - { command: styles.create, params: { name: Resume Name, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Resume Name, chr: { font: Lora, size: 25, bold: true, color: { Rgb: [30, 41, 59] } }, para: { spaceBefore: 12, spaceAfter: 4, lineSpacing: { rule: multiple, value: 0.92 } } } }
+  - { command: styles.create, params: { name: Resume Role, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Resume Role, chr: { size: 13, color: { Rgb: [42, 111, 115] } }, para: { spaceAfter: 0 } } }
+  # The page: one row, two cells, no borders.
+  - { command: insert.table, params: { rows: 1, cols: 2 } }
+  - { command: table.selectTable }
+  - { command: table.borders, params: { kind: none } }
+  - { command: select.collapse }
+  - { command: table.cellMargins, params: { top: 12, left: 14, right: 14, bottom: 12 } }
+  - { command: table.rowHeight, params: { height: 684, rule: atLeast } }
+  - { command: table.columnWidth, params: { width: 186 } }
+  - { command: table.shading, params: { color: "F3EEE6" } }
+  # Sidebar.
+  - { command: para.style, params: { style: Resume Name } }
+  - { command: text.insert, params: { text: Matteo Lindqvist } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Resume Role } }
+  - { command: text.insert, params: { text: Data Engineer } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Contact } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Sidebar } }
+  - { command: text.insert, params: { text: "Gothenburg, Sweden" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "+46 70 000 41 92" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "matteo.lindqvist@post.example" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "code.example/mlindqvist" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Skills } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Sidebar } }
+  - { command: text.insert, params: { text: "Python\t●●●●●" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "SQL and dbt\t●●●●●" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Apache Spark\t●●●●○" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Airflow\t●●●●○" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Kafka streams\t●●●○○" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Terraform\t●●●○○" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Data modelling\t●●●●●" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Languages } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Sidebar } }
+  - { command: text.insert, params: { text: "Swedish\tNative" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "English\tFluent" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Italian\tConversational" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Interests } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Sidebar } }
+  - { command: text.insert, params: { text: "Sea kayaking, community bike repair workshops and slow-cooked Sicilian food." } }
+  # Main column.
+  - { command: text.tab }
+  - { command: table.columnWidth, params: { width: 354 } }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Profile } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Data engineer with seven years of experience building reliable pipelines for logistics and energy companies. I like boring, well-tested infrastructure, clear data contracts and dashboards that people actually open on Monday morning." } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Experience } }
+  - { command: text.newParagraph }
+  - { command: para.heading2 }
+  - { command: text.insert, params: { text: "Senior Data Engineer\t2023 – present" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Organisation } }
+  - { command: text.insert, params: { text: "Nordvik Grid, Gothenburg" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Normal } }
+  - { command: para.bullets }
+  - { command: text.insert, params: { text: "Moved 40 nightly batch jobs to streaming, so meter readings reach analysts in minutes, not a day." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Introduced data contracts and automated tests; broken dashboards fell from weekly to rare." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Cut warehouse costs by 38% by partitioning and pruning the largest fact tables." } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  - { command: para.heading2 }
+  - { command: text.insert, params: { text: "Data Engineer\t2020 – 2023" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Organisation } }
+  - { command: text.insert, params: { text: "Baltic Route Logistics, Malmö" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Normal } }
+  - { command: para.bullets }
+  - { command: text.insert, params: { text: "Built the shipment events platform used by 12 depots and three customer portals." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Wrote the on-call runbook and led the move from hand-run scripts to Airflow." } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  - { command: para.heading2 }
+  - { command: text.insert, params: { text: "Analytics Engineer\t2018 – 2020" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Organisation } }
+  - { command: text.insert, params: { text: "Solberg Energy Cooperative, Uppsala" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Normal } }
+  - { command: para.bullets }
+  - { command: text.insert, params: { text: "Modelled member billing in SQL and replaced 30 spreadsheets with one tested report." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Trained the finance team to write and review their own queries." } }
+  - { command: text.newParagraph }
+  - { command: para.bullets, params: { off: true } }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Education } }
+  - { command: text.newParagraph }
+  - { command: para.heading2 }
+  - { command: text.insert, params: { text: "MSc Computer Science\t2016 – 2018" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Organisation } }
+  - { command: text.insert, params: { text: "Västerhavet Institute of Technology" } }
+  - { command: text.newParagraph }
+  - { command: para.heading2 }
+  - { command: text.insert, params: { text: "BSc Mathematics\t2013 – 2016" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Organisation } }
+  - { command: text.insert, params: { text: "University of Lund Valley" } }
+  - { command: table.properties, as: main }
+  - { command: styles.manage, as: styles }
+  - { command: document.inspect, as: doc }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 1 }
+      words: { min: 190, max: 260 }
+  - actual: results
+    values:
+      main.borders.left.style: none
+      main.columnWidth: 354
+      main.row.height: 684
+      styles: { any: { name: Organisation, type: paragraph, builtIn: false } }
+      doc.blocks: { count: 2, any: { type: table, rows: 1, cols: 2 } }
+diagnostics: []
+since: "2026-11-09"

@@ -1,0 +1,59 @@
+format: 1
+id: film/rolling-end-credits
+title: Rolling End Credits
+summary: Centered end credits roll up over a dark matte, starting and ending off screen.
+category: Titles & Graphics
+tags: [titles, credits, roll]
+features: [film.graphics.titles, film.file.new-items]
+description: |
+  The whole credit list is one centered text layer: names are the layer's own style, and
+  graphics.setCharStyle restyles character ranges for the gold tracked title, the small all-caps
+  role lines and the italic closing notes. graphics.setRoll turns the clip into a roll that starts
+  below the frame and ends above it, so the text needs no position keyframes.
+document: { name: rolling-end-credits.kfilm, width: 1280, height: 720 }
+steps:
+  - { command: sequence.settings, params: { name: End Credits, width: 1280, height: 720, fps: 24 }, as: sequence }
+  - { command: file.newColorMatte, params: { color: "#0d1117", seconds: 12 }, as: matte }
+  - { command: timeline.place, params: { item: $matte.item, track: V1, seconds: 0 }, as: background }
+  - command: graphics.newText
+    params:
+      text: "THE LAST LIGHTHOUSE\n\n\nDirected by\nIlse Marrow\n\nWritten by\nTomas Ferreira\nIlse Marrow\n\nProduced by\nJuno Okafor\nBastian Leclair\n\nDirector of Photography\nRen Takahara\n\nEditor\nPriya Venkataraman\n\nProduction Design\nOdile Brandt\n\nOriginal Music\nThe Saltmarsh Quartet\n\nSound Design\nKofi Mensah-Arden\n\n\n\nFilmed on location along the northern coast\n\n\nSaltmarsh Pictures"
+      position: [640, 120]
+      size: 34
+      seconds: 12
+      track: 1
+      time: 0
+    as: credits
+  - { command: graphics.set, params: { clip: $credits.clip, layer: 0, props: { align: center, fill_color: "#ece8de", leading: 16 } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 0, end: 19, style: { size: 52, fontStyle: Bold, tracking: 160, color: "#f4c76a" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 22, end: 33, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 47, end: 57, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 86, end: 97, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 127, end: 150, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 165, end: 171, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 192, end: 209, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 224, end: 238, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 262, end: 274, style: { size: 22, tracking: 140, caps: all caps, color: "#8a94a6" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 296, end: 339, style: { size: 24, italic: true, color: "#b7bfcc" } } }
+  - { command: graphics.setCharStyle, params: { clip: $credits.clip, layer: 0, start: 342, end: 360, style: { size: 26, fontStyle: Bold, tracking: 60, color: "#f4c76a" } } }
+  - { command: graphics.setRoll, params: { clip: $credits.clip, mode: roll, startOffScreen: true, endOffScreen: true }, as: roll }
+  - { command: graphics.list, params: { clip: $credits.clip }, as: list }
+thumbnail: { at: 2 }
+preview: { from: 0, to: 6, fps: 8, max: 400 }
+expected:
+  - actual: results
+    values:
+      roll.roll: { mode: roll, startOffScreen: true, endOffScreen: true }
+      list.graphic.roll.mode: roll
+      list.layers: { count: 1 }
+      list.layers.0.text: { contains: THE LAST LIGHTHOUSE }
+      list.layers.0.styles: { count: 11 }
+      list.layers.0.quad.0.1: { min: 720 }
+  - actual: inspect
+    values:
+      sequence.name: End Credits
+      sequence.settings.frame_rate: { num: 24, den: 1 }
+      sequence.video.0.items: { count: 1 }
+      sequence.video.1.items: { count: 1 }
+diagnostics: []
+since: "2026-11-09"

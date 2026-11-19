@@ -1,0 +1,30 @@
+{
+  "id": "note/spanish-study-notes",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "b15cb40c08",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1147
+  ],
+  "stats": "1 page; 127 words; 4 headings; 1 table",
+  "commands": 2,
+  "document": {
+    "name": "spanish-study-notes.md",
+    "bytes": 869,
+    "sha256": "be848bc06b126f3488e32cc83fbefbbf7904717696a412b173346548db20ecb4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "4c0b34b841241f51e0e8b0b2aeb5ad548582a47b104c31e91e0b092901abfe43"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 4
+}

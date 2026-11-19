@@ -1,0 +1,30 @@
+{
+  "id": "design/sales-analytics-dashboard",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    3000,
+    2000
+  ],
+  "stats": "1 page; 134 layers; 1440 × 900 design",
+  "commands": 139,
+  "document": {
+    "name": "sales-analytics-dashboard.kdesign",
+    "bytes": 106632,
+    "sha256": "bf3851c41d4754fe7ebdd2324da50468fc8e6aadc479951a3abfcde75969b7ae"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "1cbdf3869f50e78809be5df5aa55dd9bde1c9bd22e726eac3a4b8afa0f7d904d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 136
+}

@@ -1,0 +1,30 @@
+{
+  "id": "doc/kelp-research-paper",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 628 words",
+  "commands": 135,
+  "document": {
+    "name": "kelp-research-paper.docx",
+    "bytes": 10954,
+    "sha256": "f185a7e2fdeb21e422c0b75d69c4217c4e9acda93ed7a494535102f8dd171e10"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "c3a428d59b49f0cbc5925244d28d0572fd7bc2a4ed99668992ad4873394bb2d8"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 85
+}

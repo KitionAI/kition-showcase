@@ -1,0 +1,30 @@
+{
+  "id": "photo/button-states-component-sheet",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1400,
+    920
+  ],
+  "stats": "1400 × 920 px; 58 layers; 33 type layers; 23 shape layers; 1 fill layer; 12 styled layers; 1 mask",
+  "commands": 69,
+  "document": {
+    "name": "button-states-component-sheet.psd",
+    "bytes": 803341,
+    "sha256": "3c91b65e442f4eae61d703aeba19e214f95686e57f987a256c7685a1365090d2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      421
+    ],
+    "sha256": "3566581fcda86b25e32be557557047ceff2bdcecd1065bdc1ed8033a794cbae6"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 203
+}

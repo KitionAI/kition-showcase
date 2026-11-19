@@ -1,0 +1,67 @@
+format: 1
+id: cad/u-shaped-staircase-plan
+title: U-Shaped Staircase Plan
+summary: A 1:25 plan of a two-flight stair with a landing, treads made with a rectangular array, a walking line with arrowhead, break line and chained dimensions.
+category: Floor Plans
+tags: [floor-plan, stairs, array, dimensions, architecture]
+features: [cad.modify.array, cad.draw.lines, cad.draw.hatch, cad.dimension.basic, cad.dimension.styles, cad.layer.basics]
+description: |
+  One tread line per flight is copied into twelve rows with arrayrect. The walking line is a polyline
+  ending in a tapered-width segment for the arrow, starting at a donut; a zigzag polyline breaks the
+  down flight. The stairwell walls are one closed polyline hatched with ANSI31, and an architectural
+  dimension style chains the widths and the run.
+document: { name: u-shaped-staircase-plan.dxf, width: 1100, height: 1600 }
+steps:
+  - {"command": "grid", "params": {"on": false}}
+  - {"command": "lwdisplay", "params": {"on": true}}
+  - {"command": "limits", "params": {"min": [-900, -1300], "max": [3300, 4900]}}
+  - {"command": "linetype", "params": {"load": "HIDDEN"}}
+  - {"command": "dimstyle", "params": {"name": "Stair", "DIMSCALE": 25, "DIMTXT": 2.5, "DIMASZ": 1.5, "DIMTSZ": 1.2, "DIMEXO": 1.5, "DIMEXE": 1.5, "DIMGAP": 0.8, "DIMDEC": 0}, "as": "dimstyle"}
+  - {"command": "layer.new", "params": {"name": "Walls", "color": "7", "lineweight": "0.50"}}
+  - {"command": "layer.new", "params": {"name": "Wall hatch", "color": "8"}}
+  - {"command": "layer.new", "params": {"name": "Stair", "color": "7", "lineweight": "0.35"}}
+  - {"command": "layer.new", "params": {"name": "Handrail", "color": "6", "lineweight": "0.25"}}
+  - {"command": "layer.new", "params": {"name": "Walkline", "color": "1", "lineweight": "0.25"}}
+  - {"command": "layer.new", "params": {"name": "Text", "color": "7"}}
+  - {"command": "layer.new", "params": {"name": "Dims", "color": "5"}}
+  - {"command": "layer.current", "params": {"name": "Walls"}}
+  - {"command": "pline", "params": {"points": [[-200, -400], [-200, 4200], [2600, 4200], [2600, -400], [2400, -400], [2400, 4000], [0, 4000], [0, -400]], "closed": true}, "as": "wall"}
+  - {"command": "layer.current", "params": {"name": "Wall hatch"}}
+  - {"command": "hatch", "params": {"handles": ["$wall.handle"], "pattern": "ANSI31", "scale": 20}}
+  - {"command": "layer.current", "params": {"name": "Stair"}}
+  - {"command": "line", "params": {"points": [[0, 0], [1100, 0]]}, "as": "t1"}
+  - {"command": "line", "params": {"points": [[1300, 0], [2400, 0]]}, "as": "t2"}
+  - {"command": "arrayrect", "params": {"handles": ["$t1.handles.0", "$t2.handles.0"], "rows": 12, "cols": 1, "rowSpacing": 260, "colSpacing": 1}, "as": "treads"}
+  - {"command": "rectang", "params": {"p1": [1100, 0], "p2": [1300, 2860]}, "as": "well"}
+  - {"command": "layer.current", "params": {"name": "Handrail"}}
+  - {"command": "line", "params": {"points": [[1050, 0], [1050, 2860]]}}
+  - {"command": "line", "params": {"points": [[1350, 0], [1350, 2860]]}}
+  - {"command": "layer.current", "params": {"name": "Walkline"}}
+  - {"command": "pline", "params": {"points": [[550.0, 130], [550.0, 3430.0], [1850.0, 3430.0], [1850.0, 700]]}}
+  - {"command": "pline", "params": {"points": [{"p": [1850.0, 700], "startWidth": 120, "endWidth": 0}, {"p": [1850.0, 450]}]}}
+  - {"command": "donut", "params": {"center": [550.0, 130], "inside": 0, "outside": 90}}
+  - {"command": "layer.current", "params": {"name": "Stair"}}
+  - {"command": "pline", "params": {"points": [[1300, 1300], [1720, 1430], [1820, 1640], [1920, 1300], [2020, 1500], [2400, 1630]]}}
+  - {"command": "layer.current", "params": {"name": "Text"}}
+  - {"command": "text", "params": {"at": [550.0, -260], "text": "UP", "height": 160, "justify": "MC"}}
+  - {"command": "text", "params": {"at": [1850.0, -260], "text": "DN", "height": 160, "justify": "MC"}}
+  - {"command": "text", "params": {"at": [1200.0, 3690.0], "text": "LANDING +2.100", "height": 120, "justify": "MC"}}
+  - {"command": "text", "params": {"at": [-850, -1150], "text": "STAIR S1  -  PLAN AT GROUND FLOOR  1:25", "height": 170}}
+  - {"command": "text", "params": {"at": [-850, -1380], "text": "24 RISERS @ 175   22 GOINGS @ 260   CLEAR WIDTH 1100", "height": 110}}
+  - {"command": "layer.current", "params": {"name": "Dims"}}
+  - {"command": "dimlinear", "params": {"p1": [0, 4000], "p2": [2400, 4000], "at": [1200.0, 4650]}, "as": "dw"}
+  - {"command": "dimlinear", "params": {"p1": [0, 4000], "p2": [1100, 4000], "at": [550.0, 4400]}, "as": "df"}
+  - {"command": "dimcontinue", "params": {"points": [[1300, 4000], [2400, 4000]]}}
+  - {"command": "dimlinear", "params": {"p1": [2400, 0], "p2": [2400, 2860], "at": [3050, 1430.0]}, "as": "drun"}
+  - {"command": "dimcontinue", "params": {"points": [[2400, 4000]]}}
+  - {"command": "dimlinear", "params": {"p1": [0, 0], "p2": [0, 260], "at": [-500, 130.0]}, "as": "dgo"}
+  - {"command": "drawing.inspect", "params": {}, "as": "di"}
+expected:
+  - actual: inspect
+    values:
+      layers: { any: { name: Walkline } }
+  - actual: results
+    values:
+      di.counts: { Line: 26, Hatch: 1, Dimension: 7 }
+diagnostics: []
+since: "2026-11-09"

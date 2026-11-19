@@ -1,0 +1,30 @@
+{
+  "id": "sheet/cafe-chain-quarterly-rollup",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1798,
+    2041
+  ],
+  "stats": "4 sheets; used range A1:F15",
+  "commands": 96,
+  "document": {
+    "name": "cafe-chain-quarterly-rollup.xlsx",
+    "bytes": 11108,
+    "sha256": "6066de905b867b9a6dbffad600bfa38ed8988d24643bc713c134eb31a965efd0"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      220
+    ],
+    "sha256": "ffdea0587e2bf936ba906cda65315b9568eff2b54bed22acbc63c2192b42846e"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 145
+}

@@ -1,0 +1,30 @@
+{
+  "id": "pdf/allotment-plot-measurements",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page",
+  "commands": 31,
+  "document": {
+    "name": "allotment-plot-measurements.pdf",
+    "bytes": 170487,
+    "sha256": "a77f4a37125553e8e5772553a050b7b55cb74a643bbdc1401ea1a0f67e2624a4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      579,
+      640
+    ],
+    "sha256": "237f65ae5e95a86646c83485a5fec4c7b302de8a316a8d05041d3e2ca7ecfcc6"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 58
+}

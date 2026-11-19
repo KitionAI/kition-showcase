@@ -1,0 +1,30 @@
+{
+  "id": "photo/podcast-cover-art",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1400,
+    1400
+  ],
+  "stats": "1400 × 1400 px; 10 layers; 4 type layers; 3 shape layers; 1 fill layer; 2 styled layers; 1 mask",
+  "commands": 43,
+  "document": {
+    "name": "podcast-cover-art.psd",
+    "bytes": 4773439,
+    "sha256": "8730fbc7f2fc7bcb51d754ec142ef117b5e0576b0de17e0f128018326642af27"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      640
+    ],
+    "sha256": "051c1e9894ba9ef0b81992641b6ee215fb338f5a90ded86533735c87daf8bf76"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2232
+}

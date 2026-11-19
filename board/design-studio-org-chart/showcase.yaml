@@ -1,0 +1,40 @@
+format: 1
+id: board/design-studio-org-chart
+title: Design Studio Org Chart
+summary: A three-team org chart with a director, department heads and their reports, joined by elbow connectors.
+category: Diagrams & Flows
+tags: [org-chart, connectors]
+features: [board.elements, board.connectors]
+description: |
+  Boxes for people, colour-coded by team, joined by elbow connectors without arrowheads. Each
+  report hangs from its head's left edge, the usual layout when a team is longer than it is wide.
+document: { name: design-studio-org-chart.kboard, width: 1920, height: 1080 }
+fonts: [inter/Inter-Variable.ttf]
+steps:
+  - {"command": "element.create", "params": {"elements": [{"kind": "text", "position": [40, 40], "text": "Northlight Studio: who's who", "fontSize": 44, "strokeColor": "ink"}, {"kind": "text", "position": [42, 110], "text": "Thirteen people in three teams. Reports hang from their team lead.", "fontSize": 20, "strokeColor": "gray"}]}, "as": "heading"}
+  - {"command": "element.create", "params": {"elements": [{"kind": "shape", "position": [640, 190], "size": [280, 96], "text": "Ada Okafor\nStudio Director", "fillColor": "#2b2a3a", "fillStyle": "solid", "strokeColor": "white", "roundness": 12, "fontSize": 19}]}, "as": "root"}
+  - {"command": "element.create", "params": {"elements": [{"kind": "shape", "position": [100, 360], "size": [280, 96], "text": "Ravi Menon\nHead of Design", "fillColor": "purple", "fillStyle": "solid", "strokeColor": "purple", "roundness": 12, "fontSize": 19}, {"kind": "shape", "position": [160, 510], "size": [240, 84], "text": "Lucía Ortega\nSenior Product Designer", "fillColor": "white", "fillStyle": "solid", "strokeColor": "purple", "roundness": 10, "fontSize": 17}, {"kind": "shape", "position": [160, 612], "size": [240, 84], "text": "Tomás Weber\nBrand Designer", "fillColor": "white", "fillStyle": "solid", "strokeColor": "purple", "roundness": 10, "fontSize": 17}, {"kind": "shape", "position": [160, 714], "size": [240, 84], "text": "Hana Sato\nUX Researcher", "fillColor": "white", "fillStyle": "solid", "strokeColor": "purple", "roundness": 10, "fontSize": 17}]}, "as": "d0"}
+  - {"command": "connector.create", "params": {"from": {"element": "$root.created.0", "anchor": [0.5, 1]}, "to": {"element": "$d0.created.0", "anchor": [0.5, 0]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "gray"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d0.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d0.created.1", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "purple"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d0.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d0.created.2", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "purple"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d0.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d0.created.3", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "purple"}}}
+  - {"command": "element.create", "params": {"elements": [{"kind": "shape", "position": [640, 360], "size": [280, 96], "text": "Grace Lindqvist\nHead of Engineering", "fillColor": "blue", "fillStyle": "solid", "strokeColor": "blue", "roundness": 12, "fontSize": 19}, {"kind": "shape", "position": [700, 510], "size": [240, 84], "text": "Kwame Mensah\nTech Lead", "fillColor": "white", "fillStyle": "solid", "strokeColor": "blue", "roundness": 10, "fontSize": 17}, {"kind": "shape", "position": [700, 612], "size": [240, 84], "text": "Elif Kaya\nFrontend Engineer", "fillColor": "white", "fillStyle": "solid", "strokeColor": "blue", "roundness": 10, "fontSize": 17}, {"kind": "shape", "position": [700, 714], "size": [240, 84], "text": "Noah Brandt\nPlatform Engineer", "fillColor": "white", "fillStyle": "solid", "strokeColor": "blue", "roundness": 10, "fontSize": 17}, {"kind": "shape", "position": [700, 816], "size": [240, 84], "text": "Sun-hee Park\nQA Engineer", "fillColor": "white", "fillStyle": "solid", "strokeColor": "blue", "roundness": 10, "fontSize": 17}]}, "as": "d1"}
+  - {"command": "connector.create", "params": {"from": {"element": "$root.created.0", "anchor": [0.5, 1]}, "to": {"element": "$d1.created.0", "anchor": [0.5, 0]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "gray"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d1.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d1.created.1", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "blue"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d1.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d1.created.2", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "blue"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d1.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d1.created.3", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "blue"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d1.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d1.created.4", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "blue"}}}
+  - {"command": "element.create", "params": {"elements": [{"kind": "shape", "position": [1180, 360], "size": [280, 96], "text": "Marco Bellini\nHead of Operations", "fillColor": "green", "fillStyle": "solid", "strokeColor": "green", "roundness": 12, "fontSize": 19}, {"kind": "shape", "position": [1240, 510], "size": [240, 84], "text": "Chloé Martin\nProducer", "fillColor": "white", "fillStyle": "solid", "strokeColor": "green", "roundness": 10, "fontSize": 17}, {"kind": "shape", "position": [1240, 612], "size": [240, 84], "text": "Daniel Reyes\nFinance and People", "fillColor": "white", "fillStyle": "solid", "strokeColor": "green", "roundness": 10, "fontSize": 17}]}, "as": "d2"}
+  - {"command": "connector.create", "params": {"from": {"element": "$root.created.0", "anchor": [0.5, 1]}, "to": {"element": "$d2.created.0", "anchor": [0.5, 0]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "gray"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d2.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d2.created.1", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "green"}}}
+  - {"command": "connector.create", "params": {"from": {"element": "$d2.created.0", "anchor": [0.1, 1]}, "to": {"element": "$d2.created.2", "anchor": [0, 0.5]}, "type": "elbow", "endArrowhead": "none", "style": {"strokeColor": "green"}}}
+thumbnail: { area: [0, 0, 1560, 920] }
+expected:
+  - actual: inspect
+    values:
+      elements: 27
+  - actual: results
+    values:
+      d1.created: { count: 5 }
+diagnostics: []
+since: "2026-11-09"

@@ -1,0 +1,30 @@
+{
+  "id": "scene/toy-blocks-drop",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "4 meshes; 5 materials; 1 light",
+  "commands": 46,
+  "document": {
+    "name": "toy-blocks-drop.kscene",
+    "bytes": 10252,
+    "sha256": "db36264ff8a99c3c7b075375266d91395587ccaa410a5655b90b056407fe8919"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "49501dcf6ff3d5ac2338f5aea7272ad33e9199d6e28dd54aee4e6d7108511fb3"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 5
+}

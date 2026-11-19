@@ -1,0 +1,67 @@
+format: 1
+id: film/channel-intro-logo-sting
+title: Channel Intro Logo Sting
+summary: A hexagon mark spins into place and a wordmark tightens its tracking for a channel intro.
+category: Titles & Graphics
+tags: [titles, logo, shapes, keyframes, demo-footage]
+features: [film.graphics.titles, film.effects.keyframes]
+description: |
+  A two-second sting for a fictional maker channel, built from shape layers only: an outlined
+  hexagon (fill off, centered 14 px stroke), a pink hexagon core turned 30° and a white dot. The
+  mark spins in from -180° while it scales up, the core counter-rotates a beat later, and the
+  wordmark arrives with its tracking keyframed from 900 down to 120, the classic tightening
+  letterspace move, before the strapline fades in. The neon footage shows through a dark shade.
+document: { name: channel-intro-logo-sting.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Loophouse Intro, width: 1280, height: 720, fps: 30, video: 2, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 10, track: V1, seconds: 0, audio: false }, as: footage }
+  - { command: graphics.newRectangle, params: { position: [640, 360], size: [1280, 720], seconds: 4, track: 1, time: 0 }, as: sting }
+  - { command: graphics.set, params: { clip: $sting.clip, layer: 0, props: { name: Shade, fill_color: "#0a0a14", opacity: 90 } } }
+  - { command: graphics.newPolygon, params: { clip: $sting.clip, position: [640, 300], size: [200, 200], sides: 6 } }
+  - { command: graphics.set, params: { clip: $sting.clip, layer: 1, props: { name: Hex, fill: false, stroke: true, stroke_color: "#38e8c6", stroke_width: 14, stroke_type: Center } } }
+  - { command: graphics.newPolygon, params: { clip: $sting.clip, position: [640, 300], size: [112, 112], sides: 6 } }
+  - { command: graphics.set, params: { clip: $sting.clip, layer: 2, props: { name: Core, fill_color: "#ff4f9a", rotation: 30 } } }
+  - { command: graphics.newEllipse, params: { clip: $sting.clip, position: [640, 300], size: [36, 36] } }
+  - { command: graphics.set, params: { clip: $sting.clip, layer: 3, props: { name: Dot, fill_color: "#ffffff" } } }
+  - { command: graphics.newText, params: { clip: $sting.clip, text: LOOPHOUSE, position: [640, 500], size: 72, fontStyle: Bold } }
+  - { command: graphics.set, params: { clip: $sting.clip, layer: 4, props: { name: Wordmark, align: center, tracking: 120, fill_color: "#ffffff" } } }
+  - { command: graphics.newText, params: { clip: $sting.clip, text: MAKE  ·  BREAK  ·  REPEAT, position: [640, 548], size: 20 } }
+  - { command: graphics.set, params: { clip: $sting.clip, layer: 5, props: { name: Strapline, align: center, tracking: 400, fill_color: "#38e8c6" } } }
+  # the mark spins in and grows, the core counter-rotates, the wordmark's tracking closes up
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 4, param: rotation, value: -180, seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 4, param: rotation, value: 0, seconds: 0.9 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 4, param: scale, value: 0, seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 4, param: scale, value: 100, seconds: 0.9 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 5, param: rotation, value: 210, seconds: 0.2 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 5, param: rotation, value: 30, seconds: 1.1 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 5, param: scale, value: 0, seconds: 0.2 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 5, param: scale, value: 100, seconds: 1.1 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 6, param: scale, value: 0, seconds: 0.9 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 6, param: scale, value: 100, seconds: 1.2 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 7, param: tracking, value: 900, seconds: 0.6 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 7, param: tracking, value: 120, seconds: 1.6 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 7, param: opacity, value: 0, seconds: 0.6 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 7, param: opacity, value: 100, seconds: 1.1 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 8, param: opacity, value: 0, seconds: 1.4 } }
+  - { command: effects.setParam, params: { clip: $sting.clip, effect: 8, param: opacity, value: 100, seconds: 1.9 } }
+  - { command: graphics.list, params: { clip: $sting.clip }, as: list }
+thumbnail: { at: 2.5 }
+preview: { from: 0, to: 2.5, fps: 12, max: 400 }
+expected:
+  - actual: results
+    values:
+      list.layers: { count: 6 }
+      list.layers.1: { name: Hex, kind: Polygon }
+      list.layers.2: { name: Core, kind: Polygon }
+      list.layers.4: { name: Wordmark, text: LOOPHOUSE }
+  - actual: inspect
+    values:
+      # times in ticks (254 016 000 000 per second): 0.2 s = 50803200000, 0.9 s = 228614400000, …
+      sequence.video.1.items.0.effects.4.params.rotation.keyframes: [{ time: 0, value: -180 }, { time: 228614400000, value: 0 }]
+      sequence.video.1.items.0.effects.4.params.scale.keyframes: [{ time: 0, value: 0 }, { time: 228614400000, value: 100 }]
+      sequence.video.1.items.0.effects.5.params.rotation.keyframes: [{ time: 50803200000, value: 210 }, { time: 279417600000, value: 30 }]
+      sequence.video.1.items.0.effects.7.params.tracking.keyframes: [{ time: 152409600000, value: 900 }, { time: 406425600000, value: 120 }]
+      sequence.video.1.items.0.effects.8.params.opacity.keyframes: [{ time: 355622400000, value: 0 }, { time: 482630400000, value: 100 }]
+diagnostics: []
+since: "2026-11-09"

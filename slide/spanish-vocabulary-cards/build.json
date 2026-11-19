@@ -1,0 +1,30 @@
+{
+  "id": "slide/spanish-vocabulary-cards",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 130,
+  "document": {
+    "name": "spanish-vocabulary-cards.pptx",
+    "bytes": 24145,
+    "sha256": "6a81641f2e0d0b7cd1fddd515d9ceef50bd2069f2f1b8cfcb03afef31aad3355"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "6e343b8488197cba0b793fcc08d783fb76ed58ff02da93832e4861018da05dff"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 268
+}

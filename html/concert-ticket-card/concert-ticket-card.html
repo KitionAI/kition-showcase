@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Your ticket</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; height: 760px; font-family: Inter, sans-serif; background: linear-gradient(135deg, #fdf2f8, #e0e7ff); display: flex; align-items: center; justify-content: center; }
+  .stack { position: relative; width: 360px; height: 580px; }
+  .ghost { position: absolute; top: 18px; left: 26px; width: 360px; height: 560px; border-radius: 28px; background: #c7d2fe; transform: rotate(5deg); box-shadow: 0 20px 40px rgba(67,56,202,0.18); }
+  .ticket { position: absolute; top: 0; left: 0; width: 360px; height: 580px; border-radius: 28px; background: #ffffff; box-shadow: 0 30px 60px rgba(30,27,75,0.25), 0 4px 10px rgba(30,27,75,0.08); overflow: hidden; }
+  .top { height: 250px; padding: 28px; color: #ffffff; background: radial-gradient(circle at 90% 10%, rgba(255,255,255,0.35), transparent 35%), linear-gradient(150deg, #4c1d95, #be185d 70%, #f97316); }
+  .org { font-size: 12px; font-weight: 700; letter-spacing: 2px; opacity: 0.85; }
+  .top h1 { margin: 36px 0 8px; font-size: 32px; line-height: 1.1; letter-spacing: -0.5px; }
+  .top p { margin: 0; font-size: 15px; opacity: 0.9; }
+  .notch { position: absolute; top: 372px; width: 36px; height: 36px; border-radius: 50%; background: #ece9fb; }
+  .left { left: -18px; } .right { right: -18px; }
+  .info { padding: 24px 28px 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .info small { display: block; font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .info b { font-size: 18px; color: #1f2937; }
+  .when { grid-column: span 3; }
+  .tear { margin: 30px 28px 0; border-top: 2px dashed #e5e7eb; }
+  .code { margin: 26px 28px 0; height: 84px; background: repeating-linear-gradient(90deg, #111827 0, #111827 2px, transparent 2px, transparent 5px, #111827 5px, #111827 9px, transparent 9px, transparent 11px, #111827 11px, #111827 12px, transparent 12px, transparent 16px); }
+  .num { text-align: center; font-size: 13px; letter-spacing: 4px; color: #6b7280; margin-top: 10px; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="ghost"></div>
+    <div class="ticket">
+      <div class="top">
+        <div class="org">NORTHBAY CHAMBER ORCHESTRA</div>
+        <h1>Winter Lights: Sibelius and Grieg</h1>
+        <p>Harbour Hall · Doors 19:00</p>
+      </div>
+      <div class="notch left"></div><div class="notch right"></div>
+      <div class="info">
+        <div class="when"><small>Date</small><b>Saturday 12 December 2026, 19:30</b></div>
+        <div><small>Section</small><b>Stalls</b></div>
+        <div><small>Row</small><b>F</b></div>
+        <div><small>Seat</small><b>14</b></div>
+      </div>
+      <div class="tear"></div>
+      <div class="code"></div>
+      <div class="num">4021 7730 1859 0626</div>
+    </div>
+  </div>
+</body>
+</html>

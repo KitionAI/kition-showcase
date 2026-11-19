@@ -1,0 +1,30 @@
+{
+  "id": "slide/swot-analysis-grid",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 58,
+  "document": {
+    "name": "swot-analysis-grid.pptx",
+    "bytes": 23260,
+    "sha256": "925774c4606a3f3952c0799df415a97380e749f7d17c0b84b2b7fdfc46935994"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "e3f29de122e1d2baea147327dc84f563351a109198705de8359424855d95b835"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 91
+}

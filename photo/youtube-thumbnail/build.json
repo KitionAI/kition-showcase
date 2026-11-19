@@ -1,0 +1,30 @@
+{
+  "id": "photo/youtube-thumbnail",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 px; 16 layers; 3 type layers; 9 shape layers; 1 fill layer; 1 group; 4 styled layers; 1 mask",
+  "commands": 25,
+  "document": {
+    "name": "youtube-thumbnail.psd",
+    "bytes": 721248,
+    "sha256": "4264ea523ffa008719b7625d6c2decb79f4ea7de4eb0a99bffbbec5c04ccc0d7"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "8e47cfd03c4d13ea5bc4045231643ad82559d51f547d11c0ed8fde7b6c9cf6bc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 185
+}

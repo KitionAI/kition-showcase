@@ -1,0 +1,30 @@
+{
+  "id": "layout/credit-union-annual-report",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    756,
+    936
+  ],
+  "stats": "1 page; 9 stories; 10 paragraph styles",
+  "commands": 100,
+  "document": {
+    "name": "credit-union-annual-report.klayout",
+    "bytes": 71882,
+    "sha256": "77cb825b2e73c60bdfac64726b57eec55420b0ef3065e884e9c88cfd445334cb"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "5d987385d1b5f349c669617d6405c496821cffe171e9301f8e47f92ec23ed3ad"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 279
+}

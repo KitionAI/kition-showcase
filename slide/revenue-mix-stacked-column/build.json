@@ -1,0 +1,30 @@
+{
+  "id": "slide/revenue-mix-stacked-column",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 37,
+  "document": {
+    "name": "revenue-mix-stacked-column.pptx",
+    "bytes": 26687,
+    "sha256": "eb15edd423c732784c404a9deb0d344d857f3ccdd01e691f97678069c0de1488"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "129d7eb1604993105ab56147a54bbaea6fd01f66b4dab2d7a4d9e9a3bc8e3f6d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 90
+}

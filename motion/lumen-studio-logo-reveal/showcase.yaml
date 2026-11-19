@@ -1,0 +1,57 @@
+format: 1
+id: motion/lumen-studio-logo-reveal
+title: Lumen Studio Logo Reveal
+summary: A gold ring draws itself on, the prism mark pops inside it and the wordmark wipes in under a sweep of light.
+category: Logo Reveals
+tags: [logo, trim-paths, wipe, glow, sheen]
+features: [motion.shape.paths, motion.keys.basics, motion.effect.apply, motion.layer.styles, motion.layer.basics]
+featured: true
+description: |
+  A studio ident in three beats. The ring is an ellipse stroke with a Trim Paths item whose End
+  runs 0 to 100 % while its Offset turns, so the circle draws itself on. The prism mark scales up
+  with the `pop` curve, and the wordmark is revealed left to right by a feathered Linear Wipe, then
+  a light sheen (light.sheen) passes across it. Glow and an Outer Glow style give the gold its heat.
+document: { name: lumen-studio-logo-reveal.kmotion, width: 1280, height: 720 }
+steps:
+  - { command: comp.settings, params: { name: Lumen Ident, duration: 5, frameRate: 30 } }
+  - { command: layer.newSolid, params: { name: Backdrop, color: "#0a0f1e" }, as: bg }
+  - { command: effect.apply, params: { layers: [$bg.layer], effect: Gradient Ramp, params: { shape: 1, start: [640, 300], end: [640, 980], startColor: "#1d2748", endColor: "#04060c" } } }
+  - { command: layer.newShape, params: { kind: ellipse, name: Ring, size: [240, 240], fill: false, stroke: "#f2c46d", strokeWidth: 10, position: [640, 280] }, as: ring }
+  - { command: layer.addShapeItem, params: { layer: $ring.layer, kind: trim }, as: trim }
+  - { command: prop.addKey, params: { layer: $ring.layer, path: contents/trim/end, time: 0.2, value: 0 } }
+  - { command: prop.addKey, params: { layer: $ring.layer, path: contents/trim/end, time: 1.3, value: 100 } }
+  - { command: prop.addKey, params: { layer: $ring.layer, path: contents/trim/offset, time: 0.2, value: -90 } }
+  - { command: prop.addKey, params: { layer: $ring.layer, path: contents/trim/offset, time: 1.3, value: 0 } }
+  - { command: keys.applyEase, params: { layer: $ring.layer, path: contents/trim/end, preset: smooth, from: 0.2, to: 1.3 } }
+  - { command: layer.style.add, params: { layers: [$ring.layer], style: outerGlow, params: { color: "#ffb347", opacity: 80, size: 30 } } }
+  - { command: layer.newShape, params: { kind: polygon, name: Prism, size: [150, 150], fillGradient: ["#fff1c9", "#e9a23b"], fillAngle: 90, position: [640, 292] }, as: prism }
+  - { command: prop.set, params: { layer: $prism.layer, path: contents/group/contents/star/points, value: 3 } }
+  - { command: prop.addKey, params: { layer: $prism.layer, path: transform/scale, time: 1.0, value: [0, 0, 100] } }
+  - { command: prop.addKey, params: { layer: $prism.layer, path: transform/scale, time: 1.5, value: [100, 100, 100] } }
+  - { command: keys.applyEase, params: { layer: $prism.layer, path: transform/scale, preset: pop, from: 1.0, to: 1.5 } }
+  - { command: effect.apply, params: { layers: [$ring.layer, $prism.layer], effect: Glow, params: { threshold: 50, radius: 24, intensity: 0.8 } } }
+  - { command: layer.newText, params: { text: LUMEN STUDIO, position: [640, 520], size: 78, font: Inter, style: Bold, fill: "#f6efe0", justify: center, tracking: 260 }, as: word }
+  - { command: layer.style.add, params: { layers: [$word.layer], style: dropShadow, params: { opacity: 55, size: 20, distance: 6 } } }
+  - { command: effect.apply, params: { layers: [$word.layer], effect: Linear Wipe, params: { angle: 270, feather: 120 } } }
+  - { command: prop.addKey, params: { layer: $word.layer, path: "effects/#1/completion", time: 1.4, value: 100 } }
+  - { command: prop.addKey, params: { layer: $word.layer, path: "effects/#1/completion", time: 2.3, value: 0 } }
+  - { command: light.sheen, params: { layer: $word.layer, start: 2.4, frames: 30, color: "#fff4d6" }, as: sheen }
+  - { command: layer.newText, params: { text: LIGHT FOR STORIES, position: [640, 590], size: 26, font: Inter, style: SemiBold, fill: "#c9a96a", justify: center, tracking: 500 }, as: tag }
+  - { command: layer.applyTextPreset, params: { layer: $tag.layer, preset: trackingIn, start: 2.2 }, as: tagIn }
+thumbnail: { at: 3.6 }
+preview: { from: 0, to: 4, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      comp: { name: Lumen Ident, duration: 5 }
+      info.layers: { count: 5 }
+      info.layers.0.animated: { any: { name: Tracking Amount, times: [2.2, 3.8] } }
+      info.layers.3: { name: Ring, type: Shape }
+      info.layers.3.animated: { all: { times: [0.2, 1.3] }, count: 2 }
+      info.layers.2.animated: { any: { name: Scale, times: [1.0, 1.5] } }
+      info.layers.1.animated: { any: { name: Transition Completion, times: [1.4, 2.3] } }
+  - actual: results
+    values:
+      trim.path: contents/trim
+diagnostics: []
+since: "2026-11-09"

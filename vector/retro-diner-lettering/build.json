@@ -1,0 +1,30 @@
+{
+  "id": "vector/retro-diner-lettering",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    800
+  ],
+  "stats": "1 artboard; 2 layers; 36 objects",
+  "commands": 56,
+  "document": {
+    "name": "retro-diner-lettering.kvector",
+    "bytes": 54555,
+    "sha256": "6af1b8f88d986b0f68dfeba160a5ddb158f363c2303aa343be80a6d157779847"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      427
+    ],
+    "sha256": "c880cfe823de1505a2cc3b3b2873a113cf00686ab1334083384acf0bdb88b08b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 34
+}

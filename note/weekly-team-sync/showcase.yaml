@@ -1,0 +1,78 @@
+format: 1
+id: note/weekly-team-sync
+title: Weekly Team Sync
+summary: Meeting notes with front-matter properties, a decision callout, an agenda table and action items, two of them ticked off after the meeting and one decision commented on.
+category: Notes & Journals
+tags: [meeting-notes, properties, tasks, callouts, comments]
+features: [note.text.edit, note.properties, note.tasks, note.tables, note.comments, note.format]
+featured: true
+description: |
+  `note.write` lays down the notes in Obsidian-flavoured Markdown: properties for the date,
+  attendees and project, an agenda table, a decision callout and a task list with owners. After
+  the meeting `task.toggle` ticks two actions, `property.set` marks the notes as reviewed and
+  `comment.add` starts a thread on the decision. The inspection counts the tasks, tables and
+  callouts and the open comment thread.
+document: { name: weekly-team-sync.md, width: 816, height: 1056 }
+steps:
+  - command: note.write
+    params:
+      markdown: |
+        ---
+        date: 2026-11-09
+        project: Tidewater app
+        attendees: [Noor, Bastian, Ilse, Keoni]
+        status: draft
+        ---
+        # Weekly Team Sync
+
+        Monday stand-up for the **Tidewater** tide-tables app. Notes by Ilse; next sync on the 16th.
+
+        ## Agenda
+
+        | Topic | Lead | Minutes |
+        | :-- | :-- | --: |
+        | Beta feedback round-up | Noor | 10 |
+        | Offline mode estimate | Bastian | 15 |
+        | Store listing copy | Keoni | 5 |
+
+        ## Decisions
+
+        > [!IMPORTANT] Offline mode ships in 2.3
+        > We cache the next fourteen days of tide data per saved harbour. Older data is dropped on launch.
+
+        > [!NOTE] Beta feedback
+        > 41 replies so far. The most requested change is a larger font on the chart labels.
+
+        ## Action items
+
+        - [ ] Noor: group the beta replies by theme and share the top five
+        - [ ] Bastian: spike the cache size for 50 harbours
+        - [ ] Keoni: draft the store listing in English and Welsh
+        - [ ] Ilse: book the usability session with the sailing club
+        - [ ] Everyone: try the nightly build on a real boat this weekend
+
+        ## Parking lot
+
+        - Dark mode for night sailing
+        - Widget for the lock screen
+  - { command: tasks.list, as: before }
+  - { command: task.toggle, params: { line: $before.tasks.0.line, done: true }, as: first }
+  - { command: task.toggle, params: { line: $before.tasks.3.line, done: true }, as: second }
+  - { command: property.set, params: { key: status, value: reviewed } }
+  - { command: comment.add, params: { quote: "Older data is dropped on launch.", body: "Should we keep the last viewed day so the app is never empty offline?", author: Noor }, as: thread }
+thumbnail: { area: [0, 0, 816, 1056] }
+expected:
+  - actual: inspect
+    values:
+      heading: Weekly Team Sync
+      headings: 5
+      tables: { count: 1, all: { columns: 3, rows: 4 } }
+      callouts: 2
+      tasks: { done: 2, open: 3 }
+      properties: { count: 4, any: { key: attendees, type: list } }
+      comments: { open: 1 }
+  - actual: results
+    values:
+      before.tasks: { count: 5 }
+diagnostics: []
+since: "2026-11-09"

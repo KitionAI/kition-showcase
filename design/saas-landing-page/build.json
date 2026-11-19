@@ -1,0 +1,30 @@
+{
+  "id": "design/saas-landing-page",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    3000,
+    3000
+  ],
+  "stats": "1 page; 73 layers; 1440 × 1435 design",
+  "commands": 77,
+  "document": {
+    "name": "saas-landing-page.kdesign",
+    "bytes": 103022,
+    "sha256": "23d841ec95d34b30d1ee72325d265526da1d29362d3ff1e59d70429b4cd51981"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      638
+    ],
+    "sha256": "8214932b8b65219a1f9eff31b1efb95e6c52408f05d9e81412fff0a088970d52"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 59
+}

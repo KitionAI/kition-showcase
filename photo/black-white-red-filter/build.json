@@ -1,0 +1,30 @@
+{
+  "id": "photo/black-white-red-filter",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1500,
+    1100
+  ],
+  "stats": "1500 × 1100 px; 14 layers; 2 type layers; 7 shape layers; 1 adjustment layer; 1 fill layer; 2 masks",
+  "commands": 24,
+  "document": {
+    "name": "black-white-red-filter.psd",
+    "bytes": 5430545,
+    "sha256": "2af0457f3cead531abdbad517ed723ea4c1b886f98e0efd6666fa2559ca14379"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      469
+    ],
+    "sha256": "58a090c3d815c49bcea6cba9324c417470cd4080065773cb5d06081d4fbba5ab"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1406
+}

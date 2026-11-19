@@ -1,0 +1,43 @@
+{
+  "id": "doc/quarterly-business-report",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages; 271 words",
+  "commands": 174,
+  "document": {
+    "name": "quarterly-business-report.docx",
+    "bytes": 14021,
+    "sha256": "f2bffbbbfc2456759fa2592f82fbcf3368c19a33ca4041acfd901e70d5d33c29"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "3d592590bd9af3a89ec0a7e78d78dea1df349e43e06a1d24f10310c5ed68acd4"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "doc.missing-alt-text",
+      "fix": {
+        "command": "picture.altText"
+      },
+      "message": "A picture or chart has no alternative text: screen readers cannot describe it.",
+      "severity": "info",
+      "target": {
+        "page": 1,
+        "path": "body:6"
+      }
+    }
+  ],
+  "built_ms": 69
+}

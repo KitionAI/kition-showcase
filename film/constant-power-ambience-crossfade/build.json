@@ -1,0 +1,34 @@
+{
+  "id": "film/constant-power-ambience-crossfade",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 12.0 s; 3 video clips; 2 audio clips; 2 effects; 2 transitions",
+  "commands": 9,
+  "document": {
+    "name": "constant-power-ambience-crossfade.kfilm",
+    "bytes": 18420,
+    "sha256": "d9cdfaf03f2675674e1ce8ce5d35986632e14c7a9836a69298d4edc714271e99"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "649f057342b4ce977b6bfaa20cb8030afe1b514a85829a3d3ef91d97a136bfc6"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 24,
+    "bytes": 52598
+  },
+  "diagnostics": [],
+  "built_ms": 15
+}

@@ -1,0 +1,30 @@
+{
+  "id": "film/field-interview-voice-cleanup",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 12.0 s; 2 video clips; 1 audio clip; 13 effects",
+  "commands": 33,
+  "document": {
+    "name": "field-interview-voice-cleanup.kfilm",
+    "bytes": 40056,
+    "sha256": "5aee44684c5b9a9330ce06fd5e384101264e9b561485ca33a2cbaae5017f14e8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "a9024dd0e6f74b94bf312d459eb7a4a71c042436b3ba78de0daf6952b96e0864"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 345
+}

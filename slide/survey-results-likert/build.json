@@ -1,0 +1,30 @@
+{
+  "id": "slide/survey-results-likert",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 38,
+  "document": {
+    "name": "survey-results-likert.pptx",
+    "bytes": 26895,
+    "sha256": "ae60d8ae30df1c97cb5230743afcff891ee6f336f187cc1c0e3edfeffe3a98ab"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "736661645b2e94608d46001797faa855dec93b17600b9ce5171e0e7a47c8587b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 93
+}

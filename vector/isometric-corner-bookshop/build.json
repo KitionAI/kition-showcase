@@ -1,0 +1,30 @@
+{
+  "id": "vector/isometric-corner-bookshop",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    760
+  ],
+  "stats": "1 artboard; 3 layers; 36 objects",
+  "commands": 73,
+  "document": {
+    "name": "isometric-corner-bookshop.kvector",
+    "bytes": 25846,
+    "sha256": "6c44aedad9d07e632653d6fd32f17fe6ba4fdae3c4d2d80f42cc73ce45ab64c8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      486
+    ],
+    "sha256": "a30df448f625c70f6152909a0b2ccfc56eb81741503fd3a9a1fb72e3bbf4a98a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 45
+}

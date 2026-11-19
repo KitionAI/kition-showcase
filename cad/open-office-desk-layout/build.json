@@ -1,0 +1,30 @@
+{
+  "id": "cad/open-office-desk-layout",
+  "kit": {
+    "repo": "kition-cad",
+    "commit": "f0cd611603",
+    "dirty": false
+  },
+  "size": [
+    1169,
+    827
+  ],
+  "stats": "43 objects; 8 layers",
+  "commands": 51,
+  "document": {
+    "name": "open-office-desk-layout.dxf",
+    "bytes": 34001,
+    "sha256": "806782d0b5c538287950ae863e3524d4259c36f758ec47c0dd66ffab19bb261e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      453
+    ],
+    "sha256": "370fb80a603571fd926c6f42aae7baca697c55cd1a2e2a1f1e56fc1fdaef0350"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 20
+}

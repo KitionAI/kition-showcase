@@ -1,0 +1,42 @@
+format: 1
+id: film/meditation-score-crossfade
+title: Meditation Score Crossfade
+summary: A guided-meditation video hands its first music bed to the second with a two-second constant-power crossfade.
+category: Transitions
+tags: [transitions, audio, crossfade, music, titles, demo-footage]
+features: [film.transitions.basics, film.audio.basics, film.graphics.text-basics]
+description: |
+  Two passages of the ambient score sit end to end on Audio 1: the first bed plays the opening of
+  the track, the second starts 40 s into it. A Constant Power crossfade 48 frames long is centred
+  on the change at 10 s, so neither bed dips in loudness while they overlap. The picture is the misty
+  forest on Video 1 (its own sound left out) with the session's chapter title arriving with the new bed.
+document: { name: meditation-score-crossfade.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Evening Session, width: 1280, height: 720, fps: 24, video: 2, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 9, track: V1, seconds: 0, audio: false }, as: forest }
+  - { command: timeline.place, params: { item: 11, track: A1, seconds: 0, duration: 2540160000000 }, as: bedA }
+  - { command: timeline.place, params: { item: 11, track: A1, seconds: 10, sourceIn: 10160640000000, duration: 508032000000 }, as: bedB }
+  - { command: sequence.applyAudioTransition, params: { clip: $bedB.clips.0, effect: constant_power, frames: 48 }, as: crossfade }
+  - { command: graphics.newText, params: { text: Part Two, position: [640, 330], size: 34, seconds: 3, track: 1, time: 2286144000000 }, as: card }
+  - { command: graphics.set, params: { clip: $card.clip, props: { align: center, tracking: 300, fill_color: "#eef3ee" } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: Letting Go, position: [640, 420], size: 88 }, as: headline }
+  - { command: graphics.set, params: { clip: $card.clip, layer: $headline.layer, props: { font_style: Bold, align: center, fill_color: "#ffffff", shadow: true } } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 0, seconds: 9 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 100, seconds: 10 } }
+thumbnail: { at: 10.5 }
+preview: { from: 8.5, to: 11.5, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.audio.0.items: { count: 2, all: { name: Ambient_Score.wav } }
+      sequence.audio.0.items.1.sourceIn: 10160640000000
+      sequence.audio.0.transitions: { count: 1 }
+      sequence.audio.0.transitions.0.effect: constant_power
+      sequence.audio.0.transitions.0.duration: 508032000000
+      sequence.audio.0.transitions.0.start: 2286144000000
+      sequence.video.0.transitions: { count: 0 }
+      # the title arrives with the new bed: 9 → 10 s (ticks)
+      sequence.video.1.items.0.effects.1.params.opacity.keyframes: [{ time: 2286144000000, mediaTime: 0, value: 0 }, { time: 2540160000000, value: 100 }]
+diagnostics: []
+since: "2026-11-09"

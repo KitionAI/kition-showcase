@@ -1,0 +1,34 @@
+{
+  "id": "film/seaside-documentary-title",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "8281b2bb9e",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 18.0 s; 2 video clips; 3 effects; 1 animated effect",
+  "commands": 11,
+  "document": {
+    "name": "seaside-documentary-title.kfilm",
+    "bytes": 17786,
+    "sha256": "00c6cc107c471e5dac2dd558a875ab9e4e65c866975bdbfb934da769399a50b4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "c47a62e1d4b11f7c8382e9ffd2f911f950f0eb8e89f3a942d5e4f5de5c4e036e"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 30,
+    "bytes": 63980
+  },
+  "diagnostics": [],
+  "built_ms": 30
+}

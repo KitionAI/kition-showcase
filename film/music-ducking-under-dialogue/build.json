@@ -1,0 +1,34 @@
+{
+  "id": "film/music-ducking-under-dialogue",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 14.0 s; 3 video clips; 3 audio clips; 10 effects; 2 animated effects; 2 transitions",
+  "commands": 28,
+  "document": {
+    "name": "music-ducking-under-dialogue.kfilm",
+    "bytes": 33788,
+    "sha256": "cd98d5fdf320978474fbaa04eb682001f39d2d2ec8afe69ab4ce0b16a7c09b57"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "eea40232957a62f6a3e95c6268cb3e7353da623f5eb2b9670b7ca8cb3f37ff47"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 56,
+    "bytes": 183828
+  },
+  "diagnostics": [],
+  "built_ms": 197
+}

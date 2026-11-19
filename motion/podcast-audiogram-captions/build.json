@@ -1,0 +1,34 @@
+{
+  "id": "motion/podcast-audiogram-captions",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "95170ce1e8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "6 s at 30 fps; 8 layers; 1 animated layer",
+  "commands": 55,
+  "document": {
+    "name": "podcast-audiogram-captions.kmotion",
+    "bytes": 670972,
+    "sha256": "4f3d637ded229a1274c55ce3fb98c3e0ca0878b24834e9bd82f87d6dfdd9eeb1"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "2c99f6c4523de407f8bf5d343b708be17bde6f5c410eb2f5a7f5c85bb788704f"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 45,
+    "bytes": 110822
+  },
+  "diagnostics": [],
+  "built_ms": 41
+}

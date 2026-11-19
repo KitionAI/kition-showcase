@@ -1,0 +1,30 @@
+{
+  "id": "doc/project-kickoff-memo",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 106 words",
+  "commands": 53,
+  "document": {
+    "name": "project-kickoff-memo.docx",
+    "bytes": 7736,
+    "sha256": "d8faa36c2d600ddd3246b420cd10717fc15c05c7544e5ccb83113eb68d3e8664"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "5400563a6bb5601839a3aa81050ea70e34d406e1aed9bc59ab87103d5b80b680"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 23
+}

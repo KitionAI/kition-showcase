@@ -1,0 +1,30 @@
+{
+  "id": "vector/terracotta-fan-pattern",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    800
+  ],
+  "stats": "1 artboard; 3 layers; 25 objects",
+  "commands": 61,
+  "document": {
+    "name": "terracotta-fan-pattern.kvector",
+    "bytes": 25240,
+    "sha256": "fb262f0ef1e38f713b9c4f7473e6a518529f03494f96ea54a9cd693f294b9491"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      427
+    ],
+    "sha256": "fdde17fac42bc3a03fc3f684b52ef1e46d671451e2cafa516731198920e98afb"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 23
+}

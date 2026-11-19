@@ -1,0 +1,30 @@
+{
+  "id": "sheet/travel-expense-report",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1876,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:L16",
+  "commands": 56,
+  "document": {
+    "name": "travel-expense-report.xlsx",
+    "bytes": 6465,
+    "sha256": "6b09efb6eb6b050c2841a3cdba3ae3f13720628bc4267b115133dbc2c6169183"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      238
+    ],
+    "sha256": "541b113d56c6d96ed5899154d44d48196d876eb6a092b54ab6167de4954aea88"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 34
+}

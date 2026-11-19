@@ -1,0 +1,30 @@
+{
+  "id": "sheet/bug-triage-validation",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1942,
+    2038
+  ],
+  "stats": "2 sheets; used range A1:G20",
+  "commands": 52,
+  "document": {
+    "name": "bug-triage-validation.xlsx",
+    "bytes": 8553,
+    "sha256": "5738f3da0c7bf7d50db86f997ffe410b8a19d33c95db5151bfb43af571e12dce"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      244
+    ],
+    "sha256": "a18d33c635d4fc437706b12030e7e81cd842e4921b9addd70ba74901c4f038ca"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 46
+}

@@ -1,0 +1,30 @@
+{
+  "id": "vector/weather-icon-set",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    700
+  ],
+  "stats": "1 artboard; 3 layers; 51 objects",
+  "commands": 99,
+  "document": {
+    "name": "weather-icon-set.kvector",
+    "bytes": 41715,
+    "sha256": "9e6be8680f2eaf852359444609d4fb34a364e24ba61f1319ec3b2d845e8d7c22"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      373
+    ],
+    "sha256": "8d392e1ba7fa60a935bb30dbef994bd47a9a3df4b168eed7a8ece0e4e80c136c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 44
+}

@@ -1,0 +1,34 @@
+{
+  "id": "film/portrait-recipe-feed",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1080,
+    1350
+  ],
+  "stats": "1080 × 1350 @ 30 fps; 8.0 s; 2 video clips; 7 effects; 1 animated effect",
+  "commands": 24,
+  "document": {
+    "name": "portrait-recipe-feed.kfilm",
+    "bytes": 18994,
+    "sha256": "b3aebbf69725030358981d4b05d24a99c6ebd12cd4bcd717830e2ceac80a6f0e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      512,
+      640
+    ],
+    "sha256": "9f17c4da254d5d87d907b2733ed30a8c955385eb65843d918a23b2e753fba73f"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 40,
+    "bytes": 12230
+  },
+  "diagnostics": [],
+  "built_ms": 18
+}

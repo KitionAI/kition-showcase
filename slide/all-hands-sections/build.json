@@ -1,0 +1,30 @@
+{
+  "id": "slide/all-hands-sections",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    2940
+  ],
+  "stats": "5 slides; 960 × 540 pt",
+  "commands": 72,
+  "document": {
+    "name": "all-hands-sections.pptx",
+    "bytes": 28164,
+    "sha256": "c831ebc75ec4f6d17b843107070f3edb4a2cddaf9bee36205c615842a4ddfe1c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "7331e25ad7bcf592577fd06fbd232f71cc011d4c97bc380cbe1faca720de31db"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 47
+}

@@ -1,0 +1,30 @@
+{
+  "id": "note/tidewater-project-readme",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1698
+  ],
+  "stats": "2 pages; 171 words; 7 headings; 1 table",
+  "commands": 6,
+  "document": {
+    "name": "tidewater-project-readme.md",
+    "bytes": 1409,
+    "sha256": "dc686d6a36a660566f69197669c3731e82e8db3b5b0a3c6d43da38917e2ba1eb"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "a4511730dad2d9be6e779ba914b0a883ce76f0ca63e5e9351a10d4d0ae659385"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 16
+}

@@ -1,0 +1,58 @@
+format: 1
+id: photo/long-shadow-flat-icons
+title: Long Shadow Flat Icons
+summary: Four flat app icons with fading 45° long shadows, each a Multiply shape with a Gradient Overlay clipped to its circle.
+category: Layer Styles
+tags: [shapes, clipping-mask, icons, flat-design]
+features: [photo.path.shapes, photo.layer.masks, photo.layer.basics]
+description: |
+  The long shadow is the classic flat-design trick done with live layers: a polygon that sweeps the
+  glyph's outline down and to the right, set to Multiply and clipped to the circle below it so
+  it stops at the edge. A dark-to-white Gradient Overlay on the polygon makes the shadow fade out
+  along its length, since white multiplies to nothing. The glyphs are shapes and type on top, so the colours,
+  the angle and the length stay editable.
+document: { name: long-shadow-flat-icons.psd, width: 1400, height: 620 }
+steps:
+  - { command: layer.newFillLayer.solidColor, params: { color: "#f6f2ea" }, as: paper }
+  - { command: type.create, params: { x: 700, y: 110, text: "Long Shadow Icon Set", font: Inter, size: 34, weight: 600, color: "#2d2a26", align: center, name: Title } }
+  - { command: shape.create, params: { kind: ellipse, rect: [130, 200, 240, 240], fill: "#ef6f53", name: Mail Circle }, as: c0 }
+  - { command: shape.create, params: { kind: path, fill: "#000000", name: Mail Long Shadow, path: { subpaths: [ { knots: [[186, 276], [314, 276], [504, 466], [504, 554], [376, 554], [186, 364]] } ] } }, as: s0 }
+  - { command: layer.setProps, params: { layer: $s0.layer, opacity: 0.45, blend: Multiply, clipped: true } }
+  - { command: layer.layerStyle.gradientOverlay, params: { layer: $s0.layer, from: "#3a3a3a", to: "#ffffff", angle: -45, style: linear, scale: 100 } }
+  - { command: shape.create, params: { kind: rect, rect: [186, 276, 128, 88], fill: "#ffffff", name: Mail Glyph }, as: g0 }
+  - { command: shape.create, params: { kind: path, fill: null, stroke: { width: 8, color: "#ef6f53", join: round, cap: round }, name: Mail Flap, path: { subpaths: [ { closed: false, knots: [[192, 282], [250, 328], [308, 282]] } ] } } }
+  - { command: type.create, params: { x: 250, y: 510, text: Mail, font: Inter, size: 24, weight: 500, color: "#5a544c", align: center, name: Mail Label } }
+  - { command: shape.create, params: { kind: ellipse, rect: [430, 200, 240, 240], fill: "#2bb3a3", name: Calendar Circle }, as: c1 }
+  - { command: shape.create, params: { kind: path, fill: "#000000", name: Calendar Long Shadow, path: { subpaths: [ { knots: [[492, 272], [492.3, 269.4], [493.3, 267], [494.9, 264.9], [497, 263.3], [499.4, 262.3], [502, 262], [598, 262], [600.6, 262.3], [603, 263.3], [605.1, 264.9], [795.1, 454.9], [796.7, 457], [797.7, 459.4], [798, 462], [798, 558], [797.7, 560.6], [796.7, 563], [795.1, 565.1], [793, 566.7], [790.6, 567.7], [788, 568], [692, 568], [689.4, 567.7], [687, 566.7], [684.9, 565.1], [494.9, 375.1], [493.3, 373], [492.3, 370.6], [492, 368]] } ] } }, as: s1 }
+  - { command: layer.setProps, params: { layer: $s1.layer, opacity: 0.45, blend: Multiply, clipped: true } }
+  - { command: layer.layerStyle.gradientOverlay, params: { layer: $s1.layer, from: "#3a3a3a", to: "#ffffff", angle: -45, style: linear, scale: 100 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [492, 262, 116, 116], radii: 10, fill: "#ffffff", name: Calendar Glyph }, as: g1 }
+  - { command: shape.create, params: { kind: roundedRect, rect: [492, 262, 116, 30], radii: [10, 10, 0, 0], fill: "#1f6f66", name: Calendar Header } }
+  - { command: type.create, params: { x: 550, y: 364, text: "14", font: Inter, size: 50, weight: 600, color: "#2bb3a3", align: center, name: Calendar Date } }
+  - { command: type.create, params: { x: 550, y: 510, text: Calendar, font: Inter, size: 24, weight: 500, color: "#5a544c", align: center, name: Calendar Label } }
+  - { command: shape.create, params: { kind: ellipse, rect: [730, 200, 240, 240], fill: "#5b6cff", name: Video Circle }, as: c2 }
+  - { command: shape.create, params: { kind: path, fill: "#000000", name: Video Long Shadow, path: { subpaths: [ { knots: [[810, 262], [912, 320], [1102, 510], [1000, 568], [810, 378]] } ] } }, as: s2 }
+  - { command: layer.setProps, params: { layer: $s2.layer, opacity: 0.45, blend: Multiply, clipped: true } }
+  - { command: layer.layerStyle.gradientOverlay, params: { layer: $s2.layer, from: "#3a3a3a", to: "#ffffff", angle: -45, style: linear, scale: 100 } }
+  - { command: shape.create, params: { kind: path, fill: "#ffffff", name: Video Glyph, path: { subpaths: [ { knots: [[810, 262], [912, 320], [810, 378]] } ] } }, as: g2 }
+  - { command: type.create, params: { x: 850, y: 510, text: Video, font: Inter, size: 24, weight: 500, color: "#5a544c", align: center, name: Video Label } }
+  - { command: shape.create, params: { kind: ellipse, rect: [1030, 200, 240, 240], fill: "#f2a93b", name: Messages Circle }, as: c3 }
+  - { command: shape.create, params: { kind: path, fill: "#000000", name: Messages Long Shadow, path: { subpaths: [ { knots: [[1086, 290], [1086.6, 285.3], [1088.4, 281], [1091.3, 277.3], [1095, 274.4], [1099.3, 272.6], [1104, 272], [1196, 272], [1200.7, 272.6], [1205, 274.4], [1208.7, 277.3], [1398.7, 467.3], [1401.6, 471], [1403.4, 475.3], [1404, 480], [1404, 528], [1403.4, 532.7], [1401.6, 537], [1398.7, 540.7], [1395, 543.6], [1390.7, 545.4], [1300, 572], [1110, 382], [1088.4, 347], [1086.6, 342.7], [1086, 338]] } ] } }, as: s3 }
+  - { command: layer.setProps, params: { layer: $s3.layer, opacity: 0.45, blend: Multiply, clipped: true } }
+  - { command: layer.layerStyle.gradientOverlay, params: { layer: $s3.layer, from: "#3a3a3a", to: "#ffffff", angle: -45, style: linear, scale: 100 } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [1086, 272, 128, 84], radii: 18, fill: "#ffffff", name: Messages Glyph }, as: g3 }
+  - { command: shape.create, params: { kind: path, addTo: $g3.layer, op: combine, path: { subpaths: [ { knots: [[1106, 350], [1136, 350], [1110, 382]] } ] } } }
+  - { command: shape.create, params: { kind: ellipse, rect: [1112, 306, 16, 16], fill: "#f2a93b", name: Messages Dot 1 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [1142, 306, 16, 16], fill: "#f2a93b", name: Messages Dot 2 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [1172, 306, 16, 16], fill: "#f2a93b", name: Messages Dot 3 } }
+  - { command: type.create, params: { x: 1150, y: 510, text: Messages, font: Inter, size: 24, weight: 500, color: "#5a544c", align: center, name: Messages Label } }
+expected:
+  - actual: inspect
+    values:
+      layers: { any: { name: Video Long Shadow, kind: Shape, clipped: true, blend: Multiply, effects: { items: [{ enabled: true, key: gradientOverlay, kind: Gradient Overlay }] } } }
+      layers.0: { name: Messages Label, kind: Type }
+  - actual: inspect
+    values:
+      layers: { count: 25 }
+diagnostics: []
+since: "2026-11-09"

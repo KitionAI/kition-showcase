@@ -1,0 +1,30 @@
+{
+  "id": "photo/swiss-lecture-poster",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1400
+  ],
+  "stats": "1000 × 1400 px; 16 layers; 10 type layers; 3 shape layers; 1 fill layer; 1 group; 1 mask",
+  "commands": 17,
+  "document": {
+    "name": "swiss-lecture-poster.psd",
+    "bytes": 557326,
+    "sha256": "106824fa1d43e20a1c084f5057503fe6fa48cd379327b62683cf6f772ce68b70"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      457,
+      640
+    ],
+    "sha256": "9ed958fb769d7985acde3fe7e319f004f66d3f3966a2658b3d6221e332acd424"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 87
+}

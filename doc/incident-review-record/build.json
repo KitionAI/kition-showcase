@@ -1,0 +1,30 @@
+{
+  "id": "doc/incident-review-record",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "1b00044864",
+    "dirty": false
+  },
+  "size": [
+    692,
+    922
+  ],
+  "stats": "1 page; 283 words",
+  "commands": 163,
+  "document": {
+    "name": "incident-review-record.docx",
+    "bytes": 9177,
+    "sha256": "195652a3daa2a7fd601fc1c9fa43cd13c2bd55b672de23911d63934ab9b0335d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      453,
+      640
+    ],
+    "sha256": "5aca64e77a45085f7d581a64eaeea43631600f003c65a2d524ae1ef28969a2ab"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 149
+}

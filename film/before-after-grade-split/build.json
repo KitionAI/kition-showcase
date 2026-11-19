@@ -1,0 +1,34 @@
+{
+  "id": "film/before-after-grade-split",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 16.0 s; 3 video clips; 5 effects",
+  "commands": 17,
+  "document": {
+    "name": "before-after-grade-split.kfilm",
+    "bytes": 21211,
+    "sha256": "41a19baf9c7245350db849d29e0e94f2df09261c7414f00367d6ec2c3900a4c4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "59c6d7788c14af7fd285c5e9e5f41f8c4789475d9d182e03eeebce4bbda30390"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 24,
+    "bytes": 54438
+  },
+  "diagnostics": [],
+  "built_ms": 30
+}

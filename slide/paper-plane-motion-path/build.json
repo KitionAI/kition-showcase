@@ -1,0 +1,30 @@
+{
+  "id": "slide/paper-plane-motion-path",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 67,
+  "document": {
+    "name": "paper-plane-motion-path.pptx",
+    "bytes": 24203,
+    "sha256": "678a8a28b44ab6a726c3e86b7ab43886e27d45aa4651a001ddfab0b33792ddd1"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "23f580ff8cec4a3ad34fb8c93a4cb7ffa59edadc23c594a04987a8e3d36d42f0"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 140
+}

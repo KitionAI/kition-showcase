@@ -1,0 +1,30 @@
+{
+  "id": "photo/book-launch-rich-text",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1200 × 900 px; 14 layers; 4 type layers; 8 shape layers; 1 fill layer; 2 styled layers; 1 mask",
+  "commands": 25,
+  "document": {
+    "name": "book-launch-rich-text.psd",
+    "bytes": 824627,
+    "sha256": "41aa07d677b80695fe5569c66dd2b7b95c06b9e05f3a34f13f6b5c300c1da4fc"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "168b3725a5d2d79d28455ec0bdeeb74e84c18df48c25cc6a0c64cc878f21ed36"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 604
+}

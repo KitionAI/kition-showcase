@@ -1,0 +1,30 @@
+{
+  "id": "design/dark-mode-settings",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    2000,
+    2000
+  ],
+  "stats": "1 page; 56 layers; 588 × 844 design",
+  "commands": 58,
+  "document": {
+    "name": "dark-mode-settings.kdesign",
+    "bytes": 65505,
+    "sha256": "50de45194be6be6d03503e770b5dc10bdaa283a44e9288fa68dedd747e7294ff"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      446,
+      640
+    ],
+    "sha256": "07b230394efb724cfe31218c8f6d49573c3272e75dfa14d3423a9c9a3333ec21"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 31
+}

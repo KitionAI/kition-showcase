@@ -1,0 +1,30 @@
+{
+  "id": "slide/traction-growth-line",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 53,
+  "document": {
+    "name": "traction-growth-line.pptx",
+    "bytes": 26724,
+    "sha256": "2075a19ac298972aaad66957d07b24cca64303aeff44e3ff8361a0ce48673609"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "53c0d4168f6ca89db4180acf704a347bd73634db5d7b42a835ae9fb2a25699cd"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 106
+}

@@ -1,0 +1,30 @@
+{
+  "id": "photo/retro-80s-extruded-title",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1400,
+    900
+  ],
+  "stats": "1400 × 900 px; 8 layers; 2 type layers; 4 shape layers; 1 fill layer; 5 styled layers; 1 mask",
+  "commands": 22,
+  "document": {
+    "name": "retro-80s-extruded-title.psd",
+    "bytes": 1415227,
+    "sha256": "94d65313d41d9918fed47383da6064a7de6975e394ce4bafc9a2326346f33931"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      411
+    ],
+    "sha256": "be10775c228f92785d668bd4df86e167f996db7805dbfba2537d82bf4d36f990"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 196
+}

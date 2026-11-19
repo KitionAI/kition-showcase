@@ -1,0 +1,30 @@
+{
+  "id": "doc/residential-lease-agreement",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1688
+  ],
+  "stats": "2 pages; 616 words",
+  "commands": 276,
+  "document": {
+    "name": "residential-lease-agreement.docx",
+    "bytes": 10412,
+    "sha256": "3aa0eb540fa343219b1848bec49d36e4143e678b53da988275bd5a04930a2f5e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "6b370dc41e3d34c8e191abf16388c27b231ece1785794975c66ee73198b10e1d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 91
+}

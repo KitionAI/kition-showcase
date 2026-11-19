@@ -1,0 +1,30 @@
+{
+  "id": "scene/isometric-study-room",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "21 meshes; 13 materials; 1 light",
+  "commands": 62,
+  "document": {
+    "name": "isometric-study-room.kscene",
+    "bytes": 20561,
+    "sha256": "e4a5a906f023cbf6af8300222ad8a3afcb3588b202661a97bf70c2218fa0c382"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "e70f7c936b49137c0b709d9425f967db22d7b92ee54a71b878f72406b3e9cbe2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 13
+}

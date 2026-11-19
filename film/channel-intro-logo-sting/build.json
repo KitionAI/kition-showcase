@@ -1,0 +1,34 @@
+{
+  "id": "film/channel-intro-logo-sting",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 30 fps; 10.0 s; 2 video clips; 6 effects; 5 animated effects",
+  "commands": 31,
+  "document": {
+    "name": "channel-intro-logo-sting.kfilm",
+    "bytes": 24196,
+    "sha256": "6dd7f5c28ca7921ad898b2691c2647ad2ae68b3f0a2bbc3a79836aad40dee414"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "79e02bd8b470a0f7177681c49e00068f1b6ce65070c1239155412fa43da62c3c"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 30,
+    "bytes": 33622
+  },
+  "diagnostics": [],
+  "built_ms": 188
+}

@@ -1,0 +1,34 @@
+{
+  "id": "film/city-escape-iris-reveal",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 8.0 s; 2 video clips; 2 audio clips; 1 transition",
+  "commands": 4,
+  "document": {
+    "name": "city-escape-iris-reveal.kfilm",
+    "bytes": 13288,
+    "sha256": "7b3eb487293cf81055ceb25665078103a454b1b9ef512a269f61f437466a7090"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "0eb2891028eab5a5cc728914cf9c612c4e9d1c62ae6cd29787cc5630c13d379b"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 30,
+    "bytes": 145414
+  },
+  "diagnostics": [],
+  "built_ms": 17
+}

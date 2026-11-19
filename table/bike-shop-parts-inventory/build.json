@@ -1,0 +1,30 @@
+{
+  "id": "table/bike-shop-parts-inventory",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    2100,
+    1208
+  ],
+  "stats": "2 tables",
+  "commands": 15,
+  "document": {
+    "name": "bike-shop-parts-inventory.ktable",
+    "bytes": 241664,
+    "sha256": "c57b273888ca96735f08dd512c3574f2706a983971786b8a9f4cb95da7f0d37a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "6f8e21390d80dbf176543269eb3e45d0a8157fa367e26616d1e7fd0d620e0841"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 56
+}

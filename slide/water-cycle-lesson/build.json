@@ -1,0 +1,30 @@
+{
+  "id": "slide/water-cycle-lesson",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 101,
+  "document": {
+    "name": "water-cycle-lesson.pptx",
+    "bytes": 27047,
+    "sha256": "2489e911a634172f35c486b74f95688e6f5da79209e4b40713385b0e1c5c1fd6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "a4931010b36389decc2152fd0201d72489054593d2b9bcc01c70bce485c6ff2e"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 101
+}

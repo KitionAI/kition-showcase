@@ -1,0 +1,30 @@
+{
+  "id": "slide/annual-report-highlights",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 69,
+  "document": {
+    "name": "annual-report-highlights.pptx",
+    "bytes": 26758,
+    "sha256": "8239df8022969964aede253b4b2a5d8be72b74dde11a0111c573399ae9e3c2c8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "3dc36515dd9ff058a33841a2636192d298dac7209ab9df075589ee40d47f4f85"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 231
+}

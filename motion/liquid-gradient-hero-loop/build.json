@@ -1,0 +1,34 @@
+{
+  "id": "motion/liquid-gradient-hero-loop",
+  "kit": {
+    "repo": "kition-motion",
+    "commit": "95170ce1e8",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "8 s at 30 fps; 5 layers; 3 animated layers",
+  "commands": 24,
+  "document": {
+    "name": "liquid-gradient-hero-loop.kmotion",
+    "bytes": 289193,
+    "sha256": "1efb7361ce2dfc3a59f3f06c138fb5d71dbcf2c9678457ad454626595c123ffd"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "8cd058641b51ae4bc5f592dfb52f8af7853111ba1ccf06bc7126eb181cb5b1f7"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 40,
+    "bytes": 20920
+  },
+  "diagnostics": [],
+  "built_ms": 28
+}

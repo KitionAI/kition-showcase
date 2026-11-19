@@ -1,0 +1,30 @@
+{
+  "id": "photo/levels-curves-before-after",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1000
+  ],
+  "stats": "1600 × 1000 px; 15 layers; 2 type layers; 7 shape layers; 3 adjustment layers; 2 fill layers; 4 masks",
+  "commands": 23,
+  "document": {
+    "name": "levels-curves-before-after.psd",
+    "bytes": 3455661,
+    "sha256": "b64a387614074a269ca7169341ef552baa736026720bc345bce4e24f075d1f63"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "aee4da516849e5c7ce0695c50215cf3697837f7aead5a9ef2c4f02a75eac7cfc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 156
+}

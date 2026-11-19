@@ -1,0 +1,36 @@
+format: 1
+id: film/sunset-to-aurora-dissolve
+title: Sunset to Aurora Dissolve
+summary: A travel film lets the last light over the ocean melt into the night sky with a 1.5 second cross dissolve.
+category: Transitions
+tags: [transitions, cross-dissolve, demo-footage]
+features: [film.transitions.basics, film.timeline.basics]
+featured: true
+description: |
+  Two scenes butt against each other at 5 s on Video 1, and a Cross Dissolve 36 frames long sits
+  centred on the cut, so it starts at 4.25 s and ends at 5.75 s. The aurora clip starts two seconds
+  into its media, which gives the dissolve the head handle it needs. The thumbnail is the middle of
+  the dissolve: the sun and its reflection are still visible through the first ribbons of the aurora.
+document: { name: sunset-to-aurora-dissolve.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Evening to Night, width: 1280, height: 720, fps: 24, video: 1, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 0, duration: 1270080000000 }, as: sunset }
+  - { command: timeline.place, params: { item: 6, track: V1, seconds: 5, sourceIn: 508032000000, duration: 1270080000000 }, as: aurora }
+  - { command: sequence.applyVideoTransition, params: { clip: $aurora.clips.0, edge: in, effect: cross_dissolve, frames: 36 }, as: dissolve }
+thumbnail: { at: 5 }
+preview: { from: 3.5, to: 6.5, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.name: Evening to Night
+      sequence.video.0.items: { count: 2, all: { speed: 1.0 } }
+      sequence.video.0.items.0.name: Ocean_Sunset.mp4
+      sequence.video.0.items.1.name: Aurora_Timelapse.mp4
+      sequence.video.0.transitions: { count: 1 }
+      sequence.video.0.transitions.0.effect: cross_dissolve
+      sequence.video.0.transitions.0.duration: 381024000000
+      sequence.video.0.transitions.0.start: 1079568000000
+      sequence.duration: 2540160000000
+diagnostics: []
+since: "2026-11-09"

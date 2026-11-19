@@ -1,0 +1,197 @@
+format: 1
+id: doc/academic-cv
+title: Academic CV
+summary: A two-page academic curriculum vitae in a serif face, with dated entries on hanging indents, a numbered publication list and page numbers.
+category: Resumes
+tags: [resume, academic, numbering, tab-stops, header-footer]
+features: [doc.text.typing, doc.styles.manage, doc.lists.bullets-numbering, doc.format.paragraph, doc.headers.footers]
+description: |
+  A paragraph style of our own, Dated Entry, hangs every appointment, degree and grant off a
+  90-point tab, so the years line up in a column and the text wraps clear of them. Grant amounts
+  sit on a right tab with a dot leader. Publications are a list defined with list.define as
+  bracketed numbers, journal titles in italics. The footer carries the name and "Page x of y".
+document: { name: academic-cv.docx, width: 816, height: 1056 }
+fonts:
+  - tinos/Tinos-Regular.ttf
+  - tinos/Tinos-Bold.ttf
+  - tinos/Tinos-Italic.ttf
+  - tinos/Tinos-BoldItalic.ttf
+steps:
+  - { command: review.proofing }
+  - { command: design.themeFonts, params: { heading: Tinos, body: Tinos } }
+  - { command: layout.margins, params: { top: 64, bottom: 64, left: 72, right: 72 } }
+  - { command: styles.modify, params: { style: Normal, chr: { size: 11 }, para: { spaceAfter: 4, lineSpacing: { rule: multiple, value: 1.08 } } } }
+  - { command: styles.modify, params: { style: Heading 1, chr: { size: 12, bold: true, smallCaps: true, spacing: 0.5, color: { Rgb: [92, 26, 27] } }, para: { spaceBefore: 16, spaceAfter: 6, borders: { bottom: { style: single, width: 0.5, color: [92, 26, 27], space: 1 } } } } }
+  - { command: styles.create, params: { name: Dated Entry, basedOn: Normal } }
+  - { command: styles.modify, params: { style: Dated Entry, para: { indentLeft: 90, indentFirst: -90, spaceAfter: 4, tabs: [ { pos: 90, align: left, leader: none } ] } } }
+  - { command: styles.create, params: { name: Grant Entry, basedOn: Dated Entry } }
+  - { command: styles.modify, params: { style: Grant Entry, para: { tabs: [ { pos: 90, align: left, leader: none }, { pos: 468, align: right, leader: dot } ] } } }
+  - { command: styles.create, params: { name: CV Name, basedOn: Normal } }
+  - { command: styles.modify, params: { style: CV Name, chr: { size: 24, bold: false, smallCaps: true, spacing: 1.5 }, para: { align: center, spaceAfter: 2 } } }
+  - { command: styles.create, params: { name: CV Address, basedOn: Normal } }
+  - { command: styles.modify, params: { style: CV Address, chr: { size: 10.5, color: { Rgb: [80, 80, 80] } }, para: { align: center, spaceAfter: 0 } } }
+  # Name block.
+  - { command: para.style, params: { style: CV Name } }
+  - { command: text.insert, params: { text: "Helena Marwick, PhD" } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: CV Address } }
+  - { command: text.insert, params: { text: "Associate Professor of Coastal Ecology · School of Marine Sciences, University of Northmere" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Harbour Building, Northmere NM2 8RX · h.marwick@northmere.example · +44 1632 960 552" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Academic Appointments } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Dated Entry } }
+  - { command: text.insert, params: { text: "2021 – present\tAssociate Professor of Coastal Ecology, School of Marine Sciences, University of Northmere" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2016 – 2021\tLecturer in Marine Biology, University of Northmere" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2013 – 2016\tPostdoctoral Research Fellow, Saltmarsh Restoration Programme, Estuary Research Institute, Port Calder" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Education } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Dated Entry } }
+  - { command: text.insert, params: { text: "2013\tPhD in Ecology, University of Westmere. Thesis: “Sediment, roots and tides: how saltmarsh plants hold the coast together.”" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2009\tMSc in Marine Environmental Science (distinction), Coldharbour University" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2008\tBSc (Hons) Biology, first class, Coldharbour University" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Research Interests } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Normal } }
+  - { command: text.insert, params: { text: "Saltmarsh and seagrass restoration; blue carbon accounting; sediment dynamics in managed realignment sites; long-term ecological monitoring with community volunteers." } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Selected Publications } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Normal } }
+  - { command: list.define, params: { name: Publications, levels: [ { format: decimal, text: "[%1]", alignedAt: 0, indentAt: 28, follow: tab } ] }, as: publist }
+  - { command: text.insert, params: { text: "Marwick, H., Osei, K. and Faulkner, R. (2025). Root density predicts sediment capture in restored saltmarsh. Journal of Coastal Restoration 41: 112–129." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Marwick, H. and Delacroix, P. (2024). Ten years of managed realignment: what the mud remembers. Estuarine Processes 18: 455–471." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Osei, K., Marwick, H. and Tran, L. (2023). Volunteer-led quadrat surveys match professional estimates of marsh cover. Citizen Science Methods 9: 77–90." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Marwick, H. (2022). Blue carbon in small estuaries: a practical accounting guide. Journal of Coastal Restoration 38: 301–318." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Faulkner, R., Marwick, H. and Ibsen, T. (2020). Seagrass transplant survival under rising water temperatures. Marine Ecology Letters 27: 1043–1052." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Marwick, H., Brennan, S. and Achebe, N. (2018). Grazing, trampling and recovery in upper marsh plant communities. Estuarine Processes 12: 88–104." } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Marwick, H. (2015). Sediment trapping by Spartina tussocks: a flume study. Journal of Coastal Restoration 31: 59–71." } }
+  - { command: text.newParagraph }
+  - { command: para.numbering, params: { off: true } }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Grants and Awards } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Grant Entry } }
+  - { command: text.insert, params: { text: "2024 – 2027\tLead investigator, “Living Shorelines”, Coastal Futures Research Council\t£612,000" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2022 – 2024\tCo-investigator, Estuary Blue Carbon Network, Northern Seas Trust\t£148,500" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2019\tEarly Career Prize, Society for Estuarine Science\t£2,000" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2017 – 2019\tSeed grant, Saltmarsh volunteer monitoring, University of Northmere\t£24,000" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Teaching } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Dated Entry } }
+  - { command: text.insert, params: { text: "Undergraduate\tCoastal Ecosystems (Year 2, 180 students); Field Methods in Marine Biology (Year 3 residential field course)" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Postgraduate\tRestoration Ecology (MSc core module, module lead since 2019)" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Supervision\tFive PhD students supervised to completion; three current; eighteen MSc dissertations" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Invited Talks } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Dated Entry } }
+  - { command: text.insert, params: { text: "2025\tKeynote, North Sea Coastal Management Forum, Harlingen Bay" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2023\t“What the mud remembers”, public lecture series, Port Calder Maritime Museum" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2021\tPlenary, Annual Meeting of the Society for Estuarine Science" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Service } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Dated Entry } }
+  - { command: text.insert, params: { text: "2022 – present\tAssociate Editor, Journal of Coastal Restoration" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2020 – present\tChair, School Equality and Inclusion Committee" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2018 – 2022\tTrustee, Calder Estuary Wildlife Trust" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "2017 – present\tReviewer for six journals and two national research councils" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Public Engagement } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Normal } }
+  - { command: text.insert, params: { text: "Founder of the Marsh Watch volunteer network, which has trained more than 400 residents to survey plant cover and sediment at eleven sites since 2017. Regular contributor to regional radio and to the museum’s family science days; adviser to two community groups preparing shoreline management plans." } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Professional Memberships } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Dated Entry } }
+  - { command: text.insert, params: { text: "Since 2010\tSociety for Estuarine Science (council member 2020 – 2023)" } }
+  - { command: text.newParagraph }
+  - { command: text.insert, params: { text: "Since 2014\tCoastal Restoration Practitioners’ Network" } }
+  - { command: text.newParagraph }
+  - { command: para.heading1 }
+  - { command: text.insert, params: { text: Referees } }
+  - { command: text.newParagraph }
+  - { command: para.style, params: { style: Normal } }
+  - { command: text.insert, params: { text: "Available on request." } }
+  # Journal titles in italics.
+  - { command: edit.advancedFind, params: { text: Journal of Coastal Restoration, highlight: false }, as: journals }
+  - { command: select.text, params: { text: Journal of Coastal Restoration 41 } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: Estuarine Processes 18 } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: Citizen Science Methods } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: Journal of Coastal Restoration 38 } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: Marine Ecology Letters } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: Estuarine Processes 12 } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: Journal of Coastal Restoration 31 } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: Spartina } }
+  - { command: format.italic, params: { value: true } }
+  - { command: select.text, params: { text: "Sediment trapping" } }
+  - { command: list.get, as: publications }
+  # Footer: name on the left, page x of y on the right.
+  - { command: caret.docEnd }
+  - { command: insert.editFooter }
+  - { command: para.tabs, params: { clear: [234, 468], set: [ { pos: 468, align: right } ] } }
+  - { command: format.set, params: { props: { font: Tinos, size: 9, bold: false, italic: true } } }
+  - { command: format.color, params: { color: "5C1A1B" } }
+  - { command: text.insert, params: { text: "Helena Marwick — Curriculum Vitae\tPage " } }
+  - { command: insert.field, params: { instr: PAGE, result: "1" } }
+  - { command: text.insert, params: { text: " of " } }
+  - { command: insert.field, params: { instr: NUMPAGES, result: "2" } }
+  - { command: insert.closeHeader }
+  - { command: layout.section, as: section }
+  - { command: document.inspect, as: doc }
+expected:
+  - actual: inspect
+    values:
+      pages: { count: 2 }
+      words: { min: 450, max: 560 }
+  - actual: results
+    values:
+      publications.levels.0: { format: decimal, text: "[%1]" }
+      section.footers.default: { exists: true }
+      journals.count: 4
+      doc.parts: { any: { kind: footer } }
+      doc.blocks: { any: { style: DatedEntry } }
+diagnostics: []
+since: "2026-11-09"

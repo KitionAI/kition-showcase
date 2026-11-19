@@ -1,0 +1,30 @@
+{
+  "id": "photo/material-texture-swatches",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    1000
+  ],
+  "stats": "1600 × 1000 px; 28 layers; 14 type layers; 6 shape layers; 1 fill layer; 6 styled layers",
+  "commands": 78,
+  "document": {
+    "name": "material-texture-swatches.psd",
+    "bytes": 6842400,
+    "sha256": "394a4d2b7e1a4ca5bd3b632e7731d927fb9e981e2f0f1185f9caf00403ac53fe"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "856ab9a9090d7d62dadd0b6dd04f59f7cb04a50e983700911a66d477e21b40ae"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1377
+}

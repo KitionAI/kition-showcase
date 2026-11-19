@@ -1,0 +1,30 @@
+{
+  "id": "photo/neon-noodle-bar-sign",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1400,
+    900
+  ],
+  "stats": "1400 × 900 px; 8 layers; 2 type layers; 3 shape layers; 2 fill layers; 5 styled layers; 2 masks",
+  "commands": 18,
+  "document": {
+    "name": "neon-noodle-bar-sign.psd",
+    "bytes": 1907725,
+    "sha256": "a2cf4fb37b80e1413fd0bbd17aa5f0de88bba7b66c917046b5a8a5f69fdbe3fe"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      411
+    ],
+    "sha256": "16ea580141437373f25b89c9c13b28f0d50f836b0c52dfe08ebe1c176a9b2740"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 147
+}

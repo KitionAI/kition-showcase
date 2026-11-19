@@ -1,0 +1,41 @@
+format: 1
+id: film/freeze-frame-day-one
+title: Freeze Frame Day One
+summary: A travel vlog freezes the city drive for two seconds and stamps the day's title on the held frame.
+category: Editing & Timeline
+tags: [freeze-frame, frame-hold, titles, demo-footage]
+features: [film.clip.properties, film.graphics.text-basics]
+description: |
+  `clip.insertFrameHoldSegment` splits the night-drive clip at 2.5 s and inserts a two-second hold
+  of that frame, pushing the rest of the drive later; the held segment has no sound, so the audio
+  of the drive simply pauses. A title on Video 2, on a dark band so it reads over the lit windows, sits exactly over the hold. The thumbnail is the
+  frozen frame with its title.
+document: { name: freeze-frame-day-one.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Day One, width: 1280, height: 720, fps: 24, video: 2, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 7, track: V1, seconds: 0, sourceIn: 254016000000, duration: 1524096000000 }, as: drive }
+  - { command: clip.insertFrameHoldSegment, params: { clip: $drive.clips.0, time: 635040000000, seconds: 2 }, as: hold }
+  - { command: graphics.newShape, params: { shape: rectangle, position: [640, 590], size: [1280, 260], seconds: 2, track: 1, time: 635040000000 }, as: card }
+  - { command: graphics.set, params: { clip: $card.clip, layer: $card.layer, props: { fill_color: "#0b0716", opacity: 92 } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: DAY ONE, position: [96, 560], size: 40 }, as: kicker }
+  - { command: graphics.set, params: { clip: $card.clip, layer: $kicker.layer, props: { font_style: Bold, tracking: 400, fill_color: "#ffd166" } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: Into the City, position: [92, 650], size: 96 }, as: headline }
+  - { command: graphics.set, params: { clip: $card.clip, layer: $headline.layer, props: { font_style: Bold, fill_color: "#ffffff", shadow: true } } }
+thumbnail: { at: 3.5 }
+preview: { from: 1, to: 6, fps: 8, max: 400 }
+expected:
+  - actual: results
+    values:
+      hold.duration: 508032000000
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 3 }
+      sequence.video.0.items.0: { end: 635040000000, frameHold: null }
+      # the hold shows the source frame at 3.5 s: the clip starts 1 s into the drive, cut at 2.5 s
+      sequence.video.0.items.1: { start: 635040000000, end: 1143072000000, frameHold: { mediaTime: 889056000000, holdFilters: false } }
+      sequence.video.0.items.2: { start: 1143072000000, end: 2032128000000, sourceIn: 889056000000, frameHold: null }
+      sequence.audio.0.items: { count: 2 }
+      sequence.duration: 2032128000000
+diagnostics: []
+since: "2026-11-09"

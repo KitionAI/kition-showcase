@@ -1,0 +1,43 @@
+{
+  "id": "doc/charity-impact-report",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 178 words",
+  "commands": 77,
+  "document": {
+    "name": "charity-impact-report.docx",
+    "bytes": 11044,
+    "sha256": "2b5ba9bbc20aeff2e196af93eedbef11dc0738303b2a6c41a79fcafb313ae2a2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "0d9fb93de736998095c8c20aee19ebec2e02e16771d828a31a83acad2715b49f"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "doc.missing-alt-text",
+      "fix": {
+        "command": "picture.altText"
+      },
+      "message": "A picture or chart has no alternative text: screen readers cannot describe it.",
+      "severity": "info",
+      "target": {
+        "page": 1,
+        "path": "body:5"
+      }
+    }
+  ],
+  "built_ms": 40
+}

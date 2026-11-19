@@ -1,0 +1,30 @@
+{
+  "id": "scene/espresso-cup-three-point",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "5 meshes; 3 materials; 3 lights",
+  "commands": 31,
+  "document": {
+    "name": "espresso-cup-three-point.kscene",
+    "bytes": 25600,
+    "sha256": "0a0f819d88a9dd310d0453cddc38cf59ee3f626604a9bf167ea065d1f94dbab6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "a4a6840c51d967e79321a74dd7cb73f1ad70de91f8765491ebbee23f33fe4095"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 9
+}

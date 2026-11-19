@@ -1,0 +1,69 @@
+format: 1
+id: note/mechanics-revision-formulas
+title: Mechanics Revision Formulas
+summary: A revision sheet of mechanics formulas set as display and inline LaTeX math, with a worked example in a callout and a symbol table.
+category: Knowledge Base
+tags: [math, latex, callouts, revision, tables]
+features: [note.code-diagrams, note.text.edit, note.tables, note.format]
+featured: true
+description: |
+  The Note kit typesets `$$ … $$` blocks and inline `$ … $` math with its bundled Latin Modern
+  Math face, so the formulas draw as real mathematics. `insert.mathBlock` wraps a selected line
+  in `$$` fences, the way the editor's Insert ▸ Math block does, for the last formula.
+document: { name: mechanics-revision-formulas.md, width: 816, height: 1056 }
+steps:
+  - command: note.write
+    params:
+      markdown: |
+        # Mechanics: Formulas to Know
+
+        ## Motion in a straight line
+
+        For constant acceleration $a$, starting speed $u$ and time $t$:
+
+        $$
+        v = u + at \qquad s = ut + \frac{1}{2}at^{2} \qquad v^{2} = u^{2} + 2as
+        $$
+
+        ## Forces
+
+        $$
+        F = ma \qquad W = mg \qquad F_{\text{friction}} \le \mu R
+        $$
+
+        ## Energy and power
+
+        $$
+        E_k = \frac{1}{2}mv^{2} \qquad E_p = mgh \qquad P = \frac{W}{t} = Fv
+        $$
+
+        > [!EXAMPLE] Worked example
+        > A 1200 kg car brakes from $v = 20\ \text{m/s}$ to rest in 40 m. Its deceleration is $a = \frac{v^2}{2s} = 5\ \text{m/s}^2$, so the braking force is $F = ma = 6000\ \text{N}$.
+
+        ## Symbols
+
+        | Symbol | Quantity | Unit |
+        | :-: | --- | --- |
+        | $s$ | displacement | m |
+        | $\mu$ | coefficient of friction | none |
+        | $P$ | power | W |
+
+        ## Circular motion
+
+        a = \frac{v^{2}}{r} = \omega^{2} r
+  - { command: text.find, params: { find: "a = \\frac{v^{2}}{r} = \\omega^{2} r" }, as: last }
+  - { command: selection.set, params: { line: $last.matches.0.line } }
+  - { command: insert.mathBlock }
+  - { command: text.read, as: source }
+thumbnail: { area: [0, 0, 816, 1056] }
+expected:
+  - actual: inspect
+    values:
+      headings: 6
+      callouts: 1
+      tables: { count: 1 }
+  - actual: results
+    values:
+      source.text: { contains: "$$\na = \\frac{v^{2}}{r} = \\omega^{2} r\n$$" }
+diagnostics: []
+since: "2026-11-09"

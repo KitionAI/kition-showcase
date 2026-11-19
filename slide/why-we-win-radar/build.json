@@ -1,0 +1,30 @@
+{
+  "id": "slide/why-we-win-radar",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 39,
+  "document": {
+    "name": "why-we-win-radar.pptx",
+    "bytes": 26653,
+    "sha256": "4f461311cc707de2ae7d27ca5570c13ac474891f3216d29068057ea12923880d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "2f0b0fe731e129ffcd81bb246e5cb3f1c270b827f2a37e103aa1c0278181639b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 55
+}

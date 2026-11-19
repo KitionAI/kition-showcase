@@ -1,0 +1,30 @@
+{
+  "id": "photo/pop-art-posterize-quad",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1400,
+    1400
+  ],
+  "stats": "1400 × 1400 px; 11 layers; 1 shape layer; 5 adjustment layers; 4 smart objects; 5 masks",
+  "commands": 36,
+  "document": {
+    "name": "pop-art-posterize-quad.psd",
+    "bytes": 5243114,
+    "sha256": "56b0727135afad7dfbc1409ef5781b83e2a5c10682f70f437827fdf0e86492d6"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      640
+    ],
+    "sha256": "2798716688d2ed7800f2a7ae633935fe9863f851c64fcd0510c3e46ecf702b23"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 803
+}

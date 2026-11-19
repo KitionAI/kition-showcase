@@ -1,0 +1,74 @@
+format: 1
+id: scene/glazed-donut-sprinkles
+title: Glazed Donut with Sprinkles
+summary: The classic first 3D project, a ring donut with pink icing and scattered sprinkles on a ceramic plate.
+category: Product Renders
+tags: [modelling, modifiers, particles, food, bisect]
+features: [scene.mesh.edit, scene.modifier.stack, scene.particles.hair, scene.material.basics, scene.render.lights-world, scene.viewport.rendered]
+featured: true
+description: |
+  The beginner's donut, made the same way. The dough is a torus with a Displace modifier for a
+  lumpy, hand-made surface. The icing is a copy cut in half in edit mode with mesh.bisect, given
+  thickness with Solidify and wobbly edges with its own Displace. Sprinkles are three particle
+  systems on the icing that render small rounded rods as objects, each with its own colour and a
+  random turn. A plate, a linen-coloured table and a window-like area light finish the shot.
+document: { name: glazed-donut-sprinkles.kscene, width: 1024, height: 576 }
+steps:
+  - { command: edit.delete, params: { objects: [Cube, Light] } }
+  - { command: material.delete, params: { material: Material } }
+  - { command: render.set, params: { width: 1920, height: 1080, view: agx } }
+  - { command: add.plane, params: { name: Table, size: 30, location: [0, 0, 0] } }
+  - { command: material.new, params: { name: Linen Table, baseColor: "#d9cbb8", roughness: 0.85 } }
+  - { command: add.cylinder, params: { name: Plate, radius: 1.9, depth: 0.08, vertices: 96, location: [0, 0, 0.04] } }
+  - { command: modifier.add, params: { object: Plate, type: bevel, width: 0.03, segments: 3 } }
+  - { command: material.new, params: { name: Glazed Ceramic, baseColor: "#f4f1ea", roughness: 0.2 } }
+  - { command: add.torus, params: { name: Dough, majorRadius: 1, minorRadius: 0.48, majorSegments: 96, minorSegments: 48, location: [0, 0, 0.5] } }
+  - { command: object.transform, params: { objects: [Dough], scale: [1, 1, 0.85] } }
+  - { command: modifier.add, params: { object: Dough, type: displace, strength: 0.05, noiseScale: 0.35 } }
+  - { command: material.new, params: { name: Baked Dough, baseColor: "#c98a4b", roughness: 0.7 } }
+  - { command: add.torus, params: { name: Icing, majorRadius: 1, minorRadius: 0.5, majorSegments: 96, minorSegments: 48, location: [0, 0, 0.5] } }
+  - { command: object.transform, params: { objects: [Icing], scale: [1, 1, 0.85] } }
+  - { command: mode.set, params: { mode: edit, object: Icing } }
+  - { command: select.all, params: { action: select } }
+  - { command: mesh.bisect, params: { point: [0, 0, 0.1], normal: [0, 0, 1], clearInner: true } }
+  - { command: mode.set, params: { mode: object } }
+  - { command: modifier.add, params: { object: Icing, type: solidify, thickness: 0.03, offset: 1 } }
+  - { command: modifier.add, params: { object: Icing, type: displace, strength: 0.06, noiseScale: 0.25 } }
+  - { command: object.shadeSmooth, params: { objects: [Dough, Icing] } }
+  - { command: material.new, params: { name: Pink Icing, baseColor: "#f27fa8", roughness: 0.25 } }
+  - { command: add.cylinder, params: { name: Sprinkle Yellow, radius: 0.022, depth: 0.13, vertices: 10, location: [0, 0, -2] } }
+  - { command: material.new, params: { name: Sprinkle Yellow, baseColor: "#ffd23f", roughness: 0.4 } }
+  - { command: add.cylinder, params: { name: Sprinkle Blue, radius: 0.022, depth: 0.13, vertices: 10, location: [0, 0, -2] } }
+  - { command: material.new, params: { name: Sprinkle Blue, baseColor: "#3fa7ff", roughness: 0.4 } }
+  - { command: add.cylinder, params: { name: Sprinkle White, radius: 0.022, depth: 0.13, vertices: 10, location: [0, 0, -2] } }
+  - { command: material.new, params: { name: Sprinkle White, baseColor: "#fbfbf6", roughness: 0.4 } }
+  - { command: particles.add, params: { object: Icing, name: Yellow Sprinkles, kind: emitter, count: 70, frameStart: 1, frameEnd: 1, lifetime: 500, normalVelocity: 0, gravity: 0, emitFrom: faces, distribution: random, seed: 3, renderAs: object, instanceObject: Sprinkle Yellow, size: 1, rotationRandom: 1 } }
+  - { command: particles.add, params: { object: Icing, name: Blue Sprinkles, kind: emitter, count: 70, frameStart: 1, frameEnd: 1, lifetime: 500, normalVelocity: 0, gravity: 0, emitFrom: faces, distribution: random, seed: 7, renderAs: object, instanceObject: Sprinkle Blue, size: 1, rotationRandom: 1 } }
+  - { command: particles.add, params: { object: Icing, name: White Sprinkles, kind: emitter, count: 70, frameStart: 1, frameEnd: 1, lifetime: 500, normalVelocity: 0, gravity: 0, emitFrom: faces, distribution: random, seed: 11, renderAs: object, instanceObject: Sprinkle White, size: 1, rotationRandom: 1 } }
+  - { command: object.hide, params: { objects: [Sprinkle Yellow, Sprinkle Blue, Sprinkle White] } }
+  - { command: add.light, params: { name: Window, kind: area, power: 900, color: "#fff3e2", location: [-4, -3, 5] } }
+  - { command: object.lookAt, params: { object: Window, target: [0, 0, 0.4] } }
+  - { command: light.set, params: { object: Window, radius: 2.5 } }
+  - { command: add.light, params: { name: Bounce, kind: area, power: 200, color: "#e6eeff", location: [4, -2, 2] } }
+  - { command: object.lookAt, params: { object: Bounce, target: [0, 0, 0.4] } }
+  - { command: light.set, params: { object: Bounce, radius: 2 } }
+  - { command: world.set, params: { color: "#c9d2dc", strength: 0.3 } }
+  - { command: object.transform, params: { objects: [Camera], location: [0, -6.4, 4.3] } }
+  - { command: object.lookAt, params: { object: Camera, target: [0, 0, 0.35] } }
+  - { command: camera.set, params: { object: Camera, lens: 50 } }
+  - { command: frame.set, params: { frame: 2 } }
+  - { command: select.none }
+  - { command: view.overlays, params: { on: false } }
+  - { command: view.camera }
+thumbnail:
+  steps:
+    - { command: view.rendered }
+    - { command: view.renderedStep, params: { wait: true, samples: 64, maxSide: 1024, denoise: true } }
+expected:
+  - actual: inspect
+    values:
+      objects: { count: 10, any: { name: Icing, modifiers: [{ type: solidify }, { type: displace }] } }
+      particles: { count: 3, all: { kind: emitter, renderAs: object, count: 70 } }
+      materials: { count: 7, any: { name: Pink Icing } }
+diagnostics: []
+since: "2026-11-09"

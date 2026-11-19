@@ -1,0 +1,30 @@
+{
+  "id": "photo/app-icon-grid",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1200,
+    900
+  ],
+  "stats": "1200 × 900 px; 55 layers; 14 type layers; 39 shape layers; 1 fill layer; 12 styled layers; 1 mask",
+  "commands": 72,
+  "document": {
+    "name": "app-icon-grid.psd",
+    "bytes": 808102,
+    "sha256": "97e1fbcd1a7ddd2296271bd9b68a38ed210506cddf6cca39f4f848823ad3ea77"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "8f43b0d26d2cd81b5c6d88c22b951349207b91dd0988f4e51abcb741e309cc07"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 62
+}

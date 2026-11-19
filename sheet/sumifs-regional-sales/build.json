@@ -1,0 +1,30 @@
+{
+  "id": "sheet/sumifs-regional-sales",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1698,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:M28",
+  "commands": 46,
+  "document": {
+    "name": "sumifs-regional-sales.xlsx",
+    "bytes": 9263,
+    "sha256": "f60520cf5d69d03a48089437f14cb4826de318c7123e81094855934ca1fbb440"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      427
+    ],
+    "sha256": "165327ecf9fb7492dd4774c0e0d8383398823caf4f12e334fa2f332cc41deb69"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 20
+}

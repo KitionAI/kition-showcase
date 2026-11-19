@@ -1,0 +1,30 @@
+{
+  "id": "layout/tideline-magazine-feature",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    1368,
+    1800
+  ],
+  "stats": "3 pages; 9 stories; 16 paragraph styles",
+  "commands": 114,
+  "document": {
+    "name": "tideline-magazine-feature.klayout",
+    "bytes": 91458,
+    "sha256": "d11279fba94a96439bc5d38b07140e54c40c6f31dadbea4b81df8ba836000a5b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      414
+    ],
+    "sha256": "16104aa7e872fe155574ce53831defc2e1f3a76b41839a47c27d6d2ed0438997"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 140
+}

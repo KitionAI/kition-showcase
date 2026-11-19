@@ -1,0 +1,30 @@
+{
+  "id": "sheet/warehouse-inventory-table",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1904,
+    2029
+  ],
+  "stats": "1 sheet; used range A1:H19",
+  "commands": 31,
+  "document": {
+    "name": "warehouse-inventory-table.xlsx",
+    "bytes": 6837,
+    "sha256": "a7fc424e2e998ca68952f327e902d7f88dd0cfe6d14cb83fbe7a9eae4a64ec83"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      340
+    ],
+    "sha256": "b89e23acbbb6ba2da6da5ddc009a0a315f06c3e8fed58a8462322d71ebfe564d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 13
+}

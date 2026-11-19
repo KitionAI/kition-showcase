@@ -1,0 +1,30 @@
+{
+  "id": "photo/kids-birthday-card",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1000,
+    1400
+  ],
+  "stats": "1000 × 1400 px; 23 layers; 4 type layers; 14 shape layers; 1 fill layer; 3 groups; 3 styled layers; 1 mask",
+  "commands": 83,
+  "document": {
+    "name": "kids-birthday-card.psd",
+    "bytes": 1039968,
+    "sha256": "e625d9e2094d21be1e6b1f8f68a2e1e9c706febc23d7826a28c969794d1c7221"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      457,
+      640
+    ],
+    "sha256": "e5db1723654f23bd6c46e6090d841d29186140ff7f04d7d27a1aaac167e2278a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1134
+}

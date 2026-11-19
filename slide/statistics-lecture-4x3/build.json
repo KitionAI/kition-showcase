@@ -1,0 +1,30 @@
+{
+  "id": "slide/statistics-lecture-4x3",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    800,
+    620
+  ],
+  "stats": "1 slide; 720 × 540 pt",
+  "commands": 88,
+  "document": {
+    "name": "statistics-lecture-4x3.pptx",
+    "bytes": 26729,
+    "sha256": "63748ca25ec25e3b66a4d55b7d8c3172c2628358d883a437c113755f93400360"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      480
+    ],
+    "sha256": "a046b301df2979df2882d6f01f196e8df0c4db5b81163c3d2b8e1167b0651a0b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 219
+}

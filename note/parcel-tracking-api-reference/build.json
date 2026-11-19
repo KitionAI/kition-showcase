@@ -1,0 +1,30 @@
+{
+  "id": "note/parcel-tracking-api-reference",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1477
+  ],
+  "stats": "2 pages; 125 words; 5 headings; 2 tables",
+  "commands": 5,
+  "document": {
+    "name": "parcel-tracking-api-reference.md",
+    "bytes": 1078,
+    "sha256": "bd6b429781e2d3c5c2770b33609b7f0b26656403cdce0c63de079fc103f220fa"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "e93b58002883e87e0a1d64eeaee2652cae646b2f0c04437cdedd9751707ee87b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 10
+}

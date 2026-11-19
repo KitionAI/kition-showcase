@@ -1,0 +1,30 @@
+{
+  "id": "doc/council-public-notice",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "1b00044864",
+    "dirty": false
+  },
+  "size": [
+    692,
+    922
+  ],
+  "stats": "1 page; 232 words",
+  "commands": 89,
+  "document": {
+    "name": "council-public-notice.docx",
+    "bytes": 8584,
+    "sha256": "999d89d342eb7f8379e9eed5a8ab2ad95cfaf7b2f9a7c24ce8e7182bf0d3718f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      453,
+      640
+    ],
+    "sha256": "434edbaaca43dc234cddf6627d73d5f70013f8c13f207c13fb566e7ef41c932d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 122
+}

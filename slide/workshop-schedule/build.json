@@ -1,0 +1,30 @@
+{
+  "id": "slide/workshop-schedule",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 60,
+  "document": {
+    "name": "workshop-schedule.pptx",
+    "bytes": 23337,
+    "sha256": "0c8fff0085715db947f9a97c72dcd0abd1f293f7c7509fb52dee7977b727aca2"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "dff0f0a78666ef3ea4c7ee1700124e40b73131c5a51fbd9a6adfb511429252ba"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 233
+}

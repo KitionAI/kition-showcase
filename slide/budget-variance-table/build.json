@@ -1,0 +1,30 @@
+{
+  "id": "slide/budget-variance-table",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 68,
+  "document": {
+    "name": "budget-variance-table.pptx",
+    "bytes": 23340,
+    "sha256": "8de04faf0715606e988d2e26ce0888029e22612746f6a44f2fbff52e9affce0a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "3e1fce3cf11abe52ae30039834f3ad775146cf6cf364e20c085ab9edd0aa9730"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 401
+}

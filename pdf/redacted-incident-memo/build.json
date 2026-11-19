@@ -1,0 +1,40 @@
+{
+  "id": "pdf/redacted-incident-memo",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page",
+  "commands": 23,
+  "document": {
+    "name": "redacted-incident-memo.pdf",
+    "bytes": 278927,
+    "sha256": "e652985e244e96fef6e4f910ca532f86277337ec2fd9b12f1df0c0399d513549"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      612,
+      600
+    ],
+    "sha256": "10356d6125875b7cfa4c0b47164362fca9b1102ac578457331d823b24e248931"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "pdf.font-not-embedded",
+      "message": "The font Helvetica is not embedded; it is one of the standard 14 fonts, which viewers supply.",
+      "severity": "info",
+      "target": {
+        "page": 1,
+        "path": "font:Helvetica"
+      }
+    }
+  ],
+  "built_ms": 346
+}

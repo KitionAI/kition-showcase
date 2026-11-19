@@ -1,0 +1,30 @@
+{
+  "id": "slide/strategy-pyramid",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 46,
+  "document": {
+    "name": "strategy-pyramid.pptx",
+    "bytes": 22825,
+    "sha256": "a98870fca57834b63caa0efbf2244426eb048de8ba0fec9c15240502922c0ca9"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "e6079518fe9dfcf7013f90eebdf21c8b4c24f04f219437204ce8a88e32533460"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 161
+}

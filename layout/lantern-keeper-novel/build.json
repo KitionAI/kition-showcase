@@ -1,0 +1,30 @@
+{
+  "id": "layout/lantern-keeper-novel",
+  "kit": {
+    "repo": "kition-layout",
+    "commit": "e2c4271dc0",
+    "dirty": false
+  },
+  "size": [
+    936,
+    2124
+  ],
+  "stats": "5 pages; 8 stories; 8 paragraph styles",
+  "commands": 96,
+  "document": {
+    "name": "lantern-keeper-novel.klayout",
+    "bytes": 66951,
+    "sha256": "cd712591d52136c83295a58f7a88faccd6ac70e61a1042c4573525f5772927c1"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      495
+    ],
+    "sha256": "3177339aa06cc4a735def096ae2a0c473b0667672793ea6b29392c4af47bb42f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 201
+}

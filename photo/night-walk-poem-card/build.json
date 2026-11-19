@@ -1,0 +1,30 @@
+{
+  "id": "photo/night-walk-poem-card",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "e511ae24a4",
+    "dirty": false
+  },
+  "size": [
+    900,
+    1200
+  ],
+  "stats": "900 × 1200 px; 11 layers; 4 type layers; 5 shape layers; 1 fill layer; 1 mask",
+  "commands": 12,
+  "document": {
+    "name": "night-walk-poem-card.psd",
+    "bytes": 604099,
+    "sha256": "1ea7784ae9a9cfc917fad8adcb278200756d0048295abb7b6b7a38e2ce37608b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      480,
+      640
+    ],
+    "sha256": "72ab693a8483123334b143bb3da4d2d33526481d9e52ac6a08e6b1b9c92baa96"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 72
+}

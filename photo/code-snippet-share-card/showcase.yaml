@@ -1,0 +1,71 @@
+format: 1
+id: photo/code-snippet-share-card
+title: Code Snippet Share Card
+summary: A syntax-highlighted Rust snippet in a dark editor window, set in JetBrains Mono for sharing on social media.
+category: Typography
+tags: [type, monospace, character-styles, layer-styles]
+features: [photo.type.text, photo.type.styles, photo.layer.style-basics]
+description: |
+  The code is one point text layer in JetBrains Mono; the highlighting is 31 colour runs set
+  with `type.setStyle` ranges (keywords, functions, types, strings, numbers, macros, the comment).
+  Line numbers are a second, dimmer type layer, and the window is a rounded rectangle with a drop
+  shadow on a gradient fill layer.
+document: { name: code-snippet-share-card.psd, width: 1400, height: 1000 }
+fonts: [jetbrains-mono/JetBrainsMono-Variable.ttf]
+steps:
+  - { command: layer.newFillLayer.gradient, params: { from: "#5b4bdb", to: "#e86fa8", angle: 135, style: linear }, as: backdrop }
+  - { command: shape.create, params: { kind: roundedRect, rect: [140, 110, 1120, 780], radii: 20, fill: "#1b1e2b", name: Window }, as: window }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $window.layer, color: "#1a0b3d", opacity: 55, distance: 30, size: 60, angle: 100 } }
+  - { command: layer.layerStyle.stroke, params: { layer: $window.layer, size: 1, position: inside, color: "#3a3f58" }, as: windowStroke }
+  - { command: shape.create, params: { kind: roundedRect, rect: [140, 110, 1120, 64], radii: [20, 20, 0, 0], fill: "#232738", name: Title Bar } }
+  - { command: shape.create, params: { kind: ellipse, rect: [172, 134, 16, 16], fill: "#ff6b6b", name: Dot Close } }
+  - { command: shape.create, params: { kind: ellipse, rect: [200, 134, 16, 16], fill: "#ffd166", name: Dot Minimise } }
+  - { command: shape.create, params: { kind: ellipse, rect: [228, 134, 16, 16], fill: "#4cd18a", name: Dot Zoom } }
+  - { command: type.create, params: { x: 700, y: 149, text: "src/net/retry.rs", font: JetBrains Mono, size: 17, color: "#8a91b4", align: center, name: File Name } }
+  - { command: type.create, params: { x: 222, y: 250, text: "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16", font: JetBrains Mono, size: 22, leading: 38, color: "#4a5072", align: right, name: Line Numbers } }
+  - { command: type.create, params: { x: 262, y: 250, text: "// Retry a flaky request with exponential backoff.\nfn fetch_with_retry(url: &str, tries: u32) -> Result<String, Error> {\n    let mut delay = Duration::from_millis(200);\n    for attempt in 1..=tries {\n        match http::get(url) {\n            Ok(body) => return Ok(body),\n            Err(err) if attempt < tries => {\n                log::warn!(\"attempt {attempt} failed: {err}\");\n                sleep(delay);\n                delay *= 2;\n            }\n            Err(err) => return Err(err),\n        }\n    }\n    unreachable!()\n}", font: JetBrains Mono, size: 22, leading: 38, color: "#d6deeb", name: Code }, as: code }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [0, 50], color: "#6b7394" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [51, 53], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [54, 70], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [77, 80], color: "#ffcb6b" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [89, 92], color: "#ffcb6b" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [97, 103], color: "#ffcb6b" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [104, 110], color: "#ffcb6b" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [112, 117], color: "#ffcb6b" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [125, 128], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [129, 132], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [141, 149], color: "#ffcb6b" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [151, 162], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [163, 166], color: "#f78c6c" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [173, 176], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [185, 187], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [188, 189], color: "#f78c6c" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [208, 213], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [220, 223], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [243, 245], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [255, 261], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [262, 264], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [284, 287], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [293, 295], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [338, 343], color: "#89ddff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [344, 377], color: "#c3e88d" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [396, 401], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [435, 436], color: "#f78c6c" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [464, 467], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [476, 482], color: "#c792ea" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [483, 486], color: "#82aaff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [513, 525], color: "#89ddff" } }
+  - { command: type.setStyle, params: { layer: $code.layer, range: [0, 50], italic: true } }
+  - { command: type.info, params: { layer: $code.layer }, as: codeInfo }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 10, any: { name: Code, kind: Type, text: { font: JetBrains Mono, sizePt: 22 } } }
+      layers.-3: { name: Window, effects: { items: { count: 2 } } }
+  - actual: results
+    values:
+      codeInfo.runs: { min: 40 }
+      codeInfo.lines: { count: 16 }
+      codeInfo.runs.0.style: { italic: true, font_family: JetBrains Mono }
+diagnostics: []
+since: "2026-11-09"

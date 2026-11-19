@@ -1,0 +1,30 @@
+{
+  "id": "doc/magazine-feature",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 557 words",
+  "commands": 68,
+  "document": {
+    "name": "magazine-feature.docx",
+    "bytes": 8850,
+    "sha256": "1fcd679fbf88c99ad49d8bbc8d2dab881c56718c4341f878c9eed5467d396d83"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "850e2d72dba4c82aed32d13abc0b05d3dde8d5218730225491f7ad1f804c51b2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 69
+}

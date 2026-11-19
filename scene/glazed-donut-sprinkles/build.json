@@ -1,0 +1,30 @@
+{
+  "id": "scene/glazed-donut-sprinkles",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "7 meshes; 7 materials; 2 lights",
+  "commands": 46,
+  "document": {
+    "name": "glazed-donut-sprinkles.kscene",
+    "bytes": 142287,
+    "sha256": "be5b8d66dd882828f455b176ade2b1a2b3baea0307fd2d670108632a9099c859"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "5a1631b0930c65ba5715c5d507dfc9139a7e7569a156f040f25c36129bc08b8f"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 59
+}

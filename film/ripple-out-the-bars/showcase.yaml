@@ -1,0 +1,36 @@
+format: 1
+id: film/ripple-out-the-bars
+title: Ripple Out the Bars
+summary: A cleanup pass ripple-deletes a stray bars-and-tone clip and closes a one-second gap, pulling the rest of the cut together.
+category: Editing & Timeline
+tags: [ripple-delete, close-gap, cleanup, demo-footage]
+features: [film.timeline.edit, film.sequence.manage]
+description: |
+  The assembly arrived with two problems: two seconds of bars and tone left between the ocean and
+  the dunes, and a one-second hole before the city. A ripple delete removes the bars and moves
+  every later clip two seconds earlier, then `sequence.closeGap` at the hole does the same for the
+  remaining second. The result is three scenes butted end to end, 12 s long, and the kit's check
+  finds no gap. The thumbnail is the first cut point after cleanup, where the dunes now follow the
+  sunset.
+document: { name: ripple-out-the-bars.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Assembly Cleanup, width: 1280, height: 720, fps: 24, video: 1, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 0, sourceIn: 508032000000, duration: 1016064000000 }, as: ocean }
+  - { command: timeline.place, params: { item: 12, track: V1, seconds: 4, duration: 508032000000 }, as: bars }
+  - { command: timeline.place, params: { item: 8, track: V1, seconds: 6, sourceIn: 254016000000, duration: 1016064000000 }, as: dunes }
+  - { command: timeline.place, params: { item: 7, track: V1, seconds: 11, sourceIn: 508032000000, duration: 1016064000000 }, as: city }
+  - { command: edit.rippleDelete, params: { clips: [$bars.clips.0] }, as: rippled }
+  - { command: sequence.closeGap, params: { track: V1, time: 2159136000000 }, as: closed }
+thumbnail: { at: 4.5 }
+preview: { from: 2.5, to: 9.5, fps: 6, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 3, none: { name: Bars and Tone } }
+      sequence.video.0.items.1: { name: Desert_Dunes.mp4, start: 1016064000000 }
+      sequence.video.0.items.2: { name: City_Night_Drive.mp4, start: 2032128000000, end: 3048192000000 }
+      sequence.audio.0.items: { count: 3 }
+      sequence.duration: 3048192000000
+diagnostics: []
+since: "2026-11-09"

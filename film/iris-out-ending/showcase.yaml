@@ -1,0 +1,48 @@
+format: 1
+id: film/iris-out-ending
+title: Iris-Out Ending
+summary: The closing shot shrinks into a feathered circle around the setting sun, an animated mask expansion, before THE END fades up.
+category: Keyframes & Motion
+tags: [keyframes, masks, iris, easing, titles, demo-footage]
+features: [film.effects.keyframes, film.graphics.text-basics]
+description: |
+  The old silent-film iris-out made with a mask. The sea shot has a small elliptical Opacity mask
+  centred on the sun; the mask's expansion (effects.setParam with `mask: 0`) is keyframed from
+  1200 px, which shows the whole frame, down to 0 px over three seconds, with an ease into the
+  last keyframe so the circle slows as it closes. A 40 px feather keeps the edge soft, and the
+  end card fades in once the iris has shut.
+document: { name: iris-out-ending.kfilm, width: 1920, height: 1080 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Final Shot, width: 1920, height: 1080, fps: 24, video: 2, audio: 1 } }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 0, sourceIn: 1270080000000, duration: 1524096000000, audio: false }, as: sea }
+  - { command: masks.add, params: { clip: $sea.clips.0, shape: ellipse, center: [974, 508], size: [180, 180] }, as: iris }
+  - { command: masks.set, params: { clip: $sea.clips.0, mask: 0, name: Iris, feather: 40 } }
+  - { command: effects.setParam, params: { clip: $sea.clips.0, effect: opacity, mask: 0, param: expansion, value: 1200, seconds: 0.5 } }
+  - { command: effects.setParam, params: { clip: $sea.clips.0, effect: opacity, mask: 0, param: expansion, value: 0, seconds: 3.5 } }
+  # Keyframe times on a clip are media times: the clip starts 5 s into the source, so 3.5 s on the
+  # timeline is 8.5 s of media (2 159 136 000 000 ticks).
+  - { command: effects.setInterpolation, params: { clip: $sea.clips.0, effect: opacity, param: expansion, mask: 0, mediaTime: 2159136000000, interpolation: easeIn } }
+  - { command: masks.list, params: { clip: $sea.clips.0, time: 127008000000 }, as: open }
+  - { command: masks.list, params: { clip: $sea.clips.0, time: 508032000000 }, as: closing }
+  - { command: masks.list, params: { clip: $sea.clips.0, time: 1016064000000 }, as: closed }
+  - { command: graphics.newText, params: { text: THE END, position: [960, 700], size: 72, seconds: 3, frame: 72, track: 1 }, as: card }
+  - { command: graphics.set, params: { clip: $card.clip, props: { align: center, tracking: 600, fill_color: "#f3e3c3" } } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 0, seconds: 3 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 100, seconds: 4 } }
+thumbnail: { at: 4.2 }
+preview: { from: 0, to: 5, fps: 10, max: 400 }
+expected:
+  - actual: results
+    values:
+      iris: { effect: 1, mask: 0 }
+      open.masks.0: { name: Iris, feather: 40, expansion: 1200 }
+      closing.masks.0.expansion: { approx: 450, tol: 5 }
+      closed.masks.0.expansion: 0
+  - actual: inspect
+    values:
+      sequence.video.0.items.0.effects.1: { effect: opacity, masks: 1 }
+      sequence.video.1.items.0: { name: THE END, startFrame: 72 }
+      sequence.video.1.items.0.effects.1.params.opacity.keyframes: [{ time: 762048000000, mediaTime: 0, value: 0 }, { time: 1016064000000, mediaTime: 254016000000, value: 100 }]
+diagnostics: []
+since: "2026-11-09"

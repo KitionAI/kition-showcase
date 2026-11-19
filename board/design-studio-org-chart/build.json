@@ -1,0 +1,30 @@
+{
+  "id": "board/design-studio-org-chart",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 27 elements",
+  "commands": 17,
+  "document": {
+    "name": "design-studio-org-chart.kboard",
+    "bytes": 11146,
+    "sha256": "0016d8ec5df08ec1a65f1ab413f6ac84261c38b9677510a9cf4ab7b67b8fd2a8"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      377
+    ],
+    "sha256": "1778e45da5fc81f8110135a00bc2fb65d262596e20511380c853c78c40276987"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 2
+}

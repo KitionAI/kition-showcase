@@ -1,0 +1,33 @@
+format: 1
+id: film/dunes-to-coast-push
+title: Dunes to Coast Push
+summary: A travel vlog pushes the desert out of frame to the left as the coastline slides in behind it.
+category: Transitions
+tags: [transitions, push, slide, demo-footage]
+features: [film.transitions.basics, film.timeline.basics]
+description: |
+  A Push from the east, 18 frames long, on the cut at 4 s: the incoming sunset pushes the dunes
+  off to the left. Motion blur at 25 smears both pictures along the move, so the push reads as one
+  fast sweep. The thumbnail is the middle of the push, with the blurred seam between the two scenes
+  in the middle of the frame.
+document: { name: dunes-to-coast-push.kfilm, width: 1280, height: 720 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Coast Road, width: 1280, height: 720, fps: 24, video: 1, audio: 1 }, as: sequence }
+  - { command: timeline.place, params: { item: 8, track: V1, seconds: 0, sourceIn: 254016000000, duration: 1016064000000 }, as: outgoing }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 4, sourceIn: 762048000000, duration: 1016064000000 }, as: incoming }
+  - { command: sequence.applyVideoTransition, params: { clip: $incoming.clips.0, edge: in, effect: push, frames: 18, params: { direction: From East, motion_blur: 25 } }, as: transition }
+thumbnail: { at: 4 }
+preview: { from: 2.5, to: 5.5, fps: 10, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items: { count: 2 }
+      sequence.video.0.items.1.name: Ocean_Sunset.mp4
+      sequence.video.0.transitions: { count: 1 }
+      sequence.video.0.transitions.0.effect: push
+      sequence.video.0.transitions.0.duration: 190512000000
+      sequence.video.0.transitions.0.params.direction: { value: 1, option: From East }
+      sequence.video.0.transitions.0.params.motion_blur: { value: 25 }
+diagnostics: []
+since: "2026-11-09"

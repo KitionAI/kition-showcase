@@ -1,0 +1,135 @@
+format: 1
+id: sheet/number-format-gallery
+title: Number Format Gallery
+summary: A reference card that shows the same numbers, dates and codes through a dozen built-in and custom number formats.
+category: Formatting & Styles
+tags: [number-formats, custom-formats, dates, reference]
+features: [sheet.format.number, sheet.format.font, sheet.format.alignment]
+description: |
+  Every row on the left applies one format code to a positive number, a negative number and zero,
+  so the sections of a code (positive;negative;zero) are easy to see: accounting brackets, red
+  negatives, thousands scaling with a "K" suffix, signed percentages with arrows. The table on the
+  right formats one timestamp and a few identifiers the same way. The values never change; only
+  their display does, which the checks confirm by reading both the values and the formatted text.
+document: { name: number-format-gallery.xlsx, width: 1280, height: 800 }
+fonts: [carlito/Carlito-Regular.ttf, carlito/Carlito-Bold.ttf, carlito/Carlito-Italic.ttf, jetbrains-mono/JetBrainsMono-Variable.ttf]
+steps:
+  - { command: home.numberFormat, params: { range: "B5:B15", format: Text } }
+  - { command: home.numberFormat, params: { range: "H5:H15", format: Text } }
+  - { command: range.setValues, params: { range: A1, values: [["Number Format Gallery"], ["One value, many faces: the cell keeps the number, the format decides what you see."]] } }
+  - command: range.setValues
+    params:
+      range: A4
+      values:
+        - [Style, Format code, Positive, Negative, Zero]
+        - [General, General, 1234.567, -1234.567, 0]
+        - [Number, "#,##0.00", 1234.567, -1234.567, 0]
+        - [Currency, "$$#,##0.00;[Red]-$#,##0.00", 1234.567, -1234.567, 0]
+        - [Accounting, "_($* #,##0.00_);_($* (#,##0.00);_($* \"-\"??_);_(@_)", 1234.567, -1234.567, 0]
+        - [Percent, "0.0%", 0.4275, -0.125, 0]
+        - [Thousands, "#,##0.0,\"K\"", 1284500, -36200, 0]
+        - [Millions, "$$#,##0.00,,\"M\"", 48250000, -3100000, 0]
+        - [Scientific, "0.00E+00", 1234.567, -0.000412, 0]
+        - [Fraction, "# ?/?", 3.75, -0.5, 0]
+        - [Signed change, "[Color10]▲ 0.0%;[Red]▼ 0.0%;\"–\"", 0.084, -0.031, 0]
+        - [Zero as dash, "#,##0;(#,##0);\"–\"", 980, -45, 0]
+  - command: range.setValues
+    params:
+      range: G4
+      values:
+        - [Date & text style, Format code, Displays]
+        - [ISO date, "yyyy-mm-dd", 46335.6041666667]
+        - [Long date, "dddd, mmmm d, yyyy", 46335.6041666667]
+        - [Short date, "d mmm yy", 46335.6041666667]
+        - [Clock time, "h:mm AM/PM", 46335.6041666667]
+        - [Date and time, "yyyy-mm-dd hh:mm", 46335.6041666667]
+        - [Duration, "[h]:mm", 1.5625]
+        - [Postal code, "00000", 2134]
+        - [Phone number, "(000) 000-0000", 5550142876]
+        - [Invoice number, "\"INV-\"000000", 4127]
+        - [Text label, "\"Qty: \"0\" pcs\"", 24]
+        - [Hidden value, ";;;", 1]
+  - { command: home.numberFormat, params: { range: "C5:E5", format: General } }
+  - { command: home.numberFormat, params: { range: "C6:E6", format: "#,##0.00" } }
+  - { command: home.numberFormat, params: { range: "C7:E7", format: "$$#,##0.00;[Red]-$#,##0.00" } }
+  - { command: home.numberFormat, params: { range: "C8:E8", format: "_($* #,##0.00_);_($* (#,##0.00);_($* \"-\"??_);_(@_)" } }
+  - { command: home.numberFormat, params: { range: "C9:E9", format: "0.0%" } }
+  - { command: home.numberFormat, params: { range: "C10:E10", format: "#,##0.0,\"K\"" } }
+  - { command: home.numberFormat, params: { range: "C11:E11", format: "$$#,##0.00,,\"M\"" } }
+  - { command: home.numberFormat, params: { range: "C12:E12", format: "0.00E+00" } }
+  - { command: home.numberFormat, params: { range: "C13:E13", format: "# ?/?" } }
+  - { command: home.numberFormat, params: { range: "C14:E14", format: "[Color10]▲ 0.0%;[Red]▼ 0.0%;\"–\"" } }
+  - { command: home.numberFormat, params: { range: "C15:E15", format: "#,##0;(#,##0);\"–\"" } }
+  - { command: home.numberFormat, params: { range: I5, format: "yyyy-mm-dd" } }
+  - { command: home.numberFormat, params: { range: I6, format: "dddd, mmmm d, yyyy" } }
+  - { command: home.numberFormat, params: { range: I7, format: "d mmm yy" } }
+  - { command: home.numberFormat, params: { range: I8, format: "h:mm AM/PM" } }
+  - { command: home.numberFormat, params: { range: I9, format: "yyyy-mm-dd hh:mm" } }
+  - { command: home.numberFormat, params: { range: I10, format: "[h]:mm" } }
+  - { command: home.numberFormat, params: { range: I11, format: "00000" } }
+  - { command: home.numberFormat, params: { range: I12, format: "(000) 000-0000" } }
+  - { command: home.numberFormat, params: { range: I13, format: "\"INV-\"000000" } }
+  - { command: home.numberFormat, params: { range: I14, format: "\"Qty: \"0\" pcs\"" } }
+  - { command: home.numberFormat, params: { range: I15, format: ";;;" } }
+  # Title and section styling
+  - { command: home.fontSize, params: { range: A1, size: 22 } }
+  - { command: home.bold, params: { range: A1 } }
+  - { command: home.fontColor, params: { range: A1, color: "#1f3a5f" } }
+  - { command: home.italic, params: { range: A2 } }
+  - { command: home.fontColor, params: { range: A2, color: "#6b7280" } }
+  - { command: home.fillColor, params: { range: "A4:E4", color: "#1f3a5f" } }
+  - { command: home.fillColor, params: { range: "G4:I4", color: "#7c3a5f" } }
+  - { command: home.fontColor, params: { range: "A4:I4", color: "#ffffff" } }
+  - { command: home.bold, params: { range: "A4:I4" } }
+  - { command: home.alignRight, params: { range: "C4:E4" } }
+  - { command: home.alignRight, params: { range: "I4" } }
+  - { command: home.fontName, params: { range: "B5:B15", name: JetBrains Mono } }
+  - { command: home.fontName, params: { range: "H5:H15", name: JetBrains Mono } }
+  - { command: home.fontSize, params: { range: "B5:B15", size: 9 } }
+  - { command: home.fontSize, params: { range: "H5:H15", size: 9 } }
+  - { command: home.fontColor, params: { range: "B5:B15", color: "#475569" } }
+  - { command: home.fontColor, params: { range: "H5:H15", color: "#475569" } }
+  - { command: home.bold, params: { range: "A5:A15" } }
+  - { command: home.bold, params: { range: "G5:G15" } }
+  - { command: home.fillColor, params: { range: "A6:E6", color: "#f1f5f9" } }
+  - { command: home.fillColor, params: { range: "A8:E8", color: "#f1f5f9" } }
+  - { command: home.fillColor, params: { range: "A10:E10", color: "#f1f5f9" } }
+  - { command: home.fillColor, params: { range: "A12:E12", color: "#f1f5f9" } }
+  - { command: home.fillColor, params: { range: "A14:E14", color: "#f1f5f9" } }
+  - { command: home.fillColor, params: { range: "G6:I6", color: "#fbf3f7" } }
+  - { command: home.fillColor, params: { range: "G8:I8", color: "#fbf3f7" } }
+  - { command: home.fillColor, params: { range: "G10:I10", color: "#fbf3f7" } }
+  - { command: home.fillColor, params: { range: "G12:I12", color: "#fbf3f7" } }
+  - { command: home.fillColor, params: { range: "G14:I14", color: "#fbf3f7" } }
+  - { command: home.borders, params: { range: "A15:E15", preset: bottom, color: "#1f3a5f" } }
+  - { command: home.borders, params: { range: "G15:I15", preset: bottom, color: "#7c3a5f" } }
+  - { command: home.alignRight, params: { range: "I5:I15" } }
+  - { command: home.columnWidth, params: { cols: "A:A", width: 92 } }
+  - { command: home.columnWidth, params: { cols: "B:B", width: 215 } }
+  - { command: home.columnWidth, params: { cols: "C:E", width: 84 } }
+  - { command: home.columnWidth, params: { cols: "F:F", width: 18 } }
+  - { command: home.columnWidth, params: { cols: "G:G", width: 104 } }
+  - { command: home.columnWidth, params: { cols: "H:H", width: 128 } }
+  - { command: home.columnWidth, params: { cols: "I:I", width: 150 } }
+  - { command: home.rowHeight, params: { rows: "1:1", height: 30 } }
+  - { command: home.rowHeight, params: { rows: "4:15", height: 20 } }
+  - { command: home.alignMiddle, params: { range: "A4:I15" } }
+  - { command: sheet.read, params: { range: "C5:E15", formatted: true }, as: shown }
+  - { command: sheet.read, params: { range: "I5:I15", formatted: true }, as: dates }
+  - { command: sheet.read, params: { range: "C7:E7" }, as: raw }
+  - { command: sheet.read, params: { range: "B5:B7" }, as: codes }
+expected:
+  - actual: results
+    values:
+      raw.values.0: [1234.567, -1234.567, 0]
+      codes.values: [["General"], ["#,##0.00"], ["$#,##0.00;[Red]-$#,##0.00"]]
+      shown.values.0: ["1234.567", "-1234.567", "0"]
+      shown.values.1: ["1,234.57", "-1,234.57", "0.00"]
+      shown.values.2: ["$1,234.57", "-$1,234.57", "$0.00"]
+      shown.values.4: ["42.8%", "-12.5%", "0.0%"]
+      shown.values.5: ["1,284.5K", "-36.2K", "0.0K"]
+      shown.values.9: ["▲ 8.4%", "▼ 3.1%", "–"]
+      dates.values: [["2026-11-09"], ["Monday, November 9, 2026"], ["9 Nov 26"], ["2:30 PM"], ["2026-11-09 14:30"], ["37:30"], ["02134"], ["(555) 014-2876"], ["INV-004127"], ["Qty: 24 pcs"], [""]]
+diagnostics: []
+thumbnail: { area: [0, 0, 1010, 350] }
+since: "2026-11-09"

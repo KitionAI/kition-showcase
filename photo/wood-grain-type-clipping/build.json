@@ -1,0 +1,30 @@
+{
+  "id": "photo/wood-grain-type-clipping",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    900
+  ],
+  "stats": "1600 × 900 px; 6 layers; 2 type layers; 1 shape layer; 1 fill layer; 1 smart object; 1 styled layer",
+  "commands": 17,
+  "document": {
+    "name": "wood-grain-type-clipping.psd",
+    "bytes": 6332176,
+    "sha256": "3f8fbb62e9841d090ae3811d2954b7ea7ccc738e5ec565acc0e3d9222fceba76"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "6df178170428d33db8919c74a262c84bc7a0a27cd315b93bce17af224f24c21d"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1094
+}

@@ -1,0 +1,30 @@
+{
+  "id": "photo/linkedin-profile-banner",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1584,
+    396
+  ],
+  "stats": "1584 × 396 px; 16 layers; 4 type layers; 8 shape layers; 1 fill layer; 2 groups; 1 mask",
+  "commands": 37,
+  "document": {
+    "name": "linkedin-profile-banner.psd",
+    "bytes": 403336,
+    "sha256": "29704f8b5b41b43ca2b6d1761bcfb88610b1bac72e4cdc9bf109c1dc15545b05"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      160
+    ],
+    "sha256": "057845aa866c8be70adef1ddbf8271a3287466f5723888509560d8f7b008a342"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 140
+}

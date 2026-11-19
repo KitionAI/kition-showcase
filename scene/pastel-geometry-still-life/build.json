@@ -1,0 +1,30 @@
+{
+  "id": "scene/pastel-geometry-still-life",
+  "kit": {
+    "repo": "kition-scene",
+    "commit": "96f79582aa",
+    "dirty": false
+  },
+  "size": [
+    1024,
+    576
+  ],
+  "stats": "7 meshes; 7 materials; 1 light",
+  "commands": 35,
+  "document": {
+    "name": "pastel-geometry-still-life.kscene",
+    "bytes": 117327,
+    "sha256": "3ab1052ccd755ad599c65907fe6b2f8f284cd108ed281404b69dd3bbd0fafd0e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "a4bfe41dcae5d5d1297100750854b2b2a0433bcf624eb4cb3163662d4842fbbc"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 79
+}

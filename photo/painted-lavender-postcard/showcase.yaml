@@ -1,0 +1,76 @@
+format: 1
+id: photo/painted-lavender-postcard
+title: Painted Lavender Postcard
+summary: A vector landscape turned into a gouache-style postcard by three smart filters on one smart object.
+category: Filters & Textures
+tags: [smart-filters, smart-objects, filters, illustration, print]
+features: [photo.filter.smart, photo.layer.smart-objects, photo.filter.gallery, photo.path.shapes]
+description: |
+  The scene starts as clean shapes: a sky gradient, a sun, rolling hills, converging rows of
+  lavender and a lone tree, plus a soft wash of rendered clouds over the sky in Soft Light. All of it is
+  converted into one smart object, and the painting happens in smart filters: Spatter roughens the
+  edges, Fresco pools the color into dabs, and Texturizer adds the paper's canvas tooth. All three
+  stay editable and can be switched off to get the vector original back. A white border, a stamp
+  and a caption make it a postcard.
+document: { name: painted-lavender-postcard.psd, width: 1500, height: 1000 }
+fonts: [inter/Inter-Variable.ttf, lora/Lora-Variable.ttf]
+steps:
+  - { command: gradient.fill.create, params: { from: [0, 60], to: [0, 600], stops: [[0, "#8fb8de"], [0.7, "#f7d9b9"], [1, "#fbe7c6"]] }, as: sky }
+  - { command: layer.renameLayer, params: { layer: $sky.layer, name: Sky } }
+  - { command: shape.create, params: { kind: ellipse, rect: [1020, 230, 170, 170], fill: "#fbd17a", name: Sun } }
+  - { command: shape.create, params: { kind: path, name: Far Hills, fill: "#9fa8c9", path: { subpaths: [ { knots: [[0, 520], {anchor: [350, 440], in: [180, 450], out: [520, 430], smooth: true}, {anchor: [820, 500], in: [660, 470], out: [980, 530], smooth: true}, {anchor: [1250, 450], in: [1100, 450], out: [1400, 450], smooth: true}, [1500, 480], [1500, 1000], [0, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, name: Green Hill, fill: "#9cbf73", path: { subpaths: [ { knots: [[0, 600], {anchor: [600, 540], in: [300, 545], out: [900, 535], smooth: true}, {anchor: [1500, 590], in: [1200, 545], out: [1500, 590]}, [1500, 1000], [0, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, name: Lavender Rows, fill: "#8e6bbf", path: { subpaths: [ { knots: [[706, 560], [-715, 1000], [-825, 1000]] } ] } }, as: rows }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[712, 560], [-545, 1000], [-655, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[718, 560], [-375, 1000], [-485, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[724, 560], [-205, 1000], [-315, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[730, 560], [-35, 1000], [-145, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[736, 560], [135, 1000], [25, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[742, 560], [305, 1000], [195, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[748, 560], [475, 1000], [365, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[754, 560], [645, 1000], [535, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[760, 560], [815, 1000], [705, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[766, 560], [985, 1000], [875, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[772, 560], [1155, 1000], [1045, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[778, 560], [1325, 1000], [1215, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[784, 560], [1495, 1000], [1385, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[790, 560], [1665, 1000], [1555, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[796, 560], [1835, 1000], [1725, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[802, 560], [2005, 1000], [1895, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[808, 560], [2175, 1000], [2065, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: path, fill: "#8e6bbf", addTo: $rows.layer, op: combine, path: { subpaths: [ { knots: [[814, 560], [2345, 1000], [2235, 1000]] } ] } } }
+  - { command: shape.create, params: { kind: ellipse, rect: [255, 470, 110, 130], fill: "#4f7a4a", name: Tree Crown } }
+  - { command: shape.create, params: { kind: rect, rect: [304, 590, 12, 30], fill: "#5b4636", name: Tree Trunk } }
+  - { command: layer.new.layer, params: { name: Wash }, as: wash }
+  - { command: tools.setColors, params: { foreground: "#000000", background: "#ffffff" } }
+  - { command: select.rect, params: { x: 0, y: 0, width: 1500, height: 600 } }
+  - { command: filter.render.clouds, params: { seed: 12 } }
+  - { command: filter.noise.addNoise, params: { amount: 20, distribution: gaussian, monochromatic: true, seed: 13 } }
+  - { command: filter.blur.gaussianBlur, params: { radius: 2 } }
+  - { command: select.deselect }
+  - { command: layer.setProps, params: { layer: $wash.layer, blend: Soft Light, opacity: 0.6 } }
+  - { command: select.allLayers }
+  - { command: layer.smartObjects.convertToSmartObject, as: painting }
+  - { command: layer.renameLayer, params: { layer: $painting.layer, name: Painting } }
+  - { command: filter.gallery.spatter, params: { sprayRadius: 10, smoothness: 8 } }
+  - { command: filter.gallery.fresco, params: { brushSize: 3, brushDetail: 7, texture: 1 } }
+  - { command: filter.gallery.texturizer, params: { texture: canvas, scaling: 100, relief: 3, light: topLeft } }
+  - { command: shape.create, params: { kind: path, name: Card Border, fill: "#fbf8f2", path: { subpaths: [ { knots: [[0, 0], [1500, 0], [1500, 1000], [0, 1000]] }, { op: subtract, knots: [[40, 40], [1460, 40], [1460, 960], [40, 960]] } ] } } }
+  - { command: shape.create, params: { kind: roundedRect, rect: [1290, 80, 130, 160], radii: 6, fill: "#fbf8f2", stroke: { width: 4, color: "#8e6bbf", dashes: [2, 1.5], cap: round }, name: Stamp }, as: stamp }
+  - { command: layer.layerStyle.dropShadow, params: { layer: $stamp.layer, color: "#3b2a55", opacity: 30, distance: 4, size: 8, angle: 120 } }
+  - { command: shape.create, params: { kind: ellipse, rect: [1318, 120, 74, 74], fill: "#8e6bbf", name: Stamp Motif } }
+  - { command: type.create, params: { x: 1355, y: 222, text: "45c", font: Inter, size: 20, weight: 700, color: "#3b2a55", align: center, name: Stamp Value } }
+  - { command: type.create, params: { x: 100, y: 170, text: "Greetings from", font: Lora, size: 56, italic: true, color: "#2f2a4a", name: Greeting } }
+  - { command: type.create, params: { x: 100, y: 270, text: "the Lavender Coast", font: Lora, size: 84, weight: 700, italic: true, color: "#2f2a4a", name: Place } }
+expected:
+  - actual: inspect
+    values:
+      layers: { count: 8 }
+      layers.6: { name: Painting, kind: Smart Object, smartFiltersEnabled: true, smartFilters: { count: 3 } }
+      layers.6.smartFilters.0: { command: filter.gallery.spatter, visible: true }
+      layers.6.smartFilters.1: { command: filter.gallery.fresco, params: { brushSize: 3 } }
+      layers.6.smartFilters.2: { command: filter.gallery.texturizer, params: { texture: canvas } }
+      layers.4: { name: Stamp, kind: Shape, effects: { items: { any: { kind: Drop Shadow } } } }
+      layers.0: { name: Place, kind: Type, text: { text: the Lavender Coast } }
+diagnostics: []
+since: "2026-11-09"

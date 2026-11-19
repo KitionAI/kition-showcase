@@ -1,0 +1,30 @@
+{
+  "id": "doc/service-invoice",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 175 words",
+  "commands": 239,
+  "document": {
+    "name": "service-invoice.docx",
+    "bytes": 8954,
+    "sha256": "1d8ec3df9abbe604edaaf059ef52f907eb0560a40d488efff605e0e35874fe98"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "ffd06458e1c89889f317d25a3c083464c260a8283247cea13fb20550a3264aa1"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 85
+}

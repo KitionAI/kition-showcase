@@ -1,0 +1,30 @@
+{
+  "id": "vector/blend-ribbon-poster",
+  "kit": {
+    "repo": "kition-vector",
+    "commit": "65d8d59892",
+    "dirty": false
+  },
+  "size": [
+    800,
+    1100
+  ],
+  "stats": "1 artboard; 3 layers; 13 objects",
+  "commands": 33,
+  "document": {
+    "name": "blend-ribbon-poster.kvector",
+    "bytes": 14664,
+    "sha256": "76b35ec38cd2cb3821aef97ea65298734c36298cd1fcbed38c3efedb94ac7a4f"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      465,
+      640
+    ],
+    "sha256": "5c3e515836c10163f892cd505f838a41840e02b050320dd389a8b6789f12c987"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 49
+}

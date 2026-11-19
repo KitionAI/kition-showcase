@@ -1,0 +1,30 @@
+{
+  "id": "sheet/signup-trend-forecast",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1746,
+    2029
+  ],
+  "stats": "1 sheet; used range A1:F24",
+  "commands": 38,
+  "document": {
+    "name": "signup-trend-forecast.xlsx",
+    "bytes": 8766,
+    "sha256": "c89cc78f24711ce2d5c9d6bb96201d4b79d54d945c717c2d6fb634cc7243e29b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      389
+    ],
+    "sha256": "65b724b94886ab22b4d07737f3e170334376330278517a3f1ef1b04660fde3f9"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 11
+}

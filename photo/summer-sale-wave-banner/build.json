@@ -1,0 +1,30 @@
+{
+  "id": "photo/summer-sale-wave-banner",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "e511ae24a4",
+    "dirty": false
+  },
+  "size": [
+    1500,
+    600
+  ],
+  "stats": "1500 × 600 px; 17 layers; 5 type layers; 9 shape layers; 1 fill layer; 1 group; 2 masks",
+  "commands": 64,
+  "document": {
+    "name": "summer-sale-wave-banner.psd",
+    "bytes": 1473132,
+    "sha256": "985cba81a7e908866a9ea3e96a842a6414a663ef92446a40cc49ccf741f4ce14"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      256
+    ],
+    "sha256": "bb850465904ddf4cf87d851c9009abb1b2ecd585cb0c999e8153b512e01d829a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 898
+}

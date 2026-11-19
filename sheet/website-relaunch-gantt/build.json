@@ -1,0 +1,30 @@
+{
+  "id": "sheet/website-relaunch-gantt",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1374,
+    2029
+  ],
+  "stats": "1 sheet; used range A1:AJ18",
+  "commands": 85,
+  "document": {
+    "name": "website-relaunch-gantt.xlsx",
+    "bytes": 7935,
+    "sha256": "c65895e44e4768feca42d251cff2b92ecacadc07615394a23fe6254e06072aee"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      256
+    ],
+    "sha256": "a171288d01760fb3e5daeb44efde29f825ec0fa9ff13e2fb689f1a3b361afa35"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 110
+}

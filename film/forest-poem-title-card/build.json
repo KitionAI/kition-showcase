@@ -1,0 +1,34 @@
+{
+  "id": "film/forest-poem-title-card",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "8281b2bb9e",
+    "dirty": false
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "stats": "1280 × 720 @ 24 fps; 12.0 s; 2 video clips; 6 effects; 1 animated effect",
+  "commands": 17,
+  "document": {
+    "name": "forest-poem-title-card.kfilm",
+    "bytes": 23215,
+    "sha256": "56ece39bbd822a26d8e19d2175700ebd410420d48c884138da0415d8ee50cd50"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "95f59791cf1e87b4cddd1dc8fc568c97af5d5127bab3707329f983e8b3820c89"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 25,
+    "bytes": 53786
+  },
+  "diagnostics": [],
+  "built_ms": 21
+}

@@ -1,0 +1,30 @@
+{
+  "id": "note/lakeside-camping-checklist",
+  "kit": {
+    "repo": "kition-note",
+    "commit": "095039512e",
+    "dirty": false
+  },
+  "size": [
+    816,
+    1200
+  ],
+  "stats": "1 page; 155 words; 5 headings",
+  "commands": 16,
+  "document": {
+    "name": "lakeside-camping-checklist.md",
+    "bytes": 912,
+    "sha256": "684498bf1c4cb0592be256561ae951a7d3904f95d98400cd2ccf40205bce0eb4"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "92ae891ac1172df1522430a51d9a9f9185718040475ac893fd368496ebdbab5c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 8
+}

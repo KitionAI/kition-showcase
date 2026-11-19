@@ -1,0 +1,30 @@
+{
+  "id": "sheet/monthly-habit-tracker",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1236,
+    2037
+  ],
+  "stats": "1 sheet; used range A1:AG13",
+  "commands": 41,
+  "document": {
+    "name": "monthly-habit-tracker.xlsx",
+    "bytes": 7053,
+    "sha256": "bfa100c0bb5a915f9b824916c5f19820898413c3ee99a36efb00391e1af6121e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      243
+    ],
+    "sha256": "bb80741930eed052cdabb01f7e458441d278c48f74094e20cd3c68c9f83629d2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 113
+}

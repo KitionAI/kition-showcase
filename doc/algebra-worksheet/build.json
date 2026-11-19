@@ -1,0 +1,30 @@
+{
+  "id": "doc/algebra-worksheet",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 65 words",
+  "commands": 100,
+  "document": {
+    "name": "algebra-worksheet.docx",
+    "bytes": 8940,
+    "sha256": "572580a8abc1e09996886927abf665a9a45fc79105b25fa23a7ba9f5339ca18a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "7affdc9bfcccb2b46783fee7c0838f3603b747c80c4a641fb99596be415c431b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 166
+}

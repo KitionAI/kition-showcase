@@ -1,0 +1,34 @@
+{
+  "id": "film/teal-orange-sunset-grade",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 18.0 s; 3 video clips; 4 effects",
+  "commands": 13,
+  "document": {
+    "name": "teal-orange-sunset-grade.kfilm",
+    "bytes": 20650,
+    "sha256": "66479cb93fbb384e54495d9f1a01ce599b38c13e46e228d2004505c3548af24b"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "13d5913db63e79f74f6a3b7f44d5685e2a1cc7dad531121d15be689b4b29cd6b"
+  },
+  "preview": {
+    "file": "preview.webp",
+    "frames": 24,
+    "bytes": 24814
+  },
+  "diagnostics": [],
+  "built_ms": 138
+}

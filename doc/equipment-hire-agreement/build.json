@@ -1,0 +1,30 @@
+{
+  "id": "doc/equipment-hire-agreement",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "1b00044864",
+    "dirty": false
+  },
+  "size": [
+    692,
+    1788
+  ],
+  "stats": "2 pages; 381 words",
+  "commands": 136,
+  "document": {
+    "name": "equipment-hire-agreement.docx",
+    "bytes": 9965,
+    "sha256": "f34be9ea7bed7031e01022ad1324b19d7c09d027e01568c4a9d1877125765486"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      453,
+      640
+    ],
+    "sha256": "a44ffc1956d763cf3008b410df8d289725e2efc56360e1b5f4978d033b7fdd44"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 141
+}

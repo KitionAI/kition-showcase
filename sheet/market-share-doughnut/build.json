@@ -1,0 +1,30 @@
+{
+  "id": "sheet/market-share-doughnut",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1746,
+    2053
+  ],
+  "stats": "1 sheet; used range A1:E10",
+  "commands": 40,
+  "document": {
+    "name": "market-share-doughnut.xlsx",
+    "bytes": 7559,
+    "sha256": "0fbdfd670ffce2b5478ce35ac95016686423d903beef513c12648225624f7930"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      240
+    ],
+    "sha256": "bc1890877693969b656e7399101adea199775ef6621ff73b0276b728c63c9364"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 9
+}

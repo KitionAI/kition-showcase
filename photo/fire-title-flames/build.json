@@ -1,0 +1,30 @@
+{
+  "id": "photo/fire-title-flames",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    1600,
+    900
+  ],
+  "stats": "1600 × 900 px; 6 layers; 2 type layers; 1 fill layer; 1 styled layer; 1 mask",
+  "commands": 24,
+  "document": {
+    "name": "fire-title-flames.psd",
+    "bytes": 4287885,
+    "sha256": "7ffb1a6c5f60e50321ac4ab6b5797aca2f7d91c697482791ebbad3a078bbf92d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "f0cb8b59c23da0fcdc392755f330dff42be191f793bfb64407bafaa748109b36"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 1519
+}

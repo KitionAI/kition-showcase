@@ -1,0 +1,30 @@
+{
+  "id": "film/creative-look-lut-grid",
+  "kit": {
+    "repo": "kition-film",
+    "commit": "27c94b23fd",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1920 × 1080 @ 24 fps; 10.0 s; 5 video clips; 8 effects",
+  "commands": 29,
+  "document": {
+    "name": "creative-look-lut-grid.kfilm",
+    "bytes": 32922,
+    "sha256": "7957d3d119ec27e55c6396279a4bf313e43e8ce948e5ff80b52ad0252e652f50"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "ac41b2597149406f576f75bd95d4d7960e4fd38aa5d0dbd470a3cbf79cff28ce"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 28
+}

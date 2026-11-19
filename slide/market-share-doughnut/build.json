@@ -1,0 +1,30 @@
+{
+  "id": "slide/market-share-doughnut",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 62,
+  "document": {
+    "name": "market-share-doughnut.pptx",
+    "bytes": 26688,
+    "sha256": "6a8b9966d5d514d5b683bd5ee7549ce1929fd00fa1a83bade010f5362e779c7d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "4f0187363aa8d7b418ef92f37f0fb081825ff7ed6c5e23a64591160d84eb7cfd"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 175
+}

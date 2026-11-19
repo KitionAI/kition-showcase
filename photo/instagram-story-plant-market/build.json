@@ -1,0 +1,30 @@
+{
+  "id": "photo/instagram-story-plant-market",
+  "kit": {
+    "repo": "kition-photo",
+    "commit": "7abaa42e9a",
+    "dirty": false
+  },
+  "size": [
+    900,
+    1600
+  ],
+  "stats": "900 × 1600 px; 19 layers; 8 type layers; 7 shape layers; 1 fill layer; 2 groups; 2 styled layers; 1 mask",
+  "commands": 24,
+  "document": {
+    "name": "instagram-story-plant-market.psd",
+    "bytes": 685890,
+    "sha256": "52226d26391c7d400593a19aad9fff346359b5439f4985d67a4b396944b59eeb"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      360,
+      640
+    ],
+    "sha256": "68166a69a955acaa92119ff2d17fcb6350a9c42973f8a98c0daec97ea4312824"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 93
+}

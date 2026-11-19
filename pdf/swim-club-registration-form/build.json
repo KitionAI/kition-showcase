@@ -1,0 +1,30 @@
+{
+  "id": "pdf/swim-club-registration-form",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 18 form fields",
+  "commands": 62,
+  "document": {
+    "name": "swim-club-registration-form.pdf",
+    "bytes": 435622,
+    "sha256": "aa22f208795654a79f7f38562c10a6847619bb24ef08b2c1b69f88acc806a12c"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "561fd2ad269c9eba2b78c821da9cd67f70b6027d5b2a26bc5364a20eaae0b87c"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 612
+}

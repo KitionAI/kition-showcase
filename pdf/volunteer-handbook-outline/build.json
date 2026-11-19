@@ -1,0 +1,40 @@
+{
+  "id": "pdf/volunteer-handbook-outline",
+  "kit": {
+    "repo": "kition-pdf",
+    "commit": "f85fa4e4af",
+    "dirty": false
+  },
+  "size": [
+    692,
+    5768
+  ],
+  "stats": "7 pages",
+  "commands": 66,
+  "document": {
+    "name": "volunteer-handbook-outline.pdf",
+    "bytes": 539240,
+    "sha256": "6159376cb382ead99248d02189dd373cd6788e330d5c54b2621e045940cac1d7"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "d54db1b8f01272e7a45976ab9a2592df3f53e28af5d5a753b2a8008f64e7adc7"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "pdf.font-not-embedded",
+      "message": "The font Helvetica is not embedded; it is one of the standard 14 fonts, which viewers supply.",
+      "severity": "info",
+      "target": {
+        "page": 3,
+        "path": "font:Helvetica"
+      }
+    }
+  ],
+  "built_ms": 554
+}

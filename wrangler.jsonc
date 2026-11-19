@@ -1,0 +1,21 @@
+{
+	// kition.ai/showcase: the static site (tools/site.mjs) as Cloudflare Workers Static Assets,
+	// mounted on the kition.ai zone by route, with no Worker script. Asset requests are not billed.
+	// The assets directory holds the site under showcase/, so /showcase/<kit>/<slug> finds
+	// showcase/<kit>/<slug>/index.html.
+	// Deploy: npm run deploy (needs CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in the
+	// environment; never commit them).
+	"name": "kition-showcase",
+	"compatibility_date": "2026-10-30",
+	"workers_dev": false,
+	"preview_urls": false,
+	"routes": [
+		{ "pattern": "kition.ai/showcase", "zone_name": "kition.ai" },
+		{ "pattern": "kition.ai/showcase/*", "zone_name": "kition.ai" }
+	],
+	"assets": {
+		"directory": "./.cloudflare",
+		"html_handling": "drop-trailing-slash",
+		"not_found_handling": "404-page"
+	}
+}

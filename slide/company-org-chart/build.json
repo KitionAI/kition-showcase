@@ -1,0 +1,30 @@
+{
+  "id": "slide/company-org-chart",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 131,
+  "document": {
+    "name": "company-org-chart.pptx",
+    "bytes": 23259,
+    "sha256": "7429a9a4ed06c72200ddcb1db3d7845b89ded6eb69fe1fe062d030bfbeb7f17a"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "93201386b6ae64074e10efafaaa9b6d9bc5be056b502c809fcdbf66712b74530"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 84
+}

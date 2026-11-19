@@ -1,0 +1,30 @@
+{
+  "id": "sheet/break-even-analysis",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1900,
+    2041
+  ],
+  "stats": "1 sheet; used range A1:F20",
+  "commands": 44,
+  "document": {
+    "name": "break-even-analysis.xlsx",
+    "bytes": 8388,
+    "sha256": "7c4fcf87a800046a5809bff5595f11d17bc8214300c93e33015e3fa0c2bdc111"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      266
+    ],
+    "sha256": "a92d7127eaa92b31abe9f08bec00dd27cd869cdf14e34b49495ef92c4add9f56"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 11
+}

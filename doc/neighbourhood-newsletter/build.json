@@ -1,0 +1,30 @@
+{
+  "id": "doc/neighbourhood-newsletter",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    872
+  ],
+  "stats": "1 page; 556 words",
+  "commands": 121,
+  "document": {
+    "name": "neighbourhood-newsletter.docx",
+    "bytes": 10012,
+    "sha256": "c26d0d3f6371829a4c06eca9c030f90c265ac8c27c22f5e8fdf081c203d8786e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      495,
+      640
+    ],
+    "sha256": "646cfdbd8915990c4701c5f5ed1618837a461da2dfd5052ea4122c8671e47e5b"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 76
+}

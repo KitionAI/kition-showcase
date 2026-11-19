@@ -1,0 +1,30 @@
+{
+  "id": "sheet/number-format-gallery",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    2093,
+    2031
+  ],
+  "stats": "1 sheet; used range A1:I15",
+  "commands": 73,
+  "document": {
+    "name": "number-format-gallery.xlsx",
+    "bytes": 6548,
+    "sha256": "6a39903e987d790bf615c399bf1bd959928151c8319c56bb635712c05d3d6c0d"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      222
+    ],
+    "sha256": "d27d64d4401013ffd8408bcd92ea1bbc2a95810bdeba17c90e15c42fca936400"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 19
+}

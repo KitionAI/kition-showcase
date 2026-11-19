@@ -1,0 +1,30 @@
+{
+  "id": "sheet/exam-score-statistics",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1610,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:L28",
+  "commands": 52,
+  "document": {
+    "name": "exam-score-statistics.xlsx",
+    "bytes": 10069,
+    "sha256": "8c55c9e9b0fe167c1deb7d02928a632efa41035e6c207c1f707c552fc1c7cbfe"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      354
+    ],
+    "sha256": "13ea3ad1c1ce27601dfac2660712a4367cdb1faa4364ce6a5ac2a7e36a2c433a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 19
+}

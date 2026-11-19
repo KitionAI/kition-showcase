@@ -1,0 +1,71 @@
+{
+  "id": "table/feedback-inbox-data-check",
+  "kit": {
+    "repo": "kition-table",
+    "commit": "4660b37040",
+    "dirty": false
+  },
+  "size": [
+    1700,
+    648
+  ],
+  "stats": "1 table",
+  "commands": 8,
+  "document": {
+    "name": "feedback-inbox-data-check.ktable",
+    "bytes": 225280,
+    "sha256": "e1b4a1da68bd6e3c9c855df0c4ec51c6f1af9c5d2a0853362079fadf16fbbd52"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      400
+    ],
+    "sha256": "ef43128c5d1845f50af74c81bb2dd952f894db85eca057b02959764758b7859e"
+  },
+  "preview": null,
+  "diagnostics": [
+    {
+      "code": "table.select-option-missing",
+      "severity": "warning",
+      "target": {
+        "path": "tables/2/records/6/fields/7",
+        "sheet": "Feedback inbox"
+      },
+      "message": "Record 6 of \"Feedback inbox\" selects Mixed in \"Sentiment\", which is not one of its options.",
+      "fix": {
+        "command": "table.fields.update",
+        "params": {
+          "tableId": 2,
+          "fieldId": 7,
+          "options": {
+            "choices": [
+              "Positive",
+              "Neutral",
+              "Negative",
+              "Mixed"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "code": "table.required-empty",
+      "severity": "warning",
+      "target": {
+        "path": "tables/2/records/8/fields/10",
+        "sheet": "Feedback inbox"
+      },
+      "message": "Record 8 of \"Feedback inbox\" leaves the required field \"Owner\" empty; set values.owner.",
+      "fix": {
+        "command": "table.records.update",
+        "params": {
+          "tableId": 2,
+          "recordId": 8
+        }
+      }
+    }
+  ],
+  "built_ms": 39
+}

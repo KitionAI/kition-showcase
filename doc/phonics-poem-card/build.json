@@ -1,0 +1,30 @@
+{
+  "id": "doc/phonics-poem-card",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "1b00044864",
+    "dirty": false
+  },
+  "size": [
+    692,
+    922
+  ],
+  "stats": "1 page; 82 words",
+  "commands": 127,
+  "document": {
+    "name": "phonics-poem-card.docx",
+    "bytes": 8078,
+    "sha256": "6388fb21a18b3a47101fb401ac3dcd470b1207051f9b9ed188d426100aa2df21"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      453,
+      640
+    ],
+    "sha256": "317a99b326057af62b9100ee614412a4f9529ffab5dd0f26d05fa0d75e4f182a"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 68
+}

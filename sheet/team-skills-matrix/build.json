@@ -1,0 +1,30 @@
+{
+  "id": "sheet/team-skills-matrix",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1698,
+    2091
+  ],
+  "stats": "1 sheet; used range A1:L17",
+  "commands": 42,
+  "document": {
+    "name": "team-skills-matrix.xlsx",
+    "bytes": 6171,
+    "sha256": "19aeeff3b5d3645ce7ec9e286804acb3c41a11c56a9e5c59f17608c2e20dd901"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      339
+    ],
+    "sha256": "cd37ddc2536c86e45af6731feda59b1f0622698cbc2c87b7f9d5549d167d6f96"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 43
+}

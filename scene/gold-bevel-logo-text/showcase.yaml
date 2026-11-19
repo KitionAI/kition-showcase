@@ -1,0 +1,49 @@
+format: 1
+id: scene/gold-bevel-logo-text
+title: Gold Bevel Logo Text
+summary: An extruded, bevelled gold wordmark stands on a dark reflective floor, caught by a soft key and a warm rim light.
+category: Product Renders
+tags: [text, bevel, metal, reflections, logo]
+features: [scene.curve.text-lattice, scene.material.basics, scene.render.lights-world, scene.object.add, scene.viewport.rendered]
+description: |
+  A title-card logo built from a text object: text.set gives it depth (`extrude`) and a rounded
+  edge (`bevelDepth`), and a polished gold material (metallic 1, roughness 0.22) picks up the
+  lights. The floor is a large plane with a near-black glossy material, so the letters reflect in
+  it; a big area key, a warm rim behind and a dim blue world shape the metal.
+document: { name: gold-bevel-logo-text.kscene, width: 1024, height: 576 }
+steps:
+  - { command: edit.delete, params: { objects: [Cube, Light] } }
+  - { command: material.delete, params: { material: Material } }
+  - { command: render.set, params: { width: 1920, height: 1080, view: agx } }
+  - { command: add.text, params: { name: Wordmark, body: AURUM, size: 1.1, location: [0, 0, 0], rotation: [90, 0, 0] }, as: word }
+  - { command: text.set, params: { object: Wordmark, align: center, extrude: 0.14, bevelDepth: 0.025, bevelResolution: 4, characterSpacing: 1.08 } }
+  - { command: material.new, params: { name: Polished Gold, baseColor: "#e9b44c", metallic: 1, roughness: 0.22 } }
+  - { command: add.plane, params: { name: Floor, size: 40, location: [0, 0, -0.01] } }
+  - { command: material.new, params: { name: Black Lacquer, baseColor: "#0d0e12", roughness: 0.06 } }
+  - { command: add.light, params: { name: Key, kind: area, power: 900, color: "#fff2df", location: [-2.5, -5, 3.2] } }
+  - { command: object.lookAt, params: { object: Key, target: [0, 0, 0.4] } }
+  - { command: light.set, params: { object: Key, radius: 1.5 } }
+  - { command: add.light, params: { name: Rim, kind: area, power: 1200, color: "#ff9a4d", location: [1.5, 5, 6] } }
+  - { command: object.lookAt, params: { object: Rim, target: [0, 0, 0.4] } }
+  - { command: light.set, params: { object: Rim, radius: 1 } }
+  - { command: add.light, params: { name: Top Fill, kind: area, power: 250, color: "#dfe8ff", location: [3, -3, 5] } }
+  - { command: object.lookAt, params: { object: Top Fill, target: [0, 0, 0.4] } }
+  - { command: light.set, params: { object: Top Fill, radius: 2.5 } }
+  - { command: world.set, params: { color: "#1b2440", strength: 0.25 } }
+  - { command: object.transform, params: { objects: [Camera], location: [0.5, -6.5, 1.0] } }
+  - { command: object.lookAt, params: { object: Camera, target: [0, 0, 0.15] } }
+  - { command: camera.set, params: { object: Camera, lens: 45 } }
+  - { command: select.none }
+  - { command: view.overlays, params: { on: false } }
+  - { command: view.camera }
+thumbnail:
+  steps:
+    - { command: view.rendered }
+    - { command: view.renderedStep, params: { wait: true, samples: 96, maxSide: 1024, denoise: true } }
+expected:
+  - actual: inspect
+    values:
+      objects: { count: 6, any: { name: Wordmark, type: text } }
+      materials: { count: 2, any: { name: Polished Gold, metallic: 1 } }
+diagnostics: []
+since: "2026-11-09"

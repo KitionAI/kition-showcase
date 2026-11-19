@@ -1,0 +1,30 @@
+{
+  "id": "sheet/xlookup-order-form",
+  "kit": {
+    "repo": "kition-sheet",
+    "commit": "79ed996ab2",
+    "dirty": false
+  },
+  "size": [
+    1816,
+    2038
+  ],
+  "stats": "1 sheet; used range A1:L21",
+  "commands": 60,
+  "document": {
+    "name": "xlookup-order-form.xlsx",
+    "bytes": 7291,
+    "sha256": "bc86cfeb4a8182b1e898ea27065349752abc43e166a6e3e1bf68b7aa8b6df21e"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      311
+    ],
+    "sha256": "cf2c198424996c3b05f5de8077626e2f8a4e0b835fc135fdb6578c101ae48a63"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 20
+}

@@ -1,0 +1,60 @@
+format: 1
+id: scene/espresso-cup-three-point
+title: Espresso Cup Three-Point Light
+summary: A glazed espresso cup and saucer on a seamless set, lit by a classic key, fill and rim rig built in one command.
+category: Materials & Lighting
+tags: [three-point-lighting, lathe, solidify, ceramics, studio-lighting]
+features: [scene.render.lights-world, scene.modifier.stack, scene.curve.text-lattice, scene.material.basics, scene.render.color-management, scene.viewport.rendered]
+description: |
+  A lighting lesson in one still life. light.studio builds the three-point rig on the cup: a key
+  spot from camera-left, a cool area fill and a warm rim spot from behind that separates the
+  rim of the cup from the backdrop, and switches the view transform to AgX. The cup and saucer
+  are lathed profiles (poly curve, convert to mesh, Screw modifier) given wall thickness with
+  Solidify; the handle is part of a torus and the coffee a dark, glossy disc.
+document: { name: espresso-cup-three-point.kscene, width: 1024, height: 576 }
+steps:
+  - { command: edit.delete, params: { objects: [Cube, Light] } }
+  - { command: material.delete, params: { material: Material } }
+  - { command: render.set, params: { width: 1920, height: 1080 } }
+  - { command: add.backdrop, params: { name: Set, width: 40, depth: 12, height: 8, radius: 3, segments: 24, location: [0, -3, 0] } }
+  - { command: material.new, params: { name: Slate Paper, baseColor: "#3e4a57", roughness: 0.9 } }
+  - { command: add.curveBezier, params: { name: Saucer, location: [0, 0, 0] } }
+  - { command: curve.setSplines, params: { object: Saucer, splines: [{ type: poly, points: [{ co: [0, 0, 0] }, { co: [0.55, 0, 0] }, { co: [0.62, 0, 0.02] }, { co: [0.9, 0, 0.06] }, { co: [1.05, 0, 0.1] }, { co: [1.1, 0, 0.12] }] }] } }
+  - { command: object.convertToMesh, params: { objects: [Saucer] } }
+  - { command: modifier.add, params: { object: Saucer, type: screw, angle: 360, steps: 96, axis: z } }
+  - { command: modifier.add, params: { object: Saucer, type: solidify, thickness: 0.04, offset: 1 } }
+  - { command: add.curveBezier, params: { name: Cup, location: [0, 0, 0.12] } }
+  - { command: curve.setSplines, params: { object: Cup, splines: [{ type: poly, points: [{ co: [0, 0, 0.02] }, { co: [0.3, 0, 0.0] }, { co: [0.36, 0, 0.03] }, { co: [0.4, 0, 0.12] }, { co: [0.44, 0, 0.35] }, { co: [0.47, 0, 0.58] }, { co: [0.48, 0, 0.66] }] }] } }
+  - { command: object.convertToMesh, params: { objects: [Cup] } }
+  - { command: modifier.add, params: { object: Cup, type: screw, angle: 360, steps: 96, axis: z } }
+  - { command: modifier.add, params: { object: Cup, type: solidify, thickness: 0.04, offset: -1 } }
+  - { command: add.torus, params: { name: Handle, majorRadius: 0.17, minorRadius: 0.04, majorSegments: 48, minorSegments: 16, location: [0.5, 0, 0.5], rotation: [90, 0, 0], scale: [1, 1.25, 1] } }
+  - { command: object.shadeSmooth, params: { objects: [Saucer, Cup, Handle] } }
+  - { command: material.new, params: { name: Glazed Porcelain, baseColor: "#f3efe8", roughness: 0.12 } }
+  - { command: material.assign, params: { material: Glazed Porcelain, objects: [Saucer, Cup, Handle] } }
+  - { command: add.cylinder, params: { name: Espresso, radius: 0.44, depth: 0.02, vertices: 64, location: [0, 0, 0.66] } }
+  - { command: material.new, params: { name: Crema, baseColor: "#3b2012", roughness: 0.2 } }
+  - { command: light.studio, params: { target: Cup, preset: product }, as: rig }
+  - { command: object.transform, params: { objects: [Fill Light], location: [3.4, -2.2, 3.2] } }
+  - { command: object.lookAt, params: { object: Fill Light, target: [0, 0, 0.4] } }
+  - { command: world.set, params: { color: "#30363f", strength: 0.4 } }
+  - { command: object.transform, params: { objects: [Camera], location: [0.9, -4.8, 2.2] } }
+  - { command: object.lookAt, params: { object: Camera, target: [0.08, 0, 0.36] } }
+  - { command: camera.set, params: { object: Camera, lens: 55 } }
+  - { command: select.none }
+  - { command: view.overlays, params: { on: false } }
+  - { command: view.camera }
+thumbnail:
+  steps:
+    - { command: view.rendered }
+    - { command: view.renderedStep, params: { wait: true, samples: 128, maxSide: 1024, denoise: true } }
+expected:
+  - actual: inspect
+    values:
+      objects: { count: 9, any: { name: Cup, modifiers: [{ type: screw }, { type: solidify }] } }
+      render.view: agx
+  - actual: results
+    values:
+      rig.lights: { count: 3, any: { name: Rim Light } }
+diagnostics: []
+since: "2026-11-09"

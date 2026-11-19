@@ -1,0 +1,30 @@
+{
+  "id": "design/design-tokens-light-dark",
+  "kit": {
+    "repo": "kition-design",
+    "commit": "62939c71ba",
+    "dirty": false
+  },
+  "size": [
+    3000,
+    2000
+  ],
+  "stats": "1 page; 60 layers; 1200 × 690 design",
+  "commands": 110,
+  "document": {
+    "name": "design-tokens-light-dark.kdesign",
+    "bytes": 72946,
+    "sha256": "eab610f38da70c5f076d66edc8fc8af61897d8d3da46ffb0e87e67ccd1173eba"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      368
+    ],
+    "sha256": "d81bb01ed3fb891202285476115daf07979131bc7fb93f84c10423cc46ef0213"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 34
+}

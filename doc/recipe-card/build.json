@@ -1,0 +1,30 @@
+{
+  "id": "doc/recipe-card",
+  "kit": {
+    "repo": "kition-doc",
+    "commit": "e6d2eae5d0",
+    "dirty": false
+  },
+  "size": [
+    692,
+    440
+  ],
+  "stats": "1 page; 154 words",
+  "commands": 88,
+  "document": {
+    "name": "recipe-card.docx",
+    "bytes": 8265,
+    "sha256": "232606a2d3669e50c177e325469b6a021dd3be6ec66b55ec5810beb3d9935603"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      504,
+      360
+    ],
+    "sha256": "0823aed8c608f6a137cf4fb56e80aa8c159635360054342c1ec90a87113136af"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 34
+}

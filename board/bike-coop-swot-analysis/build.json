@@ -1,0 +1,30 @@
+{
+  "id": "board/bike-coop-swot-analysis",
+  "kit": {
+    "repo": "kition-board",
+    "commit": "e042761805",
+    "dirty": false
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "stats": "1 page; 26 elements",
+  "commands": 6,
+  "document": {
+    "name": "bike-coop-swot-analysis.kboard",
+    "bytes": 9689,
+    "sha256": "aa6db3530102b4a428ba51359022335da407fb710b03450bbc9a69fa8b84ceca"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      433
+    ],
+    "sha256": "9f562fa069136e834747d28be48ed43c5ef473232716ebbc6a3429597bcae022"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 6
+}

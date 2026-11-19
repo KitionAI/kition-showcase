@@ -1,0 +1,47 @@
+format: 1
+id: film/ken-burns-sunset-push
+title: Ken Burns Sunset Push-In
+summary: A slow eased push-in that drifts the sun to the centre of frame, the Ken Burns move on Motion scale and position keyframes.
+category: Keyframes & Motion
+tags: [keyframes, motion, easing, ken-burns, demo-footage]
+features: [film.effects.keyframes, film.graphics.text-basics]
+featured: true
+description: |
+  Motion scale goes from 100 % to 150 % and position from the frame centre to (950, 640) over
+  six seconds, so the zoom also re-frames the shot around the sun. The first keyframes of both
+  parameters ease out and the last ones ease in (effects.setInterpolation), so the move starts
+  and settles softly instead of at a constant speed. A chapter card fades in over it.
+document: { name: ken-burns-sunset-push.kfilm, width: 1920, height: 1080 }
+prelude: demo-footage
+steps:
+  - { command: file.newSequence, params: { name: Chapter Opener, width: 1920, height: 1080, fps: 24, video: 2, audio: 1 } }
+  - { command: timeline.place, params: { item: 5, track: V1, seconds: 0, audio: false }, as: sea }
+  - { command: effects.setParam, params: { clip: $sea.clips.0, effect: motion, param: scale, value: 100, seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $sea.clips.0, effect: motion, param: scale, value: 150, seconds: 6 } }
+  - { command: effects.setParam, params: { clip: $sea.clips.0, effect: motion, param: position, value: [960, 540], seconds: 0 } }
+  - { command: effects.setParam, params: { clip: $sea.clips.0, effect: motion, param: position, value: [950, 640], seconds: 6 } }
+  # mediaTime is the clip's own time in ticks (254 016 000 000 per second): 0 and 6 s.
+  - { command: effects.setInterpolation, params: { clip: $sea.clips.0, effect: motion, param: scale, mediaTime: 0, interpolation: easeOut } }
+  - { command: effects.setInterpolation, params: { clip: $sea.clips.0, effect: motion, param: scale, mediaTime: 1524096000000, interpolation: easeIn } }
+  - { command: effects.setInterpolation, params: { clip: $sea.clips.0, effect: motion, param: position, mediaTime: 0, interpolation: easeOut } }
+  - { command: effects.setInterpolation, params: { clip: $sea.clips.0, effect: motion, param: position, mediaTime: 1524096000000, interpolation: easeIn } }
+  - { command: graphics.newText, params: { text: CHAPTER THREE, position: [960, 860], size: 40, seconds: 10, track: 1, frame: 24 }, as: card }
+  - { command: graphics.set, params: { clip: $card.clip, props: { align: center, tracking: 500, fill_color: "#ffe7c2", shadow: true } } }
+  - { command: graphics.newText, params: { clip: $card.clip, text: The Long Way West, position: [960, 950], size: 84 } }
+  - { command: graphics.set, params: { clip: $card.clip, props: { font_style: Bold, align: center, fill_color: "#ffffff", shadow: true } } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 0, seconds: 1 } }
+  - { command: effects.setParam, params: { clip: $card.clip, effect: opacity, param: opacity, value: 100, seconds: 2 } }
+thumbnail: { at: 4 }
+preview: { from: 0, to: 6, fps: 8, max: 400 }
+expected:
+  - actual: inspect
+    values:
+      sequence.video.0.items.0.effects.0.effect: motion
+      # 0 and 6 s (ticks), easing out of the first key and into the last
+      sequence.video.0.items.0.effects.0.params.scale.keyframes: [{ time: 0, value: 100, interpolation: easeOut }, { time: 1524096000000, value: 150, interpolation: easeIn }]
+      sequence.video.0.items.0.effects.0.params.position.keyframes: [{ time: 0, value: [960, 540], interpolation: easeOut }, { time: 1524096000000, value: [950, 640], interpolation: easeIn }]
+      sequence.video.1.items.0.startFrame: 24
+      # the card starts at 1 s, so its keys at 1 s and 2 s are 0 s and 1 s of its own time
+      sequence.video.1.items.0.effects.1: { effect: opacity, params: { opacity: { keyframes: [{ time: 254016000000, mediaTime: 0, value: 0 }, { time: 508032000000, mediaTime: 254016000000, value: 100 }] } } }
+diagnostics: []
+since: "2026-11-09"

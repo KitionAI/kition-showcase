@@ -1,0 +1,30 @@
+{
+  "id": "slide/before-after-solution",
+  "kit": {
+    "repo": "kition-slide",
+    "commit": "8309775c19",
+    "dirty": false
+  },
+  "size": [
+    1040,
+    620
+  ],
+  "stats": "1 slide; 960 × 540 pt",
+  "commands": 58,
+  "document": {
+    "name": "before-after-solution.pptx",
+    "bytes": 23301,
+    "sha256": "6a109926d1e09698ace28600d718735b81fce445bd7e824376db199e0fce19aa"
+  },
+  "thumbnail": {
+    "file": "thumb.png",
+    "size": [
+      640,
+      360
+    ],
+    "sha256": "837ccc260b689c664e6128315296391c026ed73f733ed2aeb858644eaa64caa2"
+  },
+  "preview": null,
+  "diagnostics": [],
+  "built_ms": 70
+}
