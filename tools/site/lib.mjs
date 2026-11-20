@@ -166,6 +166,16 @@ export function pickHero(own) {
   return [...from].sort((a, b) => b.commands - a.commands || a.slug.localeCompare(b.slug))[0];
 }
 
+// A kit's samples that have a replay, best first: featured, then the most beats, then the most
+// commands. The kit page's stage plays the first `max` in turn; the first is the kit's hero.
+// Items: { replayUrl, featured, replayBeats, commands, slug }.
+export const KIT_REEL = 5;
+export function rankReplays(own, max = Infinity) {
+  return own.filter((s) => s.replayUrl)
+    .sort((a, b) => b.featured - a.featured || b.replayBeats - a.replayBeats || b.commands - a.commands || a.slug.localeCompare(b.slug))
+    .slice(0, max);
+}
+
 // The newest of some ISO dates (YYYY-MM-DD), or undefined.
 export const newest = (dates) => dates.filter(Boolean).sort().at(-1);
 

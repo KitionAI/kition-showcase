@@ -3,9 +3,9 @@ import test from "node:test";
 
 import {
   DESCRIPTION_MAX, clip, esc, hashName, homeDescription, homeLd, homeTitle, jsonLdScript, kitDescription, kitLd, kitTitle,
-  newest, pickHero, sampleDescription, sampleLd, sampleTitle, sitemap, sitemapEntry, urls,
+  KIT_REEL, newest, pickHero, rankReplays, sampleDescription, sampleLd, sampleTitle, sitemap, sitemapEntry, urls,
 } from "./site/lib.mjs";
-import { header } from "./site/pages.mjs";
+import { header, kitMain, shell } from "./site/pages.mjs";
 import { formatStars, GITHUB_STARS_FALLBACK, githubStarsAtBuild } from "./site/github.mjs";
 
 const sample = { kit: "doc", slug: "academic-cv" };
@@ -197,4 +197,58 @@ test("pickHero: the featured sample with the most commands, else the busiest", (
   ];
   assert.equal(pickHero(own).slug, "b");
   assert.equal(pickHero(own.map((s) => ({ ...s, featured: false }))).slug, "c");
+});
+
+test("rankReplays: only samples with a replay, featured first, then the most beats, capped", () => {
+  const own = [
+    { slug: "a", replayUrl: "/a/", featured: false, replayBeats: 30, commands: 10 },
+    { slug: "b", replayUrl: null, featured: true, replayBeats: 0, commands: 99 },
+    { slug: "c", replayUrl: "/c/", featured: true, replayBeats: 5, commands: 10 },
+    { slug: "d", replayUrl: "/d/", featured: false, replayBeats: 30, commands: 20 },
+    { slug: "e", replayUrl: "/e/", featured: true, replayBeats: 9, commands: 1 },
+  ];
+  assert.deepEqual(rankReplays(own).map((s) => s.slug), ["e", "c", "d", "a"]);
+  assert.deepEqual(rankReplays(own, 2).map((s) => s.slug), ["e", "c"]);
+  assert.deepEqual(rankReplays(own.filter((s) => !s.replayUrl)), []);
+  assert.ok(KIT_REEL >= 3 && KIT_REEL <= 6);
+});
+
+// A kit page with no samples listed: enough to check its hero.
+function kitPage(reel) {
+  const u = urls({ base: "/showcase" });
+  const entry = (slug, replay) => ({ title: `Sample ${slug}`, path: `/showcase/scene/${slug}`, thumbUrl: `/showcase/scene/${slug}/thumb.png`, thumbSize: [640, 360], alt: `Sample ${slug}`, document: `${slug}.kscene`, commands: 12, ms: 5, replay });
+  const kit = { id: "scene", index: 7, title: "Scene", tagline: "3D scenes.", color: "#e3a46b", path: u.kit("scene"), count: 0, reel: reel.map(([slug, replay]) => entry(slug, replay)) };
+  kit.hero = { ...kit.reel[0], calls: [["scene.new", ""]] };
+  const ctx = { u, kits: [kit], kitById: { scene: kit }, samples: [], totals: { samples: 0 }, assets: { css: "/c.css", js: "/s.js", stage: "/stage.js", icon: "/i.svg", touchIcon: "/t.png" }, logo: "<svg></svg>" };
+  const main = kitMain(ctx, kit);
+  const data = JSON.parse(main.match(/<script type="application\/json" id="hero-data">([^<]*)<\/script>/)[1]);
+  const html = shell(ctx, { title: "T", description: "D", canonical: "https://kition.ai/showcase/scene" }, { page: "kit", main, stage: kit.reel.some((h) => h.replay) });
+  return { main, data, html };
+}
+
+test("kit page: the stage takes turns with the kit's replays", () => {
+  const { main, data, html } = kitPage([["a", "/showcase/scene/a/replay/"], ["b", "/showcase/scene/b/replay/"], ["c", "/showcase/scene/c/replay/"]]);
+  // The same stage markup as the home hero, beside the title, starting on the best sample.
+  const head = main.match(/<section class="khead wrap"[^]*?<\/section>/)[0];
+  assert.match(head, /<div class="khead-in"><div class="khead-copy">[^]*<h1 class="d">[^]*<\/div>\n<div class="hstage" id="run" style="--c:#e3a46b">/);
+  assert.match(head, /<a class="hs-k" id="shot-link" href="\/showcase\/scene\/a"><span class="hs-n label" id="hs-n">01 \/ 03<\/span><b id="shot-title">Sample a<\/b>/);
+  assert.match(head, /<img id="shot-img" src="\/showcase\/scene\/a\/thumb\.png" width="640" height="360"/);
+  for (const id of ["hs-top", "run-panel", "shot", "hs-hud", "hs-cap", "run-saved", "run-stat"]) assert.match(head, new RegExp(`id="${id}"`));
+  // Only this kit's data: its colour and its reel, no other kit, no command lists.
+  assert.deepEqual(Object.keys(data).sort(), ["color", "kit", "prefix", "reel"]);
+  assert.equal(data.kit, "scene");
+  assert.deepEqual(data.reel.map((h) => h.path), ["/showcase/scene/a", "/showcase/scene/b", "/showcase/scene/c"]);
+  assert.ok(data.reel.every((h) => h.replay && !("calls" in h)));
+  // The page loads stage.js only on demand: the body names it, nothing requests it.
+  assert.match(html, /<body data-page="kit" data-home="\/showcase" data-stage="\/stage\.js" data-colors="#e3a46b">/);
+  assert.doesNotMatch(html, /<script[^>]+stage\.js|replay\/(trace\.json|frames)/);
+});
+
+test("kit page: without a replay, the stage slot shows the sample still", () => {
+  const { main, data, html } = kitPage([["a", null]]);
+  assert.match(main, /<div class="hstage" id="run"[^]*<img id="shot-img" src="\/showcase\/scene\/a\/thumb\.png"/);
+  assert.doesNotMatch(main, /id="hs-n"/);
+  assert.equal(data.reel.length, 1);
+  assert.equal(data.reel[0].replay, null);
+  assert.doesNotMatch(html, /data-stage=/);
 });

@@ -218,7 +218,6 @@ function heroHtml(ctx) {
     `<span class="ch${w === 2 && ch !== "." ? " em" : ""}" style="--i:${i++}">${esc(ch)}</span>`).join("")}</span>`).join(" ");
   const calls = h.calls.map(([cmd, hint]) => `<li class="call"><b></b><code>${esc(cmd)}${hint ? `<i>(${esc(hint)})</i>` : ""}</code></li>`).join("");
   const rest = h.commands - h.calls.length;
-  const [w, hh] = h.thumbSize;
   return `<section class="hero wrap" id="hero" aria-labelledby="hero-title"><div class="hero-in"><div class="hero-copy">`
     + `<p class="hud label"><span class="ok">Showcase</span><span>${fmt(totals.samples)} samples</span><span>${totals.kits} kits</span><span>${fmt(totals.commands)} commands</span></p>`
     + `<h1 class="headline" id="hero-title"><span class="sr">Kition Showcase: ${fmt(totals.samples)} sample documents built by the kits' own commands.</span>`
@@ -229,14 +228,26 @@ function heroHtml(ctx) {
     + `<div class="strip" id="strip" style="${kitStyle(first)}" role="group" aria-label="The featured sample's commands"><span class="strip-h label"><span id="run-label">agent &middot; <b>${esc(first.id)}</b> kit</span><span class="strip-n" id="strip-n">${rest > 0 ? `+ ${plural(rest, "more command")} · ${fmt(h.ms)} ms` : `${fmt(h.ms)} ms`}</span></span>`
     + `<ol class="calls" id="calls">${calls}</ol></div>`
     + `</div>`
-    + `<div class="hstage" id="run" style="${kitStyle(first)}">`
-    + `<div class="hs-top" id="hs-top"><a class="hs-k" id="shot-link" href="${esc(h.path)}"><b id="shot-title">${esc(h.title)}</b><span class="hs-open">Open &rarr;</span></a></div>`
+    + stageHtml(first, h)
+    + `</div></section>`;
+}
+
+// The hero's stage (home and kit pages): sample `h` of kit `kit`, its finished picture, which
+// site.js swaps for its replay (stage.js) when the effect is on. `of`: on a kit page, how many
+// samples the stage takes turns with (shown as "01 / 05").
+export function stageHtml(kit, h, of = 0) {
+  const [w, hh] = h.thumbSize;
+  return `<div class="hstage" id="run" style="${kitStyle(kit)}">`
+    + `<div class="hs-top" id="hs-top"><a class="hs-k" id="shot-link" href="${esc(h.path)}">${of > 1 ? `<span class="hs-n label" id="hs-n">01 / ${pad(of)}</span>` : ""}<b id="shot-title">${esc(h.title)}</b><span class="hs-open">Open &rarr;</span></a></div>`
     + `<div class="hs-panel" id="run-panel"><a class="hs-box" id="shot" href="${esc(h.path)}" aria-label="Open ${esc(h.title)}"><img id="shot-img" src="${esc(h.thumbUrl)}" width="${w}" height="${hh}" style="--r:${(w / hh).toFixed(4)}" fetchpriority="high" decoding="async" alt="${esc(h.alt)}"></a>`
     + `<div class="hs-hud" id="hs-hud"></div></div>`
     + `<div class="hs-cap" id="hs-cap"></div>`
     + `<p class="hs-foot label"><span class="saved" id="run-saved">saved &rarr; ${esc(h.document)} ✓</span><span id="run-stat">${plural(h.commands, "command")} &middot; ${fmt(h.ms)} ms</span></p>`
-    + `</div></div></section>`;
+    + `</div>`;
 }
+
+// The data site.js reads for the hero, in a JSON script element.
+const heroDataScript = (data) => `<script type="application/json" id="hero-data">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
 
 function statsHtml(totals) {
   const rows = [["Samples", totals.samples], ["Kits", totals.kits], ["Commands run", totals.commands], ["Checks per build", totals.checks], ["Animated", totals.animated]];
@@ -258,7 +269,7 @@ ${statsHtml(totals)}
 <div id="empty" hidden></div>
 </section>
 </div>
-<script type="application/json" id="hero-data">${JSON.stringify(ctx.heroData).replace(/</g, "\\u003c")}</script>`;
+${heroDataScript(ctx.heroData)}`;
 }
 
 // ---------- Kit ----------
@@ -267,6 +278,7 @@ export const catId = (category) => `c-${String(category).toLowerCase().replace(/
 
 export function kitMain(ctx, kit) {
   const own = ctx.samples.filter((s) => s.kit === kit.id);
+  const reel = kit.reel?.length ? kit.reel : [kit.hero];
   const cats = [...new Set(own.map((s) => s.category))].sort();
   const animated = own.filter((s) => s.previewUrl).length;
   let n = 0;
@@ -276,11 +288,13 @@ export function kitMain(ctx, kit) {
       + `<div class="grid">${list.map((s) => card(ctx, s, n++ < EAGER_CARDS ? "eager" : "lazy")).join("")}</div></section>`;
   }).join("\n");
   return `<div id="list">
-<section class="khead wrap" id="khead" style="${kitStyle(kit)}">
+<section class="khead wrap" id="khead" style="${kitStyle(kit)}"><div class="khead-in"><div class="khead-copy">
 ${crumbs([["Showcase", ctx.u.home], [kit.title, null]])}
 <p class="label">Kit ${pad(kit.index + 1)} / ${pad(ctx.kits.length)} &middot; ${plural(own.length, "sample")} &middot; ${plural(cats.length, "category", "categories")}${animated ? ` &middot; ${animated} animated` : ""}</p>
 <h1 class="d"><i aria-hidden="true"></i>${esc(kit.title)}<span class="sr"> samples</span></h1><p>${esc(kit.tagline)}</p>
-</section>
+</div>
+${stageHtml(kit, reel[0], reel.length)}
+</div></section>
 ${kitRow(ctx, kit.id)}
 <div class="bar" id="bar"><div class="wrap bar-in" id="bar-in"><span class="bar-kit" style="${kitStyle(kit)}"><i></i><b>${esc(kit.title)}</b></span>`
     + `<nav class="chips" aria-label="Categories" style="${kitStyle(kit)}"><a class="chip" href="#samples" data-cat="" aria-current="true">All <small>${own.length}</small></a>`
@@ -290,7 +304,8 @@ ${kitRow(ctx, kit.id)}
 ${sections}
 <div id="empty" hidden></div>
 </div>
-</div>`;
+</div>
+${heroDataScript({ prefix: ctx.u.prefix, kit: kit.id, color: kit.color, reel })}`;
 }
 
 // ---------- Sample ----------

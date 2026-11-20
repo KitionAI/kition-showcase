@@ -25,8 +25,8 @@ const SITE_KIT_ORDER = ["motion", "film", "photo", "slide", "vector", "layout", 
 const byKitOrder = (a, b) => SITE_KIT_ORDER.indexOf(a) - SITE_KIT_ORDER.indexOf(b);
 import { loadSamples } from "./samples.mjs";
 import {
-  HERO_CALLS, MIME, extOf, hashName, homeDescription, homeLd, homeTitle, kitDescription, kitLd, kitTitle, newest,
-  pickHero, pngSize, sampleDescription, sampleLd, sampleTitle, sitemap, urls,
+  HERO_CALLS, KIT_REEL, MIME, extOf, hashName, homeDescription, homeLd, homeTitle, kitDescription, kitLd, kitTitle, newest,
+  pickHero, pngSize, rankReplays, sampleDescription, sampleLd, sampleTitle, sitemap, urls,
 } from "./site/lib.mjs";
 import { TRACE_FORMAT } from "./trace-core.mjs";
 import { homeMain, kitMain, notFoundMain, sampleMain, shell } from "./site/pages.mjs";
@@ -159,16 +159,22 @@ function view(sample, kit) {
 // the most beats), else the featured sample with the most commands (the richest build), or the
 // kit's busiest sample when none is featured.
 function heroOf(own) {
-  const replays = own.filter((s) => s.replayUrl);
-  const best = replays.length
-    ? [...replays].sort((a, b) => b.featured - a.featured || b.replayBeats - a.replayBeats || b.commands - a.commands || a.slug.localeCompare(b.slug))[0]
-    : pickHero(own.map((s) => ({ s, featured: s.featured, steps: s.raw.steps.length, commands: s.commands, slug: s.slug }))).s;
+  const best = rankReplays(own, 1)[0]
+    ?? pickHero(own.map((s) => ({ s, featured: s.featured, steps: s.raw.steps.length, commands: s.commands, slug: s.slug }))).s;
+  return { ...stageEntry(best), calls: best.raw.steps.slice(0, HERO_CALLS).map((step) => [step.command, hint(step)]) };
+}
+// What a hero stage needs about one sample (the home page adds its first commands).
+function stageEntry(s) {
   return {
-    title: best.title, path: best.path, thumbUrl: best.thumbUrl, thumbSize: best.thumbSize, alt: best.alt,
-    document: best.documentName, commands: best.commands, ms: best.built.ms,
-    calls: best.raw.steps.slice(0, HERO_CALLS).map((step) => [step.command, hint(step)]),
-    replay: best.replayUrl,
+    title: s.title, path: s.path, thumbUrl: s.thumbUrl, thumbSize: s.thumbSize, alt: s.alt,
+    document: s.documentName, commands: s.commands, ms: s.built.ms, replay: s.replayUrl,
   };
+}
+// The kit page's stage: up to KIT_REEL samples with a replay, best first; without any, the kit's
+// hero alone (shown still).
+function reelOf(own, hero) {
+  const list = rankReplays(own, KIT_REEL);
+  return list.length ? list.map(stageEntry) : [(({ calls, ...rest }) => rest)(hero)];
 }
 
 // Up to RELATED samples for a sample page: the same category first, then the kit's samples
@@ -197,6 +203,7 @@ async function main() {
     const own = samples.filter((s) => s.kit === kit.id);
     const exts = [...new Set(own.map((s) => s.ext))];
     Object.assign(kit, { count: own.length, ext: exts.join("/"), hero: heroOf(own), since: newest(own.map((s) => s.since)) });
+    kit.reel = reelOf(own, kit.hero);
   }
   const totals = {
     samples: samples.length,
@@ -266,7 +273,7 @@ async function main() {
     page(`${kit.id}/index.html`, shell(ctx, {
       ...seo, canonical: url, image: kit.og,
       jsonLd: kitLd({ url, ...seo, homeUrl, crumbs: [["Showcase", homeUrl], [kit.title, url]], samples: own.map((s) => ({ title: s.title, url: u.abs(s.path) })) }),
-    }, { page: "kit", main: kitMain(ctx, kit) }));
+    }, { page: "kit", main: kitMain(ctx, kit), stage: kit.reel.some((h) => h.replay) }));
   }
 
   // Samples.

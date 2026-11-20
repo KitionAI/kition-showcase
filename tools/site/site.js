@@ -1,6 +1,6 @@
 // The showcase's pages are complete without this script; it adds the enhancements:
 // search and tag/category filters over the pre-rendered cards (kept in `?q=`, `?tag=`, `?cat=`),
-// the home page's hero animation and count-up, the cards' reveal and animated previews, and the
+// the home and kit pages' hero stage (and the home page's headline and count-up), the cards' reveal and animated previews, and the
 // sample page's preview button and copy button, and the header's account label, download label,
 // GitHub star count and mobile menu (as kition.ai's header has them).
 (() => {
@@ -169,11 +169,15 @@
     return shown.join("");
   }
 
-  // ---------- Hero (home) ----------
+  // ---------- Hero (home and kit pages) ----------
 
-  const heroEl = $("#hero");
+  // The home page's hero takes turns with the kits (the headline, the commands strip and the stage
+  // follow along); a kit page's stage takes turns with the kit's best replays. Either way the
+  // stage shows one "show" at a time: { color, hero (one sample) } (on the home page, a kit).
+  const heroEl = $("#hero") || $("#run");
   const DATA = heroEl && $("#hero-data") ? JSON.parse($("#hero-data").textContent) : null;
-  const KITS = DATA ? DATA.kits : [];
+  const IS_HOME = PAGE === "home";
+  const KITS = !DATA ? [] : DATA.kits || (DATA.reel || []).map((h) => ({ id: DATA.kit, color: DATA.color, hero: h }));
   KITS.forEach((k, index) => (k.index = index));
   const N = KITS.length;
   const hero = { index: 0, timer: 0, onScreen: true, widths: null, scrambleTimer: 0, stage: null, mode: "" };
@@ -185,16 +189,21 @@
   function heroShow(i) {
     const kit = heroKit(i);
     const h = kit.hero;
-    $("#slot").style.setProperty("--c", kit.color);
-    $("#tick").style.setProperty("--c", kit.color);
-    $("#tick-n").textContent = pad(kit.index + 1) + " / " + pad(N);
-    $("#tick-kit").textContent = kit.id + " kit";
-    $("#tick-count").innerHTML = esc(plural(kit.count, "sample")) + '<span class="tcur"></span>';
-    for (const el of [$("#run"), $("#strip")]) el.style.setProperty("--c", kit.color);
-    $("#run-label").innerHTML = "agent &middot; <b>" + esc(kit.id) + "</b> kit";
-    $("#calls").innerHTML = h.calls.map(([cmd, hint]) => '<li class="call"><b></b><code>' + esc(cmd) + (hint ? "<i>(" + esc(hint) + ")</i>" : "") + "</code></li>").join("");
-    const rest = h.commands - h.calls.length;
-    $("#strip-n").textContent = rest > 0 ? "+ " + plural(rest, "more command") + " · " + fmt(h.ms) + " ms" : fmt(h.ms) + " ms";
+    $("#run").style.setProperty("--c", kit.color);
+    if (IS_HOME) {
+      $("#slot").style.setProperty("--c", kit.color);
+      $("#tick").style.setProperty("--c", kit.color);
+      $("#tick-n").textContent = pad(kit.index + 1) + " / " + pad(N);
+      $("#tick-kit").textContent = kit.id + " kit";
+      $("#tick-count").innerHTML = esc(plural(kit.count, "sample")) + '<span class="tcur"></span>';
+      $("#strip").style.setProperty("--c", kit.color);
+      $("#run-label").innerHTML = "agent &middot; <b>" + esc(kit.id) + "</b> kit";
+      $("#calls").innerHTML = h.calls.map(([cmd, hint]) => '<li class="call"><b></b><code>' + esc(cmd) + (hint ? "<i>(" + esc(hint) + ")</i>" : "") + "</code></li>").join("");
+      const rest = h.commands - h.calls.length;
+      $("#strip-n").textContent = rest > 0 ? "+ " + plural(rest, "more command") + " · " + fmt(h.ms) + " ms" : fmt(h.ms) + " ms";
+    }
+    const n = $("#hs-n");
+    if (n) n.textContent = pad(kit.index + 1) + " / " + pad(N);
     $("#run-saved").textContent = "saved → " + h.document + " ✓";
     $("#run-stat").textContent = plural(h.commands, "command") + " · " + fmt(h.ms) + " ms";
     for (const a of [$("#shot"), $("#shot-link")]) a.href = h.path;
@@ -237,6 +246,7 @@
     return -1;
   }
   function heroBeat(j, beat, trace) {
+    if (!IS_HOME) return;
     $("#calls").innerHTML = beatChips(beat);
     $("#strip-n").textContent = "beat " + pad(j + 1) + " / " + pad(trace.beats.length) + " · " + fmt(beat.at) + " / " + plural(trace.commands, "command");
   }
@@ -293,6 +303,7 @@
     const reel = $("#reel");
     const slot = $("#slot");
     hero.index = i;
+    if (!reel) return;
     if (REDUCED || reel.children.length < 2) { reel.firstElementChild.textContent = heroKit(i).word; return; }
     const pos = i === 0 ? N : i;
     reel.style.transition = "";
@@ -328,19 +339,19 @@
     if (!DATA || !N) return;
     // The page carries the first kit's word; the reel gets the rest, and the first again to end on.
     const reel = $("#reel");
-    if (!REDUCED) reel.insertAdjacentHTML("beforeend", [...KITS.slice(1), KITS[0]].map((k) => "<span>" + esc(k.word) + "</span>").join(""));
+    if (!REDUCED && reel) reel.insertAdjacentHTML("beforeend", [...KITS.slice(1), KITS[0]].map((k) => "<span>" + esc(k.word) + "</span>").join(""));
     syncKitRow();
     const canStage = replayKits().length > 0 && document.body.dataset.stage;
     if (canStage) $("#hs-top").appendChild(fxControl("run-panel"));
-    if (!REDUCED) {
+    if (!REDUCED && reel) {
       measureReel();
       if (document.fonts) {
         document.fonts.ready.then(measureReel);
         if (document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", measureReel);
       }
       window.addEventListener("resize", measureReel);
-      preload(1);
     }
+    if (!REDUCED && N > 1) preload(1);
     const want = () => (canStage && fxNow() !== "off" && !ROOT.classList.contains("filtered") ? "stage" : "still");
     if (HAS_IO) {
       new IntersectionObserver((entries) => {
@@ -360,7 +371,7 @@
   // The kit row lights the kit the hero is showing, and its caption follows along.
   function syncKitRow() {
     const blocks = $("#blocks");
-    if (!blocks || !DATA) return;
+    if (!blocks || !DATA || !IS_HOME) return;
     const showing = !ROOT.classList.contains("filtered") ? heroKit(hero.index) : null;
     for (const a of $$(".kcard", blocks)) a.classList.toggle("on", Boolean(showing) && a.dataset.kit === showing.id);
     const cap = $("#sync");
@@ -462,11 +473,11 @@
     const empty = $("#empty");
     empty.hidden = count > 0;
     empty.innerHTML = count ? "" : emptyHtml();
-    if (PAGE === "home") {
-      ROOT.classList.toggle("filtered", filteredNow());
-      syncKitRow();
-      if (hero.recheck) hero.recheck();
-    }
+    // A filtered list puts the results first: the hero steps aside (the home page's whole hero,
+    // a kit page's stage) and stops playing.
+    ROOT.classList.toggle("filtered", filteredNow());
+    syncKitRow();
+    if (hero.recheck) hero.recheck();
     if (cardIO) revealFallback();
     if (q.value !== state.q) q.value = state.q;
     // Shareable, but the same page: the canonical URL stays the page's own.
