@@ -99,15 +99,17 @@ function hint(step) {
   return text.length > 26 ? `${text.slice(0, 25)}…` : text;
 }
 
-// The sample's trace in .trace/ (tools/trace.mjs), when it was made from the current showcase.yaml.
+// The sample's trace in .trace/ (tools/trace.mjs), when it was made from the current showcase.yaml
+// and has enough to watch: a build that shows in fewer than MIN_REPLAY_BEATS beats offers no replay.
 const TRACES = path.join(ROOT, ".trace");
+const MIN_REPLAY_BEATS = 3;
 function replayOf(sample) {
   const file = path.join(TRACES, sample.kit, sample.slug, "trace.json");
   if (!fs.existsSync(file)) return null;
   try {
     const trace = JSON.parse(fs.readFileSync(file, "utf8"));
     const source = crypto.createHash("sha256").update(sample.source).digest("hex");
-    return trace.format === TRACE_FORMAT && trace.source === source ? trace : null;
+    return trace.format === TRACE_FORMAT && trace.source === source && trace.beats.length >= MIN_REPLAY_BEATS ? trace : null;
   } catch {
     return null;
   }
@@ -116,6 +118,7 @@ function replayOf(sample) {
 // Everything a page needs about one sample.
 function view(sample, kit) {
   const ext = extOf(sample.build.document.name);
+  const replay = replayOf(sample);
   return {
     id: sample.id,
     kit: sample.kit,
@@ -139,7 +142,8 @@ function view(sample, kit) {
     thumbSize: pngSize(path.join(sample.dir, "thumb.png")),
     previewUrl: sample.preview ? u.file(sample, "preview.webp") : null,
     // A replay when tools/trace.mjs made one from this very showcase.yaml.
-    replayUrl: replayOf(sample) ? `${u.file(sample, "replay")}/` : null,
+    replayUrl: replay ? `${u.file(sample, "replay")}/` : null,
+    replayBeats: replay ? replay.beats.length : 0,
     alt: `${sample.title} — ${kit.title} sample rendered by Kition`,
     built: { repo: sample.build.kit.repo, commit: sample.build.kit.commit, commands: sample.build.commands, ms: sample.build.built_ms },
     prelude: sample.prelude ?? null,
@@ -151,10 +155,14 @@ function view(sample, kit) {
   };
 }
 
-// Per kit, one featured sample for the page's agent panel: the featured sample with the most
-// commands (the richest build), or the kit's busiest sample when none is featured.
+// Per kit, one sample for the page's agent panel: the best one with a replay (featured first, then
+// the most beats), else the featured sample with the most commands (the richest build), or the
+// kit's busiest sample when none is featured.
 function heroOf(own) {
-  const best = pickHero(own.map((s) => ({ s, featured: s.featured, steps: s.raw.steps.length, commands: s.commands, slug: s.slug }))).s;
+  const replays = own.filter((s) => s.replayUrl);
+  const best = replays.length
+    ? [...replays].sort((a, b) => b.featured - a.featured || b.replayBeats - a.replayBeats || b.commands - a.commands || a.slug.localeCompare(b.slug))[0]
+    : pickHero(own.map((s) => ({ s, featured: s.featured, steps: s.raw.steps.length, commands: s.commands, slug: s.slug }))).s;
   return {
     title: best.title, path: best.path, thumbUrl: best.thumbUrl, thumbSize: best.thumbSize, alt: best.alt,
     document: best.documentName, commands: best.commands, ms: best.built.ms,

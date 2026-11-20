@@ -6,6 +6,7 @@ export const TRACE_FORMAT = 1;
 export const CELL = 16; // px of the frame: the grid a change is found on
 export const MAX_BEATS = 16;
 export const MIN_BEATS = 8;
+export const MAX_PAGED_BEATS = 20; // a trace that follows the work across pages or slides
 export const MAX_TARGETS = 4;
 export const STRUCTURE_COVER = 0.7; // a change over more of the frame than this has no one place
 
@@ -147,6 +148,8 @@ export function nextRefinement(segments) {
 // answers the same for any two rendered prefixes. Steps with no visible change join the next visible
 // segment (the last ones join the one before); neighbours over the same place (IoU ≥ 0.9) merge
 // while more than `min` remain, then neighbours that overlap most merge until at most `max` remain.
+// Segments of a paged trace carry the `page` their change is on: only neighbours on the same page
+// count as the same place, and a merge across pages comes after every merge within one.
 export function planBeats(segments, diff, { max = MAX_BEATS, min = MIN_BEATS } = {}) {
   let list = [];
   let carry = null;
@@ -165,9 +168,10 @@ export function planBeats(segments, diff, { max = MAX_BEATS, min = MIN_BEATS } =
     list.splice(i, 2, { from: a.from, to: b.to, ...diff(a.from, b.to) });
   };
   const best = (measure) => {
-    let at = -1, score = -1;
+    let at = -1, score = -Infinity;
     for (let i = 0; i + 1 < list.length; i++) {
-      const s = measure(list[i].box, list[i + 1].box) - (list[i].changed + list[i + 1].changed) * 1e-7;
+      const apart = (list[i].page ?? 0) !== (list[i + 1].page ?? 0);
+      const s = (apart ? -1 : measure(list[i].box, list[i + 1].box)) - (list[i].changed + list[i + 1].changed) * 1e-7;
       if (s > score) { score = s; at = i; }
     }
     return { at, score };

@@ -104,6 +104,19 @@ test("planBeats: few visible changes stay as they are", () => {
   assert.equal(planBeats(segments, diff).length, 3);
 });
 
+test("planBeats: a paged trace merges within a page before across pages", () => {
+  // Steps 0-11 on page 0, 12-23 on page 1, all at the same place: page by step, and a merged
+  // range is on the page its last step is on.
+  const boxes = Array.from({ length: 24 }, () => [0, 0, 10, 10]);
+  const base = fake(boxes);
+  const pageOf = (to) => (to > 12 ? 1 : 0);
+  const diff = (from, to) => ({ ...base.diff(from, to), page: pageOf(to) });
+  const segments = base.segments.map((s) => ({ ...s, page: pageOf(s.to) }));
+  const beats = planBeats(segments, diff, { max: 4, min: 2 });
+  assert.equal(beats.length, 2);
+  assert.deepEqual(beats.map((b) => [b.from, b.to, b.page]), [[0, 12, 0], [12, 24, 1]]);
+});
+
 test("kinds: command names by the rule table, beats by majority", () => {
   assert.equal(commandKind("layer.delete"), "delete");
   assert.equal(commandKind("shape.move"), "move");

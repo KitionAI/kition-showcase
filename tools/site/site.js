@@ -610,6 +610,9 @@
 
   // A sample's replay: "Watch it build" plays it in place of the picture, with the effect tabs and
   // the replay's status under it; the Steps panel follows the beats, and a step seeks to its beat.
+  // On a wide screen, a playing replay scrolled away while the Steps are in view goes on in a small
+  // picture-in-picture at the corner, so the lines and the document can be watched together;
+  // otherwise it pauses off screen (stage.js).
   function setupReplay() {
     const view = $("#view");
     if (!view || !view.dataset.replay || !document.body.dataset.stage) return;
@@ -625,6 +628,54 @@
     bar.appendChild(fxControl("view"));
     const pre = $(".code pre[data-steps]");
     const lines = pre ? JSON.parse(pre.dataset.steps) : [];
+    const col = view.parentElement;
+    const wide = window.matchMedia("(min-width: 1100px)");
+    const seen = { col: true, steps: false };
+    let pip = false, pipShut = false, pipBar = null;
+    function setPip(on) {
+      if (on === pip) return;
+      pip = on;
+      if (on) {
+        col.style.minHeight = col.offsetHeight + "px";
+        if (!pipBar) {
+          pipBar = document.createElement("div");
+          pipBar.className = "pipbar";
+          pipBar.innerHTML = '<button type="button" class="stg-btn" data-p="play" aria-label="Pause the replay"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z"/><path class="i-play" d="M5 3l8 5-8 5z"/></svg></button><span class="stg-track"><span class="stg-fill"></span></span><button type="button" class="stg-btn" data-p="close" aria-label="Close the picture-in-picture"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></button>';
+          pipBar.addEventListener("click", (e) => {
+            const b = e.target.closest("button");
+            if (!b || !stage) return;
+            if (b.dataset.p === "close") { pipShut = true; stage.pause(); setPip(false); }
+            else if (stage.playing()) stage.pause(); else stage.play(true);
+          });
+          view.appendChild(pipBar);
+        }
+      }
+      view.classList.toggle("pip", on);
+      if (!on) col.style.minHeight = "";
+      if (stage) stage.relayout();
+    }
+    function pipCheck() {
+      if (seen.col) pipShut = false;
+      setPip(Boolean(stage && stage.playing() && wide.matches && !pipShut && !seen.col && seen.steps));
+    }
+    function pipHud(st) {
+      if (pipBar) {
+        $(".stg-fill", pipBar).style.transform = "scaleX(" + (st.at / st.commands).toFixed(4) + ")";
+        const b = $('[data-p="play"]', pipBar);
+        b.classList.toggle("paused", st.paused);
+        b.setAttribute("aria-label", st.paused ? "Play the replay" : "Pause the replay");
+      }
+      pipCheck();
+    }
+    if (HAS_IO) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) seen[e.target === col ? "col" : "steps"] = e.isIntersecting;
+        pipCheck();
+      }, { threshold: 0.05 });
+      io.observe(col);
+      if (pre) io.observe(pre.closest(".code"));
+      if (wide.addEventListener) wide.addEventListener("change", pipCheck);
+    }
     let band = null;
     let stage = null;
     let trace = null;
@@ -651,11 +702,12 @@
       if (pre) pre.classList.add("seekable");
       loadStage().then((KitionStage) => {
         if (!view.classList.contains("replaying")) return;
-        stage = KitionStage(view, img, { skin: fxNow(), colors: PALETTE, color, hud: dock, loop: true, onBeat: highlight, note: REPLAY_NOTE });
+        stage = KitionStage(view, img, { skin: fxNow(), colors: PALETTE, color, hud: dock, loop: true, onBeat: highlight, onHud: pipHud, note: REPLAY_NOTE });
         return stage.load(view.dataset.replay).then((s) => { trace = s.trace; if (stage) stage.play(true); });
       }).catch(() => stop());
     }
     function stop() {
+      setPip(false);
       if (stage) { stage.destroy(); stage = null; }
       view.classList.remove("replaying");
       watch.setAttribute("aria-pressed", "false");
