@@ -6,7 +6,8 @@
 // the picture, which the stage draws itself: fitted to the box, a tall page larger than the box and
 // panned to where the work is.
 //
-//   const stage = KitionStage(box, img, { skin, colors, color, hud, cap, note, onBeat, onEnd, onHud });
+//   const stage = KitionStage(box, img, { skin, colors, color, hud, cap, note, onBeat, onEnd, onHud, actors, dpr });
+//   (`actors`: at most so many cursors; `dpr`: at most this pixel ratio. Both for small stages.)
 //   stage.load(replayUrl)   replayUrl ends in "/": it holds trace.json and frames/
 //   stage.play(), .pause(), .seek(beat), .setSkin(skin), .state(), .destroy()
 (function () {
@@ -81,7 +82,7 @@
       if (b.width < 2 || b.height < 2) return;
       const old = W ? { x: doc.x, y: doc.y, w: doc.w } : null;
       W = b.width; H = b.height; S = Math.min(W, H);
-      dpr = Math.min(2, window.devicePixelRatio || 1);
+      dpr = Math.min(opts.dpr || 2, window.devicePixelRatio || 1);
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       if (!self.trace) return;
       const f = fit();
@@ -210,7 +211,7 @@
 
     const CURSOR = new Path2D("M0 0L0 17.5L4.6 13.4L7.6 20.4L10.6 19.1L7.7 12.3L13.4 12.1Z");
     function makeCursors() {
-      const n = W < 520 ? 6 : W < 640 ? 8 : 10;
+      const n = Math.min(opts.actors || 10, W < 520 ? 6 : W < 640 ? 8 : 10);
       const start = Math.max(0, colors.indexOf(kitColor));
       actors = [];
       for (let i = 0; i < n; i++) {

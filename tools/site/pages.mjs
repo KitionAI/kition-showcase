@@ -12,6 +12,11 @@ export const FX_KEY = "kition:stage-skin";
 
 // ---------- Shell ----------
 
+// Runs before the first paint: `js` turns on the enhanced styles, `filtered` (with `search`) hides
+// the hero when the page opens on a shared search. `data-fx` is the replay effect (site.js FX): the
+// visitor's choice, else off with reduced motion.
+const bootScript = (search) => `<script>(function(d){d.classList.add("js");${search ? `if(/[?&](q|tag|cat)=/.test(location.search))d.classList.add("filtered");` : ""}var f;try{f=localStorage.getItem("${FX_KEY}")}catch(e){}if(!/^(cursors|spider|squid|off)$/.test(f||""))f=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches?"off":"cursors";d.setAttribute("data-fx",f)})(document.documentElement)</script>`;
+
 // `seo`: title, description, canonical (absolute), image {url, width, height, alt}, type, robots,
 // jsonLd. `ctx`: u, assets {css, js, logo, icon}, logo (inline svg), kitIds.
 export function shell(ctx, seo, { page, main, headExtra = "", stage = false }) {
@@ -34,16 +39,12 @@ export function shell(ctx, seo, { page, main, headExtra = "", stage = false }) {
     `<meta name="twitter:description" content="${esc(seo.description)}">`,
     og ? `<meta name="twitter:image" content="${esc(og.url)}">\n<meta name="twitter:image:alt" content="${esc(og.alt)}">` : "",
   ].filter(Boolean).join("\n");
-  // Runs before the first paint: `js` turns on the enhanced styles, `filtered` hides the hero
-  // when the page opens on a shared search.
-  // `data-fx` is the replay effect (site.js FX): the visitor's choice, else off with reduced motion.
-  const boot = `<script>(function(d){d.classList.add("js");if(/[?&](q|tag|cat)=/.test(location.search))d.classList.add("filtered");var f;try{f=localStorage.getItem("${FX_KEY}")}catch(e){}if(!/^(cursors|spider|squid|off)$/.test(f||""))f=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches?"off":"cursors";d.setAttribute("data-fx",f)})(document.documentElement)</script>`;
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-${boot}${headExtra}
+${bootScript(true)}${headExtra}
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07070c">
 ${meta}
@@ -216,8 +217,6 @@ function heroHtml(ctx) {
   let i = 0;
   const chars = ["built", "by", "commands."].map((word, w) => `<span class="wd">${[...word].map((ch) =>
     `<span class="ch${w === 2 && ch !== "." ? " em" : ""}" style="--i:${i++}">${esc(ch)}</span>`).join("")}</span>`).join(" ");
-  const calls = h.calls.map(([cmd, hint]) => `<li class="call"><b></b><code>${esc(cmd)}${hint ? `<i>(${esc(hint)})</i>` : ""}</code></li>`).join("");
-  const rest = h.commands - h.calls.length;
   return `<section class="hero wrap" id="hero" aria-labelledby="hero-title"><div class="hero-in"><div class="hero-copy">`
     + `<p class="hud label"><span class="ok">Showcase</span><span>${fmt(totals.samples)} samples</span><span>${totals.kits} kits</span><span>${fmt(totals.commands)} commands</span></p>`
     + `<h1 class="headline" id="hero-title"><span class="sr">Kition Showcase: ${fmt(totals.samples)} sample documents built by the kits' own commands.</span>`
@@ -225,11 +224,23 @@ function heroHtml(ctx) {
     + `<span class="tick" id="tick" style="${kitStyle(first)}"><i></i><b id="tick-n">01 / ${pad(kits.length)}</b><span id="tick-kit">${esc(first.id)} kit</span><span id="tick-count">${esc(plural(first.count, "sample"))}<span class="tcur"></span></span></span></span>`
     + `<span class="row2" aria-hidden="true">${chars}</span></h1>`
     + `<p class="lede">Every sample is a list of the kit's own engine commands, <b>the same commands an AI agent calls</b>. The kit runs them, then saves and renders the document with its own engine, so you see exactly what Kition draws. Every sample doubles as a regression test.</p>`
-    + `<div class="strip" id="strip" style="${kitStyle(first)}" role="group" aria-label="The featured sample's commands"><span class="strip-h label"><span id="run-label">agent &middot; <b>${esc(first.id)}</b> kit</span><span class="strip-n" id="strip-n">${rest > 0 ? `+ ${plural(rest, "more command")} · ${fmt(h.ms)} ms` : `${fmt(h.ms)} ms`}</span></span>`
-    + `<ol class="calls" id="calls">${calls}</ol></div>`
+    + stripHtml(first, h)
     + `</div>`
     + stageHtml(first, h)
     + `</div></section>`;
+}
+
+// A sample's first commands as the hero shows them before (or without) its replay.
+const callsHtml = (h) => h.calls.map(([cmd, hint]) => `<li class="call"><b></b><code>${esc(cmd)}${hint ? `<i>(${esc(hint)})</i>` : ""}</code></li>`).join("");
+const restLabel = (h) => {
+  const rest = h.commands - h.calls.length;
+  return rest > 0 ? `+ ${plural(rest, "more command")} · ${fmt(h.ms)} ms` : `${fmt(h.ms)} ms`;
+};
+// The commands strip (home and kit pages): sample `h`'s first commands; while its replay plays,
+// site.js shows the commands of the beat on the stage instead.
+function stripHtml(kit, h) {
+  return `<div class="strip" id="strip" style="${kitStyle(kit)}" role="group" aria-label="The sample's commands"><span class="strip-h label"><span id="run-label">agent &middot; <b>${esc(kit.id)}</b> kit</span><span class="strip-n" id="strip-n">${restLabel(h)}</span></span>`
+    + `<ol class="calls" id="calls">${callsHtml(h)}</ol></div>`;
 }
 
 // The hero's stage (home and kit pages): sample `h` of kit `kit`, its finished picture, which
@@ -294,6 +305,7 @@ ${crumbs([["Showcase", ctx.u.home], [kit.title, null]])}
 <h1 class="d"><i aria-hidden="true"></i>${esc(kit.title)}<span class="sr"> samples</span></h1><p>${esc(kit.tagline)}</p>
 </div>
 ${stageHtml(kit, reel[0], reel.length)}
+${stripHtml(kit, reel[0])}
 </div></section>
 ${kitRow(ctx, kit.id)}
 <div class="bar" id="bar"><div class="wrap bar-in" id="bar-in"><span class="bar-kit" style="${kitStyle(kit)}"><i></i><b>${esc(kit.title)}</b></span>`
@@ -306,6 +318,45 @@ ${sections}
 </div>
 </div>
 ${heroDataScript({ prefix: ctx.u.prefix, kit: kit.id, color: kit.color, reel })}`;
+}
+
+// ---------- Embed ----------
+
+// A kit's stage alone, for a same-origin iframe (kition.ai's home page shows a few of these): the
+// kit page's rotation of replays filling the frame, the beat's commands on one line and a thin
+// progress line under it. No header, footer or search; a click anywhere opens the kit page in the
+// top window. Not indexed (its canonical is the kit page) and not in the sitemap. Without the
+// script, with reduced motion or with the effect off, it shows the first sample's picture.
+export function embedPage(ctx, kit) {
+  const { u, assets } = ctx;
+  const reel = kit.reel?.length ? kit.reel : [kit.hero];
+  const h = reel[0];
+  const [w, hh] = h.thumbSize;
+  const stage = reel.some((x) => x.replay) && assets.stage;
+  const title = `${kit.title} replays | ${SITE_NAME}`;
+  return `<!doctype html>
+<html lang="en" class="emb-doc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+${bootScript(false)}
+<meta name="color-scheme" content="dark">
+<title>${esc(title)}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="${esc(u.abs(kit.path))}">
+<link rel="icon" href="${assets.icon}" type="image/svg+xml">
+<link rel="stylesheet" href="${assets.css}">
+<script src="${assets.js}" defer></script>
+</head>
+<body data-page="embed" data-home="${esc(u.home)}"${stage ? ` data-stage="${esc(assets.stage)}" data-colors="${esc(ctx.kits.map((k) => k.color).join(","))}"` : ""}>
+<a class="emb" id="run" href="${esc(kit.path)}" target="_top" style="${kitStyle(kit)}" aria-label="${esc(kit.title)} samples in the Kition Showcase">`
+    + `<span class="emb-box" id="shot"><img id="shot-img" src="${esc(h.thumbUrl)}" width="${w}" height="${hh}" style="--r:${(w / hh).toFixed(4)}" fetchpriority="high" decoding="async" alt="${esc(h.alt)}"></span>`
+    + `<span class="emb-bar"><ol class="calls" id="calls" aria-hidden="true">${callsHtml(h)}</ol><span class="emb-n label" id="emb-n">${reel.length > 1 ? `01 / ${pad(reel.length)}` : plural(h.commands, "command")}</span><span class="emb-prog" aria-hidden="true"><i id="emb-fill"></i></span></span>`
+    + `</a>
+${heroDataScript({ prefix: u.prefix, kit: kit.id, color: kit.color, reel })}
+</body>
+</html>
+`;
 }
 
 // ---------- Sample ----------

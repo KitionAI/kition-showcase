@@ -4,6 +4,7 @@
 //   <base>                    index.html            every sample, the hero and the kit row
 //   <base>/<kit>              <kit>/index.html      one kit's samples, by category
 //   <base>/<kit>/<slug>       <kit>/<slug>/index.html  one sample: picture, spec, steps, checks
+//   <base>/embed/<kit>        embed/<kit>/index.html   the kit's stage alone, for a same-origin iframe
 //   404.html, sitemap.xml, assets/ (hashed CSS and JS, icons, share images), fonts/
 //
 // Page URLs carry no trailing slash; every link is root-relative under the base. Each sample's
@@ -29,7 +30,7 @@ import {
   pickHero, pngSize, rankReplays, sampleDescription, sampleLd, sampleTitle, sitemap, urls,
 } from "./site/lib.mjs";
 import { TRACE_FORMAT } from "./trace-core.mjs";
-import { homeMain, kitMain, notFoundMain, sampleMain, shell } from "./site/pages.mjs";
+import { embedPage, homeMain, kitMain, notFoundMain, sampleMain, shell } from "./site/pages.mjs";
 import { githubStarsAtBuild } from "./site/github.mjs";
 
 const args = process.argv.slice(2);
@@ -161,20 +162,22 @@ function view(sample, kit) {
 function heroOf(own) {
   const best = rankReplays(own, 1)[0]
     ?? pickHero(own.map((s) => ({ s, featured: s.featured, steps: s.raw.steps.length, commands: s.commands, slug: s.slug }))).s;
-  return { ...stageEntry(best), calls: best.raw.steps.slice(0, HERO_CALLS).map((step) => [step.command, hint(step)]) };
+  return stageEntry(best);
 }
-// What a hero stage needs about one sample (the home page adds its first commands).
+// What a hero stage needs about one sample: its picture, its replay, and its first commands for the
+// commands strip (shown until the replay plays, or instead of it).
 function stageEntry(s) {
   return {
     title: s.title, path: s.path, thumbUrl: s.thumbUrl, thumbSize: s.thumbSize, alt: s.alt,
     document: s.documentName, commands: s.commands, ms: s.built.ms, replay: s.replayUrl,
+    calls: s.raw.steps.slice(0, HERO_CALLS).map((step) => [step.command, hint(step)]),
   };
 }
-// The kit page's stage: up to KIT_REEL samples with a replay, best first; without any, the kit's
-// hero alone (shown still).
+// The kit page's stage (and its embed): up to KIT_REEL samples with a replay, best first; without
+// any, the kit's hero alone (shown still).
 function reelOf(own, hero) {
   const list = rankReplays(own, KIT_REEL);
-  return list.length ? list.map(stageEntry) : [(({ calls, ...rest }) => rest)(hero)];
+  return list.length ? list.map(stageEntry) : [hero];
 }
 
 // Up to RELATED samples for a sample page: the same category first, then the kit's samples
@@ -275,6 +278,9 @@ async function main() {
       jsonLd: kitLd({ url, ...seo, homeUrl, crumbs: [["Showcase", homeUrl], [kit.title, url]], samples: own.map((s) => ({ title: s.title, url: u.abs(s.path) })) }),
     }, { page: "kit", main: kitMain(ctx, kit), stage: kit.reel.some((h) => h.replay) }));
   }
+
+  // Embeds: each kit's stage alone, for kition.ai's home page to frame (not in the sitemap).
+  for (const kit of kits) page(`embed/${kit.id}/index.html`, embedPage(ctx, kit));
 
   // Samples.
   for (const kit of kits) {

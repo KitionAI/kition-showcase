@@ -305,14 +305,41 @@ html[data-fx="off"] .watchbtn { display: none; }
 .khead h1 { display: flex; align-items: flex-end; gap: .14em; margin-top: 14px; font-size: clamp(56px, 9vw, 150px); }
 .khead h1 i { display: inline-block; width: .62em; height: .62em; margin-bottom: .1em; border-radius: .08em; background: var(--c); box-shadow: inset 0 .02em 0 rgba(255,255,255,.5), 0 0 .5em -.1em var(--c); }
 .khead-copy > p.label { margin-top: 18px; font-size: clamp(16px, 1.3vw, 19px); color: var(--body); }
-/* The kit page's hero: the title on the left, the stage (the kit's replays in turn) on the right */
-.khead-in { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1fr); gap: clamp(20px, 2.4vw, 40px); align-items: center; }
-.khead-copy { min-width: 0; }
-.filtered .khead-in { grid-template-columns: minmax(0, 1fr); }
-.khead .hstage { margin-top: 10px; }
+/* The kit page's hero: the title on the left, the stage (the kit's replays in turn) on the right and
+   the commands strip under the title; in one column the strip goes under the stage. */
+.khead-in { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1fr); grid-template-areas: "copy stage" "strip stage"; gap: clamp(20px, 2.4vw, 40px); align-items: center; }
+.khead-copy { grid-area: copy; min-width: 0; align-self: end; }
+.khead .hstage { grid-area: stage; margin-top: 10px; }
+.khead .strip { grid-area: strip; align-self: start; margin-top: 0; width: 100%; }
+.filtered .khead-in { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy"; }
+.filtered .khead .strip { display: none; }
 @media (min-width: 1181px) { html:not(.filtered) .khead h1 { font-size: clamp(56px, 7vw, 132px); } }
 .hs-n { flex: none; color: var(--mute); font-size: 11px; font-variant-numeric: tabular-nums; }
 .khead-copy > p:not(.label) { margin-top: clamp(14px, 1.6vw, 22px); max-width: 64ch; font-size: clamp(16px, 1.3vw, 19px); color: var(--body); }
+
+/* Embed: a kit's stage alone in a same-origin iframe (kition.ai's home page), filling the frame;
+   under it one line of commands, a progress line and a count. The whole frame is one link. */
+html.emb-doc, .emb-doc body { height: 100%; overflow: hidden; }
+.emb-doc body { min-height: 0; }
+.emb-doc body::after { display: none; }
+.emb { --c: var(--accent); display: flex; flex-direction: column; width: 100%; height: 100%; }
+.emb:focus-visible { outline-offset: -2px; border-radius: 0; }
+.emb-box { position: relative; isolation: isolate; flex: 1; min-height: 0; display: grid; place-items: center; padding: clamp(6px, 3.2vmin, 16px); overflow: hidden; container-type: size; background: radial-gradient(90% 75% at 50% 45%, color-mix(in srgb, var(--c) 16%, #161622), #0c0c14 80%); }
+.emb-box::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 20px 20px; background-position: center; }
+.emb-box img { max-width: 100%; max-height: 100%; width: min(100cqw, calc(100cqh * var(--r))); height: auto; border-radius: 3px; box-shadow: 0 2px 4px rgba(0,0,0,.4), 0 16px 36px -16px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.07); }
+.emb-bar { position: relative; flex: none; display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 10px; background: var(--s1); box-shadow: inset 0 1px 0 var(--line); }
+.emb .calls { flex: 1; min-width: 0; margin: 0; height: 22px; gap: 5px; }
+.emb .call { height: 22px; padding: 0 7px; gap: 6px; border-radius: 5px; font-size: 11px; }
+.emb .call b { width: 7px; height: 7px; }
+.emb-n { flex: none; color: var(--mute); font-size: 10.5px; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+.emb-prog { position: absolute; left: 0; right: 0; top: 0; height: 2px; overflow: hidden; }
+.emb-prog i { display: block; height: 100%; transform-origin: 0 50%; transform: scaleX(0); background: var(--c); box-shadow: 0 0 8px var(--c); transition: transform .5s var(--ease); }
+html:not(.js) .emb-prog, html[data-fx="off"] .emb-prog, .emb-doc body:not([data-stage]) .emb-prog { display: none; }
+@media (max-width: 380px), (max-height: 220px) {
+  .emb-bar { height: 28px; padding: 0 8px; }
+  .emb .calls { height: 20px; }
+  .emb .call { height: 20px; padding: 0 6px; font-size: 10.5px; }
+}
 
 /* Stats strip */
 .stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 var(--gut); margin-top: clamp(18px, 2.2vw, 30px); }
@@ -464,6 +491,8 @@ code, .code-inline { font-family: var(--mono); font-size: .9em; }
 /* Responsive */
 @media (max-width: 1180px) {
   .hero-in, .khead-in { grid-template-columns: 1fr; }
+  .khead-in { grid-template-areas: "copy" "stage" "strip"; }
+  .khead .strip { max-width: 860px; margin-top: calc(clamp(20px, 2.4vw, 40px) * -.5); }
   .hstage { max-width: 860px; }
   .hs-box { height: auto; aspect-ratio: 16 / 10.5; }
   .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 18px; }
@@ -506,6 +535,8 @@ code, .code-inline { font-family: var(--mono); font-size: .9em; }
 }
 @media (max-width: 520px) {
   .brand b { display: none; }
+  /* A paged replay's pill (commands and page) leaves no room for the agents' dots at phone width. */
+  .stg-dots { display: none; }
 }
 @media (max-width: 400px) {
   .fx-tabs svg { display: none; }

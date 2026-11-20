@@ -1,6 +1,7 @@
 // The showcase's pages are complete without this script; it adds the enhancements:
 // search and tag/category filters over the pre-rendered cards (kept in `?q=`, `?tag=`, `?cat=`),
-// the home and kit pages' hero stage (and the home page's headline and count-up), the cards' reveal and animated previews, and the
+// the home and kit pages' hero stage and commands strip (and the home page's headline and count-up),
+// the embed's stage alone, the cards' reveal and animated previews, and the
 // sample page's preview button and copy button, and the header's account label, download label,
 // GitHub star count and mobile menu (as kition.ai's header has them).
 (() => {
@@ -36,7 +37,7 @@
   // Signed-in visitors get "Console" instead of "Sign in", as on kition.ai (portal app/lib/useAuth.ts):
   // the showcase is served from kition.ai, so the same-origin session cookie answers /api/auth/me.
   function setupAccount() {
-    if (!/(^|\.)kition\.ai$/.test(location.hostname) || !window.fetch) return;
+    if (!/(^|\.)kition\.ai$/.test(location.hostname) || !window.fetch || !$("[data-account]")) return;
     fetch("/api/auth/me", { credentials: "include", headers: { "Content-Type": "application/json" } })
       .then((res) => (res.ok ? res.json() : null))
       .then((payload) => {
@@ -118,6 +119,17 @@
     }
     document.dispatchEvent(new CustomEvent("fxchange", { detail: value }));
   }
+  // Another page of the site (another tab, or the page framing an embed) changed the setting.
+  window.addEventListener("storage", (e) => {
+    if (e.key !== FX_KEY || !/^(cursors|spider|squid|off)$/.test(e.newValue || "") || e.newValue === fxNow()) return;
+    ROOT.setAttribute("data-fx", e.newValue);
+    for (const el of $$(".fx [role=tab]")) {
+      const on = el.dataset.fx === e.newValue;
+      el.setAttribute("aria-selected", String(on));
+      el.tabIndex = on ? 0 : -1;
+    }
+    document.dispatchEvent(new CustomEvent("fxchange", { detail: e.newValue }));
+  });
   let fxCount = 0;
   // The setting as a labelled tab row: arrows, Home and End move along it, Enter or Space picks.
   function fxControl(panelId) {
@@ -172,11 +184,15 @@
   // ---------- Hero (home and kit pages) ----------
 
   // The home page's hero takes turns with the kits (the headline, the commands strip and the stage
-  // follow along); a kit page's stage takes turns with the kit's best replays. Either way the
-  // stage shows one "show" at a time: { color, hero (one sample) } (on the home page, a kit).
+  // follow along); a kit page's stage (and its embed) takes turns with the kit's best replays, the
+  // commands strip following along. Either way the stage shows one "show" at a time:
+  // { color, hero (one sample) } (on the home page, a kit).
   const heroEl = $("#hero") || $("#run");
   const DATA = heroEl && $("#hero-data") ? JSON.parse($("#hero-data").textContent) : null;
   const IS_HOME = PAGE === "home";
+  const IS_EMBED = PAGE === "embed";
+  const setText = (sel, text) => { const el = $(sel); if (el && el.textContent !== text) el.textContent = text; };
+  const callsHtml = (calls) => calls.map(([cmd, hint]) => '<li class="call"><b></b><code>' + esc(cmd) + (hint ? "<i>(" + esc(hint) + ")</i>" : "") + "</code></li>").join("");
   const KITS = !DATA ? [] : DATA.kits || (DATA.reel || []).map((h) => ({ id: DATA.kit, color: DATA.color, hero: h }));
   KITS.forEach((k, index) => (k.index = index));
   const N = KITS.length;
@@ -196,19 +212,26 @@
       $("#tick-n").textContent = pad(kit.index + 1) + " / " + pad(N);
       $("#tick-kit").textContent = kit.id + " kit";
       $("#tick-count").innerHTML = esc(plural(kit.count, "sample")) + '<span class="tcur"></span>';
-      $("#strip").style.setProperty("--c", kit.color);
       $("#run-label").innerHTML = "agent &middot; <b>" + esc(kit.id) + "</b> kit";
-      $("#calls").innerHTML = h.calls.map(([cmd, hint]) => '<li class="call"><b></b><code>' + esc(cmd) + (hint ? "<i>(" + esc(hint) + ")</i>" : "") + "</code></li>").join("");
-      const rest = h.commands - h.calls.length;
-      $("#strip-n").textContent = rest > 0 ? "+ " + plural(rest, "more command") + " · " + fmt(h.ms) + " ms" : fmt(h.ms) + " ms";
     }
-    const n = $("#hs-n");
-    if (n) n.textContent = pad(kit.index + 1) + " / " + pad(N);
-    $("#run-saved").textContent = "saved → " + h.document + " ✓";
-    $("#run-stat").textContent = plural(h.commands, "command") + " · " + fmt(h.ms) + " ms";
-    for (const a of [$("#shot"), $("#shot-link")]) a.href = h.path;
-    $("#shot").setAttribute("aria-label", "Open " + h.title);
-    $("#shot-title").textContent = h.title;
+    // The commands strip (home and kit pages; one line in an embed): the sample's first commands.
+    const strip = $("#strip");
+    if (strip) strip.style.setProperty("--c", kit.color);
+    if ($("#calls") && h.calls) {
+      $("#calls").innerHTML = callsHtml(h.calls);
+      const rest = h.commands - h.calls.length;
+      setText("#strip-n", rest > 0 ? "+ " + plural(rest, "more command") + " · " + fmt(h.ms) + " ms" : fmt(h.ms) + " ms");
+    }
+    setText("#hs-n", pad(kit.index + 1) + " / " + pad(N));
+    setText("#emb-n", N > 1 ? pad(kit.index + 1) + " / " + pad(N) : plural(h.commands, "command"));
+    const fill = $("#emb-fill");
+    if (fill) fill.style.transform = "scaleX(0)";
+    setText("#run-saved", "saved → " + h.document + " ✓");
+    setText("#run-stat", plural(h.commands, "command") + " · " + fmt(h.ms) + " ms");
+    // In an embed the whole frame is one link to the kit page; it stays.
+    for (const a of [$("#shot"), $("#shot-link")]) if (a && a.tagName === "A") a.href = h.path;
+    if ($("#shot").tagName === "A") $("#shot").setAttribute("aria-label", "Open " + h.title);
+    setText("#shot-title", h.title);
     const img = $("#shot-img");
     const [w, hh] = h.thumbSize;
     img.width = w; img.height = hh;
@@ -245,10 +268,18 @@
     for (let k = 1; k <= N; k++) { const kit = heroKit(from + k); if (kit.hero.replay) return kit.index; }
     return -1;
   }
+  // Each beat the strip shows the commands the actors are carrying out.
   function heroBeat(j, beat, trace) {
-    if (!IS_HOME) return;
-    $("#calls").innerHTML = beatChips(beat);
-    $("#strip-n").textContent = "beat " + pad(j + 1) + " / " + pad(trace.beats.length) + " · " + fmt(beat.at) + " / " + plural(trace.commands, "command");
+    const calls = $("#calls");
+    if (!calls) return;
+    calls.innerHTML = beatChips(beat);
+    setText("#strip-n", "beat " + pad(j + 1) + " / " + pad(trace.beats.length) + " · " + fmt(beat.at) + " / " + plural(trace.commands, "command"));
+  }
+  // The embed's compact status: commands run so far, and a progress line.
+  function embedHud(st) {
+    setText("#emb-n", fmt(st.at) + " / " + fmt(st.commands));
+    const fill = $("#emb-fill");
+    if (fill) fill.style.transform = "scaleX(" + (st.at / st.commands).toFixed(4) + ")";
   }
   function heroEnd() {
     const n = nextReplayKit(hero.index);
@@ -263,6 +294,8 @@
       if (hero.mode !== "stage" || hero.index !== kit.index) return;
       if (!hero.stage) {
         hero.opts = { skin: fxNow(), colors: PALETTE, hud: $("#hs-hud"), cap: $("#hs-cap"), loop: false, onBeat: heroBeat, onEnd: heroEnd, note: REPLAY_NOTE };
+        // An embed is small and one of several on a page: no controls, fewer cursors, 1.5x pixels at most.
+        if (IS_EMBED) Object.assign(hero.opts, { onHud: embedHud, actors: 5, dpr: 1.5 });
         hero.stage = KitionStage($("#shot"), $("#shot-img"), hero.opts);
       }
       hero.opts.color = kit.color;
@@ -342,7 +375,8 @@
     if (!REDUCED && reel) reel.insertAdjacentHTML("beforeend", [...KITS.slice(1), KITS[0]].map((k) => "<span>" + esc(k.word) + "</span>").join(""));
     syncKitRow();
     const canStage = replayKits().length > 0 && document.body.dataset.stage;
-    if (canStage) $("#hs-top").appendChild(fxControl("run-panel"));
+    // The effect tabs sit over the stage (not in an embed, which follows the site's setting).
+    if (canStage && $("#hs-top")) $("#hs-top").appendChild(fxControl("run-panel"));
     if (!REDUCED && reel) {
       measureReel();
       if (document.fonts) {

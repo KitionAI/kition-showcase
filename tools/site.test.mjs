@@ -5,7 +5,7 @@ import {
   DESCRIPTION_MAX, clip, esc, hashName, homeDescription, homeLd, homeTitle, jsonLdScript, kitDescription, kitLd, kitTitle,
   KIT_REEL, newest, pickHero, rankReplays, sampleDescription, sampleLd, sampleTitle, sitemap, sitemapEntry, urls,
 } from "./site/lib.mjs";
-import { header, kitMain, shell } from "./site/pages.mjs";
+import { embedPage, header, kitMain, shell } from "./site/pages.mjs";
 import { formatStars, GITHUB_STARS_FALLBACK, githubStarsAtBuild } from "./site/github.mjs";
 
 const sample = { kit: "doc", slug: "academic-cv" };
@@ -216,14 +216,14 @@ test("rankReplays: only samples with a replay, featured first, then the most bea
 // A kit page with no samples listed: enough to check its hero.
 function kitPage(reel) {
   const u = urls({ base: "/showcase" });
-  const entry = (slug, replay) => ({ title: `Sample ${slug}`, path: `/showcase/scene/${slug}`, thumbUrl: `/showcase/scene/${slug}/thumb.png`, thumbSize: [640, 360], alt: `Sample ${slug}`, document: `${slug}.kscene`, commands: 12, ms: 5, replay });
+  const entry = (slug, replay) => ({ title: `Sample ${slug}`, path: `/showcase/scene/${slug}`, thumbUrl: `/showcase/scene/${slug}/thumb.png`, thumbSize: [640, 360], alt: `Sample ${slug}`, document: `${slug}.kscene`, commands: 12, ms: 5, replay, calls: [[`${slug}.new`, "name"], ["add.box", ""]] });
   const kit = { id: "scene", index: 7, title: "Scene", tagline: "3D scenes.", color: "#e3a46b", path: u.kit("scene"), count: 0, reel: reel.map(([slug, replay]) => entry(slug, replay)) };
-  kit.hero = { ...kit.reel[0], calls: [["scene.new", ""]] };
+  kit.hero = kit.reel[0];
   const ctx = { u, kits: [kit], kitById: { scene: kit }, samples: [], totals: { samples: 0 }, assets: { css: "/c.css", js: "/s.js", stage: "/stage.js", icon: "/i.svg", touchIcon: "/t.png" }, logo: "<svg></svg>" };
   const main = kitMain(ctx, kit);
   const data = JSON.parse(main.match(/<script type="application\/json" id="hero-data">([^<]*)<\/script>/)[1]);
   const html = shell(ctx, { title: "T", description: "D", canonical: "https://kition.ai/showcase/scene" }, { page: "kit", main, stage: kit.reel.some((h) => h.replay) });
-  return { main, data, html };
+  return { main, data, html, embed: embedPage(ctx, kit) };
 }
 
 test("kit page: the stage takes turns with the kit's replays", () => {
@@ -234,11 +234,15 @@ test("kit page: the stage takes turns with the kit's replays", () => {
   assert.match(head, /<a class="hs-k" id="shot-link" href="\/showcase\/scene\/a"><span class="hs-n label" id="hs-n">01 \/ 03<\/span><b id="shot-title">Sample a<\/b>/);
   assert.match(head, /<img id="shot-img" src="\/showcase\/scene\/a\/thumb\.png" width="640" height="360"/);
   for (const id of ["hs-top", "run-panel", "shot", "hs-hud", "hs-cap", "run-saved", "run-stat"]) assert.match(head, new RegExp(`id="${id}"`));
-  // Only this kit's data: its colour and its reel, no other kit, no command lists.
+  // The commands strip after the stage (under the title on a wide screen, under the stage in one
+  // column), starting on the best sample's first commands.
+  assert.match(head, /<\/div>\n<div class="strip" id="strip" style="--c:#e3a46b"[^>]*><span class="strip-h label"><span id="run-label">agent &middot; <b>scene<\/b> kit<\/span><span class="strip-n" id="strip-n">\+ 10 more commands · 5 ms<\/span><\/span><ol class="calls" id="calls"><li class="call"><b><\/b><code>a\.new<i>\(name\)<\/i><\/code><\/li><li class="call"><b><\/b><code>add\.box<\/code><\/li><\/ol><\/div>\n<\/div><\/section>$/);
+  // Only this kit's data: its colour and its reel (each sample's first commands for the strip), no
+  // other kit.
   assert.deepEqual(Object.keys(data).sort(), ["color", "kit", "prefix", "reel"]);
   assert.equal(data.kit, "scene");
   assert.deepEqual(data.reel.map((h) => h.path), ["/showcase/scene/a", "/showcase/scene/b", "/showcase/scene/c"]);
-  assert.ok(data.reel.every((h) => h.replay && !("calls" in h)));
+  assert.ok(data.reel.every((h) => h.replay && h.calls.length === 2));
   // The page loads stage.js only on demand: the body names it, nothing requests it.
   assert.match(html, /<body data-page="kit" data-home="\/showcase" data-stage="\/stage\.js" data-colors="#e3a46b">/);
   assert.doesNotMatch(html, /<script[^>]+stage\.js|replay\/(trace\.json|frames)/);
@@ -251,4 +255,32 @@ test("kit page: without a replay, the stage slot shows the sample still", () => 
   assert.equal(data.reel.length, 1);
   assert.equal(data.reel[0].replay, null);
   assert.doesNotMatch(html, /data-stage=/);
+});
+
+test("embed: the kit's stage alone, framable, not indexed, nothing loaded until it plays", () => {
+  const { data, embed } = kitPage([["a", "/showcase/scene/a/replay/"], ["b", "/showcase/scene/b/replay/"]]);
+  assert.match(embed, /<meta name="robots" content="noindex">/);
+  assert.match(embed, /<link rel="canonical" href="https:\/\/kition\.ai\/showcase\/scene">/);
+  // No site header, footer, nav or search.
+  assert.doesNotMatch(embed, /<header|<footer|<nav|role="search"|id="q"/);
+  // One link, to the kit page in the top window, around the stage and its commands line.
+  assert.equal(embed.match(/<a /g).length, 1);
+  assert.match(embed, /<a class="emb" id="run" href="\/showcase\/scene" target="_top" style="--c:#e3a46b"[^>]*><span class="emb-box" id="shot"><img id="shot-img" src="\/showcase\/scene\/a\/thumb\.png"/);
+  assert.match(embed, /<ol class="calls" id="calls" aria-hidden="true"><li class="call"><b><\/b><code>a\.new/);
+  assert.match(embed, /<span class="emb-n label" id="emb-n">01 \/ 02<\/span>/);
+  // The kit page's rotation, and stage.js named but not requested.
+  const own = JSON.parse(embed.match(/<script type="application\/json" id="hero-data">([^<]*)<\/script>/)[1]);
+  assert.deepEqual(own, data);
+  assert.match(embed, /<body data-page="embed" data-home="\/showcase" data-stage="\/stage\.js" data-colors="#e3a46b">/);
+  assert.doesNotMatch(embed, /<script[^>]+stage\.js|replay\/(trace\.json|frames)|https?:\/\/(?!kition\.ai\/showcase\/scene")/);
+  // Without a replay: the picture, no stage.
+  assert.doesNotMatch(kitPage([["a", null]]).embed, /data-stage=/);
+});
+
+test("headers: only the embeds may be framed, and only by kition.ai itself", async () => {
+  const fs = await import("node:fs");
+  const text = fs.readFileSync(new URL("./site/cloudflare-headers", import.meta.url), "utf8");
+  const rules = Object.fromEntries(text.split(/\n(?=\S)/).map((block) => { const [path, ...lines] = block.trim().split("\n"); return [path, lines.map((l) => l.trim())]; }));
+  assert.deepEqual(rules["/showcase/embed/*"], ["Content-Security-Policy: frame-ancestors 'self'", "X-Frame-Options: SAMEORIGIN"]);
+  assert.ok(!Object.entries(rules).some(([path, lines]) => path !== "/showcase/embed/*" && lines.some((l) => /frame/i.test(l))));
 });
