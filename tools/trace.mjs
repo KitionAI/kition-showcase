@@ -137,7 +137,7 @@ function makeRenderer(sample, work) {
     };
     const requestFile = path.join(work, `request-${upto}.json`);
     fs.writeFileSync(requestFile, JSON.stringify(request));
-    const report = await run(runner(sample.kit), requestFile, { SOURCE_DATE_EPOCH: epoch, ...kit.env });
+    const report = await run(runner(sample.kit), requestFile, { SOURCE_DATE_EPOCH: epoch, KITION_REPRODUCIBLE_IDS: epoch, ...kit.env });
     if (report.error) throw new Error(`render after ${upto} steps: ${report.error}`);
     fs.rmSync(request.save, { force: true });
     if (areas) {

@@ -122,7 +122,7 @@ async function buildSample(sample, { check, kitInfo }) {
   fs.writeFileSync(requestFile, JSON.stringify(request(sample, out, work), null, 2));
   // Saved times come from the sample's date, so a document's bytes are the same on every build.
   const epoch = String(Math.floor(Date.parse(`${sample.since}T00:00:00Z`) / 1000));
-  const report = await run(runner(sample.kit), requestFile, { SOURCE_DATE_EPOCH: epoch, ...KITS[sample.kit].env });
+  const report = await run(runner(sample.kit), requestFile, { SOURCE_DATE_EPOCH: epoch, KITION_REPRODUCIBLE_IDS: epoch, ...KITS[sample.kit].env });
   if (report.error) return { sample, problems: [`build: ${report.error}`] };
 
   const inspect = JSON.parse(fs.readFileSync(path.join(work, "inspect.json"), "utf8"));
